@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mainLectureName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="강좌명"
+        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10sp">
+
+        <TextView
+            android:id="@+id/mainLecturePeriod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="교육기간"/>
+        <TextView
+            android:id="@+id/mainLectureProfessor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="교수진"/>
+        <TextView
+            android:id="@+id/mainLectureTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="수업시간"/>
+        <TextView
+            android:id="@+id/mainLectureStudyfee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="학습비"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
