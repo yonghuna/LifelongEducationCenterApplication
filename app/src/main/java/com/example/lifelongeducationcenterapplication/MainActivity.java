@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
         listLecture = findViewById(R.id.listLecture);
 
         //mainLectureArrayList = new ArrayList<>();
-        /*
-        MainLecture mainLecture1 = new MainLecture("1","11","111","111","1111");
-        mainLectureArrayList.add(mainLecture1);
-         */
+
+        /* 샘플데이터
+        MainLecture mainLecture = new MainLecture("1","11","111","111","1111");
+        mainLectureArrayList.add(mainLecture);
+        */
 
         mainLectureAdapter = new MainLectureAdapter();
         listLecture.setAdapter(mainLectureAdapter);
@@ -58,12 +60,14 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture,null);
 
+            LinearLayout abc = findViewById(R.id.abc);
+            LinearLayout listMainLecture = findViewById(R.id.listMainLecture);
+            TextView mainLectureName = convertView.findViewById(R.id.mainLectureName);//강좌명
 
-            TextView mainLectureName = findViewById(R.id.mainLectureName);//강좌명
-            TextView mainLecturePeriod = findViewById(R.id.mainLecturePeriod);//교육기간
-            TextView mainLectureProfessor = findViewById(R.id.mainLectureProfessor);//교수진
-            TextView mainLectureTime = findViewById(R.id.mainLectureTime);//수업시간
-            TextView mainLectureStudyfee = findViewById(R.id.mainLectureStudyfee);//학습비
+            TextView mainLecturePeriod = convertView.findViewById(R.id.mainLecturePeriod);//교육기간
+            TextView mainLectureProfessor = convertView.findViewById(R.id.mainLectureProfessor);//교수진
+            TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
+            TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
 
             /*
             mainLectureArrayList.add(new MainLecture("1","11","111","1111","11111"));
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
              */
 
             MainLecture mainLecture = mainLectureArrayList.get(position);
+            System.out.println("확인 : "+ mainLecture.getName()+" "+mainLecture.getPeriod());
 
             mainLectureName.setText(mainLecture.getName());
             mainLecturePeriod.setText(mainLecture.getPeriod());

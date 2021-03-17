@@ -7,6 +7,9 @@ public class MainLecture {
     private String time;//수업시간
     private String studyfee;//학습비
 
+    public MainLecture(){
+
+    }
     public MainLecture(String name, String period, String professor, String time, String studyfee) {
         this.name = name;
         this.period = period;
