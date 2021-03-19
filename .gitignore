@@ -85,4 +85,8 @@ lint/tmp/
 # lint/reports/
 
 # Android Profiling
+<<<<<<< HEAD
 *.hprof
+=======
+*.hprof
+>>>>>>> 66fb80e6996ca9b53fff07a359247c490f9f429d
