@@ -1,7 +1,10 @@
 package com.example.lifelongeducationcenterapplication;
 
 public class MainLecture {
+<<<<<<< HEAD
     /*
+=======
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
     private String name;//강좌명
     private String period;//교육기간
     private String professor;//교수진
@@ -58,6 +61,7 @@ public class MainLecture {
     public void setStudyfee(String studyfee) {
         this.studyfee = studyfee;
     }
+<<<<<<< HEAD
 
      */
 
@@ -106,4 +110,6 @@ public class MainLecture {
     public void setLectureStudyfee(String lectureStudyfee) {
         LectureStudyfee = lectureStudyfee;
     }
+=======
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
 }

@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -43,11 +47,23 @@ public class MainActivity extends AppCompatActivity {
     MainLectureAdapter mainLectureAdapter;
     //CustomTask custome = new CustomTask();
     String result;
+=======
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    ListView listLecture;
+    ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();
+    //ArrayList<MainLecture> mainLectureArrayList;
+    MainLectureAdapter mainLectureAdapter;
+
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         listLecture = findViewById(R.id.listLecture);
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
@@ -100,11 +116,32 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+=======
+
+        listLecture = findViewById(R.id.listLecture);
+
+        //mainLectureArrayList = new ArrayList<>();
+
+        /* 샘플데이터
+        MainLecture mainLecture = new MainLecture("1","11","111","111","1111");
+        mainLectureArrayList.add(mainLecture);
+        */
+
+        mainLectureAdapter = new MainLectureAdapter();
+        listLecture.setAdapter(mainLectureAdapter);
+    }
+
+
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
     class MainLectureAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
+<<<<<<< HEAD
             return lectures.size();
+=======
+            return mainLectureArrayList.size();
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
         }
 
         @Override
@@ -121,8 +158,13 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture,null);
 
+<<<<<<< HEAD
             //LinearLayout abc = findViewById(R.id.abc);
             //LinearLayout listMainLecture = findViewById(R.id.listMainLecture);
+=======
+            LinearLayout abc = findViewById(R.id.abc);
+            LinearLayout listMainLecture = findViewById(R.id.listMainLecture);
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
             TextView mainLectureName = convertView.findViewById(R.id.mainLectureName);//강좌명
 
             TextView mainLecturePeriod = convertView.findViewById(R.id.mainLecturePeriod);//교육기간
@@ -135,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             mainLectureArrayList.add(new MainLecture("2","21","211","2111","21111"));
              */
 
+<<<<<<< HEAD
             //MainLecture mainLecture = mainLectureArrayList.get(position);
             MainLecture mainLecture = lectures.get(position);
             System.out.println("확인 : "+ mainLecture.getLectureName()+" "+mainLecture.getLecturePeriod());
@@ -144,10 +187,23 @@ public class MainActivity extends AppCompatActivity {
             mainLectureProfessor.setText(mainLecture.getLectureProfessor());
             mainLectureTime.setText(mainLecture.getLectureTime());
             mainLectureStudyfee.setText(mainLecture.getLectureStudyfee());
+=======
+            MainLecture mainLecture = mainLectureArrayList.get(position);
+            System.out.println("확인 : "+ mainLecture.getName()+" "+mainLecture.getPeriod());
+
+            mainLectureName.setText(mainLecture.getName());
+            mainLecturePeriod.setText(mainLecture.getPeriod());
+            mainLectureProfessor.setText(mainLecture.getProfessor());
+            mainLectureTime.setText(mainLecture.getTime());
+            mainLectureStudyfee.setText(mainLecture.getStudyfee());
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
 
             return convertView;
         }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
 }
