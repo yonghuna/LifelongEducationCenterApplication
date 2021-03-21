@@ -1,7 +1,7 @@
 package com.example.lifelongeducationcenterapplication;
 
 public class MainLecture {
-<<<<<<< HEAD
+
     /*
 =======
 >>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
@@ -110,6 +110,5 @@ public class MainLecture {
     public void setLectureStudyfee(String lectureStudyfee) {
         LectureStudyfee = lectureStudyfee;
     }
-=======
->>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
+
 }
