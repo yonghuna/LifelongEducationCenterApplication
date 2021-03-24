@@ -35,13 +35,17 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class MainActivity extends AppCompatActivity {
 
-    Retrofit retrofit;
-    RemoteService rs;
-    List<MainLecture> lectures = new ArrayList<>();
-    ListView listLecture;
-    ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();
+    Retrofit retrofit;//httpclient library
+    RemoteService rs;//DB를 위한 인터페이스
+
+    List<MainLecture> lectures = new ArrayList<>(); // 배열 객체 생성
+    ListView listLecture;//리스트뷰
+    /*
+    ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();//테스트용
     //ArrayList<MainLecture> mainLectureArrayList;
-    MainLectureAdapter mainLectureAdapter;
+
+     */
+    MainLectureAdapter mainLectureAdapter; //어댑터
 
     //ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();
     //ArrayList<MainLecture> mainLectureArrayList;
@@ -73,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onResume() {
-            Call<List<MainLecture>> call = rs.listLecture();
-            call.enqueue(new Callback<List<MainLecture>>() {
+            Call<List<MainLecture>> call = rs.listLecture();//call객체
+            call.enqueue(new Callback<List<MainLecture>>() {//enqueue 메소드 실행
                 @Override
                 public void onResponse(Call<List<MainLecture>> call, Response<List<MainLecture>> response) {
                     lectures = response.body();
