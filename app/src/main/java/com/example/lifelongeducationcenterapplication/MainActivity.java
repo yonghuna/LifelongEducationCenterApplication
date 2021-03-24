@@ -1,12 +1,15 @@
 package com.example.lifelongeducationcenterapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.util.Log;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -35,6 +38,9 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class MainActivity extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
+    LinearLayout drawerView;
+
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
@@ -55,11 +61,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             listLecture = findViewById(R.id.listLecture);
+
+            drawerLayout = findViewById(R.id.drawerLayout);
+            drawerView = findViewById(R.id.drawerView);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
+
 
             retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
             rs = retrofit.create(RemoteService.class);
@@ -106,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         listLecture.setAdapter(mainLectureAdapter);
 
          */
+
 
 
 
@@ -166,4 +182,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
+                drawerLayout.openDrawer(drawerView);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
