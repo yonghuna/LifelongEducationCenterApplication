@@ -30,14 +30,16 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="283dp"
+            android:layout_width="278dp"
             android:layout_height="249dp"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/editTextTextPersonName"
-                android:layout_width="286dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/border_login"
                 android:ems="10"
@@ -46,8 +48,9 @@
 
             <EditText
                 android:id="@+id/editTextTextPersonName3"
-                android:layout_width="286dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/border_login"
                 android:ems="10"
@@ -56,10 +59,11 @@
 
             <EditText
                 android:id="@+id/editTextTextPassword"
-                android:layout_width="286dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_login"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/border_login"
                 android:ems="10"
                 android:hint="비밀번호"
                 android:inputType="textPassword" />
@@ -84,15 +88,15 @@
 
             <Button
                 android:id="@+id/loginbutton"
-                android:layout_width="131dp"
-                android:layout_height="89dp"
+                android:layout_width="120dp"
+                android:layout_height="88dp"
                 android:layout_marginBottom="10dp"
                 android:text="로그인"
                 app:backgroundTint="#85D3AD" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="회원등록"
                 app:backgroundTint="#352E2C" />
