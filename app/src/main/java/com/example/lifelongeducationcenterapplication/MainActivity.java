@@ -1,12 +1,15 @@
 package com.example.lifelongeducationcenterapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.util.Log;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -35,17 +38,26 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class MainActivity extends AppCompatActivity {
 
-    Retrofit retrofit;
-    RemoteService rs;
-    List<MainLecture> lectures = new ArrayList<>();
-    ListView listLecture;
-    ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();
+    DrawerLayout drawerLayout;
+    LinearLayout drawerView;
+
+    Retrofit retrofit;//httpclient library
+    RemoteService rs;//DB를 위한 인터페이스
+
+    List<MainLecture> lectures = new ArrayList<>(); // 배열 객체 생성
+    ListView listLecture;//리스트뷰
+    /*
+    ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();//테스트용
     //ArrayList<MainLecture> mainLectureArrayList;
-    MainLectureAdapter mainLectureAdapter;
+
+     */
+    MainLectureAdapter mainLectureAdapter; //어댑터
 
     //ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();
     //ArrayList<MainLecture> mainLectureArrayList;
     //MainLectureAdapter mainLectureAdapter;
+
+
 
 
 
@@ -56,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             listLecture = findViewById(R.id.listLecture);
+
+            drawerLayout = findViewById(R.id.drawerLayout);
+            drawerView = findViewById(R.id.drawerView);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
+
 
             retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
             rs = retrofit.create(RemoteService.class);
@@ -73,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onResume() {
-            Call<List<MainLecture>> call = rs.listLecture();
-            call.enqueue(new Callback<List<MainLecture>>() {
+            Call<List<MainLecture>> call = rs.listLecture();//call객체
+            call.enqueue(new Callback<List<MainLecture>>() {//enqueue 메소드 실행
                 @Override
                 public void onResponse(Call<List<MainLecture>> call, Response<List<MainLecture>> response) {
                     lectures = response.body();
@@ -102,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         listLecture.setAdapter(mainLectureAdapter);
 
          */
+
 
 
 
@@ -162,4 +182,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
+                drawerLayout.openDrawer(drawerView);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
