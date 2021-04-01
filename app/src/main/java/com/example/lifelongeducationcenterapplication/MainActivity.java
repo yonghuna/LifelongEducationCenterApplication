@@ -46,16 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     List<MainLecture> lectures = new ArrayList<>(); // 배열 객체 생성
     ListView listLecture;//리스트뷰
-    /*
-    ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();//테스트용
-    //ArrayList<MainLecture> mainLectureArrayList;
 
-     */
     MainLectureAdapter mainLectureAdapter; //어댑터
 
-    //ArrayList<MainLecture> mainLectureArrayList = new ArrayList<>();
-    //ArrayList<MainLecture> mainLectureArrayList;
-    //MainLectureAdapter mainLectureAdapter;
 
 
 
@@ -79,12 +72,6 @@ public class MainActivity extends AppCompatActivity {
             retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
             rs = retrofit.create(RemoteService.class);
 
-
-        /*
-            //mainLectureArrayList = new ArrayList<>();
-        MainLecture mainLecture = new MainLecture(result,"11","111","111","1111");
-        mainLectureArrayList.add(mainLecture);
-         */
 
             mainLectureAdapter = new MainLectureAdapter();
             listLecture.setAdapter(mainLectureAdapter);
@@ -112,16 +99,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        /* 샘플데이터
-        MainLecture mainLecture = new MainLecture("1","11","111","111","1111");
-        mainLectureArrayList.add(mainLecture);
-
-
-        mainLectureAdapter = new MainLectureAdapter();
-        listLecture.setAdapter(mainLectureAdapter);
-
-         */
-
 
 
 
@@ -148,9 +125,6 @@ public class MainActivity extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture,null);
 
 
-            //LinearLayout abc = findViewById(R.id.abc);
-            //LinearLayout listMainLecture = findViewById(R.id.listMainLecture);
-
             LinearLayout abc = findViewById(R.id.abc);
             LinearLayout listMainLecture = findViewById(R.id.listMainLecture);
 
@@ -161,23 +135,18 @@ public class MainActivity extends AppCompatActivity {
             TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
             TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
 
-            /*
-            mainLectureArrayList.add(new MainLecture("1","11","111","1111","11111"));
-            mainLectureArrayList.add(new MainLecture("2","21","211","2111","21111"));
-             */
+
 
 
             //MainLecture mainLecture = mainLectureArrayList.get(position);
             MainLecture mainLecture = lectures.get(position);
-            System.out.println("확인 : "+ mainLecture.getLectureName()+" "+mainLecture.getLecturePeriod());
+            System.out.println("확인 : "+ mainLecture.getlectureName()+" "+mainLecture.getlecturePeriod());
 
-            mainLectureName.setText(mainLecture.getLectureName());
-            mainLecturePeriod.setText(mainLecture.getLecturePeriod());
-            mainLectureProfessor.setText(mainLecture.getLectureProfessor());
-            mainLectureTime.setText(mainLecture.getLectureTime());
-            mainLectureStudyfee.setText(mainLecture.getLectureStudyfee());
-
-
+            mainLectureName.setText(mainLecture.getlectureName());
+            mainLecturePeriod.setText(mainLecture.getlecturePeriod());
+            mainLectureProfessor.setText(mainLecture.getlectureProfessor());
+            mainLectureTime.setText(mainLecture.getlectureTime());
+            mainLectureStudyfee.setText(mainLecture.getlectureStudyfee());
             return convertView;
         }
     }
