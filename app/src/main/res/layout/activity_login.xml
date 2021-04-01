@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/loginBackGroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loginvisual" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="로그인"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="278dp"
+            android:layout_height="249dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/border_login"
+                android:ems="10"
+                android:hint="아이디(성명)"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName3"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/border_login"
+                android:ems="10"
+                android:hint="핸드폰번호(-없이숫자만)"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/border_login"
+                android:ems="10"
+                android:hint="비밀번호"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="* 평생교육원 수업을 수강하신 경우는 회원등록이   되어 있습니다.   등록 절차 없이 로그인 하시면 됩니다." />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="* 비밀번호 : 생년월일(주민등록번호 앞6자리)   단, 비밀번호를 설정하신 분들은 설정한 비밀번호로   로그인해주시기 바랍니다." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="249dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/loginbutton"
+                android:layout_width="120dp"
+                android:layout_height="88dp"
+                android:layout_marginBottom="10dp"
+                android:text="로그인"
+                app:backgroundTint="#85D3AD" />
+
+            <Button
+                android:id="@+id/registerbutton1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="회원등록"
+                app:backgroundTint="#352E2C" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
