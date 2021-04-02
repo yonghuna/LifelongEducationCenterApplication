@@ -26,10 +26,13 @@ public class Memberregistrationagreement extends AppCompatActivity {
         btagree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                    //1.약관 두개 모두 동의버튼에 클릭
+                    //2.약관 두개 중 하나라도 동의안함시 동의거부 팝업 표시 예정
+                    //3.약관 두개모두 동의시 승인 -> 회원가입 다음페이지 이동
             }
         });
         //취소 버튼 ->로그인 화면으로 넘어감
+
         btcancle.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

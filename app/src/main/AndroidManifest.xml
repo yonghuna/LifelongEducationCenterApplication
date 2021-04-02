@@ -13,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignUpCheckActivity"></activity>
+        <activity android:name=".Generalcurriculum.GeneralSecurityGuardCourseActivity"></activity>
+        <activity android:name=".Generalcurriculum.AsanCityLinkageProcessActivity" />
+        <activity android:name=".Generalcurriculum.LiberalArtsCourseActivity" />
+        <activity android:name=".Generalcurriculum.CertificatecourseActivity" />
+        <activity android:name=".Generalcurriculum.ForeignlanguagecourseActivity" />
+        <activity android:name=".Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity" />
+        <activity android:name=".SignUpCheckActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -22,8 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login"/>
-        <activity android:name=".Memberregistrationagreement"/>
+        <activity android:name=".Login" />
+        <activity android:name=".Memberregistrationagreement" />
     </application>
 
 </manifest>
