@@ -5,12 +5,26 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class UserInfo implements Serializable {
+
+    @SerializedName("course")
     private String course;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("birthday")
     private String birthday;
+
+    @SerializedName("phoneNumber")
     private String phoneNumber;
+
+    @SerializedName("address")
     private String address;
+
+    @SerializedName("pw")
     private String pw;
+
+    @SerializedName("gender")
     private String gender;
 
 

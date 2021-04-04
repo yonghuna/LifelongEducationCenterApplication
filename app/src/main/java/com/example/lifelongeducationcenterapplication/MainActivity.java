@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
     MainLectureAdapter mainLectureAdapter; //어댑터
 
+    Button btlogin,btresgister;
+
 
 
         @Override
@@ -64,13 +68,40 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
 
 
-            retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+            btlogin = (Button) findViewById(R.id.login);  //로그인 버튼
+            btresgister = (Button)findViewById(R.id.register);  // 회원 등록 버튼
+
+
+            retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                    (GsonConverterFactory.create()).build();
             rs = retrofit.create(RemoteService.class);
 
 
             mainLectureAdapter = new MainLectureAdapter();
             listLecture.setAdapter(mainLectureAdapter);
+
+
+            btlogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view){
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
+
+                });
+
+            btresgister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view){
+                    Intent intent = new Intent(MainActivity.this, SignUpCheckActivity.class);
+                    startActivity(intent);
+                }
+
+            });
         }
+
+
+
 
         @Override
         protected void onResume() {
@@ -92,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
             super.onResume();
         }
+
 
 
 
@@ -153,4 +185,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
+

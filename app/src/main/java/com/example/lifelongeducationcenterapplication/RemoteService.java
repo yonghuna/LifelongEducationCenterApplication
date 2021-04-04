@@ -18,8 +18,8 @@ public interface RemoteService {
 
 
 
-    @POST("login.jsp")
-    Call<Void> userLogin(
+    @GET("login.jsp")
+    Call<Userlogin> userLogin(
             @Query("name") String name,
             @Query("phoneNumber") String phoneNumber,
             @Query("pw") String pw); //로그인
