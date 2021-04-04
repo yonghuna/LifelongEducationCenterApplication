@@ -183,6 +183,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="150dp">
+                    <RadioGroup
+                        android:id="@+id/radioGroup1"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                     <RadioButton
                         android:id="@+id/radioButton1"
@@ -195,6 +200,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="동의하지 않습니다." />
+                    </RadioGroup>
                 </TableRow>
 
             </TableLayout>
@@ -334,7 +340,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="150dp">
-
+                    <RadioGroup
+                        android:id="@+id/radioGroup2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                     <RadioButton
                         android:id="@+id/radioButton3"
                         android:layout_width="wrap_content"
@@ -346,6 +356,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="동의하지 않습니다." />
+                    </RadioGroup>
                 </TableRow>
 
             </TableLayout>

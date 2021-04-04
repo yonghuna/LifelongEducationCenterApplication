@@ -51,11 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -134,8 +129,6 @@ public class MainActivity extends AppCompatActivity {
             TextView mainLectureProfessor = convertView.findViewById(R.id.mainLectureProfessor);//교수진
             TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
             TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
-
-
 
 
             //MainLecture mainLecture = mainLectureArrayList.get(position);
