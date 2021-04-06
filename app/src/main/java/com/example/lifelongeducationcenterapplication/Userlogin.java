@@ -1,31 +1,20 @@
 package com.example.lifelongeducationcenterapplication;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Userlogin {
-    private String name;
-    private String phoneNumber;
-    private String pw;
 
-    public String getName() {
-        return name;
+    @SerializedName("result")
+    private String result;
+
+    public String getResult() {
+        return result;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getPw() {
-        return pw;
-    }
-
-    public void setPw(String pw) {
-        this.pw = pw;
+    public void setResult(String result) {
+        this.result = result;
     }
 }

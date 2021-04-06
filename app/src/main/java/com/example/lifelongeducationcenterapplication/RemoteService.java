@@ -1,5 +1,6 @@
 package com.example.lifelongeducationcenterapplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,22 +18,21 @@ public interface RemoteService {
     Call<List<MainLecture>> listLecture();//수강목록
 
 
+    @FormUrlEncoded
+    @POST("login.jsp")
+    Call<List<Userlogin>> userLogin(
+            @Field("name") String name,
+            @Field("phoneNumber") String phoneNumber,
+            @Field("pw") String pw); //로그인
 
-    @GET("login.jsp")
-    Call<Userlogin> userLogin(
-            @Query("name") String name,
-            @Query("phoneNumber") String phoneNumber,
-            @Query("pw") String pw); //로그인
-
-
+    @FormUrlEncoded
     @POST("register.jsp")
     Call<Void> userRegister(
-                            @Query("phoneNumber") String phoneNumber,
-                            @Query("pw") String pw,
-                            @Query("course") String course,
-                            @Query("address") String address,
-                            @Query("birthday") String birthday,
-                            @Query("name") String name); //회원가입
-
+                            @Field("phoneNumber") String phoneNumber,
+                            @Field("pw") String pw,
+                            @Field("course") String course,
+                            @Field("address") String address,
+                            @Field("birthday") String birthday,
+                            @Field("name") String name); //회원가입
 
 }

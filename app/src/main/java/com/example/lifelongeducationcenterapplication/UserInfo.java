@@ -27,6 +27,8 @@ public class UserInfo implements Serializable {
     @SerializedName("gender")
     private String gender;
 
+    @SerializedName("result")
+    private String result;
 
 
     public UserInfo(String course, String name, String birthday, String phoneNumber, String address, String pw) {
@@ -43,6 +45,10 @@ public class UserInfo implements Serializable {
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
+    }
+
+    public UserInfo(String result) {
+        this.result = result;
     }
 
     public String getCourse() {
@@ -99,6 +105,14 @@ public class UserInfo implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 }
 

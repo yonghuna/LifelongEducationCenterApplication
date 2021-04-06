@@ -9,6 +9,7 @@ public class MainLecture {
     private String lectureTime;
     private String lectureStudyfee;
 
+
     public String getlectureName() {
         return lectureName;
     }

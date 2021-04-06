@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,17 +65,26 @@ public class Login extends AppCompatActivity {
                 // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
 
                 RemoteService rs = retrofit.create(RemoteService.class);
-                Call<Userlogin> call = rs.userLogin(userName, userPhonenumber, userPass);
-                call.enqueue(new Callback<Userlogin>() {
+                Call<List<Userlogin>> call = rs.userLogin(userName, userPhonenumber, userPass);
+                call.enqueue(new Callback<List<Userlogin>>() {
                     @Override
-                    public void onResponse(Call<Userlogin> call, Response<Userlogin> response) {
-                        Userlogin userlogin = response.body();
-                        Toast.makeText(Login.this, userlogin.getName(), Toast.LENGTH_SHORT).show();
-                        System.out.println(userlogin.getName());
-                    }
+                    public void onResponse(Call<List<Userlogin>> call, Response<List<Userlogin>> response) {
+                        if(response.isSuccessful()) {
+                            List<Userlogin> userlogins = new ArrayList<>();
+                            userlogins = response.body();
+                            Userlogin userlogin = userlogins.get(0);
+                            if(userlogin.getResult().equals("ok")) {
+                                    Toast.makeText(Login.this, "성공", Toast.LENGTH_SHORT).show();
+                                    System.out.println("성공");
+                                }else{
+                                    Toast.makeText(Login.this, "실패", Toast.LENGTH_SHORT).show();
+                                    System.out.println("실패");
+                                }
+                            }
 
+                        }
                     @Override
-                    public void onFailure(Call<Userlogin> call, Throwable t) {
+                    public void onFailure(Call<List<Userlogin>> call, Throwable t) {
                         System.out.println("JSON 불러오기 실패" + call + " " + t);
                     }
                 });
