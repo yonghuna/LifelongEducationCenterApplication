@@ -2,6 +2,7 @@ package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.AsyncTask;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -38,6 +40,9 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView DVtxtAccount, DVtxtIntro, DVtxtBank, DVtxtEdu, DVtxtCommunity, DVtxtMypage;
+    ListView DVlistAccount, DVlistIntro, DVlistBank, DVlistEdu, DVlistCommunity, DVlistMypage;//메뉴목록
+
     DrawerLayout drawerLayout;
     LinearLayout drawerView;
 
@@ -57,12 +62,6 @@ public class MainActivity extends AppCompatActivity {
     //ArrayList<MainLecture> mainLectureArrayList;
     //MainLectureAdapter mainLectureAdapter;
 
-
-
-
-
-
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -71,6 +70,25 @@ public class MainActivity extends AppCompatActivity {
 
             drawerLayout = findViewById(R.id.drawerLayout);
             drawerView = findViewById(R.id.drawerView);
+
+            DVtxtAccount = findViewById(R.id.DVtxtAccount);
+            DVtxtIntro = findViewById(R.id.DVtxtIntro);
+            DVtxtBank = findViewById(R.id.DVtxtBank);
+            DVtxtEdu = findViewById(R.id.DVtxtEdu);
+            DVtxtCommunity = findViewById(R.id.DVtxtCommunity);
+            DVtxtMypage = findViewById(R.id.DVtxtMypage);
+
+            DVlistAccount = findViewById(R.id.DVlistAccount);
+            DVlistIntro = findViewById(R.id.DVlistIntro);
+            DVlistBank = findViewById(R.id.DVlistBank);
+            DVlistEdu = findViewById(R.id.DVlistEdu);
+            DVlistCommunity = findViewById(R.id.DVlistCommunity);
+            DVlistMypage = findViewById(R.id.DVlistMypage);
+
+            listset();
+            clickTitleMenu();//메뉴설정
+
+
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
@@ -92,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onResume() {
+            /*
             Call<List<MainLecture>> call = rs.listLecture();//call객체
             call.enqueue(new Callback<List<MainLecture>>() {//enqueue 메소드 실행
                 @Override
@@ -108,7 +127,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+             */
             super.onResume();
+
         }
 
 
@@ -121,8 +142,6 @@ public class MainActivity extends AppCompatActivity {
         listLecture.setAdapter(mainLectureAdapter);
 
          */
-
-
 
 
     class MainLectureAdapter extends BaseAdapter {
@@ -190,5 +209,121 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void listset(){//메뉴 채우기
+        final String[] listmenu1 = {"로그인","회원가입"};
+        final String[] listmenu2 = {"인사말씀","발전과정 및 연혁","교육목적 및 목표","조직구성","찾아오시는길"};
+        final String[] listmenu3 = {"학점은행제란?","입학안내","전공안내","수강신청","학사일정","자료실"};
+        final String[] listmenu4 = {"모집안내","외국어과정","자격증과정","교양과정","아산시연계과정","일반경비원과정"};
+        final String[] listmenu5 = {"공지사항","1:1질의응답","서식자료실","갤러리"};
+        final String[] listmenu6 = {"회원정보관리","수강내역","성적확인","1:1질문"};
+
+        final ArrayList<String[]> arrayListMenu = new ArrayList<>();
+        arrayListMenu.add(listmenu1);
+        arrayListMenu.add(listmenu2);
+        arrayListMenu.add(listmenu3);
+        arrayListMenu.add(listmenu4);
+        arrayListMenu.add(listmenu5);
+        arrayListMenu.add(listmenu6);
+
+        ArrayAdapter adapter;
+
+        for(String[] obj : arrayListMenu){
+            adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,obj);
+            if(obj.equals(listmenu1)){
+                DVlistAccount.setAdapter(adapter);
+                continue;
+            }else if(obj.equals(listmenu2)){
+                DVlistIntro.setAdapter(adapter);
+                continue;
+            }else if(obj.equals(listmenu3)){
+                DVlistBank.setAdapter(adapter);
+                continue;
+            }else if(obj.equals(listmenu4)){
+                DVlistEdu.setAdapter(adapter);
+                continue;
+            }else if(obj.equals(listmenu5)){
+                DVlistCommunity.setAdapter(adapter);
+                continue;
+            }else if(obj.equals(listmenu6)){
+                DVlistMypage.setAdapter(adapter);
+                continue;
+            }
+        }
+
+    }
+
+    public void clickTitleMenu(){//메뉴의 타이틀을 클릭할때 서브메뉴를 열고 닫을 수 있음.
+        DVtxtAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DVlistAccount.setVisibility(View.VISIBLE);
+                DVlistIntro.setVisibility(View.GONE);
+                DVlistBank.setVisibility(View.GONE);
+                DVlistEdu.setVisibility(View.GONE);
+                DVlistCommunity.setVisibility(View.GONE);
+                DVlistMypage.setVisibility(View.GONE);
+            }
+        });
+        DVtxtIntro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DVlistAccount.setVisibility(View.GONE);
+                DVlistIntro.setVisibility(View.VISIBLE);
+                DVlistBank.setVisibility(View.GONE);
+                DVlistEdu.setVisibility(View.GONE);
+                DVlistCommunity.setVisibility(View.GONE);
+                DVlistMypage.setVisibility(View.GONE);
+            }
+        });
+        DVtxtBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DVlistAccount.setVisibility(View.GONE);
+                DVlistIntro.setVisibility(View.GONE);
+                DVlistBank.setVisibility(View.VISIBLE);
+                DVlistEdu.setVisibility(View.GONE);
+                DVlistCommunity.setVisibility(View.GONE);
+                DVlistMypage.setVisibility(View.GONE);
+            }
+        });
+        DVtxtEdu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DVlistAccount.setVisibility(View.GONE);
+                DVlistIntro.setVisibility(View.GONE);
+                DVlistBank.setVisibility(View.GONE);
+                DVlistEdu.setVisibility(View.VISIBLE);
+                DVlistCommunity.setVisibility(View.GONE);
+                DVlistMypage.setVisibility(View.GONE);
+
+            }
+        });
+        DVtxtCommunity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DVlistAccount.setVisibility(View.GONE);
+                DVlistIntro.setVisibility(View.GONE);
+                DVlistBank.setVisibility(View.GONE);
+                DVlistEdu.setVisibility(View.GONE);
+                DVlistCommunity.setVisibility(View.VISIBLE);
+                DVlistMypage.setVisibility(View.GONE);
+
+            }
+        });
+        DVtxtMypage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DVlistAccount.setVisibility(View.GONE);
+                DVlistIntro.setVisibility(View.GONE);
+                DVlistBank.setVisibility(View.GONE);
+                DVlistEdu.setVisibility(View.GONE);
+                DVlistCommunity.setVisibility(View.GONE);
+                DVlistMypage.setVisibility(View.VISIBLE);
+
+            }
+        });
     }
 }

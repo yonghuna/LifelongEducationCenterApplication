@@ -1,11 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300sp"
+    android:layout_width="250sp"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/drawerView"
     android:background="#3780A1"
-    android:layout_gravity="start"
-    android:gravity="center">
+    android:layout_gravity="start">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/DVtxtAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="계정"
+                android:textSize="25sp"/>
+            <ListView
+                android:id="@+id/DVlistAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"/>
+            <TextView
+                android:id="@+id/DVtxtIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="교육원소개"
+                android:textSize="25sp"/>
+            <ListView
+                android:id="@+id/DVlistIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/DVtxtBank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="학점은행제"
+                android:textSize="25sp"/>
+            <ListView
+                android:id="@+id/DVlistBank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/DVtxtEdu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="일반교육과정"
+                android:textSize="25sp"/>
+            <ListView
+                android:id="@+id/DVlistEdu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/DVtxtCommunity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="커뮤니티"
+                android:textSize="25sp"/>
+            <ListView
+                android:id="@+id/DVlistCommunity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/DVtxtMypage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="마이페이지"
+                android:textSize="25sp"/>
+            <ListView
+                android:id="@+id/DVlistMypage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+
+
+
+
+
 
 </LinearLayout>
