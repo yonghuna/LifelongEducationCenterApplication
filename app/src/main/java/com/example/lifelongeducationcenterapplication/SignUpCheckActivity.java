@@ -6,6 +6,7 @@ import androidx.appcompat.widget.ButtonBarLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -45,6 +46,38 @@ public class SignUpCheckActivity extends AppCompatActivity {
         btnSignUpCheck = (Button) findViewById(R.id.btnSignUpCheck);//등록확인
 
 
+        // 스피너 값 설정 
+        String[] year = {
+                "1997"
+        };
+        
+        String [] month = {
+                "3"
+        };
+        
+        String [] day = {
+                "17"
+        };
+        
+        String [] gender = {
+                "남", "여"
+        };
+
+        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, year);
+        ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, month);
+        ArrayAdapter adapter3 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, day);
+        ArrayAdapter adapter4 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, gender);
+
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinBirthCheck1.setAdapter(adapter1);
+        spinBirthCheck2.setAdapter(adapter2);
+        spinBirthCheck3.setAdapter(adapter3);
+        spinSexCheck.setAdapter(adapter4);
+
 
         btnSignUpCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +105,12 @@ public class SignUpCheckActivity extends AppCompatActivity {
 
                 userBirhday = spinBirthday1 + "/" + spinBirthday2 + "/" +spinBirthday3;
 
-                UserInfo userInfo = new UserInfo(course, userName, userBirhday, userGender);
+                UserInfo userInfo = new UserInfo();
+                userInfo.setCourse(course);
+                userInfo.setName(userName);
+                userInfo.setBirthday(userBirhday);
+                userInfo.setGender(userGender);
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class );
 
                 intent.putExtra("userInfo", userInfo);
                 startActivity(intent);

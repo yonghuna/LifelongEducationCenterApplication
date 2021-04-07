@@ -9,9 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +37,8 @@ public class Login extends AppCompatActivity {
         et_password = (EditText) findViewById(R.id.editTextTextPassword); // 비밀번호 입력 텍스트
 
 
+
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -65,26 +64,26 @@ public class Login extends AppCompatActivity {
                 // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
 
                 RemoteService rs = retrofit.create(RemoteService.class);
-                Call<List<Userlogin>> call = rs.userLogin(userName, userPhonenumber, userPass);
-                call.enqueue(new Callback<List<Userlogin>>() {
+                Call<List<CommunicationResult>> call = rs.userLogin(userName, userPhonenumber, userPass);
+                call.enqueue(new Callback<List<CommunicationResult>>() {
                     @Override
-                    public void onResponse(Call<List<Userlogin>> call, Response<List<Userlogin>> response) {
+                    public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
                         if(response.isSuccessful()) {
-                            List<Userlogin> userlogins = new ArrayList<>();
+                            List<CommunicationResult> userlogins = new ArrayList<>();
                             userlogins = response.body();
-                            Userlogin userlogin = userlogins.get(0);
-                            if(userlogin.getResult().equals("ok")) {
-                                    Toast.makeText(Login.this, "성공", Toast.LENGTH_SHORT).show();
-                                    System.out.println("성공");
+                            CommunicationResult communicationResult = userlogins.get(0);
+                            if(communicationResult.getResult().equals("ok")) {
+                                    Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                                    System.out.println("로그인 성공");
                                 }else{
-                                    Toast.makeText(Login.this, "실패", Toast.LENGTH_SHORT).show();
-                                    System.out.println("실패");
+                                    Toast.makeText(Login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                                    System.out.println("로그인 실패");
                                 }
                             }
 
                         }
                     @Override
-                    public void onFailure(Call<List<Userlogin>> call, Throwable t) {
+                    public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
                         System.out.println("JSON 불러오기 실패" + call + " " + t);
                     }
                 });
