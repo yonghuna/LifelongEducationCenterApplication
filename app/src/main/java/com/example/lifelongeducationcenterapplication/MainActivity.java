@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -15,9 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.io.BufferedReader;
@@ -40,8 +43,16 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView DVtxtAccount, DVtxtIntro, DVtxtBank, DVtxtEdu, DVtxtCommunity, DVtxtMypage;
-    ListView DVlistAccount, DVlistIntro, DVlistBank, DVlistEdu, DVlistCommunity, DVlistMypage;//메뉴목록
+    TextView DVtxtAccount, DVtxtIntro, DVtxtBank, DVtxtEdu, DVtxtCommunity, DVtxtMypage; //메뉴목록
+    TextView DVtxtAccount_1,DVtxtAccount_2;//로그인, 회원가입
+    TextView DVtxtIntro_1,DVtxtIntro_2,DVtxtIntro_3,DVtxtIntro_4,DVtxtIntro_5;//인사말씀, 발전과정 및 연혁, 교육목적 및 목표, 조직구성, 찾아오시는 길
+    TextView DVtxtBank_1, DVtxtBank_2, DVtxtBank_3, DVtxtBank_4, DVtxtBank_5, DVtxtBank_6;//학점은행제란, 입학안내, 전공안내, 수강신청, 학사일정, 자료실
+    TextView DVtxtEdu_1,DVtxtEdu_2,DVtxtEdu_3,DVtxtEdu_4,DVtxtEdu_5,DVtxtEdu_6;//모집안내, 외국어과정, 자격증과정, 교양과정, 아산시연계과정, 일반경비원과정
+    TextView DVtxtCommunity_1,DVtxtCommunity_2,DVtxtCommunity_3,DVtxtCommunity_4;//공지사항, 1:1 질의응답, 서식자료실, 갤러리
+    TextView DVtxtMypage_1,DVtxtMypage_2,DVtxtMypage_3,DVtxtMypage_4;//회원정보관리, 수강내역, 성적확인, 1:1 질문
+
+
+
 
     DrawerLayout drawerLayout;
     LinearLayout drawerView;
@@ -78,15 +89,12 @@ public class MainActivity extends AppCompatActivity {
             DVtxtCommunity = findViewById(R.id.DVtxtCommunity);
             DVtxtMypage = findViewById(R.id.DVtxtMypage);
 
-            DVlistAccount = findViewById(R.id.DVlistAccount);
-            DVlistIntro = findViewById(R.id.DVlistIntro);
-            DVlistBank = findViewById(R.id.DVlistBank);
-            DVlistEdu = findViewById(R.id.DVlistEdu);
-            DVlistCommunity = findViewById(R.id.DVlistCommunity);
-            DVlistMypage = findViewById(R.id.DVlistMypage);
 
-            listset();
+
+            txtfindviewid();//id정의
+            //listset();
             clickTitleMenu();//메뉴설정
+            menuChange();//메뉴이동
 
 
 
@@ -212,118 +220,285 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void listset(){//메뉴 채우기
-        final String[] listmenu1 = {"로그인","회원가입"};
-        final String[] listmenu2 = {"인사말씀","발전과정 및 연혁","교육목적 및 목표","조직구성","찾아오시는길"};
-        final String[] listmenu3 = {"학점은행제란?","입학안내","전공안내","수강신청","학사일정","자료실"};
-        final String[] listmenu4 = {"모집안내","외국어과정","자격증과정","교양과정","아산시연계과정","일반경비원과정"};
-        final String[] listmenu5 = {"공지사항","1:1질의응답","서식자료실","갤러리"};
-        final String[] listmenu6 = {"회원정보관리","수강내역","성적확인","1:1질문"};
+    public void txtfindviewid(){
+        DVtxtAccount_1 = findViewById(R.id.DVtxtAccount_1);
+        DVtxtAccount_2 = findViewById(R.id.DVtxtAccount_2);
 
-        final ArrayList<String[]> arrayListMenu = new ArrayList<>();
-        arrayListMenu.add(listmenu1);
-        arrayListMenu.add(listmenu2);
-        arrayListMenu.add(listmenu3);
-        arrayListMenu.add(listmenu4);
-        arrayListMenu.add(listmenu5);
-        arrayListMenu.add(listmenu6);
+        DVtxtIntro_1 = findViewById(R.id.DVtxtIntro_1);
+        DVtxtIntro_2 = findViewById(R.id.DVtxtIntro_2);
+        DVtxtIntro_3 = findViewById(R.id.DVtxtIntro_3);
+        DVtxtIntro_4 = findViewById(R.id.DVtxtIntro_4);
+        DVtxtIntro_5 = findViewById(R.id.DVtxtIntro_5);
 
-        ArrayAdapter adapter;
+        DVtxtBank_1 = findViewById(R.id.DVtxtBank_1);
+        DVtxtBank_2 = findViewById(R.id.DVtxtBank_2);
+        DVtxtBank_3 = findViewById(R.id.DVtxtBank_3);
+        DVtxtBank_4 = findViewById(R.id.DVtxtBank_4);
+        DVtxtBank_5 = findViewById(R.id.DVtxtBank_5);
+        DVtxtBank_6 = findViewById(R.id.DVtxtBank_6);
 
-        for(String[] obj : arrayListMenu){
-            adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,obj);
-            if(obj.equals(listmenu1)){
-                DVlistAccount.setAdapter(adapter);
-                continue;
-            }else if(obj.equals(listmenu2)){
-                DVlistIntro.setAdapter(adapter);
-                continue;
-            }else if(obj.equals(listmenu3)){
-                DVlistBank.setAdapter(adapter);
-                continue;
-            }else if(obj.equals(listmenu4)){
-                DVlistEdu.setAdapter(adapter);
-                continue;
-            }else if(obj.equals(listmenu5)){
-                DVlistCommunity.setAdapter(adapter);
-                continue;
-            }else if(obj.equals(listmenu6)){
-                DVlistMypage.setAdapter(adapter);
-                continue;
-            }
-        }
+        DVtxtEdu_1 = findViewById(R.id.DVtxtEdu_1);
+        DVtxtEdu_2 = findViewById(R.id.DVtxtEdu_2);
+        DVtxtEdu_3 = findViewById(R.id.DVtxtEdu_3);
+        DVtxtEdu_4 = findViewById(R.id.DVtxtEdu_4);
+        DVtxtEdu_5 = findViewById(R.id.DVtxtEdu_5);
+        DVtxtEdu_6 = findViewById(R.id.DVtxtEdu_6);
+
+        DVtxtCommunity_1 = findViewById(R.id.DVtxtCommunity_1);
+        DVtxtCommunity_2 = findViewById(R.id.DVtxtCommunity_2);
+        DVtxtCommunity_3 = findViewById(R.id.DVtxtCommunity_3);
+        DVtxtCommunity_4 = findViewById(R.id.DVtxtCommunity_4);
+
+        DVtxtMypage_1 = findViewById(R.id.DVtxtMypage_1);
+        DVtxtMypage_2 = findViewById(R.id.DVtxtMypage_2);
+        DVtxtMypage_3 = findViewById(R.id.DVtxtMypage_3);
+        DVtxtMypage_4 = findViewById(R.id.DVtxtMypage_4);
+
 
     }
+
 
     public void clickTitleMenu(){//메뉴의 타이틀을 클릭할때 서브메뉴를 열고 닫을 수 있음.
         DVtxtAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DVlistAccount.setVisibility(View.VISIBLE);
-                DVlistIntro.setVisibility(View.GONE);
-                DVlistBank.setVisibility(View.GONE);
-                DVlistEdu.setVisibility(View.GONE);
-                DVlistCommunity.setVisibility(View.GONE);
-                DVlistMypage.setVisibility(View.GONE);
+                if(DVtxtAccount_1.getVisibility()==View.GONE){
+                    DVtxtAccount_1.setVisibility(View.VISIBLE);
+                    DVtxtAccount_2.setVisibility(View.VISIBLE);
+                }else if(DVtxtAccount_1.getVisibility()==View.VISIBLE){
+                    DVtxtAccount_1.setVisibility(View.GONE);
+                    DVtxtAccount_2.setVisibility(View.GONE);
+                }
             }
         });
         DVtxtIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DVlistAccount.setVisibility(View.GONE);
-                DVlistIntro.setVisibility(View.VISIBLE);
-                DVlistBank.setVisibility(View.GONE);
-                DVlistEdu.setVisibility(View.GONE);
-                DVlistCommunity.setVisibility(View.GONE);
-                DVlistMypage.setVisibility(View.GONE);
+                if(DVtxtIntro_1.getVisibility()==View.GONE){
+                    DVtxtIntro_1.setVisibility(View.VISIBLE);
+                    DVtxtIntro_2.setVisibility(View.VISIBLE);
+                    DVtxtIntro_3.setVisibility(View.VISIBLE);
+                    DVtxtIntro_4.setVisibility(View.VISIBLE);
+                    DVtxtIntro_5.setVisibility(View.VISIBLE);
+
+                }else if(DVtxtIntro_1.getVisibility()==View.VISIBLE){
+                    DVtxtIntro_1.setVisibility(View.GONE);
+                    DVtxtIntro_2.setVisibility(View.GONE);
+                    DVtxtIntro_3.setVisibility(View.GONE);
+                    DVtxtIntro_4.setVisibility(View.GONE);
+                    DVtxtIntro_5.setVisibility(View.GONE);
+                }
+
             }
         });
         DVtxtBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DVlistAccount.setVisibility(View.GONE);
-                DVlistIntro.setVisibility(View.GONE);
-                DVlistBank.setVisibility(View.VISIBLE);
-                DVlistEdu.setVisibility(View.GONE);
-                DVlistCommunity.setVisibility(View.GONE);
-                DVlistMypage.setVisibility(View.GONE);
+                if(DVtxtBank_1.getVisibility()==View.GONE){
+                    DVtxtBank_1.setVisibility(View.VISIBLE);
+                    DVtxtBank_2.setVisibility(View.VISIBLE);
+                    DVtxtBank_3.setVisibility(View.VISIBLE);
+                    DVtxtBank_4.setVisibility(View.VISIBLE);
+                    DVtxtBank_5.setVisibility(View.VISIBLE);
+                    DVtxtBank_6.setVisibility(View.VISIBLE);
+                }else if(DVtxtBank_1.getVisibility()==View.VISIBLE){
+                    DVtxtBank_1.setVisibility(View.GONE);
+                    DVtxtBank_2.setVisibility(View.GONE);
+                    DVtxtBank_3.setVisibility(View.GONE);
+                    DVtxtBank_4.setVisibility(View.GONE);
+                    DVtxtBank_5.setVisibility(View.GONE);
+                    DVtxtBank_6.setVisibility(View.GONE);
+
+                }
             }
         });
         DVtxtEdu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DVlistAccount.setVisibility(View.GONE);
-                DVlistIntro.setVisibility(View.GONE);
-                DVlistBank.setVisibility(View.GONE);
-                DVlistEdu.setVisibility(View.VISIBLE);
-                DVlistCommunity.setVisibility(View.GONE);
-                DVlistMypage.setVisibility(View.GONE);
+                if(DVtxtEdu_1.getVisibility()==View.GONE){
+                    DVtxtEdu_1.setVisibility(View.VISIBLE);
+                    DVtxtEdu_2.setVisibility(View.VISIBLE);
+                    DVtxtEdu_3.setVisibility(View.VISIBLE);
+                    DVtxtEdu_4.setVisibility(View.VISIBLE);
+                    DVtxtEdu_5.setVisibility(View.VISIBLE);
+                    DVtxtEdu_6.setVisibility(View.VISIBLE);
+                }else if(DVtxtEdu_1.getVisibility()==View.VISIBLE){
+                    DVtxtEdu_1.setVisibility(View.GONE);
+                    DVtxtEdu_2.setVisibility(View.GONE);
+                    DVtxtEdu_3.setVisibility(View.GONE);
+                    DVtxtEdu_4.setVisibility(View.GONE);
+                    DVtxtEdu_5.setVisibility(View.GONE);
+                    DVtxtEdu_6.setVisibility(View.GONE);
+                }
+
 
             }
         });
         DVtxtCommunity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DVlistAccount.setVisibility(View.GONE);
-                DVlistIntro.setVisibility(View.GONE);
-                DVlistBank.setVisibility(View.GONE);
-                DVlistEdu.setVisibility(View.GONE);
-                DVlistCommunity.setVisibility(View.VISIBLE);
-                DVlistMypage.setVisibility(View.GONE);
+                if(DVtxtCommunity_1.getVisibility()==View.GONE){
+                    DVtxtCommunity_1.setVisibility(View.VISIBLE);
+                    DVtxtCommunity_2.setVisibility(View.VISIBLE);
+                    DVtxtCommunity_3.setVisibility(View.VISIBLE);
+                    DVtxtCommunity_4.setVisibility(View.VISIBLE);
+                }else if(DVtxtCommunity_1.getVisibility()==View.VISIBLE){
+                    DVtxtCommunity_1.setVisibility(View.GONE);
+                    DVtxtCommunity_2.setVisibility(View.GONE);
+                    DVtxtCommunity_3.setVisibility(View.GONE);
+                    DVtxtCommunity_4.setVisibility(View.GONE);
+                }
 
             }
         });
         DVtxtMypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DVlistAccount.setVisibility(View.GONE);
-                DVlistIntro.setVisibility(View.GONE);
-                DVlistBank.setVisibility(View.GONE);
-                DVlistEdu.setVisibility(View.GONE);
-                DVlistCommunity.setVisibility(View.GONE);
-                DVlistMypage.setVisibility(View.VISIBLE);
+                if(DVtxtMypage_1.getVisibility()==View.GONE){
+                    DVtxtMypage_1.setVisibility(View.VISIBLE);
+                    DVtxtMypage_2.setVisibility(View.VISIBLE);
+                    DVtxtMypage_3.setVisibility(View.VISIBLE);
+                    DVtxtMypage_4.setVisibility(View.VISIBLE);
+                }else if(DVtxtMypage_1.getVisibility()==View.VISIBLE){
+                    DVtxtMypage_1.setVisibility(View.GONE);
+                    DVtxtMypage_2.setVisibility(View.GONE);
+                    DVtxtMypage_3.setVisibility(View.GONE);
+                    DVtxtMypage_4.setVisibility(View.GONE);
+                }
 
             }
         });
+    }
+
+    public void menuChange(){//메뉴이동
+
+        Button.OnClickListener mClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.DVtxtAccount_1:
+                        //Toast.makeText(getApplicationContext(),"1-1번",Toast.LENGTH_SHORT).show();
+                        System.out.println("확인함 로그인");
+                        drawerLayout.closeDrawer(drawerView);
+                        Intent intent = new Intent(MainActivity.this,Login.class);
+                        startActivityForResult(intent,1);
+                        //화면이동(intent)
+                        break;
+                    case R.id.DVtxtAccount_2:
+                        //Toast.makeText(MainActivity.this,"1-2번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtIntro_1:
+                        //Toast.makeText(MainActivity.this,"2-1번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtIntro_2:
+                        //Toast.makeText(MainActivity.this,"2-2번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtIntro_3:
+                        //Toast.makeText(MainActivity.this,"2-3번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtIntro_4:
+                        //Toast.makeText(MainActivity.this,"2-4번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtIntro_5:
+                        //Toast.makeText(MainActivity.this,"2-5번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtBank_1:
+                        //Toast.makeText(MainActivity.this,"3-1번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtBank_2:
+                        //Toast.makeText(MainActivity.this,"3-2번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtBank_3:
+                        //Toast.makeText(MainActivity.this,"3-3번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtBank_4:
+                        //Toast.makeText(MainActivity.this,"3-4번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtBank_5:
+                        //Toast.makeText(MainActivity.this,"3-5번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtBank_6:
+                        //Toast.makeText(MainActivity.this,"3-6번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtEdu_1:
+                        //Toast.makeText(MainActivity.this,"4-1번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtEdu_2:
+                        //Toast.makeText(MainActivity.this,"4-2번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtEdu_3:
+                        //Toast.makeText(MainActivity.this,"4-3번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtEdu_4:
+                        //Toast.makeText(MainActivity.this,"4-4번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtEdu_5:
+                        //Toast.makeText(MainActivity.this,"4-5번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtEdu_6:
+                        //Toast.makeText(MainActivity.this,"4-6번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtCommunity_1:
+                        //Toast.makeText(MainActivity.this,"5-1번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtCommunity_2:
+                        //Toast.makeText(MainActivity.this,"5-2번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtCommunity_3:
+                        //Toast.makeText(MainActivity.this,"5-3번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtCommunity_4:
+                        //Toast.makeText(MainActivity.this,"5-4번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtMypage_1:
+                        //Toast.makeText(MainActivity.this,"6-1번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtMypage_2:
+                        //Toast.makeText(MainActivity.this,"6-2번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtMypage_3:
+                        //Toast.makeText(MainActivity.this,"6-3번",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.DVtxtMypage_4:
+                        //Toast.makeText(MainActivity.this,"6-4번",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        };
+
+        DVtxtAccount_1.setOnClickListener(mClick);
+        DVtxtAccount_2.setOnClickListener(mClick);
+
+        DVtxtIntro_1.setOnClickListener(mClick);
+        DVtxtIntro_2.setOnClickListener(mClick);
+        DVtxtIntro_3.setOnClickListener(mClick);
+        DVtxtIntro_4.setOnClickListener(mClick);
+        DVtxtIntro_5.setOnClickListener(mClick);
+
+        DVtxtBank_1.setOnClickListener(mClick);
+        DVtxtBank_2.setOnClickListener(mClick);
+        DVtxtBank_3.setOnClickListener(mClick);
+        DVtxtBank_4.setOnClickListener(mClick);
+        DVtxtBank_5.setOnClickListener(mClick);
+        DVtxtBank_6.setOnClickListener(mClick);
+
+        DVtxtEdu_1.setOnClickListener(mClick);
+        DVtxtEdu_2.setOnClickListener(mClick);
+        DVtxtEdu_3.setOnClickListener(mClick);
+        DVtxtEdu_4.setOnClickListener(mClick);
+        DVtxtEdu_5.setOnClickListener(mClick);
+        DVtxtEdu_6.setOnClickListener(mClick);
+
+        DVtxtCommunity_1.setOnClickListener(mClick);
+        DVtxtCommunity_2.setOnClickListener(mClick);
+        DVtxtCommunity_3.setOnClickListener(mClick);
+        DVtxtCommunity_4.setOnClickListener(mClick);
+
+        DVtxtMypage_1.setOnClickListener(mClick);
+        DVtxtMypage_2.setOnClickListener(mClick);
+        DVtxtMypage_3.setOnClickListener(mClick);
+        DVtxtMypage_4.setOnClickListener(mClick);
+
+
     }
 }
