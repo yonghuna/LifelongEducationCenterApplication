@@ -2,43 +2,30 @@ package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
-import android.util.Log;
 
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.example.lifelongeducationcenterapplication.Account.Login;
+import com.example.lifelongeducationcenterapplication.Account.SignActivity;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import java.util.ArrayList;
+
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class MainActivity extends AppCompatActivity {
@@ -372,20 +359,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void menuChange(){//메뉴이동
 
+
         Button.OnClickListener mClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent;
+
                 switch (v.getId()){
                     case R.id.DVtxtAccount_1:
                         //Toast.makeText(getApplicationContext(),"1-1번",Toast.LENGTH_SHORT).show();
                         System.out.println("확인함 로그인");
                         drawerLayout.closeDrawer(drawerView);
-                        Intent intent = new Intent(MainActivity.this,Login.class);
+                        intent = new Intent(MainActivity.this, Login.class);
                         startActivityForResult(intent,1);
                         //화면이동(intent)
                         break;
                     case R.id.DVtxtAccount_2:
                         //Toast.makeText(MainActivity.this,"1-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, SignActivity.class);
+                        startActivityForResult(intent,2);
                         break;
                     case R.id.DVtxtIntro_1:
                         //Toast.makeText(MainActivity.this,"2-1번",Toast.LENGTH_SHORT).show();

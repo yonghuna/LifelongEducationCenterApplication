@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <!--
+              일반과정 약관동의 액티비티
+            -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/loginBackGroundImage"
+                android:layout_width="match_parent"
+                android:layout_height="82dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/loginvisual" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:text="회원등록"
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:text="선문대학교 주산학평생교육원에서는 평생학습프로그램 수강과 관련하여 귀하의 개인정보를 아래와 같이 수집․이용, 목적외 이용 및 제3자 제공을 하고자 합니다. 다음의 사항에 대해 충분히 읽어보신 후, 동의 여부를 체크, 서명하여 주시기 바랍니다. " />
+
+            <TextView
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="8dp"
+                android:text="법률근거 : 개인정보보호법 제15조, ‘개인정보의 수집․이용’에 관한 법률" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="5dp"
+                android:text="개인정보 수집 및 이용 동의[필수]"
+                android:textSize="24sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="127dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="수집․이용하려는 개인정보의 항목"
+                        android:textColor="#170E0E" />
+
+                    <TextView
+
+                        android:layout_width="138dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="개인정보의 수집․이용 목적"
+                        android:textColor="#170E0E" />
+
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="개인정보 이용기간 및 보유기간"
+
+                        android:textColor="#170E0E" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="136dp"
+                        android:layout_height="105dp"
+                        android:text="성명, 생년월일, 성별 비밀번호(본원 홈페이지), 신청학기,수강과목, 수강여부,구분" />
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="155dp"
+                        android:layout_height="match_parent"
+                        android:text="본인식별절차에 이용" />
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="116dp"
+                        android:layout_height="match_parent"
+                        android:text="평생교육과정 이수 및 자격발급시까지 활용, 5년 보관" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="연락처" />
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="149dp"
+                        android:layout_height="wrap_content"
+                        android:text="공지사항, 서비스 정보의 제공" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="주소" />
+
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="관련 자료 발송 등" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="* 귀하께서는 개인정보 제공 및 활용에 거부할 권리가 있습니다." />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="거부에 따른 불이익" />
+
+                    <TextView
+                        android:layout_width="290dp"
+                        android:layout_height="wrap_content"
+                        android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="150dp">
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의합니다." />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의하지 않습니다." />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="5dp"
+                android:text="개인정보의 목적외 이용 및 제3자 제공 동의[필수]"
+                android:textSize="20sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="127dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="개인정보를 제공받는자"
+                        android:textColor="#170E0E" />
+
+                    <TextView
+
+                        android:layout_width="138dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="제공자 연락처"
+                        android:textColor="#170E0E" />
+
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="제공하는 개인정보의 항목"
+
+                        android:textColor="#170E0E" />
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="개인정보를 제공받는 자의 개인정보 이용목적"
+
+                        android:textColor="#170E0E" />
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="개인정보를 제공받는 자의 개인정보 이용기간 및 보유기간"
+
+                        android:textColor="#170E0E" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="127dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="아산시평생학습관"
+                        android:textColor="#170E0E" />
+
+                    <TextView
+
+                        android:layout_width="138dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="041-537-3907"
+                        android:textColor="#170E0E" />
+
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="성명, 연락처, 주소, 생년월일"
+
+                        android:textColor="#170E0E" />
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="평생교육과정 이수 업무"
+
+                        android:textColor="#170E0E" />
+
+                    <TextView
+                        android:layout_width="111dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="평생교육과정 이수 및 자격발급시까지 활용, 5년보관"
+
+                        android:textColor="#170E0E" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="* 귀하께서는 개인정보 제공 및 활용에 거부할 권리가 있습니다." />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="거부에 따른 불이익" />
+
+                    <TextView
+                        android:layout_width="290dp"
+                        android:layout_height="wrap_content"
+                        android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="150dp">
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의합니다." />
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의하지 않습니다." />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="120dp">
+                //동의 버튼
+                <Button
+                    android:id="@+id/agree_button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="동의"
+                    android:textColor="#EBF8F1"
+                    android:textColorLink="#B2FF59"
+                    app:backgroundTint="#2F8C5F" />
+                //취소 버튼
+                <Button
+                    android:id="@+id/cancel_button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="취소" />
+            </TableRow>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
+

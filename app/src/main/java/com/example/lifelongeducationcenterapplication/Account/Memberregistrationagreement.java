@@ -1,4 +1,4 @@
-package com.example.lifelongeducationcenterapplication;
+package com.example.lifelongeducationcenterapplication.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lifelongeducationcenterapplication.R;
+
 public class Memberregistrationagreement extends AppCompatActivity {
     //일반과정 약관 동의
     Button btagree,btcancle;  //동의 버튼, 취소 버튼
@@ -14,13 +16,14 @@ public class Memberregistrationagreement extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        btagree = (Button)findViewById(R.id.agree_button); //동의 버튼
+        setContentView(R.layout.activity_member_registration_agreement);
+
+        btagree = (Button)findViewById(R.id.agree_button1); //동의 버튼
         btcancle = (Button)findViewById(R.id.cancel_button1); // 취소 버튼
         radiobutton1 = (Button)findViewById(R.id.radioButton1); //약관 동의
         radiobutton2 = (Button)findViewById(R.id.radioButton2); //약관 취소
         radiobutton3 = (Button)findViewById(R.id.radioButton3); //약관 동의
         radiobutton4 = (Button)findViewById(R.id.radioButton4); //약관 취소
-        setContentView(R.layout.activity_member_registration_agreement);
 
         //약관 동의 버튼 기능
         btagree.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +45,7 @@ public class Memberregistrationagreement extends AppCompatActivity {
         });
     }
     //동의 버튼 ->회원등록
-    public void goSignUpActivity(){startActivity(new Intent(this,SignUpActivity.class));}
+    public void goSignUpActivity(){startActivity(new Intent(this, SignUpActivity.class));}
 
     //취소 버튼 ->로그인 화면
     public void goLogin(){startActivity(new Intent(this,Login.class));}

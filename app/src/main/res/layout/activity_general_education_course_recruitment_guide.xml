@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. 접수안내"
+                android:text="1&#46; 접수안내"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp" />
 
@@ -353,7 +353,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="「평생교육법시행령」<별표3> 학습비 반환기준(제23조 제2항 관련)" />
+                android:text="「평생교육법시행령」&lt;별표3&gt; 학습비 반환기준(제23조 제2항 관련)" />
 
             <TextView
                 android:layout_width="match_parent"
