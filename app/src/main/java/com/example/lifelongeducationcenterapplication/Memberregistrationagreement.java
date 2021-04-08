@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Memberregistrationagreement extends AppCompatActivity {
-
+    //일반과정 약관 동의
     Button btagree,btcancle;  //동의 버튼, 취소 버튼
     Button radiobutton1,radiobutton2,radiobutton3,radiobutton4; //약관 동의,약관 취소,약관 동의,약관 취소
     @Override
