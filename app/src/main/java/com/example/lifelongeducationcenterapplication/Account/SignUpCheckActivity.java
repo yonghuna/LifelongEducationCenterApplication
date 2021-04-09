@@ -1,4 +1,4 @@
-package com.example.lifelongeducationcenterapplication;
+package com.example.lifelongeducationcenterapplication.Account;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+
+import com.example.lifelongeducationcenterapplication.R;
 
 public class SignUpCheckActivity extends AppCompatActivity {
 

@@ -1,8 +1,10 @@
-package com.example.lifelongeducationcenterapplication;
+package com.example.lifelongeducationcenterapplication.Account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.lifelongeducationcenterapplication.R;
 
 public class MemberRegistrationAgreementTwoActivity extends AppCompatActivity {
     //학점은행제 과정 약관 동의
