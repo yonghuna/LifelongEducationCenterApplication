@@ -99,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
 
 
-            btlogin = (Button) findViewById(R.id.login);  //로그인 버튼
-            btresgister = (Button)findViewById(R.id.register);  // 회원 등록 버튼
 
 
             retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory

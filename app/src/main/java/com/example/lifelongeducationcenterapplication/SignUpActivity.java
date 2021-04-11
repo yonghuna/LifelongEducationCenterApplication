@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,6 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
     String name, gender, birthDate, course;
     String post, addr, fullAddr;
     int idx;
+    boolean result;
 
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
 
@@ -69,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUpRegisterCancel = (Button) findViewById(R.id.btnSignUpRegisterCancel);//회원등록,취소
 
         String[] phone = {
-                "010"
+                "010","011","016","017","018","019"
         };
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, phone);
@@ -129,34 +131,41 @@ public class SignUpActivity extends AppCompatActivity {
                         + edtSignUpPhoneNumber2.getText().toString().trim()
                         + edtSignUpPhoneNumber3.getText().toString().trim();// 휴대번호
                 String userAddr = fullAddr + " " + edtSignUpAddress2.getText().toString().trim(); // 주소
-                String userPass = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
+                String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
+                String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
 
                 System.out.println(userAddr);
+
+                result = pwCorrect(userPass1, userPass2); // 패스워드 옳은지 체크
+
+
                 // 데이터베이스로 전송
-                RemoteService rs = retrofit.create(RemoteService.class);
-                Call<List<CommunicationResult>> call = rs.userRegister(userPhoneNumber, userPass, course, userAddr, birthDate, name);
-                call.enqueue(new Callback<List<CommunicationResult>>() {
-                    public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
-                        List<CommunicationResult> userRegister = new ArrayList<>();
-                        userRegister = response.body();
-                        CommunicationResult communicationResult = userRegister.get(0);
-                        if (communicationResult.getResult().equals("ok")) {
-                            Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
-                            System.out.println("회원가입 성공");
-                        } else {
-                            Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
-                            System.out.println("회원가입 실패");
+                if (result) {
+                    RemoteService rs = retrofit.create(RemoteService.class);
+                    Call<List<CommunicationResult>> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddr, birthDate, name);
+                    call.enqueue(new Callback<List<CommunicationResult>>() {
+                        public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
+                            List<CommunicationResult> userRegister = new ArrayList<>();
+                            userRegister = response.body();
+                            CommunicationResult communicationResult = userRegister.get(0);
+                            if (communicationResult.getResult().equals("ok")) {
+                                Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
+                                System.out.println("회원가입 성공");
+                            } else {
+                                Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
+                                System.out.println("회원가입 실패");
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
-                        Toast.makeText(SignUpActivity.this, "회원가입이 성공하였습니다!", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                        @Override
+                        public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
+                            Toast.makeText(SignUpActivity.this, "회원가입이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
 
-                });
+                    });
 
+                }
             }
         });
 
@@ -197,6 +206,47 @@ public class SignUpActivity extends AppCompatActivity {
                 break;
 
         }
+
+    }
+    public boolean pwCorrect(String pw1, String pw2){
+        boolean result = false;
+        Pattern pattern1 = Pattern.compile("[ !@#$%^&*(),.?\":{}|<>]");
+        if(pw1.length() < 9 && pw1.length() > 20) {
+            if(pw1.matches(".*[a-zA-Z].*")) {
+                System.out.println("영문자가 포함되어 있습니다.");
+                if(pw1.matches(".*[0-9].*")) {
+                    System.out.println("숫자가 포함되어 있습니다.");
+                    if(pattern1.matcher(pw1).find()){
+                        System.out.println("특수문자가 포함되어있습니다.");
+                        if(pw1.equals(pw2)) {
+                            result = true;
+                        } else {
+                            Toast.makeText(getApplicationContext(), "패스워드가 일치 하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "패스워드에 특수문자를 포함해주세요", Toast.LENGTH_SHORT).show();
+                    }
+                    
+
+                }else {
+                    System.out.println("숫자가 포함되어 있지 않습니다.");
+                    Toast.makeText(getApplicationContext(), "패스워드에 숫자를 포함해주세요", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                System.out.println("영문자가 포함되어 있지 않습니다.");
+                Toast.makeText(getApplicationContext(), "패스워드에 영문자를 포함해주세요", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "패스워드를 9 ~ 20 로 만들어주세요", Toast.LENGTH_SHORT).show();
+        }
+
+
+        return result;
+
+
+
 
     }
 

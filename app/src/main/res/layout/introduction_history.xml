@@ -31,6 +31,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
+                android:layout_margin="10dp"
                 android:text="발전과정 및 연혁"
                 android:textColor="#00897B"
                 android:textSize="30sp" />
