@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1. 접수안내"
+                android:text="1&#46; 접수안내"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
@@ -384,6 +384,16 @@
                 android:text="총 수업시간은 학습비 징수기간 중의 전체 수업시간을 말하며, 반환금액의 산정은 반환사유가 발생한 날까지 경과된 수업시간을 기준으로 한다."
                 android:layout_marginLeft="10dp"/>
                 // 오류 수정해서 다시 업로드 1차
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="「평생교육법시행령」&lt;별표3&gt; 학습비 반환기준(제23조 제2항 관련)"
+                android:layout_marginLeft="10dp"/>
+
+
+>>>>>>> origin/daeeung
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

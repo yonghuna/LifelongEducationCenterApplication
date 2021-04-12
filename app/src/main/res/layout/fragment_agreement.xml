@@ -182,36 +182,24 @@
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="150dp">
 
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
->>>>>>> origin/daeeung
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의합니다." />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의하지 않습니다." />
+                </TableRow>
 
-                        <RadioButton
-                            android:id="@+id/oneradioBt1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginLeft="120dp"
-                            android:layout_weight="1"
-                            android:text="동의합니다." />
-
-                        <RadioButton
-                            android:id="@+id/oneradioBt2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="동의하지 않습니다." />
-                    </LinearLayout>
-
-                </RadioGroup>
             </TableLayout>
 
             <TextView
@@ -275,8 +263,8 @@
                 </TableRow>
 
                 <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="127dp"
@@ -318,7 +306,7 @@
 
                         android:textColor="#170E0E" />
 
-            </TableRow>
+                </TableRow>
             </TableLayout>
 
             <TextView
@@ -345,36 +333,23 @@
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="150dp">
 
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의합니다." />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/oneradioBt3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginLeft="120dp"
-                            android:layout_weight="1"
-                            android:text="동의합니다." />
-
-                        <RadioButton
-                            android:id="@+id/oneradioBt4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="동의하지 않습니다." />
-                    </LinearLayout>
-
-                </RadioGroup>
->>>>>>> origin/daeeung
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동의하지 않습니다." />
+                </TableRow>
 
             </TableLayout>
 
@@ -382,28 +357,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="120dp">
-                    //동의 버튼
-
+                //동의 버튼
                 <Button
                     android:id="@+id/agree_button1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="동의"
                     android:textColor="#EBF8F1"
                     android:textColorLink="#B2FF59"
                     app:backgroundTint="#2F8C5F" />
-                    //취소 버튼
-
+                //취소 버튼
                 <Button
                     android:id="@+id/cancel_button1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
                     android:text="취소" />
             </TableRow>
         </LinearLayout>

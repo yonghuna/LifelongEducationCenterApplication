@@ -1,4 +1,4 @@
-package com.example.lifelongeducationcenterapplication;
+package com.example.lifelongeducationcenterapplication.Account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +27,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
+
+import com.example.lifelongeducationcenterapplication.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

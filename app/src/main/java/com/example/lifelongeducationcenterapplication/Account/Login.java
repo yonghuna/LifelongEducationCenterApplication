@@ -1,9 +1,10 @@
-package com.example.lifelongeducationcenterapplication;
+package com.example.lifelongeducationcenterapplication.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
+
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.lifelongeducationcenterapplication.CommunicationResult;
+import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RemoteService;
+
 
 public class Login extends AppCompatActivity {
 

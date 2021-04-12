@@ -108,7 +108,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <EditText
                 android:id="@+id/edtSignUpPostCode"
                 android:layout_width="80sp"
                 android:layout_height="wrap_content"
@@ -119,19 +119,18 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/edtSignUpPostCode"
                 android:text="우편번호 검색"/>
-            <TextView
+            <EditText
                 android:id="@+id/edtSignUpAddress1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btnSignUpAddressSearch"
                 android:hint="주소1"/>
-
             <EditText
                 android:id="@+id/edtSignUpAddress2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edtSignUpAddress1"
-                android:hint="세부 주소" />
+                android:hint="주소2"/>
         </RelativeLayout>
 
     </LinearLayout>
