@@ -13,7 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Account.SignActivity"></activity>
+        <activity android:name=".MyPage.MyPage_QuestionAndAnswerActivity"></activity>
+        <activity android:name=".MyPage.MyPage_GradesVerificationActivity" />
+        <activity android:name=".MyPage.MyPage_CourseDetailsActivity" />
+        <activity android:name=".MyPage.MyPage_MemberInformationManagementActivity" />
+        <activity android:name=".Community.Community_GalleryActivity" />
+        <activity android:name=".Community.Community_NoticeActivity" />
+        <activity android:name=".Community.Community_QuestionAndAnswerActivity" />
+        <activity android:name=".Community.Community_FormattingRoomActivity" />
+        <activity android:name=".community.Community_FormattingRoomActivity" />
+        <activity android:name=".Account.SignActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemreferenceRoomActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemAcademicScheduleActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemEnrolmentActivity" />

@@ -95,8 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="40dp"
-                android:layout_weight="2"
+                android:layout_marginBottom="90dp"
+                android:layout_weight="1"
                 android:text="로그인"
                 app:backgroundTint="#85D3AD" />
 
@@ -104,7 +104,6 @@
                 android:id="@+id/registerbutton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:text="회원등록"
