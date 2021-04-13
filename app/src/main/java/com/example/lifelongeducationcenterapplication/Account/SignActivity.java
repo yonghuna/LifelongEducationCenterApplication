@@ -24,6 +24,7 @@ public class SignActivity extends AppCompatActivity {
         agreement2Fragment = new Agreement2Fragment();
         signUpFragment = new SignUpFragment();
 
+
     }
 
 

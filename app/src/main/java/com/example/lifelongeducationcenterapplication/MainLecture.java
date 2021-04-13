@@ -2,113 +2,52 @@ package com.example.lifelongeducationcenterapplication;
 
 public class MainLecture {
 
-    /*
-=======
->>>>>>> 30959068e9eaa29ccbea61c2ef9ada9163b93ee6
-    private String name;//강좌명
-    private String period;//교육기간
-    private String professor;//교수진
-    private String time;//수업시간
-    private String studyfee;//학습비
 
-    public MainLecture(){
+    private String lectureName;
+    private String lectureProfessor;
+    private String lecturePeriod;
+    private String lectureTime;
+    private String lectureStudyfee;
 
-    }
-    public MainLecture(String name, String period, String professor, String time, String studyfee) {
-        this.name = name;
-        this.period = period;
-        this.professor = professor;
-        this.time = time;
-        this.studyfee = studyfee;
+
+    public String getlectureName() {
+        return lectureName;
     }
 
-    public String getName() {
-        return name;
+    public void setlectureName(String lectureName) {
+        lectureName = lectureName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getlectureProfessor() {
+        return lectureProfessor;
     }
 
-    public String getPeriod() {
-        return period;
+    public void setlectureProfessor(String lectureProfessor) {
+        lectureProfessor = lectureProfessor;
     }
 
-    public void setPeriod(String period) {
-        this.period = period;
+    public String getlecturePeriod() {
+        return lecturePeriod;
     }
 
-    public String getProfessor() {
-        return professor;
+    public void setlecturePeriod(String lecturePeriod) {
+        lecturePeriod = lecturePeriod;
     }
 
-    public void setProfessor(String professor) {
-        this.professor = professor;
+    public String getlectureTime() {
+        return lectureTime;
     }
 
-    public String getTime() {
-        return time;
+    public void setlectureTime(String lectureTime) {
+        lectureTime = lectureTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public String getlectureStudyfee() {
+        return lectureStudyfee;
     }
 
-    public String getStudyfee() {
-        return studyfee;
-    }
-
-    public void setStudyfee(String studyfee) {
-        this.studyfee = studyfee;
-    }
-<<<<<<< HEAD
-
-     */
-
-    private String LectureName;
-    private String LectureProfessor;
-    private String LecturePeriod;
-    private String LectureTime;
-    private String LectureStudyfee;
-
-    public String getLectureName() {
-        return LectureName;
-    }
-
-    public void setLectureName(String lectureName) {
-        LectureName = lectureName;
-    }
-
-    public String getLectureProfessor() {
-        return LectureProfessor;
-    }
-
-    public void setLectureProfessor(String lectureProfessor) {
-        LectureProfessor = lectureProfessor;
-    }
-
-    public String getLecturePeriod() {
-        return LecturePeriod;
-    }
-
-    public void setLecturePeriod(String lecturePeriod) {
-        LecturePeriod = lecturePeriod;
-    }
-
-    public String getLectureTime() {
-        return LectureTime;
-    }
-
-    public void setLectureTime(String lectureTime) {
-        LectureTime = lectureTime;
-    }
-
-    public String getLectureStudyfee() {
-        return LectureStudyfee;
-    }
-
-    public void setLectureStudyfee(String lectureStudyfee) {
-        LectureStudyfee = lectureStudyfee;
+    public void setlectureStudyfee(String lectureStudyfee) {
+        lectureStudyfee = lectureStudyfee;
     }
 
 }
