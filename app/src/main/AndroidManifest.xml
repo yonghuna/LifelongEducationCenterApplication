@@ -6,7 +6,6 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,52 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
-
-
-        <activity android:name=".Intro.EducationalPurpose"/>
-        <activity android:name=".Intro.Greetings"/>
-        <activity android:name=".Intro.Organizational"/>
-        <activity android:name=".Intro.History"/>
-        <activity android:name=".Intro.Map"/>
-        
-
-        <activity android:name=".Generalcurriculum.GeneralSecurityGuardCourseActivity"></activity>
-
-        <activity android:name=".MyPage.MyPage_QuestionAndAnswerActivity"></activity>
-        <activity android:name=".MyPage.MyPage_GradesVerificationActivity" />
-        <activity android:name=".MyPage.MyPage_CourseDetailsActivity" />
-        <activity android:name=".MyPage.MyPage_MemberInformationManagementActivity" />
-        <activity android:name=".Community.Community_GalleryActivity" />
-        <activity android:name=".Community.Community_NoticeActivity" />
-        <activity android:name=".Community.Community_QuestionAndAnswerActivity" />
-        <activity android:name=".Community.Community_FormattingRoomActivity" />
-        <activity android:name=".Account.SignActivity" />
+        <activity android:name=".Account.SignActivity"></activity>
         <activity android:name=".Creditbankingsystem.CreditbanksystemreferenceRoomActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemAcademicScheduleActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemEnrolmentActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformationActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemAdmissionGuideActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemActivity" />
-        <activity android:name=".Account.MemberRegistrationAgreementTwoActivity" />
-
-
+        <activity android:name=".Generalcurriculum.GeneralSecurityGuardCourseActivity" />
         <activity android:name=".Generalcurriculum.AsanCityLinkageProcessActivity" />
         <activity android:name=".Generalcurriculum.LiberalArtsCourseActivity" />
         <activity android:name=".Generalcurriculum.CertificatecourseActivity" />
         <activity android:name=".Generalcurriculum.ForeignlanguagecourseActivity" />
         <activity android:name=".Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity" />
-
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Account.Login" />
-        <activity android:name=".Account.Memberregistrationagreement" />
-
     </application>
 
 </manifest>

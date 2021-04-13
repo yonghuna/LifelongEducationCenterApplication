@@ -4,113 +4,84 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
-
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lifelongeducationcenterapplication.CommunicationResult;
 import com.example.lifelongeducationcenterapplication.R;
-import com.example.lifelongeducationcenterapplication.RemoteService;
-
 
 public class Login extends AppCompatActivity {
 
-    Button btlogin, btresgister;//로그인 버튼,회원등록 버튼
-    EditText et_id, et_phonenumber, et_password;//아이디,휴대폰 번호,비밀번호
-    Retrofit retrofit;
-
+    Button btlogin,btresgister;//로그인 버튼,회원등록 버튼
+    TextView et_id,et_phonenumber,et_password;//아이디,휴대폰 번호,비밀번호
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btlogin = (Button) findViewById(R.id.loginbutton);  //로그인 버튼
-        btresgister = (Button) findViewById(R.id.registerbutton1);  // 회원 등록 버튼
-        et_id = (EditText) findViewById(R.id.editTextTextPersonName); // 아이디(이름) 입력 텍스트
-        et_phonenumber = (EditText) findViewById(R.id.editTextTextPersonName3); //휴대폰 번호 입력 텍스트
-        et_password = (EditText) findViewById(R.id.editTextTextPassword); // 비밀번호 입력 텍스트
+        btresgister = (Button)findViewById(R.id.registerbutton1);  // 회원 등록 버튼
+        et_id = (TextView)findViewById(R.id.editTextTextPersonName); // 아이디(이름) 입력 텍스트
+        et_phonenumber = (TextView)findViewById(R.id.editTextTextPersonName3); //휴대폰 번호 입력 텍스트
+        et_password = (TextView)findViewById(R.id.editTextTextPassword); // 비밀번호 입력 텍스트
 
-
-
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
         //회원 등록 버튼 클릭시 이동
         btresgister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this, SignUpCheckActivity.class);
+                Intent intent = new Intent(Login.this, SignActivity.class);
                 startActivity(intent);
                 //회원 등록 클릭 이동
             }
         });
 
         //mysql 로그인 기능 구현
-        btlogin.setOnClickListener(new View.OnClickListener() {
+       btlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userName = et_id.getText().toString(); //회원 아이디
+                // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
+                String userID = et_id.getText().toString(); //회원 아이디
                 String userPhonenumber = et_phonenumber.getText().toString(); //회원 휴대폰 번호
                 String userPass = et_password.getText().toString(); //회원 비밀번호
-                // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
-
-                RemoteService rs = retrofit.create(RemoteService.class);
-                Call<List<CommunicationResult>> call = rs.userLogin(userName, userPhonenumber, userPass);
-                call.enqueue(new Callback<List<CommunicationResult>>() {
+                /* 테스트 중 로그인 기능
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
-                    public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
-                        if(response.isSuccessful()) {
-                            List<CommunicationResult> userlogins = new ArrayList<>();
-                            userlogins = response.body();
-                            CommunicationResult communicationResult = userlogins.get(0);
-                            if(communicationResult.getResult().equals("ok")) {
-                                    Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                                    System.out.println("로그인 성공");
-                                }else{
-                                    Toast.makeText(Login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
-                                    System.out.println("로그인 실패");
-                                }
+                    public void onResponse(String response) {
+                        try {
+                            System.out.println("hongchul" + response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) { // 로그인에 성공한 경우
+                                String userID = jsonObject.getString("userID");
+                                String userPass = jsonObject.getString("userPassword");
+
+                                Toast.makeText(getApplicationContext(),"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userPass", userPass);
+                                startActivity(intent);
+                            } else { // 로그인에 실패한 경우
+                                Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+                                return;
                             }
-
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    @Override
-                    public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
-                        System.out.println("JSON 불러오기 실패" + call + " " + t);
                     }
-                });
+                };*/
             }
         });
+
+
     }
+
     //로그인 버튼 기능
-    private void runLogin() {
+   private void runLogin(){
 
     }
-
     //회원 가입 등록 이동
-    public void goRegister() {
-        startActivity(new Intent(this, SignUpCheckActivity.class));
+    public void goRegister(){
+        startActivity(new Intent(this, SignActivity.class));
     }
 
 }
-
-
-
