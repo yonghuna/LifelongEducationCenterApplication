@@ -26,6 +26,7 @@ public class SignActivity extends AppCompatActivity {
 
     }
 
+
     public void onFragmentChanged(int index){//프래그먼트 바꾸는 메소드
         if(index==0){//
             getSupportFragmentManager().beginTransaction().replace(R.id.signcontainer,signUpCheckFragment).commit();
