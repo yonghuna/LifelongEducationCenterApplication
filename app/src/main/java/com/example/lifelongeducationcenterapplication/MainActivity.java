@@ -19,6 +19,32 @@ import android.widget.TextView;
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Account.SignActivity;
+import com.example.lifelongeducationcenterapplication.Account.SignUpCheckActivity;
+import com.example.lifelongeducationcenterapplication.Community.Community_FormattingRoomActivity;
+import com.example.lifelongeducationcenterapplication.Community.Community_GalleryActivity;
+import com.example.lifelongeducationcenterapplication.Community.Community_NoticeActivity;
+import com.example.lifelongeducationcenterapplication.Community.Community_QuestionAndAnswerActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemAcademicScheduleActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemAdmissionGuideActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemEnrolmentActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemMajorInformationActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemreferenceRoomActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.AsanCityLinkageProcessActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.CertificatecourseActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.ForeignlanguagecourseActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralSecurityGuardCourseActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.LiberalArtsCourseActivity;
+import com.example.lifelongeducationcenterapplication.Intro.EducationalPurpose;
+import com.example.lifelongeducationcenterapplication.Intro.Greetings;
+import com.example.lifelongeducationcenterapplication.Intro.History;
+import com.example.lifelongeducationcenterapplication.Intro.Map;
+import com.example.lifelongeducationcenterapplication.Intro.Organizational;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_GradesVerificationActivity;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInformationManagementActivity;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -381,78 +407,179 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.DVtxtIntro_1:
                         //Toast.makeText(MainActivity.this,"2-1번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Greetings.class);
+                        //인사말씀 액티비티
+                        startActivityForResult(intent,3);
                         break;
                     case R.id.DVtxtIntro_2:
                         //Toast.makeText(MainActivity.this,"2-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, History.class);
+                        //발전과정 및 연혁
+                        startActivityForResult(intent,4);
                         break;
                     case R.id.DVtxtIntro_3:
                         //Toast.makeText(MainActivity.this,"2-3번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, EducationalPurpose.class);
+                        startActivityForResult(intent,5);
+                        //교육목적 및 목표
                         break;
                     case R.id.DVtxtIntro_4:
                         //Toast.makeText(MainActivity.this,"2-4번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Organizational.class);
+                        startActivityForResult(intent,6);
+                        //조직 구성
                         break;
                     case R.id.DVtxtIntro_5:
                         //Toast.makeText(MainActivity.this,"2-5번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Map.class);
+                        startActivityForResult(intent,7);
+                        //교육원 찾아가는 지도
                         break;
+
                     case R.id.DVtxtBank_1:
                         //Toast.makeText(MainActivity.this,"3-1번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CreditbanksystemActivity.class);
+                        startActivityForResult(intent,8);
+                        //학점은행제란
                         break;
                     case R.id.DVtxtBank_2:
                         //Toast.makeText(MainActivity.this,"3-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CreditbanksystemAdmissionGuideActivity.class);
+                        startActivityForResult(intent,9);
+                        //학점은행제 입학 안내
                         break;
                     case R.id.DVtxtBank_3:
                         //Toast.makeText(MainActivity.this,"3-3번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CreditbanksystemMajorInformationActivity.class);
+                        startActivityForResult(intent,10);
+                        //학점은행제 전공안내
                         break;
                     case R.id.DVtxtBank_4:
                         //Toast.makeText(MainActivity.this,"3-4번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CreditbanksystemEnrolmentActivity.class);
+                        startActivityForResult(intent,11);
+                        //학점은행제 수강신청
                         break;
                     case R.id.DVtxtBank_5:
                         //Toast.makeText(MainActivity.this,"3-5번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CreditbanksystemAcademicScheduleActivity.class);
+                        startActivityForResult(intent,12);
+                        //학점은행제 스케줄
                         break;
                     case R.id.DVtxtBank_6:
                         //Toast.makeText(MainActivity.this,"3-6번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CreditbanksystemreferenceRoomActivity.class);
+                        startActivityForResult(intent,13);
+                        //학점은행제 자료실
                         break;
-                    case R.id.DVtxtEdu_1:
+                    case R.id.DVtxtEdu_1:  //일반교육과정
                         //Toast.makeText(MainActivity.this,"4-1번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, GeneralEducationCourseRecruitmentGuideActivity.class);
+                        startActivityForResult(intent,14);
+                        //일반교육과정 모집안내
                         break;
                     case R.id.DVtxtEdu_2:
                         //Toast.makeText(MainActivity.this,"4-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, ForeignlanguagecourseActivity.class);
+                        startActivityForResult(intent,15);
+                        //외국어 과정
                         break;
                     case R.id.DVtxtEdu_3:
                         //Toast.makeText(MainActivity.this,"4-3번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, CertificatecourseActivity.class);
+                        startActivityForResult(intent,16);
+                        //자격증 과정
                         break;
                     case R.id.DVtxtEdu_4:
                         //Toast.makeText(MainActivity.this,"4-4번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, LiberalArtsCourseActivity.class);
+                        startActivityForResult(intent,17);
+                        //교양 과정
                         break;
                     case R.id.DVtxtEdu_5:
                         //Toast.makeText(MainActivity.this,"4-5번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, AsanCityLinkageProcessActivity.class);
+                        startActivityForResult(intent,18);
+                        //아산시 연계과정
                         break;
                     case R.id.DVtxtEdu_6:
                         //Toast.makeText(MainActivity.this,"4-6번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, GeneralSecurityGuardCourseActivity.class);
+                        startActivityForResult(intent,19);
+                        //일반 경비원 과정
                         break;
                     case R.id.DVtxtCommunity_1:
                         //Toast.makeText(MainActivity.this,"5-1번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Community_NoticeActivity.class);
+                        startActivityForResult(intent,20);
+                        //커뮤니티 공지사항
                         break;
                     case R.id.DVtxtCommunity_2:
                         //Toast.makeText(MainActivity.this,"5-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Community_QuestionAndAnswerActivity.class);
+                        startActivityForResult(intent,21);
+                        //커뮤니티 1:1질의 응답
                         break;
                     case R.id.DVtxtCommunity_3:
                         //Toast.makeText(MainActivity.this,"5-3번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
+                        startActivityForResult(intent,22);
+                        //커뮤니티 갤러리
                         break;
                     case R.id.DVtxtCommunity_4:
                         //Toast.makeText(MainActivity.this,"5-4번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
+                        startActivityForResult(intent,23);
+                        //커뮤니티 서식 자료실
                         break;
                     case R.id.DVtxtMypage_1:
                         //Toast.makeText(MainActivity.this,"6-1번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);
+                        startActivityForResult(intent,24);
+                        //마이페이지 회원정보 관리
                         break;
                     case R.id.DVtxtMypage_2:
                         //Toast.makeText(MainActivity.this,"6-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this,  MyPage_CourseDetailsActivity.class);
+                        startActivityForResult(intent,25);
+                        //마이페이지 수강내역
                         break;
                     case R.id.DVtxtMypage_3:
                         //Toast.makeText(MainActivity.this,"6-3번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, MyPage_GradesVerificationActivity.class);
+                        startActivityForResult(intent,26);
+                        //마이페이지 성적확인
                         break;
                     case R.id.DVtxtMypage_4:
                         //Toast.makeText(MainActivity.this,"6-4번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, MyPage_QuestionAndAnswerActivity.class);
+                        startActivityForResult(intent,27);
+                        //마이페이지 질의 응답
                         break;
                 }
             }
