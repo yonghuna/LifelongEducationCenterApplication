@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Account.SignActivity;
-import com.example.lifelongeducationcenterapplication.Account.SignUpCheckActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_FormattingRoomActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_GalleryActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_NoticeActivity;
@@ -123,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
             listLecture.setAdapter(mainLectureAdapter);
 
 
+            /* 용훈씨가 테스트 한것 같으므로 확인해주세요.
             btlogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view){
@@ -140,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             });
+
+             */
         }
 
 

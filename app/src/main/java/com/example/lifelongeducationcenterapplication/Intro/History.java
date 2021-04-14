@@ -13,6 +13,5 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.introduction_history);
 
-
     }
 }
