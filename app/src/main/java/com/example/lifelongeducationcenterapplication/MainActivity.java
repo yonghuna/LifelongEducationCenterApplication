@@ -1,12 +1,14 @@
 package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.text.util.Linkify;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +21,17 @@ import android.widget.TextView;
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Account.SignActivity;
+import com.example.lifelongeducationcenterapplication.Account.SignUpCheckActivity;
+import com.example.lifelongeducationcenterapplication.Intro.EducationalPurpose;
+import com.example.lifelongeducationcenterapplication.Intro.Greetings;
+import com.example.lifelongeducationcenterapplication.Intro.History;
+import com.example.lifelongeducationcenterapplication.Intro.Map;
+import com.example.lifelongeducationcenterapplication.Intro.Organizational;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -38,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     TextView DVtxtCommunity_1,DVtxtCommunity_2,DVtxtCommunity_3,DVtxtCommunity_4;//공지사항, 1:1 질의응답, 서식자료실, 갤러리
     TextView DVtxtMypage_1,DVtxtMypage_2,DVtxtMypage_3,DVtxtMypage_4;//회원정보관리, 수강내역, 성적확인, 1:1 질문
 
+    TextView link1, link2;
 
 
 
@@ -53,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     MainLectureAdapter mainLectureAdapter; //어댑터
 
 
-    Button btlogin,btresgister;
 
 
 
@@ -61,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
             listLecture = findViewById(R.id.listLecture);
 
             drawerLayout = findViewById(R.id.drawerLayout);
@@ -72,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
             DVtxtEdu = findViewById(R.id.DVtxtEdu);
             DVtxtCommunity = findViewById(R.id.DVtxtCommunity);
             DVtxtMypage = findViewById(R.id.DVtxtMypage);
-
+            link1 = (TextView) findViewById(R.id.email);
+            link2 = (TextView)findViewById(R.id.private1);
 
 
             txtfindviewid();//id정의
@@ -87,6 +99,25 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+            // 아랫단 textview 웹뷰 링크 걸어주기
+            Pattern pattern1 = Pattern.compile("이메일무단수집금지");
+            Pattern pattern2 = Pattern.compile("개인정보처리방침");
+
+            link1.setText("이메일무단수집금지           |");
+            link2.setText("개인정보처리방침");
+
+            Linkify.TransformFilter transformFilter = new Linkify.TransformFilter() {
+                @Override
+                public String transformUrl(Matcher matcher, String s) {
+                    return "";
+                }
+            };
+
+            Linkify.addLinks(link1, pattern1, "https://lily.sunmoon.ac.kr/Page/Etc/EmailPolicy.aspx", null, transformFilter);
+            Linkify.addLinks(link2, pattern2, "https://lily.sunmoon.ac.kr/Page/Etc/Private.aspx", null, transformFilter);
+
+
+
 
             retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                     (GsonConverterFactory.create()).build();
@@ -97,23 +128,9 @@ public class MainActivity extends AppCompatActivity {
             listLecture.setAdapter(mainLectureAdapter);
 
 
-            btlogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view){
-                    Intent intent = new Intent(MainActivity.this, Login.class);
-                    startActivity(intent);
-                }
 
-                });
 
-            btresgister.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view){
-                    Intent intent = new Intent(MainActivity.this, SignUpCheckActivity.class);
-                    startActivity(intent);
-                }
 
-            });
         }
 
 
@@ -381,18 +398,33 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.DVtxtIntro_1:
                         //Toast.makeText(MainActivity.this,"2-1번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Greetings.class);
+                        startActivityForResult(intent,2);
                         break;
                     case R.id.DVtxtIntro_2:
                         //Toast.makeText(MainActivity.this,"2-2번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, History.class);
+                        startActivityForResult(intent,2);
                         break;
                     case R.id.DVtxtIntro_3:
                         //Toast.makeText(MainActivity.this,"2-3번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, EducationalPurpose.class);
+                        startActivityForResult(intent,2);
                         break;
                     case R.id.DVtxtIntro_4:
                         //Toast.makeText(MainActivity.this,"2-4번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Organizational.class);
+                        startActivityForResult(intent,2);
                         break;
                     case R.id.DVtxtIntro_5:
                         //Toast.makeText(MainActivity.this,"2-5번",Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(drawerView);
+                        intent = new Intent(MainActivity.this, Map.class);
+                        startActivityForResult(intent,2);
                         break;
                     case R.id.DVtxtBank_1:
                         //Toast.makeText(MainActivity.this,"3-1번",Toast.LENGTH_SHORT).show();

@@ -19,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.UserInfo;
 
 public class SignUpCheckActivity extends AppCompatActivity {
 

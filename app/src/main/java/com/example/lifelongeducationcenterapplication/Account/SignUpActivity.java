@@ -28,7 +28,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
+import com.example.lifelongeducationcenterapplication.CommunicationResult;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.UserInfo;
+import com.example.lifelongeducationcenterapplication.WebViewActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 

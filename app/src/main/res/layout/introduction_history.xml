@@ -13,495 +13,30 @@
               발전과정 및 연혁
             -->
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/intro" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="10dp"
+        android:text="발전과정 및 연혁"
+        android:textColor="#00897B"
+        android:textSize="30sp" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/intro" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_margin="10dp"
-                android:text="발전과정 및 연혁"
-                android:textColor="#00897B"
-                android:textSize="30sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2019"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="01. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="제 5대 김홍석 원장 취임" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="02. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="주산학평생교육원 본원 개원 및 운영(천안캠퍼스)" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2018"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="12. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="평생교육원과정 148 , 학점은행제 3개 전공, 아산시 분원 강좌 104과목 운영" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2016"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="03. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="평생교육원과정 47과목, 학점은행제 2개 전공, 아산시 분원 강좌 32과목 운영" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2015"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="10. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="탕정삼성트라팰리스 “화합의 한마당” 축제 참가, 아산시평생학습한마당 참가" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2014"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="04. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="아산시 평생학습 선문대교육원 개원" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="03. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="충청남도평생교육진흥원 충남학 교육운영 협약체결" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="01. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="주산학평생교육원으로 확대 개편" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2013"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="12. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="충청남도 평생학습 온통박람회 참가" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="03. "
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="제4대 권희태 원장 취임" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2012"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="07. "
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="평생교육원으로 명칭 변경, 부설교육기관으로 직제 조정" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:gravity="center_vertical|center"
-                    android:text="2011"
-                    android:textColor="#353232"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/line2" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="57dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|right"
-                        android:text="12. "
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="사회교육원 통합(천안캠퍼스 사회교육원, 아산캠퍼스로 통합이전)" />
-                </LinearLayout>
-
-            </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <ImageView
 
@@ -514,7 +49,289 @@
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
                 android:gravity="center_vertical|center"
-                android:text="2011"
+                android:text="2019"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="01. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="제5대 김홍석 원장 취임" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="02. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="주산학평생교육원 분원 개원 및 운영(천안캠퍼스)" />
+
+            </LinearLayout>
+
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2018"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="12. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="평생교육원과정 148 , 학점은행제 3개 전공, 아산시 분원 강좌 104과목 운영" />
+
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2016"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="03. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="평생교육원과정 47과목, 학점은행제 2개 전공, 아산시 분원 강좌 32과목 운영" />
+
+            </LinearLayout>
+
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2015"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="10. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="탕정삼성트라팰리스 “화합의 한마당” 축제 참가, 아산시평생학습한마당 참가" />
+
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2014"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="04. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="아산시 평생학습 선문대교육원 개원" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="03. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="충청남도평생교육진흥원 충남학 교육운영 협약체결" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="01. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="주산학평생교육원으로 확대 개편" />
+
+
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2013"
                 android:textColor="#353232"
                 android:textSize="18sp" />
 
@@ -541,15 +358,111 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="충청남도 평생학습 온통박람회 참가" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="03. "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="제4대 권희태 원장 취임" />
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2012"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="07. "
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="평생교육원으로 명칭 변경, 부설교육기관으로 직제 조정" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:gravity="center_vertical|center"
+                android:text="2011"
+                android:textColor="#353232"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|right"
+                    android:text="12. "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="사회교육원 통합(천안캠퍼스 사회교육원, 아산캠퍼스로 통합이전)" />
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <ImageView
 
@@ -612,13 +525,6 @@
                     android:text="제3대 김병균 원장 취임" />
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
             <ImageView
 
                 android:layout_width="match_parent"
@@ -661,15 +567,6 @@
             </LinearLayout>
 
 
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
             <ImageView
 
                 android:layout_width="match_parent"
@@ -710,12 +607,6 @@
                     android:layout_height="wrap_content"
                     android:text="CEO 리더쉽 과정 개설" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <ImageView
 
@@ -757,12 +648,6 @@
                     android:layout_height="wrap_content"
                     android:text="매년 12월 사회교육원 축제실시(회원 및 강사 작품전시, 시범, 바자회 외)" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <ImageView
 
@@ -824,14 +709,6 @@
                     android:layout_height="wrap_content"
                     android:text="특수분야 연구기관 지정-직무연수 실시" />
             </LinearLayout>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <ImageView
 
@@ -933,13 +810,6 @@
                     android:layout_height="wrap_content"
                     android:text="제2대 홍연표 원장 취임" />
             </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <ImageView
 
@@ -1044,6 +914,7 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 </LinearLayout>
 
