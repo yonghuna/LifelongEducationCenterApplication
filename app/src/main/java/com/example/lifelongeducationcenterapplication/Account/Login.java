@@ -58,7 +58,7 @@ public class Login extends AppCompatActivity {
         btresgister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this, SignUpCheckActivity.class);
+                Intent intent = new Intent(Login.this, SignActivity.class);
                 startActivity(intent);
                 //회원 등록 클릭 이동
             }
@@ -106,8 +106,10 @@ public class Login extends AppCompatActivity {
     }
 
     //회원 가입 등록 이동
-    public void goRegister() {
-        startActivity(new Intent(this, SignUpCheckActivity.class));
+
+    public void goRegister(){
+        startActivity(new Intent(this, SignActivity.class));
+
     }
 
 }

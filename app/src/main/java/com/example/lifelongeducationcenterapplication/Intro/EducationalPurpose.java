@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.lifelongeducationcenterapplication.R;
 
 public class EducationalPurpose extends AppCompatActivity {
-
+    //교육목적 및 목표
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.introduction_purposes);

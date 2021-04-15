@@ -21,7 +21,7 @@
         <activity android:name=".Intro.Organizational"/>
         <activity android:name=".Intro.History"/>
         <activity android:name=".Intro.Map"/>
-        
+
 
         <activity android:name=".Generalcurriculum.GeneralSecurityGuardCourseActivity"></activity>
 
@@ -40,15 +40,12 @@
         <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformationActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemAdmissionGuideActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemActivity" />
-        <activity android:name=".Account.MemberRegistrationAgreementTwoActivity" />
-
-
         <activity android:name=".Generalcurriculum.AsanCityLinkageProcessActivity" />
         <activity android:name=".Generalcurriculum.LiberalArtsCourseActivity" />
         <activity android:name=".Generalcurriculum.CertificatecourseActivity" />
         <activity android:name=".Generalcurriculum.ForeignlanguagecourseActivity" />
         <activity android:name=".Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity" />
-
+        <activity android:name=".WebViewActivity"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -58,7 +55,6 @@
         </activity>
 
         <activity android:name=".Account.Login" />
-        <activity android:name=".Account.Memberregistrationagreement" />
 
     </application>
 

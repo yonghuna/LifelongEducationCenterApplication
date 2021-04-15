@@ -24,7 +24,9 @@ public class SignActivity extends AppCompatActivity {
         agreement2Fragment = new Agreement2Fragment();
         signUpFragment = new SignUpFragment();
 
+
     }
+
 
     public void onFragmentChanged(int index){//프래그먼트 바꾸는 메소드
         if(index==0){//
