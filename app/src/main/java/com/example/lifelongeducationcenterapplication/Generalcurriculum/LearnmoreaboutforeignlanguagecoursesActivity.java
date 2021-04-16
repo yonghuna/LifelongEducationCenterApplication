@@ -1,18 +1,14 @@
 package com.example.lifelongeducationcenterapplication.Generalcurriculum;
-import com.example.lifelongeducationcenterapplication.R;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
 import com.example.lifelongeducationcenterapplication.R;
-
-//일반교육과정 모집안내
-public class GeneralEducationCourseRecruitmentGuideActivity extends AppCompatActivity {
-
-
+public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActivity {
+    //외국어 과정 상세보기
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general_education_course_recruitment_guide);
+        setContentView(R.layout.activity_learnmoreaboutforeignlanguagecourses);
     }
 }

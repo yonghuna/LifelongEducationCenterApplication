@@ -3,12 +3,12 @@ package com.example.lifelongeducationcenterapplication.Creditbankingsystem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+import com.example.lifelongeducationcenterapplication.R;
 public class CreditbanksystemActivity extends AppCompatActivity {
     //학점은행제란? 액티비티
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.example.lifelongeducationcenterapplication.R.layout.activity_creditbanksystem);
+        setContentView(R.layout.activity_creditbanksystem);
     }
 }

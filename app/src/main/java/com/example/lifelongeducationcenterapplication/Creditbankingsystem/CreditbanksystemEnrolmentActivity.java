@@ -1,5 +1,5 @@
 package com.example.lifelongeducationcenterapplication.Creditbankingsystem;
-
+import com.example.lifelongeducationcenterapplication.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -9,6 +9,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.example.lifelongeducationcenterapplication.R.layout.activity_creditbanksystem_enrolment);
+        setContentView(R.layout.activity_creditbanksystem_enrolment);
     }
 }
