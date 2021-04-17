@@ -9,6 +9,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("1:1질의응답");
         setContentView(R.layout.activity_community__question_and_answer);
     }
 }

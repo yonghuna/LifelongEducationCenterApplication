@@ -10,6 +10,7 @@ public class Organizational extends AppCompatActivity {
     //교육원 소개 조직도
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("조직구성");
         setContentView(R.layout.introduction_organizational);
 
 

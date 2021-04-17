@@ -9,6 +9,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("수강내역");
         setContentView(R.layout.activity_my_page__course_details);
     }
 }

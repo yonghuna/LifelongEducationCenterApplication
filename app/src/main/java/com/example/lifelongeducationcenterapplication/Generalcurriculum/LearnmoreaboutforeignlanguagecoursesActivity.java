@@ -9,6 +9,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("상세보기");
         setContentView(R.layout.activity_learnmoreaboutforeignlanguagecourses);
     }
 }

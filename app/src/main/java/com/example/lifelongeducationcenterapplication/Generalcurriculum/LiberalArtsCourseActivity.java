@@ -9,6 +9,7 @@ public class LiberalArtsCourseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("교양과정");
         setContentView(R.layout.activity_liberal_arts_course);
     }
 }

@@ -9,6 +9,7 @@ public class CreditbanksystemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("학점은행제란");
         setContentView(R.layout.activity_creditbanksystem);
     }
 }

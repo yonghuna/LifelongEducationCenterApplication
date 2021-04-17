@@ -10,6 +10,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("외국어과정");
         setContentView(R.layout.activity_foreignlanguagecourse);
     }
 }

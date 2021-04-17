@@ -11,414 +11,175 @@
     <!--
              외국어 과정 수강신청 상세보기 액티비티
            -->
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/foreignlanguagecourseBackGroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/guidevisual" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/foreignlanguagecourseBackGroundImage"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/guidevisual" />
+                android:padding="5sp"
+                android:text="수강신청"
+                android:textColor="#00838F"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/Courseregistrationbt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:text="수강신청"
+                app:backgroundTint="#E53935" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detailsforeignlanguagecourseName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_enrolment_backgroung"
+                    android:hint="강좌명"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/detailsforeignlanguagecourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_login"
+                    android:orientation="vertical"
+                    android:padding="10sp">
+
+                    <TextView
+                        android:id="@+id/detailsforeignlanguagecoursePeriod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="교육기간" />
+
+                    <TextView
+                        android:id="@+id/detailsforeignlanguagecourseTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="교육시간" />
+
+                    <TextView
+                        android:id="@+id/detailsforeignlanguagecourseStudyfee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="수강료" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:text="수강신청"
-                    android:textColor="#00838F"
-                    android:textSize="24sp" />
+                    android:text="강사"
+                    android:textColor="#0B0B0B"
+                    android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/Courseregistrationbt1"
-                    android:layout_width="wrap_content"
+
+                <TextView
+                    android:id="@+id/Instructorintroduction1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:backgroundTint="#E53935"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:text="수강신청" />
+                    android:hint="강사 소개"
+                    android:padding="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="강의소개"
+                    android:textColor="#0B0B0B"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/LectureIntroduction1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="강의 소개"
+                    android:padding="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="주차별 수업"
+                    android:textColor="#0B0B0B"
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/detailsforeignlanguagecourseName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_enrolment_backgroung"
-                        android:hint="강좌명"
-                        android:textSize="20sp" />
-
-                    <LinearLayout
-                        android:id="@+id/detailsforeignlanguagecourse"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_login"
-                        android:orientation="vertical"
-                        android:padding="10sp">
-
-                        <TextView
-                            android:id="@+id/detailsforeignlanguagecoursePeriod"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="교육기간" />
-
-                        <TextView
-                            android:id="@+id/detailsforeignlanguagecourseTime"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="교육시간" />
-
-                        <TextView
-                            android:id="@+id/detailsforeignlanguagecourseStudyfee"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="수강료" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="주"
+                        android:textColor="#0B0B0B" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="강사"
-                        android:textColor="#0B0B0B"
-                        android:textSize="20sp" />
-
-
-                    <TextView
-                        android:id="@+id/Instructorintroduction1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="강사 소개"
-                        android:padding="10sp" />
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:text="교육내용"
+                        android:textColor="#0B0B0B" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="강의소개"
-                        android:textColor="#0B0B0B"
-                        android:textSize="20sp" />
-
-
-                    <TextView
-                        android:id="@+id/LectureIntroduction1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="강의 소개"
-                        android:padding="10sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="주차별 수업"
-                        android:textColor="#0B0B0B"
-                        android:textSize="20sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="주"
-                            android:textColor="#0B0B0B" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="5"
-                            android:gravity="center"
-                            android:text="교육내용"
-                            android:textColor="#0B0B0B" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:hint="1" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="2" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="3" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="4" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="5" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="6" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="7" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="8" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="9" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="10" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="11" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/week12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="12" />
-
-                        <TextView
-                            android:id="@+id/Trainingcontent12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="교육내용" />
-                    </LinearLayout>
-
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </LinearLayout>

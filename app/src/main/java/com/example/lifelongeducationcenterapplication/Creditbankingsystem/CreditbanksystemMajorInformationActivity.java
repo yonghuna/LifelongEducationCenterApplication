@@ -9,6 +9,7 @@ public class CreditbanksystemMajorInformationActivity extends AppCompatActivity 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("전공안내");
         setContentView(R.layout.activity_creditbanksystem_major_information);
     }
 }

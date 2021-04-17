@@ -11,6 +11,7 @@ public class Community_NoticeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("공지사항");
         setContentView(R.layout.activity_community__notice);
     }
 }

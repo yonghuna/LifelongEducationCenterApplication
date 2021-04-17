@@ -11,6 +11,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("질의응답");
         setContentView(R.layout.activity_my_page__question_and_answer);
     }
 }

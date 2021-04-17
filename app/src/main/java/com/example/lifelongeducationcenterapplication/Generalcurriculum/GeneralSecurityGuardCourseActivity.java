@@ -9,6 +9,7 @@ public class GeneralSecurityGuardCourseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("일반경비원과정");
         setContentView(R.layout.activity_general_security_guard_course);
     }
 }

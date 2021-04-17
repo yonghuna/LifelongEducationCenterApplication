@@ -9,6 +9,7 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("아산시연계과정");
         setContentView(R.layout.activity_asan_city_linkage_process);
     }
 }

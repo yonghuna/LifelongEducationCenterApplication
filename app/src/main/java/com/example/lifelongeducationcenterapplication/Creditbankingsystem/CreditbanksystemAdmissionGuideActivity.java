@@ -9,6 +9,7 @@ public class CreditbanksystemAdmissionGuideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("입학안내");
         setContentView(R.layout.activity_creditbanksystem_admission_guide);
     }
     //CreditbanksystemreferenceRoom

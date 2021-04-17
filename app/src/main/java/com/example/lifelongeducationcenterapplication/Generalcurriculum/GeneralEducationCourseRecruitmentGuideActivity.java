@@ -13,6 +13,7 @@ public class GeneralEducationCourseRecruitmentGuideActivity extends AppCompatAct
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("모집안내");
         setContentView(R.layout.activity_general_education_course_recruitment_guide);
     }
 }

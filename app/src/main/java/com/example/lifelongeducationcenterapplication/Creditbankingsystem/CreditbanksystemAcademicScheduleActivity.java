@@ -9,6 +9,7 @@ public class CreditbanksystemAcademicScheduleActivity extends AppCompatActivity 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("학사일정");
         setContentView(R.layout.activity_creditbanksystem_academic_schedule);
     }
 }
