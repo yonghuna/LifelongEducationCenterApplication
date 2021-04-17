@@ -72,31 +72,33 @@ public class Login extends AppCompatActivity {
                 String userPhonenumber = et_phonenumber.getText().toString(); //회원 휴대폰 번호
                 String userPass = et_password.getText().toString(); //회원 비밀번호
                 // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
-
-                RemoteService rs = retrofit.create(RemoteService.class);
-                Call<List<CommunicationResult>> call = rs.userLogin(userName, userPhonenumber, userPass);
-                call.enqueue(new Callback<List<CommunicationResult>>() {
-                    @Override
-                    public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
-                        if(response.isSuccessful()) {
-                            List<CommunicationResult> userlogins = new ArrayList<>();
-                            userlogins = response.body();
-                            CommunicationResult communicationResult = userlogins.get(0);
-                            if(communicationResult.getId().equals("false")) {
+                if (blankCheck()) {
+                    RemoteService rs = retrofit.create(RemoteService.class);
+                    Call<List<CommunicationResult>> call = rs.userLogin(userName, userPhonenumber, userPass);
+                    call.enqueue(new Callback<List<CommunicationResult>>() {
+                        @Override
+                        public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
+                            if (response.isSuccessful()) {
+                                List<CommunicationResult> userlogins = new ArrayList<>();
+                                userlogins = response.body();
+                                CommunicationResult communicationResult = userlogins.get(0);
+                                if (communicationResult.getId().equals("false")) {
                                     Toast.makeText(Login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
                                     System.out.println("로그인 실패");
-                                }else{
+                                } else {
                                     Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                                     System.out.println("로그인 성공");
                                 }
                             }
 
                         }
-                    @Override
-                    public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
-                        System.out.println("JSON 불러오기 실패" + call + " " + t);
-                    }
-                });
+
+                        @Override
+                        public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
+                            System.out.println("JSON 불러오기 실패" + call + " " + t);
+                        }
+                    });
+                }
             }
         });
     }
@@ -107,6 +109,18 @@ public class Login extends AppCompatActivity {
     public void goRegister(){
         startActivity(new Intent(this, SignActivity.class));
 
+    }
+
+    public boolean blankCheck(){
+        boolean result = false;
+        String userPw = et_password.getText().toString().trim();
+        String userName = et_id.getText().toString().trim();
+        String userPhone = et_phonenumber.getText().toString().trim();
+
+        if(userPw.isEmpty() && userPhone.isEmpty() && userName.isEmpty()){
+            result = true;
+        }
+        return result;
     }
 
 }

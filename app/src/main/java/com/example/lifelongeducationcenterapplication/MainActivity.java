@@ -204,9 +204,6 @@ public class MainActivity extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture,null);
 
 
-            LinearLayout abc = findViewById(R.id.abc);
-            LinearLayout listMainLecture = findViewById(R.id.listMainLecture);
-
             TextView mainLectureName = convertView.findViewById(R.id.mainLectureName);//강좌명
 
             TextView mainLecturePeriod = convertView.findViewById(R.id.mainLecturePeriod);//교육기간
@@ -214,8 +211,6 @@ public class MainActivity extends AppCompatActivity {
             TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
             TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
 
-
-            //MainLecture mainLecture = mainLectureArrayList.get(position);
             MainLecture mainLecture = lectures.get(position);
             System.out.println("확인 : "+ mainLecture.getlectureName()+" "+mainLecture.getlecturePeriod());
 

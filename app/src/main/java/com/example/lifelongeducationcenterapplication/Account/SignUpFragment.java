@@ -172,7 +172,7 @@ public class SignUpFragment extends Fragment {
                 System.out.println(userAddr);
                 System.out.println(userAddrNumber);
                 blankResult = blankCheck();
-                pwResult = pwCorrect(userPass1, userPass2); // 패스워드 옳은지 체크
+                pwResult = pwCorrect(userPass1, userPass2); // 패스워드가 조건에 맞는지 확인
 
 
                 // 데이터베이스로 전송
@@ -204,7 +204,11 @@ public class SignUpFragment extends Fragment {
 
                         });
 
+                    }else{
+                        Toast.makeText(getContext(), "패스워드를 조건에 맞게 다시 설정해주세요!!", Toast.LENGTH_SHORT).show();
                     }
+                }else{
+                    Toast.makeText(getActivity(), "빈칸을 모두 채우시오!!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -216,43 +220,17 @@ public class SignUpFragment extends Fragment {
     public boolean pwCorrect(String pw1, String pw2){
         boolean result = false;
         Pattern pattern1 = Pattern.compile("[ !@#$%^&*(),.?\":{}|<>]");
-        if(pw1.length() < 9 && pw1.length() > 20) {
-            if(pw1.matches(".*[a-zA-Z].*")) {
-                System.out.println("영문자가 포함되어 있습니다.");
-                if(pw1.matches(".*[0-9].*")) {
-                    System.out.println("숫자가 포함되어 있습니다.");
-                    if(pattern1.matcher(pw1).find()){
-                        System.out.println("특수문자가 포함되어있습니다.");
-                        if(pw1.equals(pw2)) {
-                            result = true;
-                        } else {
-                            Toast.makeText(getContext(), "패스워드가 일치 하지 않습니다.", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(getContext(), "패스워드에 특수문자를 포함해주세요", Toast.LENGTH_SHORT).show();
-                    }
-
-
-                }else {
-                    System.out.println("숫자가 포함되어 있지 않습니다.");
-                    Toast.makeText(getContext(), "패스워드에 숫자를 포함해주세요", Toast.LENGTH_SHORT).show();
-                }
-            }else {
-                System.out.println("영문자가 포함되어 있지 않습니다.");
-                Toast.makeText(getContext(), "패스워드에 영문자를 포함해주세요", Toast.LENGTH_SHORT).show();
-            }
-
+        if(pw1.length() < 9 && pw1.length() > 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
+           && pattern1.matcher(pw1).find() && pw1.equals(pw2)) {
+            result = true;
         }
-        else{
-            Toast.makeText(getContext(), "패스워드를 9 ~ 20 로 만들어주세요", Toast.LENGTH_SHORT).show();
-        }
-
+        
 
         return result;
 
-
     }
 
+    // 패스워드가 빈칸인지 확인하는 메소드
     public boolean blankCheck(){
 
         boolean result = false;
@@ -265,38 +243,10 @@ public class SignUpFragment extends Fragment {
         String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
         String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
 
-        if(userPhoneNumber1.isEmpty()){
-            if(userPhoneNumber2.isEmpty()){
-                if(userPhoneNumber3.isEmpty()){
-                    if(userAddrNumber.isEmpty()){
-                        if(userDetailedAddr.isEmpty()){
-                            if(userAddr.isEmpty()){
-                                if(userPass1.isEmpty()){
-                                    if(userPass2.isEmpty()){
-                                        result = true;
-                                    }else{
-                                        Toast.makeText(getContext(), "비밀번호 확인을 입력하세요.", Toast.LENGTH_SHORT).show();
-                                    }
-                                }else{
-                                    Toast.makeText(getContext(), "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
-                                }
-                            }else{
-                                Toast.makeText(getContext(), "주소를 입력하세요.", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            Toast.makeText(getContext(), "상세 주소를 입력하세요.", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(getContext(), "주소를 입력하세요.", Toast.LENGTH_SHORT).show();
-                    }
-                }else{
-                    Toast.makeText(getContext(), "휴대폰번호를 채우세요.", Toast.LENGTH_SHORT).show();
-                }
-            }else{
-                Toast.makeText(getContext(), "휴대폰번호를 채우세요.", Toast.LENGTH_SHORT).show();
-            }
-        }else{
-            Toast.makeText(getContext(), "휴대폰번호를 채우세요.", Toast.LENGTH_SHORT).show();
+        if(userPhoneNumber1.isEmpty() && userPhoneNumber2.isEmpty() && userPhoneNumber3.isEmpty()
+            && userAddr.isEmpty() && userDetailedAddr.isEmpty() && userAddrNumber.isEmpty() && userPass1.isEmpty()
+            && userPass2.isEmpty()){
+            result = true;
         }
 
         return result;
@@ -318,6 +268,7 @@ public class SignUpFragment extends Fragment {
     }
 
 
+    // 주소검색 메소드
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
 
