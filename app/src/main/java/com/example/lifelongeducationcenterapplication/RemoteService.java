@@ -13,8 +13,8 @@ public interface RemoteService {
     public static final String BASE_URL = "http://10.0.2.2:8080/LifelongEducationCenterApplication-back/Android/";
 
 
-    @GET("lecture.jsp")
-    Call<List<MainLecture>> listLecture();//수강목록
+    @GET("englishLecture.jsp")
+    Call<List<MainLecture>> englishLecture();//수강목록
 
 
     @FormUrlEncoded
@@ -23,17 +23,22 @@ public interface RemoteService {
     Call<List<CommunicationResult>> userLogin(
             @Field("name") String name,
             @Field("phoneNumber") String phoneNumber,
-            @Field("pw") String pw); //로그인
+            @Field("password") String password); //로그인
 
     @FormUrlEncoded
     @POST("register.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<List<CommunicationResult>> userRegister(
+    Call<List<RegisterResult>> userRegister(
                             @Field("phoneNumber") String phoneNumber,
                             @Field("pw") String pw,
                             @Field("course") String course,
+                            @Field("addressNumber") String addressNumber,
                             @Field("address") String address,
+                            @Field("detailedAddress") String detailedAddress,
                             @Field("birthday") String birthday,
                             @Field("name") String name); //회원가입
+
+
+
 
 }

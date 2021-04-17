@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.lifelongeducationcenterapplication.CommunicationResult;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.WebViewActivity;
 
@@ -30,6 +31,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.app.Activity.RESULT_OK;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class SignUpFragment extends Fragment {
@@ -44,10 +46,8 @@ public class SignUpFragment extends Fragment {
     Button btnSignUpRegister, btnSignUpRegisterCancel; //등록, 취소
 
     Retrofit retrofit;
-    String name, gender, birthDate, course;
-    String post, addr, fullAddr;
-    int idx;
-    boolean result;
+    String name, birthDate, course, sex;
+    boolean pwResult, blankResult;
 
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
 
@@ -62,7 +62,7 @@ public class SignUpFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
         setfindviewbyid(view);//id설정
-        settexttext();//컴포넌트초기화(회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
+        setText();//컴포넌트초기화(회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
         spinnerphone();//스피너초기화
 
 
@@ -71,10 +71,10 @@ public class SignUpFragment extends Fragment {
         //주석처리한거는 DB연동이 다 안되어있으므로 제대로된 테스트를 하지 못해 일부러 처리했습니다.
         ////////////////////////
 
-        //dbsend();//회원가입 유저 정보 디비 전송
+        dbSend();//회원가입 유저 정보 디비 전송
         searchaddress();
-        //registeruser();
-        registerusertest();//registeruser()가 완성되면 지워도 됩니다. 회원가입후 화면이 종료되는지 테스트하는 것입니다.
+        registerUser();
+
 
         ////////////////////////
 
@@ -108,7 +108,7 @@ public class SignUpFragment extends Fragment {
     }
 
 
-    public void dbsend(){
+    public void dbSend(){
         //회원가입 유저 정보 디비 전송
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -116,31 +116,20 @@ public class SignUpFragment extends Fragment {
                 .build();
     }
 
-    public void settexttext(){//컴포넌트 초기화 (회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
+    public void setText(){//컴포넌트 초기화 (회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
 
-        txtSignUpDivision.setText(getArguments().getString("txtSignUpDivision")); // 어느 과정인지
-        txtSignUpNameAndSex.setText(getArguments().getString("txtSignUpNameAndSex")); // 성별 이름
-        txtSignUpBirthDate.setText(getArguments().getString("txtSignUpBirthDate"));// 회원 생일
+        sex = getArguments().getString("txtSignUpSex");
+        name = getArguments().getString("txtSignUpName");
+        birthDate = getArguments().getString("txtSignUpBirthDate");
+        course = getArguments().getString("txtSignUpDivision");
 
-        /* //초기세팅
+        String nameGender = name + " (" + sex + ")";
 
-        //signupcheckfragment에서 초기세팅을 했습니다. 참고해주세요. 그리고 intent는 쓰지 않고 다른방식(bundle)으로 데이터를 전달했습니다.
-          signupcheckfragment의 setsignupfragmentconponent() 부분 참고하세요.
-
-        Intent intent = getIntent();
-        UserInfo userInfo = (UserInfo) intent.getSerializableExtra("userInfo");
-
-        name = userInfo.getName();
-        gender = userInfo.getGender();
-        birthDate = userInfo.getBirthday();
-        course = userInfo.getCourse();
-        String nameGender = name + " (" + gender + ")";
 
         txtSignUpDivision.setText(course); // 어느 과정인지
         txtSignUpNameAndSex.setText(nameGender); // 성별 이름
         txtSignUpBirthDate.setText(birthDate);// 회원 생일
 
-         */
 
 
     }
@@ -153,15 +142,16 @@ public class SignUpFragment extends Fragment {
                 //1. 주소API를 이용하여 주소를 확인함.
                 //2. DaumWebViewActivity로부터 intent로 addr을 받아와서 표시해주는 부분
 
-                Intent i = new Intent(getActivity(), WebViewActivity.class);
-                startActivityForResult(i, SEARCH_ADDRESS_ACTIVITY);
+                Intent intent = new Intent(getActivity(),WebViewActivity.class);
+                startActivityForResult(intent, SEARCH_ADDRESS_ACTIVITY);
+
 
             }
         });
 
     }
 
-    public void registeruser(){
+    public void registerUser(){
         btnSignUpRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,44 +163,52 @@ public class SignUpFragment extends Fragment {
                 String userPhoneNumber = spinSignUpPhoneNumber1.getSelectedItem().toString().trim()
                         + edtSignUpPhoneNumber2.getText().toString().trim()
                         + edtSignUpPhoneNumber3.getText().toString().trim();// 휴대번호
-                String userAddr = fullAddr + " " + edtSignUpAddress2.getText().toString().trim(); // 주소
+                String userAddr = edtSignUpAddress1.getText().toString().trim();// 주소
+                String userDetailedAddr = edtSignUpAddress2.getText().toString().trim();
+                String userAddrNumber = edtSignUpPostCode.getText().toString().trim();
                 String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
                 String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
 
                 System.out.println(userAddr);
-
-                result = pwCorrect(userPass1, userPass2); // 패스워드 옳은지 체크
+                System.out.println(userAddrNumber);
+                blankResult = blankCheck();
+                pwResult = pwCorrect(userPass1, userPass2); // 패스워드 옳은지 체크
 
 
                 // 데이터베이스로 전송
-                if (result) {
-                    RemoteService rs = retrofit.create(RemoteService.class);
-                    Call<List<CommunicationResult>> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddr, birthDate, name);
-                    call.enqueue(new Callback<List<CommunicationResult>>() {
-                        public void onResponse(Call<List<CommunicationResult>> call, Response<List<CommunicationResult>> response) {
-                            List<CommunicationResult> userRegister = new ArrayList<>();
-                            userRegister = response.body();
-                            CommunicationResult communicationResult = userRegister.get(0);
-                            if (communicationResult.getResult().equals("ok")) {
-                                Toast.makeText(getContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
-                                System.out.println("회원가입 성공");
-                            } else {
-                                Toast.makeText(getContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
-                                System.out.println("회원가입 실패");
+                if (blankResult) {
+                    if (pwResult) {
+                        RemoteService rs = retrofit.create(RemoteService.class);
+                        Call<List<RegisterResult>> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, birthDate, name);
+                        call.enqueue(new Callback<List<RegisterResult>>() {
+                            public void onResponse(Call<List<RegisterResult>> call, Response<List<RegisterResult>> response) {
+                                List<RegisterResult> userRegister = new ArrayList<>();
+                                userRegister = response.body();
+                                RegisterResult RegisterResult = userRegister.get(0);
+                                if (RegisterResult.getResult().equals("ok")) {
+                                    Toast.makeText(getContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
+                                    System.out.println("회원가입 성공");
+                                    SignActivity signActivity = (SignActivity) getActivity();
+                                    signActivity.finish();
+
+                                } else {
+                                    Toast.makeText(getContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
+                                    System.out.println("회원가입 실패");
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onFailure(Call<List<CommunicationResult>> call, Throwable t) {
-                            Toast.makeText(getActivity(), "회원가입이 실패하였습니다!", Toast.LENGTH_LONG).show();
-                            //finish();
-                        }
+                            @Override
+                            public void onFailure(Call<List<RegisterResult>> call, Throwable t) {
+                                Toast.makeText(getActivity(), "회원가입이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                            }
 
-                    });
+                        });
 
+                    }
                 }
             }
         });
+
     }
 
 
@@ -255,6 +253,55 @@ public class SignUpFragment extends Fragment {
 
     }
 
+    public boolean blankCheck(){
+
+        boolean result = false;
+        String userPhoneNumber1 = spinSignUpPhoneNumber1.getSelectedItem().toString().trim(); //전화1
+        String userPhoneNumber2 = edtSignUpPhoneNumber2.getText().toString().trim();// 전화2
+        String userPhoneNumber3 = edtSignUpPhoneNumber3.getText().toString().trim();// 전화3
+        String userAddr = edtSignUpAddress1.getText().toString().trim();// 주소
+        String userDetailedAddr = edtSignUpAddress2.getText().toString().trim();
+        String userAddrNumber = edtSignUpPostCode.getText().toString().trim();
+        String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
+        String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
+
+        if(userPhoneNumber1.isEmpty()){
+            if(userPhoneNumber2.isEmpty()){
+                if(userPhoneNumber3.isEmpty()){
+                    if(userAddrNumber.isEmpty()){
+                        if(userDetailedAddr.isEmpty()){
+                            if(userAddr.isEmpty()){
+                                if(userPass1.isEmpty()){
+                                    if(userPass2.isEmpty()){
+                                        result = true;
+                                    }else{
+                                        Toast.makeText(getContext(), "비밀번호 확인을 입력하세요.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else{
+                                    Toast.makeText(getContext(), "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(getContext(), "주소를 입력하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(getContext(), "상세 주소를 입력하세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(getContext(), "주소를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(getContext(), "휴대폰번호를 채우세요.", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                Toast.makeText(getContext(), "휴대폰번호를 채우세요.", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(getContext(), "휴대폰번호를 채우세요.", Toast.LENGTH_SHORT).show();
+        }
+
+        return result;
+    }
+
     public void cancelregister(){//취소버튼을 눌렀을 경우 이전화면인 동의화면으로 이동함.
         btnSignUpRegisterCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -270,25 +317,27 @@ public class SignUpFragment extends Fragment {
         });
     }
 
-    public void registerusertest(){
-        btnSignUpRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //1. 빠트린 부분이 없는지 체크(다이얼로그로 회원등록하세겠습니까 라는 창을 띄워서 한번더 사용자에게 확인시킴)
-                //2. 비밀번호확인(올바르게 입력이 되었는지 확인, 비밀번호와 비밀번호확인과 일치하는지 확인)
-                //3. 신규회원가입정보가 데이터베이스에 저장
-                //4. 회원가입완료했다고 다이얼로그창을 띄운후 (메인화면으로 넘어감.) -> (회원가입 액티비티 종료, 자동으로 모든 프래그먼트 종료됨)
 
-                /*
 
-                 */
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
 
-                //(회원가입 액티비티 종료, 자동으로 모든 프래그먼트 종료됨)에 해당함.
-                SignActivity signActivity = (SignActivity) getActivity();
-                signActivity.finish();//액티비티 종료
+        super.onActivityResult(requestCode, resultCode, intent);
 
-            }
-        });
+        switch(requestCode){
+            case SEARCH_ADDRESS_ACTIVITY:
+
+                if(resultCode == RESULT_OK){
+                    String data = intent.getExtras().getString("data");
+                    int idx = data.indexOf(",");
+                    if (data != null)
+                        edtSignUpPostCode.setText(data.substring(0, idx));
+                        edtSignUpAddress1.setText(data.substring(idx+1));
+
+                }
+                break;
+
+        }
+
     }
 
 }

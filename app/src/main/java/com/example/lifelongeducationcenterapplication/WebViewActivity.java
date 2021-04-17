@@ -7,6 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -18,13 +19,14 @@ public class WebViewActivity extends AppCompatActivity {
         @SuppressWarnings("unused")
         public void processDATA(String data) {
 
+
+
             Bundle extra = new Bundle();
             Intent intent = new Intent();
             extra.putString("data", data);
             intent.putExtras(extra);
             setResult(RESULT_OK, intent);
             finish();
-
         }
     }
 

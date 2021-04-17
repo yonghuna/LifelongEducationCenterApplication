@@ -12,8 +12,8 @@ public class UserInfo implements Serializable {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("birthday")
-    private String birthday;
+    @SerializedName("birth")
+    private String birth;
 
     @SerializedName("phoneNumber")
     private String phoneNumber;
@@ -21,11 +21,14 @@ public class UserInfo implements Serializable {
     @SerializedName("address")
     private String address;
 
-    @SerializedName("pw")
-    private String pw;
+    @SerializedName("addressNumber")
+    private String addressNumber;
 
-    @SerializedName("gender")
-    private String gender;
+    @SerializedName("password")
+    private String password;
+
+    @SerializedName("sex")
+    private String sex;
 
 
     public String getCourse() {
@@ -44,12 +47,12 @@ public class UserInfo implements Serializable {
         this.name = name;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getBirth() {
+        return birth;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setBirth(String birthday) {
+        this.birth = birthday;
     }
 
     public String getPhoneNumber() {
@@ -69,20 +72,22 @@ public class UserInfo implements Serializable {
     }
 
     public String getPw() {
-        return pw;
+        return password;
     }
 
     public void setPw(String pw) {
-        this.pw = pw;
+        this.password = pw;
     }
 
     public String getGender() {
-        return gender;
+        return sex;
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        this.sex = gender;
     }
+
+
 
 }
 

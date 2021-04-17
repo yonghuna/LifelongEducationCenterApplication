@@ -82,12 +82,12 @@ public class Login extends AppCompatActivity {
                             List<CommunicationResult> userlogins = new ArrayList<>();
                             userlogins = response.body();
                             CommunicationResult communicationResult = userlogins.get(0);
-                            if(communicationResult.getResult().equals("ok")) {
-                                    Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                                    System.out.println("로그인 성공");
-                                }else{
+                            if(communicationResult.getId().equals("false")) {
                                     Toast.makeText(Login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
                                     System.out.println("로그인 실패");
+                                }else{
+                                    Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                                    System.out.println("로그인 성공");
                                 }
                             }
 
@@ -100,10 +100,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-    //로그인 버튼 기능
-    private void runLogin() {
 
-    }
 
     //회원 가입 등록 이동
 

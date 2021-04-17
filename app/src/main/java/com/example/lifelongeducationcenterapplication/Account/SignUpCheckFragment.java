@@ -32,7 +32,7 @@ public class SignUpCheckFragment extends Fragment {
     String userBirhday;
     String userName;
     String userGender;
-    Intent intent;
+
 
     // 스피너 값 설정
     String[] year = {
@@ -207,16 +207,15 @@ public class SignUpCheckFragment extends Fragment {
         String spinBirthday3 = spinBirthCheck3.getSelectedItem().toString().trim(); //회원 생일3
 
         userBirhday = spinBirthday1 + "/" + spinBirthday2 + "/" +spinBirthday3;
-        String nameGender = userName + " (" + userGender + ")";
 
 
         if(check == true){
 
             Bundle bundle = new Bundle();
             bundle.putString("txtSignUpDivision","일반과정");
-            bundle.putString("txtSignUpNameAndSex",nameGender);
             bundle.putString("txtSignUpBirthDate",userBirhday);
-
+            bundle.putString("txtSignUpName", userName);
+            bundle.putString("txtSignUpSex", userGender);
             /* 잘못된과정
             signActivity.signUpFragment.txtSignUpDivision.setText("일반과정");//과정
             signActivity.signUpFragment.txtSignUpNameAndSex.setText(nameGender);//성별
@@ -229,8 +228,10 @@ public class SignUpCheckFragment extends Fragment {
 
             Bundle bundle = new Bundle();
             bundle.putString("txtSignUpDivision","일반과정");
-            bundle.putString("txtSignUpNameAndSex",nameGender);
             bundle.putString("txtSignUpBirthDate",userBirhday);
+            bundle.putString("txtSignUpName", userName);
+            bundle.putString("txtSignUpSex", userGender);
+
 
             /*
             signActivity.signUpFragment.txtSignUpDivision.setText("학점은행제과정");
