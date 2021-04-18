@@ -1,5 +1,5 @@
 package com.example.lifelongeducationcenterapplication.Generalcurriculum;
-
+import com.example.lifelongeducationcenterapplication.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,6 +10,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.example.lifelongeducationcenterapplication.R.layout.activity_foreignlanguagecourse);
+        getSupportActionBar().setTitle("외국어과정");
+        setContentView(R.layout.activity_foreignlanguagecourse);
     }
 }

@@ -9,6 +9,7 @@ public class MyPage_GradesVerificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("성적확인");
         setContentView(R.layout.activity_my_page__grades_verification);
     }
 }

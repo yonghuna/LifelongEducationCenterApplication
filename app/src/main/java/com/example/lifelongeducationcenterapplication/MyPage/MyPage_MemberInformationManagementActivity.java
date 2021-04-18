@@ -9,6 +9,7 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("회원정보관리");
         setContentView(R.layout.activity_my_page__member_information_management);
     }
 }

@@ -23,10 +23,10 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView1"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/guidevisual" />
+                android:layout_height="wrap_content"
+                android:src="@drawable/guidevisual"
+                android:adjustViewBounds="true"/>
 
             <TextView
                 android:layout_width="match_parent"

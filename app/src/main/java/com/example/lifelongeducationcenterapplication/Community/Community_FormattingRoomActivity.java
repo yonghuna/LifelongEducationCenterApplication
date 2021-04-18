@@ -9,6 +9,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("서식자료실");
         setContentView(R.layout.activity_community__formatting_room);
     }
 }
