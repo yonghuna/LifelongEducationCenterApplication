@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.lifelongeducationcenterapplication.R;
 
@@ -28,7 +29,6 @@ public class SignUpCheckFragment extends Fragment {
 
     boolean check = true;
 
-    String course;
     String userBirhday;
     String userName;
     String userGender;
@@ -135,31 +135,6 @@ public class SignUpCheckFragment extends Fragment {
         }
         return checkradio;
 
-        /*
-        rgCheckCourse.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == R.id.rbGeneralCourse){
-                    check[0] = true;
-                    System.out.println("결과"+ check[0]);
-                }else if(checkedId == R.id.rbCreditBank){
-                    check[0] = false;
-                    System.out.println("결과"+ check[0]);
-                }
-            }
-        });
-
-         */
-
-        /*
-        System.out.println("결과2"+ check[0]);
-        return check[0];
-
-        rgCheckCourse.getCheckedRadioButtonId();
-
-
-         */
 
     }
 
@@ -183,17 +158,34 @@ public class SignUpCheckFragment extends Fragment {
                 SignActivity signActivity = (SignActivity) getActivity();//부모엑티비티를 가져옴.
 
                 setsignupfragmentconponent(signActivity,check); //회원가입화면에 입력초기화
-
-                if(check == true){
-                    System.out.println("결과"+check);
-                    signActivity.onFragmentChanged(1);//일반과정동의 이동
-                }else if(check == false){
-                    System.out.println("결과"+check);
-                    signActivity.onFragmentChanged(2);//학점은행제동의 이동
+                if(blankCheck()) {
+                    if (check == true) {
+                        System.out.println("결과" + check);
+                        signActivity.onFragmentChanged(1);//일반과정동의 이동
+                    } else if (check == false) {
+                        System.out.println("결과" + check);
+                        signActivity.onFragmentChanged(2);//학점은행제동의 이동
+                    }
+                }else{
+                    Toast.makeText(signActivity.getApplicationContext(),"빈칸을 다 채워주세요", Toast.LENGTH_LONG).show();
                 }
 
             }
         });
+    }
+
+    // 빈칸 체크
+    public boolean blankCheck(){ 
+
+        boolean result = false;
+
+        if(edtNameCheck.getText().toString().isEmpty()) {
+
+        }else{
+            result = true;
+        }
+
+        return result;
     }
 
 

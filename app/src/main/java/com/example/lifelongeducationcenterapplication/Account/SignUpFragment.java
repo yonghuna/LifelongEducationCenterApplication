@@ -206,6 +206,8 @@ public class SignUpFragment extends Fragment {
 
                     }else{
                         Toast.makeText(getContext(), "패스워드를 조건에 맞게 다시 설정해주세요!!", Toast.LENGTH_SHORT).show();
+                        System.out.println(edtSignUpPassword.getText().toString());
+                        System.out.println(edtSignUpPasswordCheck.getText().toString());
                     }
                 }else{
                     Toast.makeText(getActivity(), "빈칸을 모두 채우시오!!", Toast.LENGTH_LONG).show();
@@ -220,7 +222,7 @@ public class SignUpFragment extends Fragment {
     public boolean pwCorrect(String pw1, String pw2){
         boolean result = false;
         Pattern pattern1 = Pattern.compile("[ !@#$%^&*(),.?\":{}|<>]");
-        if(pw1.length() < 9 && pw1.length() > 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
+        if(pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
            && pattern1.matcher(pw1).find() && pw1.equals(pw2)) {
             result = true;
         }
@@ -246,6 +248,8 @@ public class SignUpFragment extends Fragment {
         if(userPhoneNumber1.isEmpty() && userPhoneNumber2.isEmpty() && userPhoneNumber3.isEmpty()
             && userAddr.isEmpty() && userDetailedAddr.isEmpty() && userAddrNumber.isEmpty() && userPass1.isEmpty()
             && userPass2.isEmpty()){
+
+        }else{
             result = true;
         }
 

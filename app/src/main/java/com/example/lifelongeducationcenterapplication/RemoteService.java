@@ -8,13 +8,35 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RemoteService {
-    public static final String BASE_URL = "http://10.0.2.2:8080/LifelongEducationCenterApplication-back/Android/";
+    public static final String BASE_URL = "http://" + Ipaddress.ip  +"/LifelongEducationCenterApplication-back/Android/";
+
+
+    @GET("notice.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> notice();//수강목록
 
 
     @GET("lecture.jsp")
-    Call<List<MainLecture>> lecture();//수강목록
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Lecture>> lecture(
+            @Query("division") String division);//수강목록
+
+
+    @GET("lectureDetail.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<LectureDetail>> lectureDetail(
+            @Query("number") int number);//수강 상세보기
+
+
+
+    @GET("lectureWeek.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<LectureWeek>> lectureWeek(
+            @Query("number")   int number);//수강목록 주차별 수업
+
 
 
     @FormUrlEncoded
