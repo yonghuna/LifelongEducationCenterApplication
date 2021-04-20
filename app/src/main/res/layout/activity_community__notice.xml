@@ -17,6 +17,7 @@
         android:src="@drawable/communityvisual" />
 
     <TextView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5sp"
@@ -24,6 +25,7 @@
         android:textColor="#00838F"
         android:textSize="24sp" />
     <ListView
+        android:id="@+id/noticeListview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

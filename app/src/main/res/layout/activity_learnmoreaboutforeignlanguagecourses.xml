@@ -99,6 +99,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/Professor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="강사"
