@@ -57,6 +57,7 @@
             <!--
                외국어 과정 수강신청 버튼, 상세보기 버튼
             -->
+
             <Button
                 android:id="@+id/foreignlanguagecourseEnrolment1"
                 android:layout_width="wrap_content"
@@ -64,12 +65,12 @@
                 android:layout_marginStart="200dp"
                 android:layout_marginLeft="200dp"
                 android:text="수강신청"
-                app:backgroundTint="#E53935" />
+                app:backgroundTint="#C82020" />
 
             <Button
                 android:id="@+id/foreignlanguagecourseEnrolment2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:text="상세보기"
