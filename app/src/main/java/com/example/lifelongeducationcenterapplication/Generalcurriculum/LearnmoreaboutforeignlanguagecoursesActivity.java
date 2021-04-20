@@ -52,7 +52,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         setContentView(R.layout.activity_learnmoreaboutforeignlanguagecourses);
         textName = (TextView) findViewById(R.id.detailsforeignlanguagecourseName);
         textPeriod = (TextView)findViewById(R.id.detailsforeignlanguagecoursePeriod);
-        textProfessor = (TextView)findViewById(R.id.detailsforeignlanguagecoursePeriod);
+        textProfessor = (TextView)findViewById(R.id.Professor);
         textTime = (TextView)findViewById(R.id.detailsforeignlanguagecourseTime);
         textFee = (TextView)findViewById(R.id.detailsforeignlanguagecourseStudyfee);
         introduceProfessor = (TextView)findViewById(R.id.Instructorintroduction1);
@@ -88,10 +88,10 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                     lecturesDetail = response.body();
                     LectureDetail ld = lecturesDetail.get(0);
                     textName.setText(ld.getName());
-                    textPeriod.setText(ld.getStartDate() +" ~ " + ld.getEndDate() + "(" + ld.getDatedetail() + ")");
+                    textPeriod.setText("교육기간  : " + ld.getStartDate() +" ~ " + ld.getEndDate() + "(" + ld.getDatedetail() + ")");
                     textProfessor.setText(ld.getProfessor());
-                    textTime.setText(ld.getDayOfTheWeek() + " " + ld.getStartTime() + " ~ " + ld.getEndTime());
-                    textFee.setText(ld.getStudyFee());
+                    textTime.setText("교육 시간 : " +ld.getDayOfTheWeek() + " " + ld.getStartTime() + " ~ " + ld.getEndTime());
+                    textFee.setText("수강료      : "+ld.getStudyFee());
                     System.out.println(ld.getBriefhistory());
                     if(ld.getBriefhistory().isEmpty()){
                         introduceProfessor.setText("");

@@ -7,26 +7,26 @@ public class LectureDetail {
     @SerializedName("name")
     public String name;
 
-    @SerializedName("startDate")
+    @SerializedName("startdate")
     public String startDate;
 
-    @SerializedName("endDate")
+    @SerializedName("enddate")
     public  String endDate;
 
     @SerializedName("professor")
     public String professor;
 
-    @SerializedName("studyFee")
+    @SerializedName("studyfee")
     public  String studyFee;
 
-    @SerializedName("startTime")
+    @SerializedName("starttime")
     public String startTime;
 
 
-    @SerializedName("endTime")
+    @SerializedName("endtime")
     public  String endTime;
 
-    @SerializedName("dayOfTheWeek")
+    @SerializedName("dayoftheweek")
     public String dayOfTheWeek;
 
     @SerializedName("briefhistory")

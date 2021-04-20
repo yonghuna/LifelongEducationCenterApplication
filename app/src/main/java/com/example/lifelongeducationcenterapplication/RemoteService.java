@@ -14,6 +14,11 @@ public interface RemoteService {
     public static final String BASE_URL = "http://" + Ipaddress.ip  +"/LifelongEducationCenterApplication-back/Android/";
 
 
+    @GET("notice.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> notice();//수강목록
+
+
     @GET("lecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Lecture>> lecture(

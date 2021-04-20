@@ -32,6 +32,11 @@
         <activity android:name=".Intro.History"/>
         <activity android:name=".Intro.Organizational"/>
         <activity android:name=".Intro.EducationalPurpose"/>
+        <activity android:name=".Community.Community_NoticeActivity"/>
+        <activity android:name=".WebViewActivity"/>
+
+
+
 
         <activity android:name=".MainActivity">
             <intent-filter>
