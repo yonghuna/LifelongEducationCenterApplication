@@ -11,7 +11,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface RemoteService {
-    public static final String BASE_URL = "http://10.0.2.2:8080/LifelongEducationCenterApplication-back/Android/";
+    public static final String BASE_URL = "http://" + ipaddress.ip  +"/LifelongEducationCenterApplication-back/Android/";
 
 
     @GET("lecture.jsp")
