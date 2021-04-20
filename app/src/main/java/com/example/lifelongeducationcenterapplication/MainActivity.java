@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.text.util.Linkify;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -77,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
-    List<MainLecture> lectures = new ArrayList<>(); // 배열 객체 생성
+    List<Lecture> lectures = new ArrayList<>(); // 배열 객체 생성
     ListView listLecture;//리스트뷰
 
-    MainLectureAdapter mainLectureAdapter; //어댑터
+    //MainLectureAdapter mainLectureAdapter; //어댑터
 
 
 
@@ -143,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
             rs = retrofit.create(RemoteService.class);
 
 
-            mainLectureAdapter = new MainLectureAdapter();
-            listLecture.setAdapter(mainLectureAdapter);
+            //mainLectureAdapter = new MainLectureAdapter();
+            //listLecture.setAdapter(mainLectureAdapter);
 
 
 
@@ -180,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+/*
     class MainLectureAdapter extends BaseAdapter {
 
         @Override
@@ -205,14 +203,12 @@ public class MainActivity extends AppCompatActivity {
 
 
             TextView mainLectureName = convertView.findViewById(R.id.mainLectureName);//강좌명
-
             TextView mainLecturePeriod = convertView.findViewById(R.id.mainLecturePeriod);//교육기간
             TextView mainLectureProfessor = convertView.findViewById(R.id.mainLectureProfessor);//교수진
             TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
             TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
 
             MainLecture mainLecture = lectures.get(position);
-            System.out.println("확인 : "+ mainLecture.getlectureName()+" "+mainLecture.getlecturePeriod());
 
             mainLectureName.setText(mainLecture.getlectureName());
             mainLecturePeriod.setText(mainLecture.getlecturePeriod());
@@ -222,6 +218,8 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
+
+ */
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
