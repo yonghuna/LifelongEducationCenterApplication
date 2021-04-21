@@ -186,10 +186,19 @@
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
-                <TableRow
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="150dp">
+                    android:orientation="horizontal"
+                    android:gravity="right">
 
                     <RadioButton
                         android:id="@+id/tworadioBt1"
@@ -202,8 +211,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="동의하지 않습니다." />
-                </TableRow>
-            </TableLayout>
+                </RadioGroup>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -327,10 +337,20 @@
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
-                <TableRow
+
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="150dp">
+                    android:orientation="horizontal"
+                    android:gravity="right">
 
                     <RadioButton
                         android:id="@+id/tworadioBt3"
@@ -343,9 +363,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="동의하지 않습니다." />
-                </TableRow>
+                </RadioGroup>
 
-            </TableLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -483,10 +503,20 @@
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
-                <TableRow
+
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="150dp">
+                    android:orientation="horizontal"
+                    android:gravity="right">
 
                     <RadioButton
                         android:id="@+id/tworadioBt5"
@@ -499,16 +529,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="동의하지 않습니다." />
-                </TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:paddingLeft="5dp"
-                    android:text="개인정보의 목적외 이용 및 제3자 제공 동의(고유식별정보)[필수]"
-                    android:textSize="24sp" />
+                </RadioGroup>
 
-            </TableLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="5dp"
+                android:text="개인정보의 목적외 이용 및 제3자 제공 동의(고유식별정보)[필수]"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -639,10 +670,18 @@
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
-                <TableRow
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="150dp">
+                    android:orientation="horizontal"
+                    android:gravity="right">
 
                     <RadioButton
                         android:id="@+id/tworadioBt7"
@@ -654,36 +693,30 @@
                         android:id="@+id/tworadioBt8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="동의하지 않습니다." />
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="120dp">
+                        android:text="동의하지 않습니다."/>
+                </RadioGroup>
 
-                </TableRow>
-            </TableLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancel_button2"
-            android:layout_width="wrap_content"
+            android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="취소" />
         <Button
             android:id="@+id/agree_button2"
-            android:layout_width="wrap_content"
+            android:layout_width="0sp"
             android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:text="동의"
             android:textColor="#EBF8F1"
