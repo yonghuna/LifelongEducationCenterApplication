@@ -39,6 +39,7 @@ import com.example.lifelongeducationcenterapplication.Intro.EducationalPurpose;
 import com.example.lifelongeducationcenterapplication.Intro.Greetings;
 import com.example.lifelongeducationcenterapplication.Intro.History;
 import com.example.lifelongeducationcenterapplication.Intro.Organizational;
+import com.example.lifelongeducationcenterapplication.Intro.SearchMap;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_GradesVerificationActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInformationManagementActivity;
@@ -446,9 +447,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.DVtxtIntro_5:
                         //Toast.makeText(MainActivity.this,"2-5번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Map.class);
+                        intent = new Intent(MainActivity.this, SearchMap.class);
 
-                        startActivityForResult(intent,7);
+                        startActivityForResult(intent,28);
                         //교육원 찾아가는 지도
 
                         break;
