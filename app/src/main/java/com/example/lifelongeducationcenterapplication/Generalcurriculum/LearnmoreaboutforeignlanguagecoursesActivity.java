@@ -93,7 +93,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                     textTime.setText("교육 시간 : " +ld.getDayOfTheWeek() + " " + ld.getStartTime() + " ~ " + ld.getEndTime());
                     textFee.setText("수강료      : "+ld.getStudyFee());
                     System.out.println(ld.getBriefhistory());
-                    if(ld.getBriefhistory().isEmpty()){
+                    if(ld.getBriefhistory() == null || ld.getBriefhistory().equals("")){
                         introduceProfessor.setText("");
                     }else{
                         introduceProfessor.setText(ld.getBriefhistory());

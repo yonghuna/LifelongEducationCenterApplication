@@ -42,7 +42,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @POST("login.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<List<CommunicationResult>> userLogin(
+    Call<CommunicationResult> userLogin(
             @Field("name") String name,
             @Field("phoneNumber") String phoneNumber,
             @Field("password") String password); //로그인
@@ -58,6 +58,7 @@ public interface RemoteService {
                             @Field("address") String address,
                             @Field("detailedAddress") String detailedAddress,
                             @Field("birthday") String birthday,
-                            @Field("name") String name); //회원가입
+                            @Field("name") String name,
+                            @Field("sex") String sex); //회원가입
 
 }

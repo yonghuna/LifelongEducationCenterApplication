@@ -1,5 +1,6 @@
 package com.example.lifelongeducationcenterapplication.Account;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lifelongeducationcenterapplication.Account.SignActivity;
 import com.example.lifelongeducationcenterapplication.CommunicationResult;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
@@ -179,7 +181,7 @@ public class SignUpFragment extends Fragment {
                 if (blankResult) {
                     if (pwResult) {
                         RemoteService rs = retrofit.create(RemoteService.class);
-                        Call<List<RegisterResult>> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, birthDate, name);
+                        Call<List<RegisterResult>> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, birthDate, name, sex);
                         call.enqueue(new Callback<List<RegisterResult>>() {
                             public void onResponse(Call<List<RegisterResult>> call, Response<List<RegisterResult>> response) {
                                 List<RegisterResult> userRegister = new ArrayList<>();
