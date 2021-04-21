@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity"></activity>
         <activity android:name=".Account.SignActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemreferenceRoomActivity" />
@@ -33,7 +34,14 @@
         <activity android:name=".Intro.Organizational"/>
         <activity android:name=".Intro.EducationalPurpose"/>
         <activity android:name=".Community.Community_NoticeActivity"/>
+        <activity android:name=".Community.Community_FormattingRoomActivity"/>
+        <activity android:name=".Community.Community_GalleryActivity"/>
+        <activity android:name=".Community.Community_QuestionAndAnswerActivity"/>
         <activity android:name=".WebViewActivity"/>
+        <activity android:name=".MyPage.MyPage_CourseDetailsActivity"/>
+        <activity android:name=".MyPage.MyPage_GradesVerificationActivity"/>
+        <activity android:name=".MyPage.MyPage_MemberInformationManagementActivity"/>
+        <activity android:name=".MyPage.MyPage_QuestionAndAnswerActivity"/>
 
 
 

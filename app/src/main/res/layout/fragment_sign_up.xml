@@ -7,21 +7,32 @@
     tools:context=".Account.SignActivity"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="등록구분"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:autoSizeTextType="uniform"/>
         <TextView
             android:id="@+id/txtSignUpDivision"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="등록구분입력"/>
+            android:hint="등록구분입력"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 
@@ -31,15 +42,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="이름"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:autoSizeTextType="uniform"/>
         <TextView
             android:id="@+id/txtSignUpNameAndSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="이름입력(성별입력)"/>
+            android:hint="이름입력(성별입력)"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 
@@ -49,47 +62,68 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="생년월일"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:autoSizeTextType="uniform"/>
         <TextView
             android:id="@+id/txtSignUpBirthDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="생년월일입력"/>
+            android:hint="생년월일입력"
+            android:textSize="20sp"
+            />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="휴대폰번호"
             android:gravity="center"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:autoSizeTextType="uniform"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <Spinner
+                android:id="@+id/spinSignUpPhoneNumber1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <Spinner
-                android:id="@+id/spinSignUpPhoneNumber1"
-                android:layout_width="0sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
             <EditText
                 android:id="@+id/edtSignUpPhoneNumber2"
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:imeOptions="actionDone"
+                android:inputType="number"/>
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="-"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"/>
             <EditText
                 android:id="@+id/edtSignUpPhoneNumber3"
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:imeOptions="actionDone"
+                android:inputType="number"/>
+        </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
@@ -100,11 +134,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="우편물수령지"
             android:gravity="center"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:autoSizeTextType="uniform"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -112,7 +147,8 @@
                 android:id="@+id/edtSignUpPostCode"
                 android:layout_width="80sp"
                 android:layout_height="wrap_content"
-                android:hint="우편번호"/>
+                android:hint="우편번호"
+                android:enabled="false"/>
             <Button
                 android:id="@+id/btnSignUpAddressSearch"
                 android:layout_width="150sp"
@@ -124,13 +160,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btnSignUpAddressSearch"
-                android:hint="주소1"/>
+                android:hint="주소1"
+                android:inputType="text"
+                android:autoSizeTextType="uniform"
+                android:enabled="false"/>
             <EditText
                 android:id="@+id/edtSignUpAddress2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edtSignUpAddress1"
-                android:hint="주소2"/>
+                android:hint="주소2"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:autoSizeTextType="uniform"/>
         </RelativeLayout>
 
     </LinearLayout>
@@ -139,49 +181,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="비밀번호 입력"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:autoSizeTextType="uniform"/>
         <EditText
             android:id="@+id/edtSignUpPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="150sp"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:text="비밀번호 확인"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:autoSizeTextType="uniform"/>
         <EditText
             android:id="@+id/edtSignUpPasswordCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/btnSignUpRegister"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="등록"/>
         <Button
             android:id="@+id/btnSignUpRegisterCancel"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="취소"/>
+        <Button
+            android:id="@+id/btnSignUpRegister"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="등록"
+            android:textColor="#EBF8F1"
+            android:textColorLink="#B2FF59"
+            app:backgroundTint="#2F8C5F"/>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="※ 비밀번호 작성규칙\n① 작성방법 : 숫자와 영문자, 특수문자 등을 혼합하여 9자리 이상\n② 변경주기 : 최소 분기 1회 이상\n③ 기타 : 추측하기 쉬운문자, 단어 제한(일련번호, 전화번호, 잘 알려진단어 등), 동일한 비밀번호 재사용 제한 등\n※필수입력사항 : 휴대폰번호, 우편물수령지, 비밀번호 입력, 비밀번호 확인은 필수 입력항목입니다.\n회원등록 후 수강이력이 없을시(최대6개월) 자동 탈퇴됩니다."/>
 
+
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

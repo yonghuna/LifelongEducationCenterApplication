@@ -53,7 +53,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="right">
             <!--
                교양 과정 수강신청 버튼, 상세보기 버튼
             -->
@@ -61,8 +62,6 @@
                 android:id="@+id/LiberalArtsCourseEnrolment1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
-                android:layout_marginLeft="200dp"
                 android:text="수강신청"
                 app:backgroundTint="#E53935" />
 
