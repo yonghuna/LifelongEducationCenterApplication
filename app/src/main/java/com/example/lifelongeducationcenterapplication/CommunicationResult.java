@@ -16,6 +16,7 @@ public class CommunicationResult {
     @SerializedName("course")
     public String course;
 
+
     public String getResult() {
         return result;
     }

@@ -10,4 +10,7 @@ public class StaticId {
 
     @SerializedName("course")
     public static String course;
+
+    @SerializedName("division")
+    public static String division;
 }

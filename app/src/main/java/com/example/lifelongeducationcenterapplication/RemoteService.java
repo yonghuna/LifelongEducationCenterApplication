@@ -50,7 +50,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @POST("register.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<List<RegisterResult>> userRegister(
+    Call<RegisterResult> userRegister(
                             @Field("phoneNumber") String phoneNumber,
                             @Field("pw") String pw,
                             @Field("course") String course,

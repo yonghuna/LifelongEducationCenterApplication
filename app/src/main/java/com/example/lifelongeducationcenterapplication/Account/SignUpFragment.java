@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.lifelongeducationcenterapplication.Account.SignActivity;
 import com.example.lifelongeducationcenterapplication.CommunicationResult;
+import com.example.lifelongeducationcenterapplication.MainActivity;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -171,8 +172,7 @@ public class SignUpFragment extends Fragment {
                 String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
                 String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
 
-                System.out.println(userAddr);
-                System.out.println(userAddrNumber);
+
                 blankResult = blankCheck();
                 pwResult = pwCorrect(userPass1, userPass2); // 패스워드가 조건에 맞는지 확인
 
@@ -181,26 +181,25 @@ public class SignUpFragment extends Fragment {
                 if (blankResult) {
                     if (pwResult) {
                         RemoteService rs = retrofit.create(RemoteService.class);
-                        Call<List<RegisterResult>> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, birthDate, name, sex);
-                        call.enqueue(new Callback<List<RegisterResult>>() {
-                            public void onResponse(Call<List<RegisterResult>> call, Response<List<RegisterResult>> response) {
-                                List<RegisterResult> userRegister = new ArrayList<>();
-                                userRegister = response.body();
-                                RegisterResult RegisterResult = userRegister.get(0);
-                                if (RegisterResult.getResult().equals("ok")) {
+                        Call<RegisterResult> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, birthDate, name, sex);
+                        call.enqueue(new Callback<RegisterResult>() {
+                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                RegisterResult registerResult = response.body();
+                                System.out.println("result------------ " + registerResult.getResult());
+                                if (registerResult.getResult().equals("ok")) {
                                     Toast.makeText(getContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
                                     System.out.println("회원가입 성공");
-                                    SignActivity signActivity = (SignActivity) getActivity();
-                                    signActivity.finish();
+                                    Intent intent = new Intent(getContext(), MainActivity.class);
+                                    startActivity(intent);
 
-                                } else {
+                                } else if(registerResult.getResult().equals("false")){
                                     Toast.makeText(getContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
                                     System.out.println("회원가입 실패");
                                 }
                             }
 
                             @Override
-                            public void onFailure(Call<List<RegisterResult>> call, Throwable t) {
+                            public void onFailure(Call<RegisterResult> call, Throwable t) {
                                 Toast.makeText(getActivity(), "회원가입이 실패하였습니다!", Toast.LENGTH_LONG).show();
                             }
 

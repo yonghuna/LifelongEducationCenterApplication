@@ -13,6 +13,7 @@ import com.example.lifelongeducationcenterapplication.CommunicationResult;
 import com.example.lifelongeducationcenterapplication.MainActivity;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 
 import org.json.JSONException;
 
@@ -34,7 +35,9 @@ public class Login extends AppCompatActivity {
 
     Retrofit retrofit;
     RemoteService rs;
-    List<CommunicationResult> userlogins;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,36 +79,28 @@ public class Login extends AppCompatActivity {
 
                 // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
                 if (blankCheck()) {
-
                     Call<CommunicationResult> call = rs.userLogin(userName, userPhonenumber, userPass);
                     call.enqueue(new Callback<CommunicationResult>() {
                         @Override
                         public void onResponse(Call<CommunicationResult> call, Response<CommunicationResult> response) {
-                            if (response.isSuccessful()) {
-                                //userlogins = response.body();
-
-                                if (userlogins.get(0).getResult().equals("false")) {
-                                    Toast.makeText(Login.this, "로그인이 실패했습니다 다시 입력해주세요", Toast.LENGTH_LONG).show();
-                                    System.out.println("로그인 실패");
+                                CommunicationResult communicationResult = response.body();
+                                if (communicationResult.getResult().equals("false")) {
+                                    Toast.makeText(getApplicationContext(), "입력 내용을 다시 확인해주세요 !!", Toast.LENGTH_LONG).show();
                                 } else {
-                                    //CommunicationResult.id = communicationResult.id;
-                                    //CommunicationResult.course = communicationResult.course;
-                                    Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_LONG).show();
-                                    //System.out.println(CommunicationResult.id + " " + CommunicationResult.course);
-                                    System.out.println("로그인 성공");
+                                    StaticId.id = communicationResult.getId();
+                                    StaticId.course = communicationResult.getCourse();
+                                    Toast.makeText(getApplicationContext(), userName + "님 로그인 되었습니다.", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                 }
-                            }
+
                         }
 
                         @Override
                         public void onFailure(Call<CommunicationResult> call, Throwable t) {
-                            System.out.println("JSON 불러오기 실패" + call + " " + t);
+                            System.out.println("에러 " + t );
                         }
                     });
-                }else{
-                    Toast.makeText(Login.this, "빈칸입니다 다 채워주세요 !! ", Toast.LENGTH_SHORT).show();
                 }
             }
 
