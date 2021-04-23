@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:padding="5sp"
                 android:text="강좌정보"
-                android:textSize="15sp" />
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <ListView
                 android:id="@+id/listLecture"
@@ -60,9 +61,11 @@
                 android:layout_height="wrap_content"
                 android:padding="5sp"
                 android:text="공지사항"
-                android:textSize="15sp" />
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <ListView
+                android:id="@+id/listNoticed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
