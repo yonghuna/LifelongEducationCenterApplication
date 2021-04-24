@@ -1,7 +1,9 @@
 package com.example.lifelongeducationcenterapplication.Generalcurriculum;
+import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +78,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                         lectures = response.body();
                         adapter.notifyDataSetChanged();
                         listLecture.setAdapter(adapter);
-
                     }
-
                 }
 
                 @Override
@@ -141,11 +142,14 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             textFee.setText("・학습비     " +studyFee);
 
 
+            // 수강 불가시 수강신청 버튼 변경
             if(status.equals("수강불가")){
                 btClassRg.setBackgroundColor(Color.GRAY);
                 btClassRg.setText("수강불가");
                 btClassRg.setClickable(false);
             }
+            
+            // 상세보기 
             btDetail.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
@@ -153,6 +157,18 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+            });
+            // 일반과정 수강신청
+            btClassRg.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    if(StaticId.id.equals("") || StaticId.id == null){
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                    }else{
+                        //
+                    }
+                }
             });
             return convertView;
         }

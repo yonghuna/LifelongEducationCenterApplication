@@ -16,7 +16,19 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.lifelongeducationcenterapplication.CommunicationResult;
+import com.example.lifelongeducationcenterapplication.MainActivity;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RegisterResult;
+import com.example.lifelongeducationcenterapplication.RemoteService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class SignUpCheckFragment extends Fragment {
 
@@ -26,7 +38,7 @@ public class SignUpCheckFragment extends Fragment {
     Spinner spinBirthCheck1,spinBirthCheck2,spinBirthCheck3; //생년월일
     Spinner spinSexCheck; //성별
     Button btnSignUpCheck; //등록확인
-
+    Retrofit retrofit;
     boolean check = true;
 
     String userBirhday;
@@ -83,8 +95,16 @@ public class SignUpCheckFragment extends Fragment {
         radioDefault();//라디오버튼 디폴트 처리
         check = checkRaidoButton();//라디오버튼체크
         goAgreement(check);//화면이동
-
+        dbSend();
         return view;
+    }
+
+    public void dbSend(){
+        //회원가입 유저 정보 디비 전송
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
     }
 
     public void setfindviewbyid(View view){
@@ -157,15 +177,38 @@ public class SignUpCheckFragment extends Fragment {
                  */
                 SignActivity signActivity = (SignActivity) getActivity();//부모엑티비티를 가져옴.
 
+
+
                 setsignupfragmentconponent(signActivity,check); //회원가입화면에 입력초기화
                 if(blankCheck()) {
-                    if (check == true) {
-                        System.out.println("결과" + check);
-                        signActivity.onFragmentChanged(1);//일반과정동의 이동
-                    } else if (check == false) {
-                        System.out.println("결과" + check);
-                        signActivity.onFragmentChanged(2);//학점은행제동의 이동
-                    }
+                    RemoteService rs = retrofit.create(RemoteService.class);
+                    Call<CommunicationResult> call = rs.loginCheck(edtNameCheck.getText().toString().trim(),
+                            spinBirthCheck1.getSelectedItem().toString().trim() + "/" + spinBirthCheck2.getSelectedItem().toString().trim() + "/" + spinBirthCheck3.getSelectedItem().toString().trim(),
+                            spinSexCheck.getSelectedItem().toString().trim());
+                    call.enqueue(new Callback<CommunicationResult>() {
+                        public void onResponse(Call<CommunicationResult> call, Response<CommunicationResult> response) {
+                            CommunicationResult communicationResult = response.body();
+                            if (communicationResult.getResult().equals("ok")) {
+                                if (check == true) {
+                                    System.out.println("결과" + check);
+                                    signActivity.onFragmentChanged(1);//일반과정동의 이동
+                                } else if (check == false) {
+                                    System.out.println("결과" + check);
+                                    signActivity.onFragmentChanged(2);//학점은행제동의 이동
+                                }
+                                System.out.println("로그인 체크");
+                            } else if(communicationResult.getResult().equals("false")){
+                                Toast.makeText(getContext(), "이미 있는 회원 정보입니다 !!", Toast.LENGTH_LONG).show();
+                                System.out.println("회원가입 실패");
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<CommunicationResult> call, Throwable t) {
+                            Toast.makeText(getActivity(), "회원가입이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                        }
+
+                    });
+
                 }else{
                     Toast.makeText(signActivity.getApplicationContext(),"빈칸을 다 채워주세요", Toast.LENGTH_LONG).show();
                 }

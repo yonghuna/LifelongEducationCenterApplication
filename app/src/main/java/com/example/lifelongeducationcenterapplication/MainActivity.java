@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -34,6 +37,7 @@ import com.example.lifelongeducationcenterapplication.Generalcurriculum.Certific
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.ForeignlanguagecourseActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralSecurityGuardCourseActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.LiberalArtsCourseActivity;
 import com.example.lifelongeducationcenterapplication.Intro.EducationalPurpose;
 import com.example.lifelongeducationcenterapplication.Intro.Greetings;
@@ -51,6 +55,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -68,16 +75,27 @@ public class MainActivity extends AppCompatActivity {
 
     TextView link1, link2;
 
+    TextView mainNotice;
+
 
 
     DrawerLayout drawerLayout;
     LinearLayout drawerView;
 
-    Retrofit retrofit;//httpclient library
-    RemoteService rs;//DB를 위한 인터페이스
+    Retrofit retrofit1;//httpclient library
+    RemoteService rs1;//DB를 위한 인터페이스
 
-    List<Lecture> lectures = new ArrayList<>(); // 배열 객체 생성
+    Retrofit retrofit2;//httpclient library
+    RemoteService rs2;//DB를 위한 인터페이스
+
+
+    List<Lecture> lectures; // 배열 객체 생성
     ListView listLecture;//리스트뷰
+
+    List<Notice> notices;
+    ListView listNotice;
+
+    MyAdapter adapter;
 
     //MainLectureAdapter mainLectureAdapter; //어댑터
 
@@ -103,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
             DVtxtMypage = findViewById(R.id.DVtxtMypage);
             link1 = (TextView) findViewById(R.id.email);
             link2 = (TextView)findViewById(R.id.private1);
+            listNotice = (ListView) findViewById(R.id.listNoticed);
 
 
             txtfindviewid();//id정의
@@ -137,10 +156,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+            retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                     (GsonConverterFactory.create()).build();
-            rs = retrofit.create(RemoteService.class);
+            rs1 = retrofit1.create(RemoteService.class);
 
+            retrofit2 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                    (GsonConverterFactory.create()).build();
+            rs2 = retrofit2.create(RemoteService.class);
+
+
+            adapter = new MyAdapter();
 
             //mainLectureAdapter = new MainLectureAdapter();
             //listLecture.setAdapter(mainLectureAdapter);
@@ -173,6 +198,27 @@ public class MainActivity extends AppCompatActivity {
             });
 
              */
+
+            Call<List<Notice>> call2 = rs2.notice();
+            call2.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Notice>> call, Response<List<Notice>> response) {
+                    if(response.isSuccessful()){
+                        notices = response.body();
+                        adapter.notifyDataSetChanged();
+                        listNotice.setAdapter(adapter);
+
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<List<Notice>> call, Throwable t) {
+                    System.out.println("공지사항 불러오기 실패" +call +" " + t);
+
+                }
+            });
+
             super.onResume();
 
         }
@@ -230,6 +276,32 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    class MyAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return notices.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.item_main_noticeed,null);
+            Notice notice=  notices.get(position);
+            mainNotice = (TextView)convertView.findViewById(R.id.main_noticeed);
+            mainNotice.setText("・" + notice.getTitle());
+            return convertView;
+        }
     }
 
 

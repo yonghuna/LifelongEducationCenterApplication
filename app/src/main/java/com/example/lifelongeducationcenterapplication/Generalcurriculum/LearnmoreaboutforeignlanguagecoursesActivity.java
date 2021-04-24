@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActivity {
-    //외국어 과정 상세보기
+    //과정 상세보기
 
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
@@ -62,6 +62,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         btRegister = (Button) findViewById(R.id.Courseregistrationbt1);
         listLecture = (ListView) findViewById(R.id.Lecturelist);
 
+        // number 값을 받아서 구분 해준다
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
 
@@ -81,6 +82,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
     @Override
     protected void onResume() {
 
+        // 다른 detail 부분 
         Call<List<LectureDetail>> call1 = rs1.lectureDetail(number);//detail
         call1.enqueue(new Callback<List<LectureDetail>>() {//enqueue 메소드 실행
             @Override
@@ -94,7 +96,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                     textTime.setText("교육 시간 : " +ld.getDayOfTheWeek() + " " + ld.getStartTime() + " ~ " + ld.getEndTime());
                     textFee.setText("수강료      : "+ld.getStudyFee());
                     System.out.println(ld.getBriefhistory());
-                    if(ld.getBriefhistory().isEmpty()){
+                    if(ld.getBriefhistory() == null || ld.getBriefhistory().equals("")){
                         introduceProfessor.setText("");
                     }else{
                         introduceProfessor.setText(ld.getBriefhistory());
@@ -119,6 +121,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
             }
         });
 
+        // week 주 내용 과정 불러오기
         Call<List<LectureWeek>> call2 = rs2.lectureWeek(number);//week
         call2.enqueue(new Callback<List<LectureWeek>>() {
             @Override
@@ -140,11 +143,8 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         super.onResume();
     }
 
-
-
-
-
-
+    
+// week content convertview 에 올리기
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
