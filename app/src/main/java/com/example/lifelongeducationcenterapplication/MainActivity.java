@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
@@ -77,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mainNotice;
 
-
-
+    TextView login, name;
     DrawerLayout drawerLayout;
     LinearLayout drawerView;
 
@@ -122,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
             link1 = (TextView) findViewById(R.id.email);
             link2 = (TextView)findViewById(R.id.private1);
             listNotice = (ListView) findViewById(R.id.listNoticed);
-
+            login = (TextView) findViewById(R.id.login);
+            name = (TextView) findViewById(R.id.name);
 
             txtfindviewid();//id정의
             //listset();
@@ -167,6 +168,34 @@ public class MainActivity extends AppCompatActivity {
 
             adapter = new MyAdapter();
 
+
+
+            // 상단 로그인 로그아웃 체크
+            if(StaticId.id == "" || StaticId.id == null){
+                login.setText("로그인");
+                DVtxtAccount_1.setText("로그인");
+            }else{
+                name.setText(StaticId.name);
+                login.setText("로그아웃");
+                DVtxtAccount_1.setText("로그아웃");
+            }
+
+            //로그인 선택시 
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(StaticId.id == "" || StaticId.id == null){
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        startActivity(intent);
+                    }else{
+                        logout();
+                        Toast.makeText(getApplicationContext(),"로그아웃 되었습니다.",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                }
+            });
             //mainLectureAdapter = new MainLectureAdapter();
             //listLecture.setAdapter(mainLectureAdapter);
 
@@ -225,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
 /*
     class MainLectureAdapter extends BaseAdapter {
 
@@ -267,6 +297,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
  */
+    public void logout(){
+        StaticId.id="";
+        StaticId.course="";
+        StaticId.name="";
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -470,8 +505,16 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(),"1-1번",Toast.LENGTH_SHORT).show();
                         System.out.println("확인함 로그인");
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Login.class);
-                        startActivityForResult(intent,1);
+                        if(StaticId.id == "" || StaticId.id == null){
+                            intent = new Intent(MainActivity.this, Login.class);
+                            startActivityForResult(intent,1);
+                        }else{
+                            logout();
+                            Toast.makeText(getApplicationContext(),"로그아웃 되었습니다.",Toast.LENGTH_SHORT).show();
+                            Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent1);
+                        }
+
                         //화면이동(intent)
                         break;
                     case R.id.DVtxtAccount_2:
@@ -706,13 +749,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1){
-            //로그인하고나서 이벤트처리(로그인-> 로그아웃)
 
-        }
-    }
 }
 
