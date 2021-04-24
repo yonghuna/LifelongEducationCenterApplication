@@ -89,6 +89,10 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 if(response.isSuccessful()){
                     lecturesDetail = response.body();
                     LectureDetail ld = lecturesDetail.get(0);
+
+                    if(ld.getDayOfTheWeek() == ("") || ld.getDayOfTheWeek() == null){
+                        ld.setDayOfTheWeek("");
+                    }
                     textName.setText(ld.getName());
                     textPeriod.setText("교육기간  : " + ld.getStartDate() +" ~ " + ld.getEndDate() + "(" + ld.getDatedetail() + ")");
                     textProfessor.setText(ld.getProfessor());

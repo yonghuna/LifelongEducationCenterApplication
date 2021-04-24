@@ -14,11 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/creditbankssystemvisual"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/creditbankssystemvisual" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,40 +28,41 @@
             android:text="수강신청"
             android:textColor="#00838F"
             android:textSize="24sp" />
-        <FrameLayout
-            android:id="@+id/fragment_container"
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/bt_tab1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:text="외국어로서의 한국학" />
 
-                <Button
-                    android:id="@+id/bt_tab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="외국어로서의 한국학" />
+            <Button
+                android:id="@+id/bt_tab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="체육학" />
 
-                <Button
-                    android:id="@+id/bt_tab2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="체육학" />
+            <Button
+                android:id="@+id/bt_tab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="경영학" />
 
-                <Button
-                    android:id="@+id/bt_tab3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="경영학" />
+        </LinearLayout>
 
-            </LinearLayout>
-        </FrameLayout>
+        <ListView
+            android:id="@+id/registerListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </RelativeLayout>
