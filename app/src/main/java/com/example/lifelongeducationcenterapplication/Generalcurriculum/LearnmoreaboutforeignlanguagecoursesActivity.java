@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -75,7 +76,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 (GsonConverterFactory.create()).build();
         rs2 = retrofit2.create(RemoteService.class);
 
-
+        setListViewHeightBasedOnChildren(listLecture); ///setadapter한뒤 해당메소드를 실행해야함.(scrollview안에 listview를 넣으면 크기가 잘려지는 문제를 해결.)
     }
 
     @Override
@@ -179,5 +180,27 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
 
             return convertView;
         }
+    }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) { ///setadapter한뒤 해당메소드를 실행해야함.(scrollview안에 listview를 넣으면 크기가 잘려지는 문제를 해결.)
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }

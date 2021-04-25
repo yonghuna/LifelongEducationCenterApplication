@@ -61,6 +61,9 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
+
+
+
     }
 
 
@@ -170,6 +173,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             return convertView;
         }
     }
+
 
 
 

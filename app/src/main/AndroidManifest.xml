@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity"></activity>
+        <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation3Activity"></activity>
+        <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation2Activity" />
+        <activity android:name=".Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity" />
         <activity android:name=".Account.SignActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemreferenceRoomActivity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemAcademicScheduleActivity" />
@@ -28,24 +29,20 @@
         <activity android:name=".Generalcurriculum.CertificatecourseActivity" />
         <activity android:name=".Generalcurriculum.ForeignlanguagecourseActivity" />
         <activity android:name=".Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity" />
-        <activity android:name=".Intro.Map"/>
-        <activity android:name=".Intro.Greetings"/>
-        <activity android:name=".Intro.History"/>
-        <activity android:name=".Intro.Organizational"/>
-        <activity android:name=".Intro.EducationalPurpose"/>
-        <activity android:name=".Community.Community_NoticeActivity"/>
-        <activity android:name=".Community.Community_FormattingRoomActivity"/>
-        <activity android:name=".Community.Community_GalleryActivity"/>
-        <activity android:name=".Community.Community_QuestionAndAnswerActivity"/>
-        <activity android:name=".WebViewActivity"/>
-        <activity android:name=".MyPage.MyPage_CourseDetailsActivity"/>
-        <activity android:name=".MyPage.MyPage_GradesVerificationActivity"/>
-        <activity android:name=".MyPage.MyPage_MemberInformationManagementActivity"/>
-        <activity android:name=".MyPage.MyPage_QuestionAndAnswerActivity"/>
-
-
-
-
+        <activity android:name=".Intro.Greetings" />
+        <activity android:name=".Intro.History" />
+        <activity android:name=".Intro.Organizational" />
+        <activity android:name=".Intro.EducationalPurpose" />
+        <activity android:name=".Community.Community_NoticeActivity" />
+        <activity android:name=".Community.Community_FormattingRoomActivity" />
+        <activity android:name=".Community.Community_GalleryActivity" />
+        <activity android:name=".Community.Community_QuestionAndAnswerActivity" />
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".MyPage.MyPage_CourseDetailsActivity" />
+        <activity android:name=".MyPage.MyPage_GradesVerificationActivity" />
+        <activity android:name=".MyPage.MyPage_MemberInformationManagementActivity" />
+        <activity android:name=".MyPage.MyPage_QuestionAndAnswerActivity" />
+        <activity android:name=".Intro.SearchMap" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
