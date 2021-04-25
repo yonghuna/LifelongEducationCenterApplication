@@ -52,7 +52,7 @@
                     android:id="@+id/mypagetxtSignUpNameAndSex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="이름입력(성별입력)"
+                    android:hint="이름"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -73,7 +73,7 @@
                     android:id="@+id/mypagetxtSignUpBirthDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="생년월일입력"
+                    android:hint="생년월일"
                     android:textSize="20sp" />
 
             </LinearLayout>
