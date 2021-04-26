@@ -30,6 +30,12 @@ public interface RemoteService {
     Call<List<LectureDetail>> lectureDetail(
             @Query("number") int number);//수강 상세보기
 
+    // 마이페이지 내 정보 읽기
+    @GET("MyPageInfo.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<UserInfo> myPage(
+            @Query("id") String id);//수강 상세보기
+
 
     // 강의 주 내용
     @GET("lectureWeek.jsp")

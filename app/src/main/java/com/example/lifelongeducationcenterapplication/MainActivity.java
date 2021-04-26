@@ -1,12 +1,10 @@
 package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
@@ -39,7 +37,6 @@ import com.example.lifelongeducationcenterapplication.Generalcurriculum.Certific
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.ForeignlanguagecourseActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralSecurityGuardCourseActivity;
-import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.LiberalArtsCourseActivity;
 import com.example.lifelongeducationcenterapplication.Intro.EducationalPurpose;
 import com.example.lifelongeducationcenterapplication.Intro.Greetings;
@@ -51,9 +48,7 @@ import com.example.lifelongeducationcenterapplication.MyPage.MyPage_GradesVerifi
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInformationManagementActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

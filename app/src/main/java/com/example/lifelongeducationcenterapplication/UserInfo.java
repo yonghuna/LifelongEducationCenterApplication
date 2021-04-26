@@ -15,20 +15,25 @@ public class UserInfo implements Serializable {
     @SerializedName("birth")
     private String birth;
 
-    @SerializedName("phoneNumber")
+    @SerializedName("phonenumber")
     private String phoneNumber;
 
     @SerializedName("address")
     private String address;
 
-    @SerializedName("addressNumber")
-    private String addressNumber;
 
     @SerializedName("password")
     private String password;
 
     @SerializedName("sex")
     private String sex;
+
+    @SerializedName("detailedaddress")
+    private String detailedaddress;
+
+
+    @SerializedName("addressnumber")
+    private String addressnumber;
 
 
     public String getCourse() {
@@ -51,8 +56,8 @@ public class UserInfo implements Serializable {
         return birth;
     }
 
-    public void setBirth(String birthday) {
-        this.birth = birthday;
+    public void setBirth(String birth) {
+        this.birth = birth;
     }
 
     public String getPhoneNumber() {
@@ -71,23 +76,37 @@ public class UserInfo implements Serializable {
         this.address = address;
     }
 
-    public String getPw() {
+
+    public String getPassword() {
         return password;
     }
 
-    public void setPw(String pw) {
-        this.password = pw;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getGender() {
+    public String getSex() {
         return sex;
     }
 
-    public void setGender(String gender) {
-        this.sex = gender;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
+    public String getDetailedaddress() {
+        return detailedaddress;
+    }
 
+    public void setDetailedaddress(String detailedaddress) {
+        this.detailedaddress = detailedaddress;
+    }
 
+    public String getAddressnumber() {
+        return addressnumber;
+    }
+
+    public void setAddressnumber(String addressnumber) {
+        this.addressnumber = addressnumber;
+    }
 }
 
