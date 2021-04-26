@@ -183,7 +183,7 @@ public class SignUpCheckFragment extends Fragment {
                 if(blankCheck()) {
                     RemoteService rs = retrofit.create(RemoteService.class);
                     Call<CommunicationResult> call = rs.loginCheck(edtNameCheck.getText().toString().trim(),
-                            spinBirthCheck1.getSelectedItem().toString().trim() + "/" + spinBirthCheck2.getSelectedItem().toString().trim() + "/" + spinBirthCheck3.getSelectedItem().toString().trim(),
+                            spinBirthCheck1.getSelectedItem().toString().trim() + spinBirthCheck2.getSelectedItem().toString().trim() + spinBirthCheck3.getSelectedItem().toString().trim(),
                             spinSexCheck.getSelectedItem().toString().trim());
                     call.enqueue(new Callback<CommunicationResult>() {
                         public void onResponse(Call<CommunicationResult> call, Response<CommunicationResult> response) {
