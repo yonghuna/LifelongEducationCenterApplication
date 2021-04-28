@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Community.Community_QuestionAndAnswerActivity">
+    tools:context=".Community.Community_QuestionAndAnswerActivity"
+    android:orientation="vertical">
         <!--
             커뮤니티 1:1질의응답
             -->
@@ -13,4 +14,16 @@
             android:layout_height="wrap_content"
             android:src="@drawable/communityvisual"
             android:adjustViewBounds="true"/>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:text="1:1질의 응답"
+            android:textColor="#00838F"
+            android:textSize="24sp" />
+        <ListView
+            android:id="@+id/QandAListview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 </LinearLayout>
