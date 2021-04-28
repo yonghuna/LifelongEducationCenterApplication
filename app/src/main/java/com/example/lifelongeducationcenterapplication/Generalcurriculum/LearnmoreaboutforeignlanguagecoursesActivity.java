@@ -12,12 +12,16 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.LectureDetail;
 import com.example.lifelongeducationcenterapplication.LectureWeek;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.util.List;
 
@@ -173,10 +177,42 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
 
             textWeek1 = (TextView)convertView.findViewById(R.id.textweek1);
             textWeek2 = (TextView)convertView.findViewById(R.id.textTrainingcontent1);
+            btRegister = (Button)convertView.findViewById(R.id.Courseregistrationbt1);
 
             textWeek1.setText(lectureWeek.getWeek());
             textWeek2.setText(lectureWeek.getContents());
+            /*
+            btRegister.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    if(StaticId.id.equals("") || StaticId.id == null){
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                    }else{
+                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
+                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                            @Override
+                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                if(response.isSuccessful()){
+                                    RegisterResult registerResult = response.body();
+                                    if(registerResult.getResult().equals("ok")){
+                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), "이미 수강신청된 강좌입니다..", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }
 
+                            @Override
+                            public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                System.out.println("일반과정 수강친청 실패 " +call +" " + t);
+
+                            }
+                        });
+                    }
+                }
+            });
+            */
 
             return convertView;
         }

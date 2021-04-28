@@ -31,7 +31,7 @@ public interface RemoteService {
             @Query("number") int number);//수강 상세보기
 
     // 마이페이지 내 정보 읽기
-    @GET("MyPageInfo.jsp")
+    @GET("myPageInfo.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<UserInfo> myPage(
             @Query("id") String id);//수강 상세보기
@@ -63,6 +63,45 @@ public interface RemoteService {
             @Field("name") String name,
             @Field("birth") String birth,
             @Field("sex") String sex); //로그인
+
+    //일반 과정 회원정보 수정
+    @FormUrlEncoded
+    @POST("myPageInfoPost1.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> myPageInfoPost1(
+            @Field("id") String id,
+            @Field("pwOK") String pwOK,
+            @Field("phoneNumber") String phoneNumber,
+            @Field("addressnumber") String addressnumber,
+            @Field("address") String address,
+            @Field("detailedaddress") String detailedaddress,
+            @Field("password") String password); //로그인
+
+    //학습은행제 과정 회원정보 수정
+    @FormUrlEncoded
+    @POST("myPageInfoPost2.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> myPageInfoPost2(
+            @Field("id") String id,
+            @Field("pwOK") String pwOK,
+            @Field("phoneNumber") String phoneNumber,
+            @Field("addressnumber") String addressnumber,
+            @Field("address") String address,
+            @Field("detailedaddress") String detailedaddress,
+            @Field("password") String password); //로그인
+
+    //수강신청
+    @FormUrlEncoded
+    @POST("subjectRegister.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> userSubjectRegister(
+            @Field("id") String id,
+            @Field("subjectnumber") int subjectnumber,
+            @Field("subjectyear") int subjectyear,
+            @Field("subjectsemester") int subjectsemester,
+            @Field("subjectdivision") String subjectdivision
+            ); //수강신청
+
 
 
     // 회원가입

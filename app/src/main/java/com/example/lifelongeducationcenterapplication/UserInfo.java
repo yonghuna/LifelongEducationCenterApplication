@@ -35,6 +35,50 @@ public class UserInfo implements Serializable {
     @SerializedName("addressnumber")
     private String addressnumber;
 
+    @SerializedName("education")
+    private String education;
+
+    @SerializedName("school")
+    private String school;
+
+    @SerializedName("major")
+    private String major;
+
+    @SerializedName("admissionmajor")
+    private String admissionmajor;
+
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getAdmissionmajor() {
+        return admissionmajor;
+    }
+
+    public void setAdmissionmajor(String admissionmajor) {
+        this.admissionmajor = admissionmajor;
+    }
 
     public String getCourse() {
         return course;
@@ -108,5 +152,7 @@ public class UserInfo implements Serializable {
     public void setAddressnumber(String addressnumber) {
         this.addressnumber = addressnumber;
     }
+
+
 }
 
