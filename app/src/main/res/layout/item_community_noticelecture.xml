@@ -10,7 +10,19 @@
         android:orientation="vertical"
         android:paddingLeft="10dp">
 
-
+        <!-- 1번호
+             2제목
+             3작성자
+             4작성일-->
+        <TextView
+            android:id="@+id/noticeCountlecture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="번호"
+            android:textColor="@android:color/black"
+            android:textSize="13dp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/noticeNamelecture"
             android:layout_width="match_parent"
@@ -21,43 +33,29 @@
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/noticeWriterlecture"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="작성자"
+            android:textColor="@android:color/black"
+            android:textSize="13dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/noticeCountlecture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="번호"
-                android:textColor="@android:color/black"
-                android:textSize="13dp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/noticeWriterlecture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="작성자"
-                android:textColor="@android:color/black"
-                android:textSize="13dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/noticeDateCreatedlecture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="작성일"
 
-            <TextView
-                android:id="@+id/noticeDateCreatedlecture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="작성일"
-
-                android:textColor="@android:color/black"
-                android:textSize="13dp"
-                android:textStyle="bold"
-                android:drawableLeft="@drawable/ic_baseline_access_time_24" />
-        </LinearLayout>
+            android:textColor="@android:color/black"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_baseline_access_time_24" />
 
     </LinearLayout>
 </LinearLayout>

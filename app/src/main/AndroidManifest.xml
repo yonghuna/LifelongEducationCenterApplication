@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation3Activity"></activity>
+        <activity android:name=".Community.Community_Bulletin_boardwritingActivity"></activity>
+        <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation3Activity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation2Activity" />
         <activity android:name=".Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity" />
         <activity android:name=".Account.SignActivity" />
