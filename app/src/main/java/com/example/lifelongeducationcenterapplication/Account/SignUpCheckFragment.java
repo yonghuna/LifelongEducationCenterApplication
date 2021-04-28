@@ -35,11 +35,11 @@ public class SignUpCheckFragment extends Fragment {
     RadioGroup rgCheckCourse;
     RadioButton rbGeneralCourse, rbCreditBank;//라디오버튼 일반과정, 학점은행제과정
     EditText edtNameCheck;//성명
-    Spinner spinBirthCheck1,spinBirthCheck2,spinBirthCheck3; //생년월일
+    Spinner spinBirthCheck1, spinBirthCheck2, spinBirthCheck3; //생년월일
     Spinner spinSexCheck; //성별
     Button btnSignUpCheck; //등록확인
     Retrofit retrofit;
-    boolean check = true;
+    boolean check;
 
     String userBirhday;
     String userName;
@@ -48,38 +48,36 @@ public class SignUpCheckFragment extends Fragment {
 
     // 스피너 값 설정
     String[] year = {
-            "2020", "2019","2018","2017", "2016","2015",
-            "2014", "2013","2012","2011", "2010","2009",
-            "2008", "2007","2006","2005", "2004","2003",
-            "2002", "2001","2000","1999", "1998","1997",
-            "1996", "1995","1994","1993", "1992","1991",
-            "1990", "1989","1988","1987", "1986","1985",
-            "1984", "1983","1982","1981", "1980","1979",
-            "1978", "1977","1976","1975", "1974","1973",
-            "1972", "1971","1970","1969", "1968","1967",
-            "1966", "1965","1964","1963", "1962","1961",
-            "1960", "1959","1958","1957", "1956","1955",
-            "1954", "1953","1952","1951", "1950","1949",
-            "1948", "1947","1946","1945", "1944","1943",
-            "1942", "1941","1940","1939", "1938","1937",
-            "1936", "1935","1934","1933", "1932","1931"
+            "2020", "2019", "2018", "2017", "2016", "2015",
+            "2014", "2013", "2012", "2011", "2010", "2009",
+            "2008", "2007", "2006", "2005", "2004", "2003",
+            "2002", "2001", "2000", "1999", "1998", "1997",
+            "1996", "1995", "1994", "1993", "1992", "1991",
+            "1990", "1989", "1988", "1987", "1986", "1985",
+            "1984", "1983", "1982", "1981", "1980", "1979",
+            "1978", "1977", "1976", "1975", "1974", "1973",
+            "1972", "1971", "1970", "1969", "1968", "1967",
+            "1966", "1965", "1964", "1963", "1962", "1961",
+            "1960", "1959", "1958", "1957", "1956", "1955",
+            "1954", "1953", "1952", "1951", "1950", "1949",
+            "1948", "1947", "1946", "1945", "1944", "1943",
+            "1942", "1941", "1940", "1939", "1938", "1937",
+            "1936", "1935", "1934", "1933", "1932", "1931"
     };
 
-    String [] month = {
-            "01","02","03","04","05","06",
-            "07","08","09","10","11","12"
+    String[] month = {
+            "01", "02", "03", "04", "05", "06",
+            "07", "08", "09", "10", "11", "12"
     };
 
-    String [] day = {
-            "01","02","03","04","05","06","07","08","09","10","11","12","13","14",
-            "15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"
+    String[] day = {
+            "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
+            "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"
     };
 
-    String [] gender = {
+    String[] gender = {
             "남", "여"
     };
-
-
 
 
     @Override
@@ -99,7 +97,7 @@ public class SignUpCheckFragment extends Fragment {
         return view;
     }
 
-    public void dbSend(){
+    public void dbSend() {
         //회원가입 유저 정보 디비 전송
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -107,7 +105,7 @@ public class SignUpCheckFragment extends Fragment {
                 .build();
     }
 
-    public void setfindviewbyid(View view){
+    public void setfindviewbyid(View view) {
         rgCheckCourse = view.findViewById(R.id.rgCheckCourse);
         rbGeneralCourse = view.findViewById(R.id.rbGeneralCourse);
         rbCreditBank = view.findViewById(R.id.rbCreditBank);//라디오버튼 일반과정, 학점은행제과정
@@ -119,7 +117,7 @@ public class SignUpCheckFragment extends Fragment {
         btnSignUpCheck = view.findViewById(R.id.btnSignUpCheck);//등록확인
     }
 
-    public void spinnerDefalut(){
+    public void spinnerDefalut() {
         ArrayAdapter adapter1 = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, year);
         ArrayAdapter adapter2 = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, month);
         ArrayAdapter adapter3 = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, day);
@@ -137,20 +135,20 @@ public class SignUpCheckFragment extends Fragment {
     }
 
 
-    public void radioDefault(){
+    public void radioDefault() {
         rbGeneralCourse.setChecked(true);
     }//라디오버튼 디폴트
 
 
-    public boolean checkRaidoButton(){//라디오버튼체크
+    public boolean checkRaidoButton() {//라디오버튼체크
 
-        //final boolean[] check = new boolean[1];
-
-
+       
         boolean checkradio = true;
-        if(rgCheckCourse.getCheckedRadioButtonId() == R.id.rbGeneralCourse){
+        if (rgCheckCourse.getCheckedRadioButtonId() == R.id.rbGeneralCourse) {
+            System.out.println("일반과정");
             checkradio = true;
-        }else if(rgCheckCourse.getCheckedRadioButtonId() == R.id.rbCreditBank){
+        } else if (rgCheckCourse.getCheckedRadioButtonId() == R.id.rbCreditBank) {
+            System.out.println("학점은행제");
             checkradio = false;
         }
         return checkradio;
@@ -159,7 +157,7 @@ public class SignUpCheckFragment extends Fragment {
     }
 
 
-    public void goAgreement(boolean check){
+    public void goAgreement(boolean check) {
         btnSignUpCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,9 +176,8 @@ public class SignUpCheckFragment extends Fragment {
                 SignActivity signActivity = (SignActivity) getActivity();//부모엑티비티를 가져옴.
 
 
-
-                setsignupfragmentconponent(signActivity,check); //회원가입화면에 입력초기화
-                if(blankCheck()) {
+                setsignupfragmentconponent(signActivity, check); //회원가입화면에 입력초기화
+                if (blankCheck()) {
                     RemoteService rs = retrofit.create(RemoteService.class);
                     Call<CommunicationResult> call = rs.loginCheck(edtNameCheck.getText().toString().trim(),
                             spinBirthCheck1.getSelectedItem().toString().trim() + spinBirthCheck2.getSelectedItem().toString().trim() + spinBirthCheck3.getSelectedItem().toString().trim(),
@@ -188,7 +185,11 @@ public class SignUpCheckFragment extends Fragment {
                     call.enqueue(new Callback<CommunicationResult>() {
                         public void onResponse(Call<CommunicationResult> call, Response<CommunicationResult> response) {
                             CommunicationResult communicationResult = response.body();
-                            if (communicationResult.getResult().equals("ok")) {
+                            if (communicationResult.getResult().equals("have")) {
+                                Toast.makeText(getContext(), "이미 있는 회원 정보입니다 !!", Toast.LENGTH_LONG).show();
+                                System.out.println("회원가입 실패");
+                            } else if (communicationResult.getResult().equals("ok")) {
+
                                 if (check == true) {
                                     System.out.println("결과" + check);
                                     signActivity.onFragmentChanged(1);//일반과정동의 이동
@@ -197,11 +198,9 @@ public class SignUpCheckFragment extends Fragment {
                                     signActivity.onFragmentChanged(2);//학점은행제동의 이동
                                 }
                                 System.out.println("로그인 체크");
-                            } else if(communicationResult.getResult().equals("false")){
-                                Toast.makeText(getContext(), "이미 있는 회원 정보입니다 !!", Toast.LENGTH_LONG).show();
-                                System.out.println("회원가입 실패");
                             }
                         }
+
                         @Override
                         public void onFailure(Call<CommunicationResult> call, Throwable t) {
                             Toast.makeText(getActivity(), "회원가입이 실패하였습니다!", Toast.LENGTH_LONG).show();
@@ -209,8 +208,8 @@ public class SignUpCheckFragment extends Fragment {
 
                     });
 
-                }else{
-                    Toast.makeText(signActivity.getApplicationContext(),"빈칸을 다 채워주세요", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(signActivity.getApplicationContext(), "빈칸을 다 채워주세요", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -218,70 +217,54 @@ public class SignUpCheckFragment extends Fragment {
     }
 
     // 빈칸 체크
-    public boolean blankCheck(){ 
-
+    public boolean blankCheck() {
         boolean result = false;
 
-        if(edtNameCheck.getText().toString().isEmpty()) {
-
-        }else{
+        if (edtNameCheck.getText().toString().isEmpty()) {
+        } else {
             result = true;
         }
-
         return result;
     }
 
 
-    public void setsignupfragmentconponent(SignActivity signActivity, boolean check){ //회원가입화면에 입력초기화
+    public void setsignupfragmentconponent(SignActivity signActivity, boolean check) { //회원가입화면에 입력초기화
 
-        userGender =spinSexCheck.getSelectedItem().toString().trim(); //성별
+        userGender = spinSexCheck.getSelectedItem().toString().trim(); //성별
         userName = edtNameCheck.getText().toString().trim(); //이름
 
         String spinBirthday1 = spinBirthCheck1.getSelectedItem().toString().trim(); //회원 생일1
         String spinBirthday2 = spinBirthCheck2.getSelectedItem().toString().trim(); //회원 생일2
         String spinBirthday3 = spinBirthCheck3.getSelectedItem().toString().trim(); //회원 생일3
 
-        userBirhday = spinBirthday1 + "/" + spinBirthday2 + "/" +spinBirthday3;
+        userBirhday = spinBirthday1 + "/" + spinBirthday2 + "/" + spinBirthday3;
 
 
-        if(check == true){
+        if (check == true) {
 
             Bundle bundle = new Bundle();
-            bundle.putString("txtSignUpDivision","일반과정");
-            bundle.putString("txtSignUpBirthDate",userBirhday);
+            bundle.putString("txtSignUpDivision", "일반과정");
+            bundle.putString("txtSignUpBirthDate", userBirhday);
             bundle.putString("txtSignUpName", userName);
             bundle.putString("txtSignUpSex", userGender);
-            /* 잘못된과정
-            signActivity.signUpFragment.txtSignUpDivision.setText("일반과정");//과정
-            signActivity.signUpFragment.txtSignUpNameAndSex.setText(nameGender);//성별
-            signActivity.signUpFragment.txtSignUpBirthDate.setText(userBirhday);// 회원 생일
 
-             */
 
             signActivity.signUpFragment.setArguments(bundle);
-        }else if(check == false){
+        } else if (check == false) {
 
             Bundle bundle = new Bundle();
-            bundle.putString("txtSignUpDivision","일반과정");
-            bundle.putString("txtSignUpBirthDate",userBirhday);
+            bundle.putString("txtSignUpDivision", "학점은행제과정");
+            bundle.putString("txtSignUpBirthDate", userBirhday);
             bundle.putString("txtSignUpName", userName);
             bundle.putString("txtSignUpSex", userGender);
 
 
-            /*
-            signActivity.signUpFragment.txtSignUpDivision.setText("학점은행제과정");
-            signActivity.signUpFragment.txtSignUpNameAndSex.setText(nameGender);//성별
-            signActivity.signUpFragment.txtSignUpBirthDate.setText(userBirhday);// 회원 생일
 
-             */
             signActivity.signUpFragment.setArguments(bundle);
         }
 
 
     }
-
-
-
 
 
 }

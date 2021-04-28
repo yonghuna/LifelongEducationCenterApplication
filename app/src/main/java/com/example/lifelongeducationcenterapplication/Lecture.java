@@ -31,8 +31,33 @@ public class Lecture {
     @SerializedName("status")
     public String status;
 
+    @SerializedName("division")
+    public String division;
+
     @SerializedName("number")
     public int number;
+
+    @SerializedName("year")
+    public int year;
+
+    @SerializedName("semester")
+    public int semester;
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
 
     public int getNumber() {
         return number;
@@ -112,5 +137,13 @@ public class Lecture {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
     }
 }
