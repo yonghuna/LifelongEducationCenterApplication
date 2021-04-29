@@ -12,12 +12,16 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.LectureDetail;
 import com.example.lifelongeducationcenterapplication.LectureWeek;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.util.List;
 
@@ -30,7 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActivity {
-    //외국어 과정 상세보기
+    //과정 상세보기
 
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
@@ -62,6 +66,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         btRegister = (Button) findViewById(R.id.Courseregistrationbt1);
         listLecture = (ListView) findViewById(R.id.Lecturelist);
 
+        // number 값을 받아서 구분 해준다
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
 
@@ -81,6 +86,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
     @Override
     protected void onResume() {
 
+        // 다른 detail 부분 
         Call<List<LectureDetail>> call1 = rs1.lectureDetail(number);//detail
         call1.enqueue(new Callback<List<LectureDetail>>() {//enqueue 메소드 실행
             @Override
@@ -88,13 +94,17 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 if(response.isSuccessful()){
                     lecturesDetail = response.body();
                     LectureDetail ld = lecturesDetail.get(0);
+
+                    if(ld.getDayOfTheWeek() == ("") || ld.getDayOfTheWeek() == null){
+                        ld.setDayOfTheWeek("");
+                    }
                     textName.setText(ld.getName());
                     textPeriod.setText("교육기간  : " + ld.getStartDate() +" ~ " + ld.getEndDate() + "(" + ld.getDatedetail() + ")");
                     textProfessor.setText(ld.getProfessor());
                     textTime.setText("교육 시간 : " +ld.getDayOfTheWeek() + " " + ld.getStartTime() + " ~ " + ld.getEndTime());
                     textFee.setText("수강료      : "+ld.getStudyFee());
                     System.out.println(ld.getBriefhistory());
-                    if(ld.getBriefhistory().isEmpty()){
+                    if(ld.getBriefhistory() == null || ld.getBriefhistory().equals("")){
                         introduceProfessor.setText("");
                     }else{
                         introduceProfessor.setText(ld.getBriefhistory());
@@ -119,6 +129,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
             }
         });
 
+        // week 주 내용 과정 불러오기
         Call<List<LectureWeek>> call2 = rs2.lectureWeek(number);//week
         call2.enqueue(new Callback<List<LectureWeek>>() {
             @Override
@@ -140,11 +151,8 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         super.onResume();
     }
 
-
-
-
-
-
+    
+// week content convertview 에 올리기
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -169,10 +177,42 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
 
             textWeek1 = (TextView)convertView.findViewById(R.id.textweek1);
             textWeek2 = (TextView)convertView.findViewById(R.id.textTrainingcontent1);
+            btRegister = (Button)convertView.findViewById(R.id.Courseregistrationbt1);
 
             textWeek1.setText(lectureWeek.getWeek());
             textWeek2.setText(lectureWeek.getContents());
+            /*
+            btRegister.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    if(StaticId.id.equals("") || StaticId.id == null){
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                    }else{
+                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
+                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                            @Override
+                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                if(response.isSuccessful()){
+                                    RegisterResult registerResult = response.body();
+                                    if(registerResult.getResult().equals("ok")){
+                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), "이미 수강신청된 강좌입니다..", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }
 
+                            @Override
+                            public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                System.out.println("일반과정 수강친청 실패 " +call +" " + t);
+
+                            }
+                        });
+                    }
+                }
+            });
+            */
 
             return convertView;
         }

@@ -1,7 +1,10 @@
 package com.example.lifelongeducationcenterapplication.Generalcurriculum;
+import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +20,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +38,9 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
+
+    Retrofit retrofit2;//httpclient library
+    RemoteService rs2;//DB를 위한 인터페이스
 
     List<Lecture> lectures; // 배열 객체 생성
     ListView listLecture;//리스트뷰
@@ -59,6 +66,10 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
 
+        retrofit2 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs2 = retrofit2.create(RemoteService.class);
+
 
 
     }
@@ -75,9 +86,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                         lectures = response.body();
                         adapter.notifyDataSetChanged();
                         listLecture.setAdapter(adapter);
-
                     }
-
                 }
 
                 @Override
@@ -121,7 +130,11 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             String professor = lc.getProfessor();
             String studyFee = lc.getStudyFee();
             String status = lc.getStatus();
+            String course = lc.getDivision();
+            int subjectsemester = lc.getSemester();
+            int year = lc.getYear();
             int number = lc.getNumber();
+
 
 
             textName = convertView.findViewById(R.id.foreignlanguagecourseName);
@@ -141,18 +154,54 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             textFee.setText("・학습비     " +studyFee);
 
 
+            // 수강 불가시 수강신청 버튼 변경
             if(status.equals("수강불가")){
                 btClassRg.setBackgroundColor(Color.GRAY);
                 btClassRg.setText("수강불가");
                 btClassRg.setClickable(false);
             }
+            
+            // 상세보기 
             btDetail.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", number);
+
+                    // 해야되는 부분 수강신청을 위해 해야됨
                     startActivity(intent);
                 }
 
+            });
+            // 일반과정 수강신청
+            btClassRg.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    if(StaticId.id.equals("") || StaticId.id == null){
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                    }else{
+                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
+                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                            @Override
+                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                if(response.isSuccessful()){
+                                    RegisterResult registerResult = response.body();
+                                    if(registerResult.getResult().equals("ok")){
+                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), "이미 수강신청된 강좌입니다..", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                System.out.println("일반과정 수강친청 실패 " +call +" " + t);
+
+                            }
+                        });
+                    }
+                }
             });
             return convertView;
         }

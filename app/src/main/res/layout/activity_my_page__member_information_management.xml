@@ -1,12 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".MyPage.MyPage_MemberInformationManagementActivity">
 
     <!--
         마이페이지 회원정보 관리
     -->
-</LinearLayoutLayout>
+    <!-- 별부분 추후 빨간색 표시 해야함-->
+    <!--회원가입시 정보를 그대로 가져오고 이곳에서 추가 수정-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/communitivisual1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:text="회원정보 관리"
+                android:textColor="#00838F"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="이름 *" />
+
+                <TextView
+                    android:id="@+id/mypagetxtSignUpNameAndSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="이름"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="생년월일 *" />
+
+                <TextView
+                    android:id="@+id/mypagetxtSignUpBirthDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="생년월일"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="휴대폰번호 *" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/mypagespinSignUpPhoneNumber1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/mypageedtSignUpPhoneNumber2"
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:imeOptions="actionDone"
+                            android:inputType="number" />
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center"
+                            android:text="-" />
+
+                        <EditText
+                            android:id="@+id/mypageedtSignUpPhoneNumber3"
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:imeOptions="actionDone"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="우편물수령지 *" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/mypageedtSignUpPostCode"
+                        android:layout_width="80sp"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:hint="우편번호" />
+
+                    <Button
+                        android:id="@+id/btnmypageSignUpAddressSearch"
+                        android:layout_width="150sp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/mypageedtSignUpPostCode"
+                        android:text="우편번호 검색" />
+
+                    <TextView
+                        android:id="@+id/mypageedtSignUpAddress1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btnmypageSignUpAddressSearch"
+                        android:autoSizeTextType="uniform"
+                        android:enabled="false"
+                        android:hint="주소1"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/mypageedtSignUpAddress2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mypageedtSignUpAddress1"
+                        android:autoSizeTextType="uniform"
+                        android:hint="주소2"
+                        android:imeOptions="actionDone"
+                        android:inputType="text" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/myPageBank1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="학점은행제 입력사항"
+                android:textColor="#0B0B0B"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/myPageBank2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="주민번호 *" />
+
+                <TextView
+                    android:id="@+id/mypagetxtSocialSecurityNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="주민번호"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/myPageBank3"
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="학력사항" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="학력" />
+
+                        <Spinner
+                            android:id="@+id/mypagespinEducation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="학교" />
+
+                        <EditText
+                            android:id="@+id/mypageschool"
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:imeOptions="actionDone"
+                            android:inputType="text" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="전공" />
+
+                        <EditText
+                            android:id="@+id/mypagMajor"
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:imeOptions="actionDone"
+                            android:inputType="text" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/myPageBank4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="입학전공" />
+
+                <EditText
+                    android:id="@+id/mypagetxtAdmissionmajor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="비밀번호 입력" />
+
+                <EditText
+                    android:id="@+id/mypageedtSignUpPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="변경하지않으면 입력하지마시오"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="비밀번호 확인" />
+
+                <EditText
+                    android:id="@+id/mypageedtSignUpPasswordCheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="변경하지않으면 입력하지마시오"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="※ 비밀번호 작성규칙\n① 작성방법 : 숫자와 영문자, 특수문자 등을 혼합하여 9자리 이상\n② 변경주기 : 최소 분기 1회 이상\n③ 기타 : 추측하기 쉬운문자, 단어 제한(일련번호, 전화번호, 잘 알려진단어 등), 동일한 비밀번호 재사용 제한 등\n※필수입력사항 : 휴대폰번호, 우편물수령지, 비밀번호 입력, 비밀번호 확인은 필수 입력항목입니다.\n회원등록 후 수강이력이 없을시(최대6개월) 자동 탈퇴됩니다." />
+
+            <Button
+                android:id="@+id/btnmypageModify"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="수정" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
