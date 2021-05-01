@@ -89,9 +89,15 @@ public class SignUpCheckFragment extends Fragment {
         setfindviewbyid(view);//findviewbyid설정
 
         spinnerDefalut();
+        //System.out.println("dd"+check);
+
 
         radioDefault();//라디오버튼 디폴트 처리
-        check = checkRaidoButton();//라디오버튼체크
+        //System.out.println("dd1"+check);
+        //checkRaidoButton();//라디오버튼체크
+        rgCheckCourse.setOnCheckedChangeListener(checkRaidoButton());
+
+
         goAgreement(check);//화면이동
         dbSend();
         return view;
@@ -137,13 +143,26 @@ public class SignUpCheckFragment extends Fragment {
 
     public void radioDefault() {
         rbGeneralCourse.setChecked(true);
+        check=true;
     }//라디오버튼 디폴트
 
 
-    public boolean checkRaidoButton() {//라디오버튼체크
+    public RadioGroup.OnCheckedChangeListener checkRaidoButton() {//라디오버튼체크
 
-       
-        boolean checkradio = true;
+        RadioGroup.OnCheckedChangeListener onCheckedChangeListener = new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.rbGeneralCourse){
+                    check = true;
+                    System.out.println("체크확인:"+check);
+                }else if(checkedId == R.id.rbCreditBank){
+                    check = false;
+                    System.out.println("체크확인:"+check);
+                }
+            }
+        };
+
+        /*
         if (rgCheckCourse.getCheckedRadioButtonId() == R.id.rbGeneralCourse) {
             System.out.println("일반과정");
             checkradio = true;
@@ -153,6 +172,8 @@ public class SignUpCheckFragment extends Fragment {
         }
         return checkradio;
 
+        */
+        return onCheckedChangeListener;
 
     }
 
