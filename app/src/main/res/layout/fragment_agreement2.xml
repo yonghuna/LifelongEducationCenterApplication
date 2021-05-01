@@ -195,6 +195,7 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
+                    android:id="@+id/twoRadioGroup1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -347,6 +348,7 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
+                    android:id="@+id/twoRadioGroup2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -513,6 +515,7 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
+                    android:id="@+id/twoRadioGroup3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -678,6 +681,7 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
+                    android:id="@+id/twoRadioGroup4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
