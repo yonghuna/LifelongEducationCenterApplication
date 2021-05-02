@@ -39,7 +39,7 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
     Button btnModify, btnAdr;
 
-    private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
+    private static final int SEARCH_ADDRESS_ACTIVITY = 9999;
 
 
     LinearLayout myPageBank1, myPageBank2, myPageBank3;
@@ -62,9 +62,11 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
         setContentView(R.layout.activity_my_page__member_information_management);
         dbSend();
         setFindId();
+        text();
         spinnerEducation();
         spinnerPhone();
         searchAddress();
+
         updatePost();
 
     }
@@ -84,66 +86,7 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        RemoteService rs = retrofit1.create(RemoteService.class);
-        Call<UserInfo> call = rs.myPage(StaticId.id);//call객체
-        call.enqueue(new Callback<UserInfo>() {//enqueue 메소드 실행
-            @Override
-            public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
-                if (response.isSuccessful()) {
-                    UserInfo userInfo = response.body();
-                    memberName.setText(userInfo.getName());
 
-                    // 휴대폰
-                    memberPhone2.setText(userInfo.getPhoneNumber().substring(3, 7));
-                    memberPhone3.setText(userInfo.getPhoneNumber().substring(7, 11));
-
-                    // 생일
-                    memberBirth.setText(userInfo.getBirth().substring(0, 4) + "년" + userInfo.getBirth().substring(4, 6) + "월"
-                            + userInfo.getBirth().substring(6, 8) + "일");
-                    memberPostcode.setText(userInfo.getAddressnumber());
-                    memberAdr1.setText(userInfo.getAddress());
-                    memberAdr2.setText(userInfo.getDetailedaddress());
-
-                    //학점은행제
-                    if(userInfo.getAdmissionmajor() == "" || userInfo.getAdmissionmajor() == null){
-
-                    }else{
-                        memberAdimissionMajor.setText(userInfo.getAdmissionmajor());
-                    }
-
-                    if(userInfo.getMajor() == "" || userInfo.getMajor() == null){
-
-                    }else{
-                        memberMajor.setText(userInfo.getMajor());
-                    }
-
-
-                    if(userInfo.getSchool() == "" || userInfo.getSchool() == null){
-
-                    }else {
-                        memberSchool.setText(userInfo.getSchool());
-                    }
-
-                    if(userInfo.getEducation() == "" || userInfo.getEducation() == null) {
-                        }else {
-                        String[] newEducation = {
-                                userInfo.getEducation(), "대학원 졸업이상", "대학원재학", "대학교졸업", "대학교재학", "고등학교졸업"
-                                , "고등학교재학", "중학교졸업", "중학교재학", "초등학교졸업",
-                        };
-                        ArrayAdapter adapter2 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, newEducation);
-                        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        memberEducation.setAdapter(adapter2);
-                    }
-                    memberIdNumber.setText(userInfo.getBirth().substring(2, 8));
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserInfo> call, Throwable t) {
-                System.out.println("Mypage 데이터 가져오기 오류" + call + " " + t);
-            }
-        });
         super.onResume();
     }
 
@@ -222,16 +165,82 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     System.out.println("SEARCH_ADDRESS_ACTIVITY INSIDE");
                     String data = intent.getExtras().getString("data");
+                    System.out.println("ad " + data);
                     int idx = data.indexOf(",");
-                    if (data != null)
+                    if (data != null) {
+                        System.out.println("SDSDSDSDSDSD 세팅 세팅 123");
                         memberPostcode.setText(data.substring(0, idx));
                         memberAdr1.setText(data.substring(idx + 1));
+                    }
 
                 }
                 break;
 
         }
 
+    }
+
+    public void text(){
+        RemoteService rs = retrofit1.create(RemoteService.class);
+        Call<UserInfo> call = rs.myPage(StaticId.id);//call객체
+        call.enqueue(new Callback<UserInfo>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
+                if (response.isSuccessful()) {
+                    UserInfo userInfo = response.body();
+                    memberName.setText(userInfo.getName());
+
+                    // 휴대폰
+                    memberPhone2.setText(userInfo.getPhoneNumber().substring(3, 7));
+                    memberPhone3.setText(userInfo.getPhoneNumber().substring(7, 11));
+
+                    // 생일
+                    memberBirth.setText(userInfo.getBirth().substring(0, 4) + "년" + userInfo.getBirth().substring(4, 6) + "월"
+                            + userInfo.getBirth().substring(6, 8) + "일");
+                    memberPostcode.setText(userInfo.getAddressnumber());
+                    memberAdr1.setText(userInfo.getAddress());
+                    memberAdr2.setText(userInfo.getDetailedaddress());
+
+                    //학점은행제
+                    if(userInfo.getAdmissionmajor() == "" || userInfo.getAdmissionmajor() == null){
+
+                    }else{
+                        memberAdimissionMajor.setText(userInfo.getAdmissionmajor());
+                    }
+
+                    if(userInfo.getMajor() == "" || userInfo.getMajor() == null){
+
+                    }else{
+                        memberMajor.setText(userInfo.getMajor());
+                    }
+
+
+                    if(userInfo.getSchool() == "" || userInfo.getSchool() == null){
+
+                    }else {
+                        memberSchool.setText(userInfo.getSchool());
+                    }
+
+                    if(userInfo.getEducation() == "" || userInfo.getEducation() == null) {
+                    }else {
+                        String[] newEducation = {
+                                userInfo.getEducation(), "대학원 졸업이상", "대학원재학", "대학교졸업", "대학교재학", "고등학교졸업"
+                                , "고등학교재학", "중학교졸업", "중학교재학", "초등학교졸업",
+                        };
+                        ArrayAdapter adapter2 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, newEducation);
+                        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        memberEducation.setAdapter(adapter2);
+                    }
+                    memberIdNumber.setText(userInfo.getBirth().substring(2, 8));
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserInfo> call, Throwable t) {
+                System.out.println("Mypage 데이터 가져오기 오류" + call + " " + t);
+            }
+        });
     }
 
 

@@ -47,9 +47,6 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
-    Retrofit retrofit1;//httpclient library
-    RemoteService rs1;//DB를 위한 인터페이스
-
     LinearLayout linearLayout;
     List<Enrollment> enrollments; // 배열 객체 생성
 
@@ -66,29 +63,34 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.mypageCoursedetailslist);
         linearLayout = (LinearLayout) findViewById(R.id.gone);
 
+        setlistlist();
+
         adapter = new MyAdapter();
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
 
-        retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
-                (GsonConverterFactory.create()).build();
-        rs1 = retrofit1.create(RemoteService.class);
+
 
     }
 
     @Override
     protected void onResume() {
 
+        super.onResume();
+    }
+
+    public void setlistlist(){
         Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
         call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
                 if (response.isSuccessful()) {
                     enrollments = response.body();
-                    adapter.notifyDataSetChanged();
                     listView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
                 }
             }
 
@@ -98,8 +100,6 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             }
         });
-
-        super.onResume();
     }
 
 
@@ -123,38 +123,18 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mypagecoursedetailslist, null);
 
-                Enrollment enrollment = enrollments.get(position);
-                name = convertView.findViewById(R.id.coursedetailsCoursename);
-                int getName = enrollment.getSubjectnumber();
-                semester = convertView.findViewById(R.id.coursedetailsYearsemester);
-                certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
-                payment = convertView.findViewById(R.id.coursedetailspayment);
+            Enrollment enrollment = enrollments.get(position);
+            name = convertView.findViewById(R.id.coursedetailsCoursename);
+            int getName = enrollment.getSubjectnumber();
+            semester = convertView.findViewById(R.id.coursedetailsYearsemester);
+            certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
+            payment = convertView.findViewById(R.id.coursedetailspayment);
 
-                btCancel = convertView.findViewById(R.id.btcoursedetail1);
-                btDetail = convertView.findViewById(R.id.btcoursedetail2);
+            btCancel = convertView.findViewById(R.id.btcoursedetail1);
+            btDetail = convertView.findViewById(R.id.btcoursedetail2);
 
-                if(getName != 0){
-                    Call<Lecture> call1 = rs1.lectureName(getName);//call객체
-                call1.enqueue(new Callback<Lecture>() {//enqueue 메소드 실행
-                    @Override
-                    public void onResponse(Call<Lecture> call, Response<Lecture> response) {
-                        if (response.isSuccessful()) {
-                            System.out.println("------------" + getName);
-                            Lecture lecture = response.body();
-                            name.setText(lecture.getName());
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(Call<Lecture> call, Throwable t) {
-                        System.out.println("강좌 이름 불러오기 실패" + call + " " + t);
-                    }
-                });
-            }else{
-                name.setText("수강신청한 강좌가 없습니다.");
-                btCancel.setVisibility(View.GONE);
-                btDetail.setVisibility(View.GONE);
-            }
+            name.setText(enrollment.getSubjectnumber())
 
             if (enrollment.getSubjectsemester() != 0) {
                 semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());

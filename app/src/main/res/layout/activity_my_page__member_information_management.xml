@@ -156,7 +156,6 @@
                         android:id="@+id/mypageedtSignUpPostCode"
                         android:layout_width="80sp"
                         android:layout_height="wrap_content"
-                        android:enabled="false"
                         android:hint="우편번호" />
 
                     <Button
@@ -172,7 +171,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/btnmypageSignUpAddressSearch"
                         android:autoSizeTextType="uniform"
-                        android:enabled="false"
                         android:hint="주소1"
                         android:inputType="text" />
 

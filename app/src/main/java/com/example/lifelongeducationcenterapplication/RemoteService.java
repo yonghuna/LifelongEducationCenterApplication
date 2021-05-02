@@ -24,12 +24,6 @@ public interface RemoteService {
     Call<List<Lecture>> lecture(
             @Query("division") String division);//수강목록
 
-    // 강의 이름만 가져오기
-    @GET("lectureName.jsp")
-    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Lecture> lectureName(
-            @Query("number") int number);//수강목록
-
 
     // 강의 세부 내용 
     @GET("lectureDetail.jsp")
