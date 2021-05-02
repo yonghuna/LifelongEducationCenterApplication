@@ -675,7 +675,7 @@ public class MainActivity extends AppCompatActivity {
                         else if (StaticId.course.equals("일반과정")) {
                             Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);
                             startActivity(intent1);
-                        } else if (StaticId.course == "학점은행제과정") {
+                        } else if (StaticId.course == "학점은행제과정" || StaticId.course.equals("학점은행제과정")) {
                             Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInfomation_Bank.class);
                             startActivity(intent1);
                         }

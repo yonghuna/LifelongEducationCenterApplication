@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.health.SystemHealthManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -18,7 +19,9 @@ import android.widget.Toast;
 
 import com.example.lifelongeducationcenterapplication.Account.SignUpCheckFragment;
 import com.example.lifelongeducationcenterapplication.CommunicationResult;
+import com.example.lifelongeducationcenterapplication.Enrollment;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.ForeignlanguagecourseActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.MainActivity;
 import com.example.lifelongeducationcenterapplication.R;
@@ -44,18 +47,23 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
+    LinearLayout linearLayout;
+    List<Enrollment> enrollments; // 배열 객체 생성
 
-    List<Lecture> lectures; // 배열 객체 생성
-    ListView listLecture;//리스트뷰
+    ListView listView;//리스트뷰
     MyAdapter adapter;
+    TextView name, semester, certificate, payment;
+    Button btDetail, btCancel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("수강내역");
         setContentView(R.layout.activity_my_page__course_details);
 
-        listLecture = (ListView) findViewById(R.id.foreignlanguagecourselistLecture);
+        listView = (ListView) findViewById(R.id.mypageCoursedetailslist);
+        linearLayout = (LinearLayout) findViewById(R.id.gone);
 
+        setlistlist();
 
         adapter = new MyAdapter();
 
@@ -63,36 +71,42 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
 
+
+
     }
 
     @Override
     protected void onResume() {
 
-        Call<List<Lecture>> call = rs.lecture("외국어과정");//call객체
-        call.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+        super.onResume();
+    }
+
+    public void setlistlist(){
+        Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
+        call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override
-            public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
                 if (response.isSuccessful()) {
-                    lectures = response.body();
+                    enrollments = response.body();
+                    listView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
-                    listLecture.setAdapter(adapter);
+
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Lecture>> call, Throwable t) {
-                System.out.println("JSON 불러오기 실패" + call + " " + t);
+            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                System.out.println("내 강의 불러오기 실패" + call + " " + t);
 
             }
         });
-        super.onResume();
     }
 
 
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-            return lectures.size();
+            return enrollments.size();
         }
 
         @Override
@@ -107,15 +121,49 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.item_foreignlanguagecourse, null);
+            convertView = getLayoutInflater().inflate(R.layout.item_mypagecoursedetailslist, null);
 
-            Lecture lc = lectures.get(position);
+            Enrollment enrollment = enrollments.get(position);
+            name = convertView.findViewById(R.id.coursedetailsCoursename);
+            int getName = enrollment.getSubjectnumber();
+            semester = convertView.findViewById(R.id.coursedetailsYearsemester);
+            certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
+            payment = convertView.findViewById(R.id.coursedetailspayment);
 
-            String day = lc.getDayOfTheWeek();
-            String name = lc.getName();
-            int subjectsemester = lc.getSemester();
-            int year = lc.getYear();
-            int number = lc.getNumber();
+            btCancel = convertView.findViewById(R.id.btcoursedetail1);
+            btDetail = convertView.findViewById(R.id.btcoursedetail2);
+
+
+            name.setText(enrollment.getSubjectnumber())
+
+            if (enrollment.getSubjectsemester() != 0) {
+                semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());
+            }
+
+            if (enrollment.getCertificaterandomname() != "" || enrollment.getCertificaterandomname() != null) {
+                certificate.setText(enrollment.getCertificaterandomname());
+            }
+
+            if (enrollment.getPayment() != "" || enrollment.getPayment() != null) {
+                payment.setText(enrollment.getPayment());
+            }
+
+
+            btDetail.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
+                    intent.putExtra("number", enrollment.getSubjectnumber());
+                    // 수강 내역
+                    startActivity(intent);
+                }
+
+            });
+            btCancel.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    //?
+                }
+            });
+
             return convertView;
         }
 
