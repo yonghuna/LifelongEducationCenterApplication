@@ -15,14 +15,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
+import com.example.lifelongeducationcenterapplication.Enrollment;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.LectureDetail;
 import com.example.lifelongeducationcenterapplication.LectureWeek;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,6 +35,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
+import static com.example.lifelongeducationcenterapplication.StaticId.course;
 
 public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActivity {
     //과정 상세보기
@@ -42,10 +46,14 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
     Retrofit retrofit2; //httpclient library
     RemoteService rs2; //DB를 위한 인터페이스
 
+    Retrofit retrofit3;//httpclient library
+    RemoteService rs3;//DB를 위한 인터페이스
 
     List<LectureDetail> lecturesDetail; // 배열 객체 생성
     List<LectureWeek> lectureWeeks;
+    List<Enrollment> enrollments = new ArrayList();
     ListView listLecture;//리스트뷰
+    boolean result;
     TextView textName, textPeriod, textProfessor, textTime, textFee, introduceProfessor, introduceLecture, textWeek1, textWeek2;
     Button btRegister;
     MyAdapter adapter;
@@ -80,7 +88,21 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 (GsonConverterFactory.create()).build();
         rs2 = retrofit2.create(RemoteService.class);
 
+        retrofit3 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs3 = retrofit3.create(RemoteService.class);
+
+        for(int i = 0; i < enrollments.size(); i++){
+            Enrollment enrollment = enrollments.get(i);
+            if(enrollment.getSubjectnumber() == number){
+                btRegister.setBackgroundColor(Color.GRAY);
+                btRegister.setText("신청내역");
+                result = true;
+            }
+        }
+
         setListViewHeightBasedOnChildren(listLecture); ///setadapter한뒤 해당메소드를 실행해야함.(scrollview안에 listview를 넣으면 크기가 잘려지는 문제를 해결.)
+        pushRegister();
     }
 
     @Override
@@ -114,8 +136,6 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                         btRegister.setBackgroundColor(Color.GRAY);
                         btRegister.setText("수강불가");
                         btRegister.setClickable(false);
-                    }else{
-
                     }
 
                 }
@@ -148,10 +168,26 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
             }
         });
 
+        Call<List<Enrollment>> call3 = rs3.enrollment(StaticId.id);//call객체
+        call3.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                if (response.isSuccessful()) {
+                    enrollments = response.body();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                System.out.println("subjectnumber" + call + " " + t);
+
+            }
+        });
+
         super.onResume();
     }
 
-    
+
 // week content convertview 에 올리기
     class MyAdapter extends BaseAdapter {
         @Override
@@ -177,42 +213,11 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
 
             textWeek1 = (TextView)convertView.findViewById(R.id.textweek1);
             textWeek2 = (TextView)convertView.findViewById(R.id.textTrainingcontent1);
-            btRegister = (Button)convertView.findViewById(R.id.Courseregistrationbt1);
+
 
             textWeek1.setText(lectureWeek.getWeek());
             textWeek2.setText(lectureWeek.getContents());
-            /*
-            btRegister.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    if(StaticId.id.equals("") || StaticId.id == null){
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
-                        startActivity(intent);
-                    }else{
-                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
-                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
-                            @Override
-                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
-                                if(response.isSuccessful()){
-                                    RegisterResult registerResult = response.body();
-                                    if(registerResult.getResult().equals("ok")){
-                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
-                                    }else{
-                                        Toast.makeText(getApplicationContext(), "이미 수강신청된 강좌입니다..", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            }
 
-                            @Override
-                            public void onFailure(Call<RegisterResult> call, Throwable t) {
-                                System.out.println("일반과정 수강친청 실패 " +call +" " + t);
-
-                            }
-                        });
-                    }
-                }
-            });
-            */
 
             return convertView;
         }
@@ -239,4 +244,21 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
+    public void pushRegister(){
+        btRegister.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                if(StaticId.id.equals("") || StaticId.id == null){
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                    Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+
+                }
+                if(result){
+                    Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
+                    startActivity(intent1);
+                }
+            }
+        });
+    }
+
 }
