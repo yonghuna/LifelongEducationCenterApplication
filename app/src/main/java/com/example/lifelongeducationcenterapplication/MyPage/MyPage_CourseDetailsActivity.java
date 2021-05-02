@@ -123,18 +123,18 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mypagecoursedetailslist, null);
 
-            Enrollment enrollment = enrollments.get(position);
-            name = convertView.findViewById(R.id.coursedetailsCoursename);
-            int getName = enrollment.getSubjectnumber();
-            semester = convertView.findViewById(R.id.coursedetailsYearsemester);
-            certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
-            payment = convertView.findViewById(R.id.coursedetailspayment);
+                Enrollment enrollment = enrollments.get(position);
+                name = convertView.findViewById(R.id.coursedetailsCoursename);
+                int getName = enrollment.getSubjectnumber();
+                semester = convertView.findViewById(R.id.coursedetailsYearsemester);
+                certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
+                payment = convertView.findViewById(R.id.coursedetailspayment);
 
-            btCancel = convertView.findViewById(R.id.btcoursedetail1);
-            btDetail = convertView.findViewById(R.id.btcoursedetail2);
+                btCancel = convertView.findViewById(R.id.btcoursedetail1);
+                btDetail = convertView.findViewById(R.id.btcoursedetail2);
 
-            if(getName != 0){
-                Call<Lecture> call1 = rs1.lectureName(getName);//call객체
+                if(getName != 0){
+                    Call<Lecture> call1 = rs1.lectureName(getName);//call객체
                 call1.enqueue(new Callback<Lecture>() {//enqueue 메소드 실행
                     @Override
                     public void onResponse(Call<Lecture> call, Response<Lecture> response) {
