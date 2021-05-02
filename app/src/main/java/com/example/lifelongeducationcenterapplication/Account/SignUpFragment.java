@@ -49,7 +49,7 @@ public class SignUpFragment extends Fragment {
     Button btnSignUpRegister, btnSignUpRegisterCancel; //등록, 취소
 
     Retrofit retrofit;
-    String name, birthDate, course, sex;
+    String name, birthDate, course, sex, retrofitBirth;
     boolean pwResult, blankResult;
 
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
@@ -127,7 +127,7 @@ public class SignUpFragment extends Fragment {
         course = getArguments().getString("txtSignUpDivision");
 
         String nameGender = name + " (" + sex + ")";
-
+        retrofitBirth = birthDate.replace("/","");
 
         txtSignUpDivision.setText(course); // 어느 과정인지
         txtSignUpNameAndSex.setText(nameGender); // 성별 이름
@@ -181,11 +181,11 @@ public class SignUpFragment extends Fragment {
                 if (blankResult) {
                     if (pwResult) {
                         RemoteService rs = retrofit.create(RemoteService.class);
-                        Call<RegisterResult> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, birthDate, name, sex);
+                        Call<RegisterResult> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, retrofitBirth, name, sex);
                         call.enqueue(new Callback<RegisterResult>() {
                             public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
                                 RegisterResult registerResult = response.body();
-                                System.out.println("result------------ " + registerResult.getResult());
+                                System.out.println("학습은행제" + registerResult.getResult());
                                 if (registerResult.getResult().equals("ok")) {
                                     Toast.makeText(getContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
                                     System.out.println("회원가입 성공");

@@ -107,7 +107,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.item_foreignlanguagecourse, null);
+            convertView = getLayoutInflater().inflate(R.layout.item_mypagecoursedetailslist, null);
 
             Lecture lc = lectures.get(position);
 

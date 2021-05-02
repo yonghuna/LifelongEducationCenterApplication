@@ -55,7 +55,7 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("수강내역");
+        getSupportActionBar().setTitle("내 정보");
         setContentView(R.layout.activity_my_page__member_information_management);
 
 
@@ -169,7 +169,7 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
 
                     // 생일
                     memberBirth.setText(userInfo.getBirth().substring(0, 4) + "년" + userInfo.getBirth().substring(4, 6) + "월"
-                            + userInfo.getBirth().substring(6, 8));
+                            + userInfo.getBirth().substring(6, 8) + "일");
                     memberPostcode.setText(userInfo.getAddressnumber());
                     memberAdr1.setText(userInfo.getAddress());
                     memberAdr2.setText(userInfo.getDetailedaddress());

@@ -9,10 +9,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
 import com.example.lifelongeducationcenterapplication.UserInfo;
@@ -23,10 +25,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
-    TextView memberName, memberBirth, memberIdNumber, myPageBankText, memberPostcode, memberAdr1; // 이름 생년 주민번호, 학습은행제
+    TextView memberName, memberBirth, memberIdNumber, memberPostcode, memberAdr1; // 이름 생년 주민번호, 학습은행제
     Spinner memberPhone1, memberEducation; // 휴대폰, 학력
     EditText memberPhone2, memberPhone3, memberAdr2, memberSchool  // 휴대폰, 주소, 전공 , 입학전공 , 패스워드
             , memberMajor, memberAdimissionMajor, memberPw1, memberPw2;
@@ -42,7 +47,7 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
 
     String[] education = {
-            "선택하세요", "대학원 졸업이상", "대학원재학", "대학교졸업", "대학교재학", "고등학교졸업"
+             "대학원 졸업이상", "대학원재학", "대학교졸업", "대학교재학", "고등학교졸업"
             , "고등학교재학", "중학교졸업", "중학교재학", "초등학교졸업",
     };
 
@@ -52,9 +57,27 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("수강내역");
-        setContentView(R.layout.activity_my_page__course_details);
+        getSupportActionBar().setTitle("내 정보");
+        setContentView(R.layout.activity_my_page__member_information_management);
+        dbSend();
+        setFindId();
+        spinnerEducation();
+        spinnerPhone();
+        updatePost();
 
+    }
+
+    public void dbSend() {
+        //회원가입 유저 정보 디비 전송
+        retrofit1 = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        retrofit2 = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
     }
 
     @Override
@@ -74,10 +97,42 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
                     // 생일
                     memberBirth.setText(userInfo.getBirth().substring(0, 4) + "년" + userInfo.getBirth().substring(4, 6) + "월"
-                            + userInfo.getBirth().substring(6, 8));
+                            + userInfo.getBirth().substring(6, 8) + "일");
                     memberPostcode.setText(userInfo.getAddressnumber());
                     memberAdr1.setText(userInfo.getAddress());
                     memberAdr2.setText(userInfo.getDetailedaddress());
+
+                    //학점은행제
+                    if(userInfo.getAdmissionmajor() == "" || userInfo.getAdmissionmajor() == null){
+
+                    }else{
+                        memberAdimissionMajor.setText(userInfo.getAdmissionmajor());
+                    }
+
+                    if(userInfo.getMajor() == "" || userInfo.getMajor() == null){
+
+                    }else{
+                        memberMajor.setText(userInfo.getMajor());
+                    }
+
+
+                    if(userInfo.getSchool() == "" || userInfo.getSchool() == null){
+
+                    }else {
+                        memberSchool.setText(userInfo.getSchool());
+                    }
+
+                    if(userInfo.getEducation() == "" || userInfo.getEducation() == null) {
+                        }else {
+                        String[] newEducation = {
+                                userInfo.getEducation(), "대학원 졸업이상", "대학원재학", "대학교졸업", "대학교재학", "고등학교졸업"
+                                , "고등학교재학", "중학교졸업", "중학교재학", "초등학교졸업",
+                        };
+                        ArrayAdapter adapter2 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, newEducation);
+                        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        memberEducation.setAdapter(adapter2);
+                    }
+                    memberIdNumber.setText(userInfo.getBirth().substring(2, 8));
 
                 }
             }
@@ -109,7 +164,6 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
         btnModify = (Button) findViewById(R.id.btnmypageModify);
 
         myPageBank1 = (LinearLayout) findViewById(R.id.myPageBank2);
-        myPageBankText = (TextView) findViewById(R.id.myPageBank1);
         myPageBank2 = (LinearLayout) findViewById(R.id.myPageBank3);
         myPageBank3 = (LinearLayout) findViewById(R.id.myPageBank4);
     }
@@ -132,11 +186,14 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
         Pattern pattern1 = Pattern.compile("[ !@#$%^&*(),.?\":{}|<>]");
         if (pw1.isEmpty() && pw2.isEmpty()) {
             return correct;
-        } else if (pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
+        }
+        if (pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
                 && pattern1.matcher(pw1).find() && pw1.equals(pw2)) {
             return "ok";
+        }else{
+            return "check";
         }
-        return correct;
+
     }
 
 
@@ -152,13 +209,67 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
                     int idx = data.indexOf(",");
                     if (data != null)
                         memberPostcode.setText(data.substring(0, idx));
-                    memberAdr1.setText(data.substring(idx + 1));
+                        memberAdr1.setText(data.substring(idx + 1));
 
                 }
                 break;
 
         }
 
+    }
+
+    public void updatePost() { // 업데이트 내용 전송
+        btnModify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String phoneNumber = memberPhone1.getSelectedItem().toString().trim()
+                        + memberPhone2.getText().toString().trim()
+                        + memberPhone3.getText().toString().trim();
+
+                String postCode = memberPostcode.getText().toString().trim();
+                String addr1 = memberAdr1.getText().toString().trim();
+                String addr2 = memberAdr2.getText().toString().trim();
+
+                String pw1 = memberPw1.getText().toString().trim();
+                String pw2 = memberPw2.getText().toString().trim();
+
+                String education = memberEducation.getSelectedItem().toString().trim();
+                String major = memberMajor.getText().toString().trim();
+                String school = memberSchool.getText().toString().trim();
+                String adMajor = memberAdimissionMajor.getText().toString().trim();
+
+                String result = pwCorrect(pw1, pw2);
+                if(result != "check") {
+                    RemoteService rs2 = retrofit2.create(RemoteService.class);
+                    Call<RegisterResult> call = rs2.myPageInfoPost2(StaticId.id, result, phoneNumber, postCode, addr1, addr2, pw1, education, school, major, adMajor);
+                    call.enqueue(new Callback<RegisterResult>() {
+                        public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                            RegisterResult registerResult = response.body();
+                            System.out.println("result------------ " + registerResult.getResult());
+                            if (registerResult.getResult().equals("ok")) {
+                                Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_LONG).show();
+                                System.out.println("수정 성공");
+                                memberPw1.setText("");
+                                memberPw2.setText("");
+
+                            } else if (registerResult.equals("false")) {
+                                Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                                System.out.println("일반 수정 실패");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<RegisterResult> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                        }
+
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(), "비밀번호를 확인해주세요!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
