@@ -211,30 +211,33 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
 
                 String result = pwCorrect(pw1, pw2);
                 RemoteService rs2 = retrofit2.create(RemoteService.class);
+                if(result != "check") {
+                    Call<RegisterResult> call = rs2.myPageInfoPost1(StaticId.id, result, phoneNumber, postCode, addr1, addr2, pw1);
+                    call.enqueue(new Callback<RegisterResult>() {
+                        public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                            RegisterResult registerResult = response.body();
+                            System.out.println("result------------ " + registerResult.getResult());
+                            if (registerResult.getResult().equals("ok")) {
+                                Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_LONG).show();
+                                System.out.println("수정 성공");
+                                memberPw1.setText("");
+                                memberPw2.setText("");
 
-                Call<RegisterResult> call = rs2.myPageInfoPost1(StaticId.id, result, phoneNumber, postCode, addr1, addr2, pw1);
-                call.enqueue(new Callback<RegisterResult>() {
-                    public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
-                        RegisterResult registerResult = response.body();
-                        System.out.println("result------------ " + registerResult.getResult());
-                        if (registerResult.getResult().equals("ok")) {
-                            Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_LONG).show();
-                            System.out.println("수정 성공");
-                            memberPw1.setText("");
-                            memberPw2.setText("");
-
-                        } else if (registerResult.equals("false")) {
-                            Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
-                            System.out.println("일반 수정 실패");
+                            } else if (registerResult.equals("false")) {
+                                Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                                System.out.println("일반 수정 실패");
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<RegisterResult> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
-                    }
+                        @Override
+                        public void onFailure(Call<RegisterResult> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                        }
 
-                });
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(), "비밀번호를 확인해주세요", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -245,11 +248,14 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
         Pattern pattern1 = Pattern.compile("[ !@#$%^&*(),.?\":{}|<>]");
         if (pw1.isEmpty() && pw2.isEmpty()) {
             return correct;
-        } else if (pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
+        }
+        if (pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
                 && pattern1.matcher(pw1).find() && pw1.equals(pw2)) {
             return "ok";
+        }else{
+            return "check";
         }
-        return correct;
+
     }
 
 }

@@ -9,6 +9,7 @@
     <!--activity_my_page__course_details.xml-->
 
     <LinearLayout
+        android:id="@+id/gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

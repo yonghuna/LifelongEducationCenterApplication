@@ -153,7 +153,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_foreignlanguagecourse, null);
 
-            boolean result = false;
+
 
             Lecture lc = lectures.get(position);
             Enrollment enrollment;

@@ -18,6 +18,7 @@ import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
 import com.example.lifelongeducationcenterapplication.UserInfo;
+import com.example.lifelongeducationcenterapplication.WebViewActivity;
 
 import java.util.regex.Pattern;
 
@@ -36,7 +37,7 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
     EditText memberPhone2, memberPhone3, memberAdr2, memberSchool  // 휴대폰, 주소, 전공 , 입학전공 , 패스워드
             , memberMajor, memberAdimissionMajor, memberPw1, memberPw2;
 
-    Button btnModify;
+    Button btnModify, btnAdr;
 
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
 
@@ -63,6 +64,7 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
         setFindId();
         spinnerEducation();
         spinnerPhone();
+        searchAddress();
         updatePost();
 
     }
@@ -162,7 +164,7 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
         memberPw1 = (EditText) findViewById(R.id.mypageedtSignUpPassword);
         memberPw2 = (EditText) findViewById(R.id.mypageedtSignUpPasswordCheck);
         btnModify = (Button) findViewById(R.id.btnmypageModify);
-
+        btnAdr = (Button) findViewById(R.id.btnmypageSignUpAddressSearch);
         myPageBank1 = (LinearLayout) findViewById(R.id.myPageBank2);
         myPageBank2 = (LinearLayout) findViewById(R.id.myPageBank3);
         myPageBank3 = (LinearLayout) findViewById(R.id.myPageBank4);
@@ -196,15 +198,29 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
 
     }
 
+    public void searchAddress() {
 
+        btnAdr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //1. 주소API를 이용하여 주소를 확인함.
+                //2. DaumWebViewActivity로부터 intent로 addr을 받아와서 표시해주는 부분
+
+                Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
+                startActivityForResult(intent, SEARCH_ADDRESS_ACTIVITY);
+            }
+        });
+
+    }
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         super.onActivityResult(requestCode, resultCode, intent);
 
         switch (requestCode) {
             case SEARCH_ADDRESS_ACTIVITY:
-
+                System.out.println("SEARCH_ADDRESS_ACTIVITY");
                 if (resultCode == RESULT_OK) {
+                    System.out.println("SEARCH_ADDRESS_ACTIVITY INSIDE");
                     String data = intent.getExtras().getString("data");
                     int idx = data.indexOf(",");
                     if (data != null)
@@ -217,6 +233,8 @@ public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
         }
 
     }
+
+
 
     public void updatePost() { // 업데이트 내용 전송
         btnModify.setOnClickListener(new View.OnClickListener() {

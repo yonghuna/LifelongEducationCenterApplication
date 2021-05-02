@@ -7,6 +7,72 @@ public class Enrollment {
     @SerializedName("subjectnumber")
     int subjectnumber;
 
+    @SerializedName("subjectyear")
+    int subjectyear;
+
+    @SerializedName("subjectsemester")
+    int subjectsemester;
+
+    @SerializedName("grade")
+    String grade;
+
+    @SerializedName("payment")
+    String payment;
+
+    @SerializedName("Certificaterealname")
+    String Certificaterealname;
+
+    @SerializedName("Certificaterandomname")
+    String Certificaterandomname;
+
+    public int getSubjectyear() {
+        return subjectyear;
+    }
+
+    public void setSubjectyear(int subjectyear) {
+        this.subjectyear = subjectyear;
+    }
+
+    public int getSubjectsemester() {
+        return subjectsemester;
+    }
+
+    public void setSubjectsemester(int subjectsemester) {
+        this.subjectsemester = subjectsemester;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
+    public String getCertificaterealname() {
+        return Certificaterealname;
+    }
+
+    public void setCertificaterealname(String certificaterealname) {
+        Certificaterealname = certificaterealname;
+    }
+
+    public String getCertificaterandomname() {
+        return Certificaterandomname;
+    }
+
+    public void setCertificaterandomname(String certificaterandomname) {
+        Certificaterandomname = certificaterandomname;
+    }
+
     public int getSubjectnumber() {
         return subjectnumber;
     }
