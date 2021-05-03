@@ -683,10 +683,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                        }else{
+                            intent = new Intent(MainActivity.this, MyPage_CourseDetailsActivity.class);
+                            startActivityForResult(intent, 25);
                         }
 
-                        intent = new Intent(MainActivity.this, MyPage_CourseDetailsActivity.class);
-                        startActivityForResult(intent, 25);
                         //마이페이지 수강내역
                         break;
                     case R.id.DVtxtMypage_3:
@@ -696,9 +697,10 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                        }else {
+                            intent = new Intent(MainActivity.this, MyPage_GradesVerificationActivity.class);
+                            startActivityForResult(intent, 26);
                         }
-                        intent = new Intent(MainActivity.this, MyPage_GradesVerificationActivity.class);
-                        startActivityForResult(intent, 26);
                         //마이페이지 성적확인
                         break;
                     case R.id.DVtxtMypage_4:
@@ -708,9 +710,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                        }else{
+                            intent = new Intent(MainActivity.this, MyPage_QuestionAndAnswerActivity.class);
+                            startActivityForResult(intent, 27);
                         }
-                        intent = new Intent(MainActivity.this, MyPage_QuestionAndAnswerActivity.class);
-                        startActivityForResult(intent, 27);
+
                         //마이페이지 질의 응답
                         break;
                 }

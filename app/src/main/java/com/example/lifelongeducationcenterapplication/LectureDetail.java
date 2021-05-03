@@ -41,6 +41,28 @@ public class LectureDetail {
     @SerializedName("datedetail")
     public String datedetail;
 
+    @SerializedName("yaer")
+    public int yaer;
+
+    @SerializedName("semester")
+    public int semester;
+
+    public int getYaer() {
+        return yaer;
+    }
+
+    public void setYaer(int yaer) {
+        this.yaer = yaer;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
     public String getDatedetail() {
         return datedetail;
     }

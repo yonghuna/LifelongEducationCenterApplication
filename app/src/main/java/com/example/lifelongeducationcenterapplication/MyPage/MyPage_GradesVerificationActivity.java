@@ -10,9 +10,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.lifelongeducationcenterapplication.Enrollment;
+import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class MyPage_GradesVerificationActivity extends AppCompatActivity {
     //마이페이지 성적확인
@@ -21,12 +32,47 @@ public class MyPage_GradesVerificationActivity extends AppCompatActivity {
     ListView listView;
     List<Enrollment> enrollments;
     MyAdapter adapter;
+
+    Retrofit retrofit;//httpclient library
+    RemoteService rs;//DB를 위한 인터페이스
+
+    int number = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("성적확인");
         setContentView(R.layout.activity_my_page__grades_verification);
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs = retrofit.create(RemoteService.class);
+        listView = (ListView) findViewById(R.id.mypagegradeslist);
+        adapter = new MyAdapter();
     }
+
+    @Override
+    protected void onResume() {
+        Call<List<Enrollment>> call1 = rs.enrollment(StaticId.id);//call객체
+        call1.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                if (response.isSuccessful()) {
+                    enrollments = response.body();
+                    adapter.notifyDataSetChanged();
+                    listView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                System.out.println("JSON 불러오기 실패" + call + " " + t);
+
+            }
+        });
+        super.onResume();
+    }
+
+
     class MyAdapter extends BaseAdapter {
 
         @Override
@@ -46,20 +92,29 @@ public class MyPage_GradesVerificationActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.item_mypagecoursedetailslist, null);
+            convertView = getLayoutInflater().inflate(R.layout.item_mypagegradeschecklist, null);
             Enrollment enrollment = enrollments.get(position);
-            name = convertView.findViewById(R.id.Coursenamelist);
-            year = convertView.findViewById(R.id.gragdsYearsemesterlist);
-            result = convertView.findViewById(R.id.resultlist);
+            name = (TextView) convertView.findViewById(R.id.Coursenamelist);
+            year = (TextView) convertView.findViewById(R.id.gragdsYearsemesterlist);
+            result = (TextView) convertView.findViewById(R.id.resultlist);
 
-            if(enrollment.getGrade() != "" || enrollment.getGrade() != null){
+            if(enrollment.getGrade() != null){
+                System.out.println(enrollment.getGrade());
                 name.setText(enrollment.getName());
                 year.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());
                 result.setText(enrollment.getGrade());
             }else{
-                name.setText("조회 결과가 없습니다.");
-                year.setVisibility(View.GONE);
-                result.setVisibility(View.GONE);
+                if(number == 1){ // 처음께 조회 결과가 없다면 다음꺼는 없애버림 
+                    name.setVisibility(View.GONE);
+                    year.setVisibility(View.GONE);
+                    result.setVisibility(View.GONE);
+                }else{ // 조회결과없습니다 하고 안보이게함
+                    name.setText("조회 결과가 없습니다");
+                    year.setVisibility(View.INVISIBLE);
+                    result.setVisibility(View.INVISIBLE);
+                    number++;
+                }
+
             }
 
             return convertView;

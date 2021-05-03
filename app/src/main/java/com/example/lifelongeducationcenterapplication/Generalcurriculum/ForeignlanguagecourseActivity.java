@@ -57,6 +57,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
     Button btDetail, btClassRg;
     TextView textName, textPeriod, textProfessor, textTime, textFee;
+    String info = "수강신청";
     MyAdapter adapter;
 
 
@@ -153,8 +154,6 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_foreignlanguagecourse, null);
 
-
-
             Lecture lc = lectures.get(position);
             Enrollment enrollment;
 
@@ -207,6 +206,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                 if(enrollment.getSubjectnumber() == lc.getNumber()){
                     btClassRg.setBackgroundColor(Color.GRAY);
                     btClassRg.setText("신청내역");
+                    info = "신청내역";
                 }
             }
             // 상세보기 
@@ -214,6 +214,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", number);
+                    intent.putExtra("info", info);
                     // 해야되는 부분 수강신청을 위해 해야됨
                     startActivity(intent);
                 }
