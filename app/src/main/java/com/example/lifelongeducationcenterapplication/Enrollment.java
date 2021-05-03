@@ -25,6 +25,17 @@ public class Enrollment {
     @SerializedName("Certificaterandomname")
     String Certificaterandomname;
 
+    @SerializedName("name")
+    String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getSubjectyear() {
         return subjectyear;
     }

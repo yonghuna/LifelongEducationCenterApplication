@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
-public class MyPage_MemberInfomation_Bank extends AppCompatActivity {
+public class MyPage_MemberInfomation_Bank_Activity extends AppCompatActivity {
 
     TextView memberName, memberBirth, memberIdNumber, memberPostcode, memberAdr1; // 이름 생년 주민번호, 학습은행제
     Spinner memberPhone1, memberEducation; // 휴대폰, 학력

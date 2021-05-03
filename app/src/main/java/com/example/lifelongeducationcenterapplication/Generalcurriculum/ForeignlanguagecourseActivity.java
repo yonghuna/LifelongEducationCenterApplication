@@ -237,7 +237,8 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                                     RegisterResult registerResult = response.body();
                                     if (registerResult.getResult().equals("ok")) {
                                         Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
-
+                                        Intent intent1 = new Intent(getApplicationContext(), ForeignlanguagecourseActivity.class);
+                                        startActivity(intent1);
                                     } else {
                                         Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
                                         startActivity(intent1);

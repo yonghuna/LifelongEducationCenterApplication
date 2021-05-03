@@ -44,7 +44,7 @@ import com.example.lifelongeducationcenterapplication.Intro.History;
 import com.example.lifelongeducationcenterapplication.Intro.Organizational;
 import com.example.lifelongeducationcenterapplication.Intro.SearchMap;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
-import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInfomation_Bank;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInfomation_Bank_Activity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_GradesVerificationActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInformationManagementActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
@@ -676,7 +676,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);
                             startActivity(intent1);
                         } else if (StaticId.course == "학점은행제과정" || StaticId.course.equals("학점은행제과정")) {
-                            Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInfomation_Bank.class);
+                            Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInfomation_Bank_Activity.class);
                             startActivity(intent1);
                         }
                         //intent = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);

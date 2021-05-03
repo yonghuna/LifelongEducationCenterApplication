@@ -63,7 +63,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.mypageCoursedetailslist);
         linearLayout = (LinearLayout) findViewById(R.id.gone);
 
-        setlistlist();
+
 
         adapter = new MyAdapter();
 
@@ -77,11 +77,6 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
-        super.onResume();
-    }
-
-    public void setlistlist(){
         Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
         call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override
@@ -100,7 +95,10 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             }
         });
+        super.onResume();
     }
+
+
 
 
     class MyAdapter extends BaseAdapter {
@@ -125,16 +123,20 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             Enrollment enrollment = enrollments.get(position);
             name = convertView.findViewById(R.id.coursedetailsCoursename);
-            int getName = enrollment.getSubjectnumber();
             semester = convertView.findViewById(R.id.coursedetailsYearsemester);
             certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
             payment = convertView.findViewById(R.id.coursedetailspayment);
 
-            btCancel = convertView.findViewById(R.id.btcoursedetail1);
-            btDetail = convertView.findViewById(R.id.btcoursedetail2);
+            btCancel = convertView.findViewById(R.id.btcoursedetail2);
+            btDetail = convertView.findViewById(R.id.btcoursedetail1);
 
-
-            name.setText(enrollment.getSubjectnumber())
+            if(enrollment.getName() != "" ||  enrollment.getName() != null){
+                name.setText(enrollment.getName());
+            }else{
+                name.setText("신청된 강좌가 없습니다.");
+                btDetail.setVisibility(View.GONE);
+                btCancel.setVisibility(View.GONE);
+            }
 
             if (enrollment.getSubjectsemester() != 0) {
                 semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());
@@ -151,6 +153,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             btDetail.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    System.out.println("btDetail 클릭");
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
                     // 수강 내역
