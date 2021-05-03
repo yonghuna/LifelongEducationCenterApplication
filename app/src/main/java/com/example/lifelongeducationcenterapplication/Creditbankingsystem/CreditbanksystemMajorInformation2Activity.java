@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.lifelongeducationcenterapplication.R;
-public class CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
+public class
+
+CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
     //학점은행제 전공안내  체육학
 
     Spinner majormenuSpinner;

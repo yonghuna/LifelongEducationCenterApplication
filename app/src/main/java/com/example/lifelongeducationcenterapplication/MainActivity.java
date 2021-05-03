@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView link1, link2;
 
-    TextView mainNotice;
+    TextView mainNotice, mainLecture;
 
     TextView login, name;
     DrawerLayout drawerLayout;
@@ -86,15 +86,15 @@ public class MainActivity extends AppCompatActivity {
     RemoteService rs2;//DB를 위한 인터페이스
 
 
-    List<Lecture> lectures; // 배열 객체 생성
+    List<Enrollment> enrollments; // 배열 객체 생성
     ListView listLecture;//리스트뷰
 
     List<Notice> notices;
     ListView listNotice;
 
     MyAdapter adapter;
+    MainLectureAdapter mainLectureAdapter; //어댑터
 
-    //MainLectureAdapter mainLectureAdapter; //어댑터
 
 
     @Override
@@ -185,8 +185,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //mainLectureAdapter = new MainLectureAdapter();
-        //listLecture.setAdapter(mainLectureAdapter);
+        mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
+
 
 
     }
@@ -194,24 +194,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-            /*
-            Call<List<MainLecture>> call = rs.listLecture();//call객체
-            call.enqueue(new Callback<List<MainLecture>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<MainLecture>> call, Response<List<MainLecture>> response) {
-                    lectures = response.body();
-                    mainLectureAdapter.notifyDataSetChanged();
-                    listLecture.setAdapter(mainLectureAdapter);
-                }
 
-                @Override
-                public void onFailure(Call<List<MainLecture>> call, Throwable t) {
-                    System.out.println("JSON 불러오기 실패" +call +" " + t);
+            if(StaticId.id != "" || StaticId.id != null) { // id
+                Call<List<Enrollment>> call = rs1.enrollment(StaticId.id);//call객체
+                call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
 
-                }
-            });
+                        enrollments = response.body();
+                        mainLectureAdapter.notifyDataSetChanged();
+                        listLecture.setAdapter(mainLectureAdapter);
+                    }
 
-             */
+                    @Override
+                    public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패" + call + " " + t);
+
+                    }
+                });
+            }
+
+
 
         Call<List<Notice>> call2 = rs2.notice();
         call2.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
@@ -221,11 +224,9 @@ public class MainActivity extends AppCompatActivity {
                     notices = response.body();
                     adapter.notifyDataSetChanged();
                     listNotice.setAdapter(adapter);
-
                 }
 
             }
-
             @Override
             public void onFailure(Call<List<Notice>> call, Throwable t) {
                 System.out.println("공지사항 불러오기 실패" + call + " " + t);
@@ -238,48 +239,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
-        class MainLectureAdapter extends BaseAdapter {
-
-            @Override
-            public int getCount() {
-
-                return lectures.size();
-            }
-
-            @Override
-            public Object getItem(int position) {
-                return null;
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return 0;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                convertView = getLayoutInflater().inflate(R.layout.item_mainlecture,null);
-
-
-                TextView mainLectureName = convertView.findViewById(R.id.mainLectureName);//강좌명
-                TextView mainLecturePeriod = convertView.findViewById(R.id.mainLecturePeriod);//교육기간
-                TextView mainLectureProfessor = convertView.findViewById(R.id.mainLectureProfessor);//교수진
-                TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
-                TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
-
-                MainLecture mainLecture = lectures.get(position);
-
-                mainLectureName.setText(mainLecture.getlectureName());
-                mainLecturePeriod.setText(mainLecture.getlecturePeriod());
-                mainLectureProfessor.setText(mainLecture.getlectureProfessor());
-                mainLectureTime.setText(mainLecture.getlectureTime());
-                mainLectureStudyfee.setText(mainLecture.getlectureStudyfee());
-                return convertView;
-            }
-        }
-
-     */
     public void logout() {
         StaticId.id = "";
         StaticId.course = "";
@@ -318,6 +277,40 @@ public class MainActivity extends AppCompatActivity {
             Notice notice = notices.get(position);
             mainNotice = (TextView) convertView.findViewById(R.id.main_noticeed);
             mainNotice.setText("・" + notice.getTitle());
+            return convertView;
+        }
+    }
+
+    class MainLectureAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return enrollments.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture, null);
+            Enrollment enrollment = enrollments.get(position);
+            mainLecture = (TextView) convertView.findViewById(R.id.mainLectureName);
+            if(enrollment.getName() != "" || enrollment.getName() != null){
+
+                mainLecture.setText("・" + enrollment.getName());
+            }else{
+
+                mainLecture.setVisibility(View.GONE);
+            }
+
             return convertView;
         }
     }

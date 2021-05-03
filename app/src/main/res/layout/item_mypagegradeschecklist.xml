@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal">
     <!--성적확인 리스트 아이템-->
     <!--activity_my_page__grades_verification.xml-->
     <TextView
@@ -10,13 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="강좌명" />
+        android:hint="연도/학기" />
+
     <TextView
         android:id="@+id/gragdsYearsemesterlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="연도/학기" />
+        android:hint="강좌명" />
 
 
     <TextView

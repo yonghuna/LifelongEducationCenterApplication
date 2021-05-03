@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5sp"
-                android:text="강좌정보"
+                android:text="수강 강좌"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 

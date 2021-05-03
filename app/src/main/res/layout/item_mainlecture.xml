@@ -9,8 +9,11 @@
         android:id="@+id/mainLectureName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="강좌명"
-        android:textSize="20sp"/>
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:textSize="14sp"
+        android:paddingLeft="5dp"
+        android:hint="테스트"/>
     <!--
     <LinearLayout
         android:id="@+id/listMainLecture"

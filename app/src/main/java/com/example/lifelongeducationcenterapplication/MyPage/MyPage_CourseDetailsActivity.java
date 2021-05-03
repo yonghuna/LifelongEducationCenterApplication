@@ -165,7 +165,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
             });
             btCancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    //?
+                    //추가해야됨
                 }
             });
 
