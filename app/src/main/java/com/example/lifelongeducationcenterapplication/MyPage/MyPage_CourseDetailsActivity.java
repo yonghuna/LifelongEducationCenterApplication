@@ -134,7 +134,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
             btDetail = convertView.findViewById(R.id.btcoursedetail2);
 
 
-            name.setText(enrollment.getSubjectnumber())
+            name.setText(enrollment.getSubjectnumber());
 
             if (enrollment.getSubjectsemester() != 0) {
                 semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());
