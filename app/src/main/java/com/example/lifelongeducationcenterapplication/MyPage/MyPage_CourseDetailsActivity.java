@@ -130,6 +130,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
             btCancel = convertView.findViewById(R.id.btcoursedetail2);
             btDetail = convertView.findViewById(R.id.btcoursedetail1);
 
+
             if(enrollment.getName() != "" ||  enrollment.getName() != null){
                 name.setText(enrollment.getName());
             }else{
@@ -137,6 +138,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 btDetail.setVisibility(View.GONE);
                 btCancel.setVisibility(View.GONE);
             }
+
 
             if (enrollment.getSubjectsemester() != 0) {
                 semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());

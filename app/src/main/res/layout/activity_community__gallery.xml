@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Community.Community_GalleryActivity">
+    android:layout_height="match_parent">
 
-    <!--
-        커뮤니티 갤러리
-    -->
-    <ImageView
+    <!--커뮤니티 갤러리-->
+    <GridView
+        android:id="@+id/gridView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/communityvisual"
-        android:adjustViewBounds="true"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:numColumns="3"
+        android:layout_alignParentLeft="true" />
+</RelativeLayout>
