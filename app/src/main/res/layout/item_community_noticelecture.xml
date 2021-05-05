@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/noticeCountlecture"
-                android:layout_width="match_parent"
+                android:layout_width="192dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:hint="번호"
@@ -33,7 +33,7 @@
             <TextView
                 android:id="@+id/noticeNamelecture"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="34dp"
                 android:layout_weight="0.5"
                 android:clickable="true"
                 android:hint="제목"

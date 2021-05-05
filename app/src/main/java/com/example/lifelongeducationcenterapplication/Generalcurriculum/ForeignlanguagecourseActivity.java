@@ -57,6 +57,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
     Button btDetail, btClassRg;
     TextView textName, textPeriod, textProfessor, textTime, textFee;
+    String info = "수강신청";
     MyAdapter adapter;
 
 
@@ -153,8 +154,6 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_foreignlanguagecourse, null);
 
-
-
             Lecture lc = lectures.get(position);
             Enrollment enrollment;
 
@@ -195,11 +194,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
 
             // 수강 불가시 수강신청 버튼 변경
-            if (status.equals("수강불가")) {
-                btClassRg.setBackgroundColor(Color.GRAY);
-                btClassRg.setText("수강불가");
-                btClassRg.setClickable(false);
-            }
+
 
 
             for(int i = 0; i < enrollments.size(); i++){
@@ -207,6 +202,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                 if(enrollment.getSubjectnumber() == lc.getNumber()){
                     btClassRg.setBackgroundColor(Color.GRAY);
                     btClassRg.setText("신청내역");
+                    info = "신청내역";
                 }
             }
             // 상세보기 
@@ -214,50 +210,95 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", number);
+                    intent.putExtra("info", info);
                     // 해야되는 부분 수강신청을 위해 해야됨
                     startActivity(intent);
                 }
 
             });
             // 일반과정 수강신청
-            btClassRg.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
 
-                    if (StaticId.id.equals("") || StaticId.id == null) {
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
-                        startActivity(intent);
-                    }
-                    else {
-                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
-                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
-                            @Override
-                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
-                                if (response.isSuccessful()) {
-                                    RegisterResult registerResult = response.body();
-                                    if (registerResult.getResult().equals("ok")) {
-                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+            if (status.equals("수강불가")) {
+                btClassRg.setBackgroundColor(Color.GRAY);
+                btClassRg.setText("수강불가");
+                btClassRg.setOnClickListener(null);
+                btClassRg.setClickable(false);
+            }else{
+                    btClassRg.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
 
-                                    } else {
-                                        Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
-                                        startActivity(intent1);
+                            if (StaticId.id.equals("") || StaticId.id == null) {
+                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                                startActivity(intent);
+                            } else {
+                                Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
+                                call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                                    @Override
+                                    public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                        if (response.isSuccessful()) {
+                                            RegisterResult registerResult = response.body();
+                                            if (registerResult.getResult().equals("ok")) {
+                                                Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                                notifyChangeList();
+                                            } else {
+                                                Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
+                                                startActivity(intent1);
+                                            }
+                                        }
                                     }
-                                }
+
+                                    @Override
+                                    public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                        System.out.println("일반과정 수강신청 실패 " + call + " " + t);
+
+                                    }
+                                });
                             }
 
-                            @Override
-                            public void onFailure(Call<RegisterResult> call, Throwable t) {
-                                System.out.println("일반과정 수강신청 실패 " + call + " " + t);
+                        }
 
-                            }
-                        });
-                    }
 
+                    });
                 }
 
-
-            });
             return convertView;
+        }
+        public void notifyChangeList(){
+            Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
+            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                    if (response.isSuccessful()) {
+                        enrollments = response.body();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                    System.out.println("subjectnumber" + call + " " + t);
+
+                }
+            });
+
+            Call<List<Lecture>> call1 = rs.lecture("외국어과정");//call객체
+            call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                    if (response.isSuccessful()) {
+                        lectures = response.body();
+                        adapter.notifyDataSetChanged();
+                        listLecture.setAdapter(adapter);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                    System.out.println("JSON 불러오기 실패 외국어 과정" + call + " " + t);
+
+                }
+            });
+
         }
     }
 

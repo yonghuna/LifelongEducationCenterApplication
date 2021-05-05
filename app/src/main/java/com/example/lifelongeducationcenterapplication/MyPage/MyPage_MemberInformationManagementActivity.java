@@ -41,9 +41,10 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
 
     LinearLayout myPageBank1, myPageBank2, myPageBank3; // 학습은행제 일경우
 
-    private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
+    private static final int SEARCH_ADDRESS_ACTIVITY = 9998;
     Retrofit retrofit1;
     Retrofit retrofit2;
+
 
     String[] phone = {
             "010", "011", "016", "017", "018", "019"
@@ -61,6 +62,7 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
 
         setFindId();
         dbSend();
+        text();
         searchAddress();
         spinnerPhone();
         updatePost();
@@ -85,6 +87,39 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+
+    }
+
+    public void text(){
+        RemoteService rs = retrofit1.create(RemoteService.class);
+        Call<UserInfo> call = rs.myPage(StaticId.id);//call객체
+        call.enqueue(new Callback<UserInfo>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
+                if (response.isSuccessful()) {
+                    UserInfo userInfo = response.body();
+                    memberName.setText(userInfo.getName());
+
+                    // 휴대폰
+                    memberPhone2.setText(userInfo.getPhoneNumber().substring(3, 7));
+                    memberPhone3.setText(userInfo.getPhoneNumber().substring(7, 11));
+
+                    // 생일
+                    memberBirth.setText(userInfo.getBirth().substring(0, 4) + "년" + userInfo.getBirth().substring(4, 6) + "월"
+                            + userInfo.getBirth().substring(6, 8) + "일");
+                    memberPostcode.setText(userInfo.getAddressnumber());
+                    memberAdr1.setText(userInfo.getAddress());
+                    memberAdr2.setText(userInfo.getDetailedaddress());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserInfo> call, Throwable t) {
+                System.out.println("Mypage 데이터 가져오기 오류" + call + " " + t);
+            }
+        });
     }
 
     public void setFindId() {
@@ -151,39 +186,14 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
         }
 
     }
-
+    /*
     @Override
     protected void onResume() {
-        RemoteService rs = retrofit1.create(RemoteService.class);
-        Call<UserInfo> call = rs.myPage(StaticId.id);//call객체
-        call.enqueue(new Callback<UserInfo>() {//enqueue 메소드 실행
-            @Override
-            public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
-                if (response.isSuccessful()) {
-                    UserInfo userInfo = response.body();
-                    memberName.setText(userInfo.getName());
 
-                    // 휴대폰
-                    memberPhone2.setText(userInfo.getPhoneNumber().substring(3, 7));
-                    memberPhone3.setText(userInfo.getPhoneNumber().substring(7, 11));
-
-                    // 생일
-                    memberBirth.setText(userInfo.getBirth().substring(0, 4) + "년" + userInfo.getBirth().substring(4, 6) + "월"
-                            + userInfo.getBirth().substring(6, 8) + "일");
-                    memberPostcode.setText(userInfo.getAddressnumber());
-                    memberAdr1.setText(userInfo.getAddress());
-                    memberAdr2.setText(userInfo.getDetailedaddress());
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserInfo> call, Throwable t) {
-                System.out.println("Mypage 데이터 가져오기 오류" + call + " " + t);
-            }
-        });
         super.onResume();
     }
+
+     */
 
 
     public void spinnerPhone() {// 휴대폰 스피너 초기화

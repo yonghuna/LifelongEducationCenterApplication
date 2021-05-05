@@ -47,6 +47,10 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
+    Retrofit retrofit1;//httpclient library
+    RemoteService rs1;//DB를 위한 인터페이스
+
+
     LinearLayout linearLayout;
     List<Enrollment> enrollments; // 배열 객체 생성
 
@@ -54,6 +58,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     MyAdapter adapter;
     TextView name, semester, certificate, payment;
     Button btDetail, btCancel;
+    RegisterResult registerResults;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +68,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.mypageCoursedetailslist);
         linearLayout = (LinearLayout) findViewById(R.id.gone);
 
-        setlistlist();
+
 
         adapter = new MyAdapter();
 
@@ -71,17 +76,16 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
 
+        retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs1 = retrofit1.create(RemoteService.class);
+
 
 
     }
 
     @Override
     protected void onResume() {
-
-        super.onResume();
-    }
-
-    public void setlistlist(){
         Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
         call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override
@@ -100,7 +104,10 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             }
         });
+        super.onResume();
     }
+
+
 
 
     class MyAdapter extends BaseAdapter {
@@ -125,16 +132,22 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             Enrollment enrollment = enrollments.get(position);
             name = convertView.findViewById(R.id.coursedetailsCoursename);
-            int getName = enrollment.getSubjectnumber();
             semester = convertView.findViewById(R.id.coursedetailsYearsemester);
             certificate = convertView.findViewById(R.id.coursedetailsCertificateofCompletion);
             payment = convertView.findViewById(R.id.coursedetailspayment);
 
-            btCancel = convertView.findViewById(R.id.btcoursedetail1);
-            btDetail = convertView.findViewById(R.id.btcoursedetail2);
+            btCancel = convertView.findViewById(R.id.btcoursedetail2);
+            btDetail = convertView.findViewById(R.id.btcoursedetail1);
 
 
-            name.setText(enrollment.getSubjectnumber());
+            if(enrollment.getName() != "" ||  enrollment.getName() != null){
+                name.setText(enrollment.getName());
+            }else{
+                name.setText("신청된 강좌가 없습니다.");
+                btDetail.setVisibility(View.GONE);
+                btCancel.setVisibility(View.GONE);
+            }
+
 
             if (enrollment.getSubjectsemester() != 0) {
                 semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());
@@ -151,6 +164,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             btDetail.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    System.out.println("btDetail 클릭");
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
                     // 수강 내역
@@ -158,14 +172,61 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 }
 
             });
+
+            // 취소 시
             btCancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    //?
+
+
+                    Call<RegisterResult> call = rs.userSubjectCancel(StaticId.id, enrollment.getSubjectnumber());//call객체
+                    call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                        @Override
+                        public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                            if (response.isSuccessful()) {
+                                registerResults = response.body();
+                                if (response.isSuccessful()) {
+                                    if (registerResults.getResult().equals("ok")) {
+                                        Toast.makeText(getApplicationContext(), "수강취소 되었습니다", Toast.LENGTH_SHORT).show();
+                                        change();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "오류 입니다", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<RegisterResult> call, Throwable t) {
+                            System.out.println("수강 취소 실패" + call + " " + t);
+
+                        }
+                    });
                 }
             });
 
             return convertView;
         }
 
+    }
+    public void change(){
+        Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
+        call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                if (response.isSuccessful()) {
+                    enrollments = response.body();
+                    listView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                System.out.println("내 강의 불러오기 실패" + call + " " + t);
+
+            }
+        });
     }
 }

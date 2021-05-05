@@ -44,7 +44,7 @@ import com.example.lifelongeducationcenterapplication.Intro.History;
 import com.example.lifelongeducationcenterapplication.Intro.Organizational;
 import com.example.lifelongeducationcenterapplication.Intro.SearchMap;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
-import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInfomation_Bank;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInfomation_Bank_Activity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_GradesVerificationActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInformationManagementActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView link1, link2;
 
-    TextView mainNotice;
+    TextView mainNotice, mainLecture;
+    TextView mainLectureTitle2, mainLectureDivision2, mainLectureDate2, mainLectureText;
 
     TextView login, name;
     DrawerLayout drawerLayout;
@@ -85,16 +86,22 @@ public class MainActivity extends AppCompatActivity {
     Retrofit retrofit2;//httpclient library
     RemoteService rs2;//DB를 위한 인터페이스
 
+    Retrofit retrofit3;//httpclient library
+    RemoteService rs3;//DB를 위한 인터페이스
 
-    List<Lecture> lectures; // 배열 객체 생성
+
+
+    List<Enrollment> enrollments; // 배열 객체 생성
     ListView listLecture;//리스트뷰
 
     List<Notice> notices;
     ListView listNotice;
 
-    MyAdapter adapter;
+    List<Lecture> lectures;
 
-    //MainLectureAdapter mainLectureAdapter; //어댑터
+    MyAdapter adapter;
+    MainLectureAdapter mainLectureAdapter; //어댑터
+    RecommendedLecture recommendedLecture;
 
 
     @Override
@@ -118,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         listNotice = (ListView) findViewById(R.id.listNoticed);
         login = (TextView) findViewById(R.id.login);
         name = (TextView) findViewById(R.id.name);
+        mainLectureText = (TextView) findViewById(R.id.mainLecture);
 
         txtfindviewid();//id정의
         //listset();
@@ -156,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
         rs2 = retrofit2.create(RemoteService.class);
 
 
+
+        retrofit3 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs3 = retrofit3.create(RemoteService.class);
+
         adapter = new MyAdapter();
 
 
@@ -163,10 +176,14 @@ public class MainActivity extends AppCompatActivity {
         if (StaticId.id == "" || StaticId.id == null) {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
+            mainLectureText.setText("추천강좌");
+            recommendedLecture = new RecommendedLecture();
         } else {
             name.setText(StaticId.name);
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
+            mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
+
         }
 
         //로그인 선택시
@@ -185,8 +202,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //mainLectureAdapter = new MainLectureAdapter();
-        //listLecture.setAdapter(mainLectureAdapter);
+
+
 
 
     }
@@ -194,24 +211,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-            /*
-            Call<List<MainLecture>> call = rs.listLecture();//call객체
-            call.enqueue(new Callback<List<MainLecture>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<MainLecture>> call, Response<List<MainLecture>> response) {
-                    lectures = response.body();
-                    mainLectureAdapter.notifyDataSetChanged();
-                    listLecture.setAdapter(mainLectureAdapter);
-                }
-
-                @Override
-                public void onFailure(Call<List<MainLecture>> call, Throwable t) {
-                    System.out.println("JSON 불러오기 실패" +call +" " + t);
-
-                }
-            });
-
-             */
 
         Call<List<Notice>> call2 = rs2.notice();
         call2.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
@@ -221,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
                     notices = response.body();
                     adapter.notifyDataSetChanged();
                     listNotice.setAdapter(adapter);
-
                 }
 
             }
@@ -233,53 +231,48 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        if (StaticId.id != null) { // id
+            Call<List<Enrollment>> call = rs1.enrollment(StaticId.id);//call객체
+            call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                    enrollments = response.body();
+                    mainLectureAdapter.notifyDataSetChanged();
+                    listLecture.setAdapter(mainLectureAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                    System.out.println("JSON 불러오기 실패" + call + " " + t);
+
+                }
+            });
+        } else {
+            Call<List<Lecture>> call = rs3.mainLecture();//call객체
+            call.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+
+                    lectures = response.body();
+                    recommendedLecture.notifyDataSetChanged();
+                    listLecture.setAdapter(recommendedLecture);
+                }
+
+                @Override
+                public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                    System.out.println("추천 강좌 JSON 불러오기 실패" + call + " " + t);
+                }
+            });
+
+        }
+
+
         super.onResume();
 
     }
 
 
-    /*
-        class MainLectureAdapter extends BaseAdapter {
-
-            @Override
-            public int getCount() {
-
-                return lectures.size();
-            }
-
-            @Override
-            public Object getItem(int position) {
-                return null;
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return 0;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                convertView = getLayoutInflater().inflate(R.layout.item_mainlecture,null);
-
-
-                TextView mainLectureName = convertView.findViewById(R.id.mainLectureName);//강좌명
-                TextView mainLecturePeriod = convertView.findViewById(R.id.mainLecturePeriod);//교육기간
-                TextView mainLectureProfessor = convertView.findViewById(R.id.mainLectureProfessor);//교수진
-                TextView mainLectureTime = convertView.findViewById(R.id.mainLectureTime);//수업시간
-                TextView mainLectureStudyfee = convertView.findViewById(R.id.mainLectureStudyfee);//학습비
-
-                MainLecture mainLecture = lectures.get(position);
-
-                mainLectureName.setText(mainLecture.getlectureName());
-                mainLecturePeriod.setText(mainLecture.getlecturePeriod());
-                mainLectureProfessor.setText(mainLecture.getlectureProfessor());
-                mainLectureTime.setText(mainLecture.getlectureTime());
-                mainLectureStudyfee.setText(mainLecture.getlectureStudyfee());
-                return convertView;
-            }
-        }
-
-     */
     public void logout() {
         StaticId.id = "";
         StaticId.course = "";
@@ -318,6 +311,70 @@ public class MainActivity extends AppCompatActivity {
             Notice notice = notices.get(position);
             mainNotice = (TextView) convertView.findViewById(R.id.main_noticeed);
             mainNotice.setText("・" + notice.getTitle());
+            return convertView;
+        }
+    }
+
+    class MainLectureAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return enrollments.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture, null);
+            Enrollment enrollment = enrollments.get(position);
+            mainLecture = (TextView) convertView.findViewById(R.id.mainLectureName);
+            if (enrollment.getName() != null) {
+                mainLecture.setText("・" + enrollment.getName());
+            } else {
+                mainLecture.setText("・ 수강 신청한 강좌가 없습니다");
+            }
+            return convertView;
+        }
+    }
+
+    class RecommendedLecture extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return lectures.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture2, null);
+            Lecture lecture = lectures.get(position);
+            mainLectureTitle2 = (TextView) convertView.findViewById(R.id.mainLectureName);
+            mainLectureDivision2 = (TextView) convertView.findViewById(R.id.mainLectureCoursename);
+            mainLectureDate2 = (TextView) convertView.findViewById(R.id.mainLecturePeriod);
+
+            mainLectureTitle2.setText(lecture.getName());
+            mainLectureDivision2.setText(lecture.getDivision());
+            mainLectureDate2.setText(lecture.getStartDate() + "~" + lecture.getEndDate());
+
             return convertView;
         }
     }
@@ -671,12 +728,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
-                        }
-                        else if (StaticId.course.equals("일반과정")) {
+                        } else if (StaticId.course.equals("일반과정")) {
                             Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);
                             startActivity(intent1);
                         } else if (StaticId.course == "학점은행제과정" || StaticId.course.equals("학점은행제과정")) {
-                            Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInfomation_Bank.class);
+                            Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInfomation_Bank_Activity.class);
                             startActivity(intent1);
                         }
                         //intent = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);
@@ -690,10 +746,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                        } else {
+                            intent = new Intent(MainActivity.this, MyPage_CourseDetailsActivity.class);
+                            startActivityForResult(intent, 25);
                         }
 
-                        intent = new Intent(MainActivity.this, MyPage_CourseDetailsActivity.class);
-                        startActivityForResult(intent, 25);
                         //마이페이지 수강내역
                         break;
                     case R.id.DVtxtMypage_3:
@@ -703,9 +760,10 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                        } else {
+                            intent = new Intent(MainActivity.this, MyPage_GradesVerificationActivity.class);
+                            startActivityForResult(intent, 26);
                         }
-                        intent = new Intent(MainActivity.this, MyPage_GradesVerificationActivity.class);
-                        startActivityForResult(intent, 26);
                         //마이페이지 성적확인
                         break;
                     case R.id.DVtxtMypage_4:
@@ -715,9 +773,11 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                        } else {
+                            intent = new Intent(MainActivity.this, MyPage_QuestionAndAnswerActivity.class);
+                            startActivityForResult(intent, 27);
                         }
-                        intent = new Intent(MainActivity.this, MyPage_QuestionAndAnswerActivity.class);
-                        startActivityForResult(intent, 27);
+
                         //마이페이지 질의 응답
                         break;
                 }
