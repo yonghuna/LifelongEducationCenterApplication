@@ -187,8 +187,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                                 if (response.isSuccessful()) {
                                     if (registerResults.getResult().equals("ok")) {
                                         Toast.makeText(getApplicationContext(), "수강취소 되었습니다", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
-                                        startActivity(intent);
+                                        change();
                                     } else {
                                         Toast.makeText(getApplicationContext(), "오류 입니다", Toast.LENGTH_SHORT).show();
                                     }
@@ -209,5 +208,25 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
             return convertView;
         }
 
+    }
+    public void change(){
+        Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
+        call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                if (response.isSuccessful()) {
+                    enrollments = response.body();
+                    listView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                System.out.println("내 강의 불러오기 실패" + call + " " + t);
+
+            }
+        });
     }
 }

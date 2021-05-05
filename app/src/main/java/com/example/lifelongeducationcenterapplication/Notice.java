@@ -18,8 +18,16 @@ public class Notice {
     @SerializedName("contents")
     private  String contents;
 
-    @SerializedName("important")
-    private  String important;
+    @SerializedName("secret")
+    private  String secret;
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 
     public String getView() {
         return view;
@@ -37,13 +45,6 @@ public class Notice {
         this.contents = contents;
     }
 
-    public String getImportant() {
-        return important;
-    }
-
-    public void setImportant(String important) {
-        this.important = important;
-    }
 
     public int getNumber() {
         return number;

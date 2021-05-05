@@ -30,6 +30,13 @@ public interface RemoteService {
     Call<List<Lecture>> lecture(
             @Query("division") String division);//수강목록
 
+    // 비로그인 추천 강의
+    @GET("mainLecture.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Lecture>> mainLecture();//비 로그인 일때 수강목록
+
+
+
 
     // 강의 세부 내용 
     @GET("lectureDetail.jsp")
@@ -132,6 +139,19 @@ public interface RemoteService {
             @Field("id") String id,
             @Field("subjectnumber") int subjectnumber
     ); //수강 취소
+
+
+    //글 쓰기
+    @FormUrlEncoded
+    @POST("writing.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Void> userWriting(
+            @Field("id") String id,
+            @Field("title") String title,
+            @Field("reportingdate") String reportingdate,
+            @Field("secret") String secret,
+            @Field("contents") String contents
+    ); //글 쓰기
 
 
 
