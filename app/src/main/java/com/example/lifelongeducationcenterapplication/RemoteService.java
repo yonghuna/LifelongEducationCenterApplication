@@ -16,7 +16,13 @@ public interface RemoteService {
     // 공지사항
     @GET("notice.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<List<Notice>> notice();//수강목록
+    Call<List<Notice>> notice();
+
+    // 공지사항 내용
+    @GET("noticeEnter.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> noticeEnter(
+            @Query("number") int number);
 
     // 강의
     @GET("lecture.jsp")
@@ -74,6 +80,9 @@ public interface RemoteService {
             @Field("sex") String sex); //로그인
 
     //일반 과정 회원정보 수정
+
+
+
     @FormUrlEncoded
     @POST("myPageInfoPost1.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -114,6 +123,16 @@ public interface RemoteService {
             @Field("subjectsemester") int subjectsemester,
             @Field("subjectdivision") String subjectdivision
             ); //수강신청
+
+    //수강 취소
+    @FormUrlEncoded
+    @POST("subjectCancel.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> userSubjectCancel(
+            @Field("id") String id,
+            @Field("subjectnumber") int subjectnumber
+    ); //수강 취소
+
 
 
 

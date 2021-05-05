@@ -47,6 +47,10 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
+    Retrofit retrofit1;//httpclient library
+    RemoteService rs1;//DB를 위한 인터페이스
+
+
     LinearLayout linearLayout;
     List<Enrollment> enrollments; // 배열 객체 생성
 
@@ -54,6 +58,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     MyAdapter adapter;
     TextView name, semester, certificate, payment;
     Button btDetail, btCancel;
+    RegisterResult registerResults;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +75,10 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
+
+        retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs1 = retrofit1.create(RemoteService.class);
 
 
 
@@ -163,9 +172,37 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 }
 
             });
+
+            // 취소 시
             btCancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    //추가해야됨
+
+
+                    Call<RegisterResult> call = rs.userSubjectCancel(StaticId.id, enrollment.getSubjectnumber());//call객체
+                    call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                        @Override
+                        public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                            if (response.isSuccessful()) {
+                                registerResults = response.body();
+                                if (response.isSuccessful()) {
+                                    if (registerResults.getResult().equals("ok")) {
+                                        Toast.makeText(getApplicationContext(), "수강취소 되었습니다", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "오류 입니다", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<RegisterResult> call, Throwable t) {
+                            System.out.println("수강 취소 실패" + call + " " + t);
+
+                        }
+                    });
                 }
             });
 
