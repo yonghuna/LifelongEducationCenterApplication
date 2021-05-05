@@ -9,18 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.lifelongeducationcenterapplication.Generalcurriculum.ForeignlanguagecourseActivity;
-import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
-import com.example.lifelongeducationcenterapplication.Lecture;
-import com.example.lifelongeducationcenterapplication.LectureWeek;
-import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
 import com.example.lifelongeducationcenterapplication.R;
-import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
-import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.util.List;
 
@@ -136,7 +128,7 @@ public class Community_NoticeActivity extends AppCompatActivity {
             noticeTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Community_NoticeContent.class);
                     intent.putExtra("number", notice.getNumber());
                     startActivity(intent);
                 }

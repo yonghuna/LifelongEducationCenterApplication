@@ -194,11 +194,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
 
             // 수강 불가시 수강신청 버튼 변경
-            if (status.equals("수강불가")) {
-                btClassRg.setBackgroundColor(Color.GRAY);
-                btClassRg.setText("수강불가");
-                btClassRg.setClickable(false);
-            }
+
 
 
             for(int i = 0; i < enrollments.size(); i++){
@@ -221,44 +217,52 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
             });
             // 일반과정 수강신청
-            btClassRg.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
 
-                    if (StaticId.id.equals("") || StaticId.id == null) {
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                        Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
-                        startActivity(intent);
-                    }
-                    else {
-                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
-                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
-                            @Override
-                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
-                                if (response.isSuccessful()) {
-                                    RegisterResult registerResult = response.body();
-                                    if (registerResult.getResult().equals("ok")) {
-                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
-                                        Intent intent1 = new Intent(getApplicationContext(), ForeignlanguagecourseActivity.class);
-                                        startActivity(intent1);
-                                    } else {
-                                        Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
-                                        startActivity(intent1);
+            if (status.equals("수강불가")) {
+                btClassRg.setBackgroundColor(Color.GRAY);
+                btClassRg.setText("수강불가");
+                btClassRg.setOnClickListener(null);
+                btClassRg.setClickable(false);
+            }else{
+                    btClassRg.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+
+                            if (StaticId.id.equals("") || StaticId.id == null) {
+                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                                startActivity(intent);
+                            } else {
+                                Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
+                                call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                                    @Override
+                                    public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                        if (response.isSuccessful()) {
+                                            RegisterResult registerResult = response.body();
+                                            if (registerResult.getResult().equals("ok")) {
+                                                Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                                Intent intent1 = new Intent(getApplicationContext(), ForeignlanguagecourseActivity.class);
+                                                startActivity(intent1);
+                                            } else {
+                                                Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
+                                                startActivity(intent1);
+                                            }
+                                        }
                                     }
-                                }
+
+                                    @Override
+                                    public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                        System.out.println("일반과정 수강신청 실패 " + call + " " + t);
+
+                                    }
+                                });
                             }
 
-                            @Override
-                            public void onFailure(Call<RegisterResult> call, Throwable t) {
-                                System.out.println("일반과정 수강신청 실패 " + call + " " + t);
+                        }
 
-                            }
-                        });
-                    }
 
+                    });
                 }
 
-
-            });
             return convertView;
         }
     }

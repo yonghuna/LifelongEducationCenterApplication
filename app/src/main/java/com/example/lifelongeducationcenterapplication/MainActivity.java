@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
             name.setText(StaticId.name);
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
+
         }
 
         //로그인 선택시
