@@ -81,7 +81,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         // number 값을 받아서 구분 해준다
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
-        info = intent.getStringExtra("info"); // pk로 구분
+        info = intent.getStringExtra("info"); // 어디서 날라왓는지 구분
 
         adapter = new MyAdapter();
 
@@ -97,9 +97,11 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 (GsonConverterFactory.create()).build();
         rs3 = retrofit3.create(RemoteService.class);
 
-        if(info == "신청내역"){
+        if(info.equals("신청내역")){
             btRegister.setText("신청내역");
             btRegister.setBackgroundColor(Color.GRAY);
+        }else if(info.equals("myPage")){
+            btRegister.setVisibility(View.GONE);
         }
 
         setListViewHeightBasedOnChildren(listLecture); ///setadapter한뒤 해당메소드를 실행해야함.(scrollview안에 listview를 넣으면 크기가 잘려지는 문제를 해결.)

@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:clickable="true"
+                android:ellipsize="end"
                 android:hint="제목"
                 android:textColor="@android:color/black"
                 android:textSize="18dp"

@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
-public class Community_NoticeContent extends AppCompatActivity {
+public class Community_NoticeContentActivity extends AppCompatActivity {
     //커뮤니티 게시판 내용 보여주기
     TextView title, content, who, time, postedNumber;
     Button list;

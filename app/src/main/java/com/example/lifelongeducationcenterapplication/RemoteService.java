@@ -35,6 +35,10 @@ public interface RemoteService {
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Lecture>> mainLecture();//비 로그인 일때 수강목록
 
+    // 비밀 글이 아닐 경우
+    @GET("notSecret.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> notSecret();//비 로그인 일때 수강목록
 
 
 

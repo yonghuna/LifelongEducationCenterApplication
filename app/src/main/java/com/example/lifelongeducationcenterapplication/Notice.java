@@ -21,6 +21,18 @@ public class Notice {
     @SerializedName("secret")
     private  String secret;
 
+
+    @SerializedName("name")
+    private  String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSecret() {
         return secret;
     }

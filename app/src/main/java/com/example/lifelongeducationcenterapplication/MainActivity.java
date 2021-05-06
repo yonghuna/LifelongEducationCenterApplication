@@ -163,8 +163,6 @@ public class MainActivity extends AppCompatActivity {
                 (GsonConverterFactory.create()).build();
         rs2 = retrofit2.create(RemoteService.class);
 
-
-
         retrofit3 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs3 = retrofit3.create(RemoteService.class);
@@ -173,11 +171,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         // 상단 로그인 로그아웃 체크
+        // 비로그인시 추천강좌 로그인시 수강강좌
         if (StaticId.id == "" || StaticId.id == null) {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
             recommendedLecture = new RecommendedLecture();
+
         } else {
             name.setText(StaticId.name);
             login.setText("로그아웃");
@@ -231,24 +231,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        if (StaticId.id != null) { // id
-            Call<List<Enrollment>> call = rs1.enrollment(StaticId.id);//call객체
-            call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                    enrollments = response.body();
-                    mainLectureAdapter.notifyDataSetChanged();
-                    listLecture.setAdapter(mainLectureAdapter);
-                }
-
-                @Override
-                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                    System.out.println("JSON 불러오기 실패" + call + " " + t);
-
-                }
-            });
-        } else {
+        if(StaticId.id == null || StaticId.id == ""){
             Call<List<Lecture>> call = rs3.mainLecture();//call객체
             call.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override
@@ -265,6 +248,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+        }else{
+            Call<List<Enrollment>> call = rs1.enrollment(StaticId.id);//call객체
+            call.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                    enrollments = response.body();
+                    mainLectureAdapter.notifyDataSetChanged();
+                    listLecture.setAdapter(mainLectureAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                    System.out.println("JSON 불러오기 실패" + call + " " + t);
+
+                }
+            });
         }
 
 
@@ -336,11 +335,15 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture, null);
             Enrollment enrollment = enrollments.get(position);
+            System.out.println("확인함 로그인" + enrollment.getName());
             mainLecture = (TextView) convertView.findViewById(R.id.mainLectureName);
             if (enrollment.getName() != null) {
                 mainLecture.setText("・" + enrollment.getName());
-            } else {
-                mainLecture.setText("・ 수강 신청한 강좌가 없습니다");
+
+            }
+
+            if(enrollment.getName() == null || enrollment.getName() ==""){
+                mainLecture.setText("・ 수강 신청한 강좌가 없습니다.");
             }
             return convertView;
         }

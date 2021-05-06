@@ -119,7 +119,7 @@ public class Community_NoticeActivity extends AppCompatActivity {
 
             String[] day = notice.getReportingdate().split(" ");
 
-            noticeTitle.setText(notice.getTitle());
+            noticeTitle.setText(notice.getTitle().trim());
             noticeDate.setText(day[0]);
             noticeWriter.setText("관리자");
             noticeNumber.setText(Integer.toString(notice.getNumber()));
@@ -128,7 +128,7 @@ public class Community_NoticeActivity extends AppCompatActivity {
             noticeTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), Community_NoticeContent.class);
+                    Intent intent = new Intent(getApplicationContext(), Community_NoticeContentActivity.class);
                     intent.putExtra("number", notice.getNumber());
                     startActivity(intent);
                 }
