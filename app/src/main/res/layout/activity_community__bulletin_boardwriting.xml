@@ -11,6 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:orientation="horizontal">
 
         <TextView
@@ -32,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="시간" />
+            android:text="날짜" />
     </LinearLayout>
 
     <TextView
@@ -52,6 +54,7 @@
         android:layout_margin="16dp"
         android:background="@drawable/border_login"
         android:hint="글 내용"
+        android:scrollbars="vertical"
         android:textSize="15sp" />
 
     <Button
@@ -64,5 +67,9 @@
         android:textColor="#ffffff"
         android:layout_gravity="bottom"
         />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
