@@ -1,5 +1,7 @@
 package com.example.lifelongeducationcenterapplication;
 
+import android.text.Spanned;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Notice {
@@ -24,6 +26,28 @@ public class Notice {
 
     @SerializedName("name")
     private  String name;
+
+    @SerializedName("id")
+    private  String id;
+
+    @SerializedName("postcount")
+    private  String postcount;
+
+    public String getPostcount() {
+        return postcount;
+    }
+
+    public void setPostcount(String postcount) {
+        this.postcount = postcount;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

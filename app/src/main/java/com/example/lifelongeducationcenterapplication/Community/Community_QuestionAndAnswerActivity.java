@@ -2,9 +2,12 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lifelongeducationcenterapplication.Account.Login;
+import com.example.lifelongeducationcenterapplication.MainActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.example.lifelongeducationcenterapplication.StaticId;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.content.Intent;
@@ -15,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -50,10 +54,16 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
 
         btWrite.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
-                intent.putExtra("secret", "false");
-                intent.putExtra("info", "글작성");
-                startActivity(intent);
+                if (StaticId.id == null || StaticId.id == "") {
+                    Toast.makeText(Community_QuestionAndAnswerActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(Community_QuestionAndAnswerActivity.this, Login.class);
+                    startActivity(intent1);
+                }else{
+                    Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
+                    intent.putExtra("secret", "false");
+                    intent.putExtra("info", "글작성");
+                    startActivity(intent);
+                }
                 // 글 작성
             }
 
@@ -122,11 +132,13 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             noticeTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), Community_NoticeContentActivity.class);
-                    intent.putExtra("number", notice.getNumber());
-                    intent.putExtra("secret", "false");
-                    intent.putExtra("info", "글목록");
-                    startActivity(intent);
+
+                        Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
+                        intent.putExtra("number", notice.getNumber());
+                        intent.putExtra("secret", "false");
+                        intent.putExtra("info", "글목록");
+                        startActivity(intent);
+
                 }
             });
             return convertView;
