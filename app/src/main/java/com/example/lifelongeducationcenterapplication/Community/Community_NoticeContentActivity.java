@@ -1,6 +1,7 @@
 package com.example.lifelongeducationcenterapplication.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import com.example.lifelongeducationcenterapplication.Enrollment;
 import com.example.lifelongeducationcenterapplication.Lecture;
@@ -11,6 +12,7 @@ import com.example.lifelongeducationcenterapplication.StaticId;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,8 +28,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
-public class Community_NoticeContent extends AppCompatActivity {
-    //커뮤니티 게시판 내용 보여주기
+public class Community_NoticeContentActivity extends AppCompatActivity {
+    //공지사항
     TextView title, content, who, time, postedNumber;
     Button list;
     int number;
@@ -79,7 +81,7 @@ public class Community_NoticeContent extends AppCompatActivity {
                     notice = response.body();
                     postedNumber.setText(Integer.toString(notice.getNumber()));
                     time.setText(notice.getReportingdate());
-                    content.setText(notice.getContents());
+                    content.setText(Html.fromHtml(notice.getContents()).toString());
                     who.setText("관리자");
                     title.setText(notice.getTitle());
                 }

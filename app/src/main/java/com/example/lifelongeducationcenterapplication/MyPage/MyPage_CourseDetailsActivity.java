@@ -167,6 +167,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                     System.out.println("btDetail 클릭");
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
+                    intent.putExtra("info", "myPage");
                     // 수강 내역
                     startActivity(intent);
                 }

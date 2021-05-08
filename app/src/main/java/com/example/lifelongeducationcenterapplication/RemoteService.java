@@ -30,11 +30,22 @@ public interface RemoteService {
     Call<List<Lecture>> lecture(
             @Query("division") String division);//수강목록
 
+    // q&a 글 선택시
+    @GET("qnaContent.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> qnaContent(
+            @Query("number") int number);//q&a 글 선택시
+
+
     // 비로그인 추천 강의
     @GET("mainLecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Lecture>> mainLecture();//비 로그인 일때 수강목록
 
+    // 비밀 글이 아닐 경우
+    @GET("notSecret.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> notSecret();//비 로그인 일때 수강목록
 
 
 
@@ -153,6 +164,26 @@ public interface RemoteService {
             @Field("contents") String contents
     ); //글 쓰기
 
+    //글 수정
+    @FormUrlEncoded
+    @POST("modify.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Void> userModify(
+            @Field("number") int number,
+            @Field("title") String title,
+            @Field("reportingdate") String reportingdate,
+            @Field("contents") String contents,
+            @Field("id") String id
+    ); //글 수정
+
+    //글 삭제
+    @FormUrlEncoded
+    @POST("remove.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Void> userRemove(
+            @Field("number") int number,
+            @Field("id") String id
+    ); //글 삭제
 
 
 
