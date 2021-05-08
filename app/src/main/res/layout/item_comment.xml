@@ -8,37 +8,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:orientation="horizontal">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:text="관리자"
+            android:textColor="#070707"
+            android:textSize="19dp" />
 
-            android:id="@+id/commentid"
+        <TextView
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:textColor="#070707"
-            android:textSize="18dp"
-            android:hint="작성자" />
+            android:textSize="12dp"
+            android:text="날짜" />
 
-        <TextView
-            android:id="@+id/commentday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:textColor="#070707"
-            android:textSize="17dp"
-            android:hint="날짜" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/comment"
+        android:id="@+id/editTextTextcoment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nanumbarunpenb"
-        android:textColor="#070707"
-        android:textSize="18dp"
-        android:hint="댓글내용" />
+        android:autoSizeTextType="uniform"
+        android:textSize="17sp"
+        android:layout_marginLeft="16dp"
+        android:hint="댓글 내용작성"
+        android:inputType="textPersonName" />
 </LinearLayout>

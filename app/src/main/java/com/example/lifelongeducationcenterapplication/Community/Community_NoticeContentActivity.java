@@ -1,24 +1,17 @@
 package com.example.lifelongeducationcenterapplication.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.text.HtmlCompat;
 
-import com.example.lifelongeducationcenterapplication.Enrollment;
-import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.Notice;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
-import com.example.lifelongeducationcenterapplication.StaticId;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +45,7 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         postedNumber = (TextView) findViewById(R.id.number);
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
-        list = (Button) findViewById(R.id.write_post_btn);
+        list = (Button) findViewById(R.id.list);
 
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory

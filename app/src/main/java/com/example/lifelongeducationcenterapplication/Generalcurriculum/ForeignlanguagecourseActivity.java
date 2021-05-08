@@ -225,7 +225,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                     btClassRg.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
 
-                            if (StaticId.id.equals("") || StaticId.id == null) {
+                            if (StaticId.id == null) {
                                 Intent intent = new Intent(getApplicationContext(), Login.class);
                                 Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
                                 startActivity(intent);

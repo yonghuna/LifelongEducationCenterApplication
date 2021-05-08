@@ -58,8 +58,6 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_modify_remove);
 
         Intent intent = getIntent(); /*데이터 수신*/
-        secret = intent.getExtras().getString("secret"); /*String형*/
-        info = intent.getExtras().getString("info"); /*String형*/
         number = intent.getIntExtra("number", 1); // pk로 구분
         setRetrofit();
         findId();
@@ -102,11 +100,6 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
             public void onResponse(Call<Notice> call, Response<Notice> response) {
                 if (response.isSuccessful()) {
                     notice = response.body();
-
-                    if (notice.getId().equals(StaticId.id)){
-                        btModify.setVisibility(View.GONE);
-                        btCancel.setVisibility(View.GONE);
-                    }
                     num.setText(Integer.toString(number));
                     writer.setText(notice.getName());
                     time.setText(getTime());

@@ -11,16 +11,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
-import com.example.lifelongeducationcenterapplication.Lecture;
-import com.example.lifelongeducationcenterapplication.Notice;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,7 +63,7 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
     public void findId(){
         title = (EditText) findViewById(R.id.write_content_tv);
         content = (EditText) findViewById(R.id.write_content_tv);
-        btSave = (Button) findViewById(R.id.write_post_btn);
+        btSave = (Button) findViewById(R.id.modfiy);
     }
 
     public void setRetrofit(){
