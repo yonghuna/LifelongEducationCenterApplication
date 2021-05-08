@@ -37,7 +37,7 @@
             android:text="날짜" />
     </LinearLayout>
 
-    <TextView
+    <EditText
         android:id="@+id/write_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         />
 
 
-    <TextView
+    <EditText
         android:id="@+id/write_content_tv"
         android:layout_width="match_parent"
         android:layout_height="305dp"
