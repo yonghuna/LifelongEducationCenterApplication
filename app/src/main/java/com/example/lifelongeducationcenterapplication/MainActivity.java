@@ -168,21 +168,21 @@ public class MainActivity extends AppCompatActivity {
         rs3 = retrofit3.create(RemoteService.class);
 
         adapter = new MyAdapter();
-
-
+        mainLectureAdapter = new MainLectureAdapter();
+        recommendedLecture = new RecommendedLecture();
         // 상단 로그인 로그아웃 체크
         // 비로그인시 추천강좌 로그인시 수강강좌
         if (StaticId.id == "" || StaticId.id == null) {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
-            recommendedLecture = new RecommendedLecture();
+           // recommendedLecture = new RecommendedLecture();
 
         } else {
             name.setText(StaticId.name);
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
-            mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
+           // mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
 
         }
 

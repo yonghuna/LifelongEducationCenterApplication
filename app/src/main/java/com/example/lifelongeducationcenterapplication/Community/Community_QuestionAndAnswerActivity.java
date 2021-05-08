@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
-    //커뮤니티 1:1질의응답
+    //커뮤니티 1:1질의응답 글 목록
     ListView listView;
     List<Notice> notices;
     TextView noticeNumber, noticeDate, noticeWriter, noticeTitle;
@@ -132,12 +132,17 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             noticeTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                        if(StaticId.id == null || StaticId.id ==""){
+                            // 그냥 보여주기 id 비교후 맞으면 edit 할수잇도록 아니면 못하도록
+                        }else{
+                            //
+                            Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
+                            intent.putExtra("number", notice.getNumber());
+                            intent.putExtra("secret", "false");
+                            intent.putExtra("info", "글목록");
+                            startActivity(intent);
+                        }
 
-                        Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
-                        intent.putExtra("number", notice.getNumber());
-                        intent.putExtra("secret", "false");
-                        intent.putExtra("info", "글목록");
-                        startActivity(intent);
 
                 }
             });
