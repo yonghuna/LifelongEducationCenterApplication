@@ -72,8 +72,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-
-        android:text="댓글쓰기" />
+        android:fontFamily="@font/nanumbarunpenb"
+        android:textColor="#070707"
+        android:textSize="18dp"
+        android:text="댓글 쓰기" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,14 +92,14 @@
             android:autoSizeTextType="uniform"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="댓글 내용작성" />
 
         <Button
             android:id="@+id/btcommentup"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="댓글등록" />
+            android:text="댓글 등록" />
     </LinearLayout>
 
     <ListView
