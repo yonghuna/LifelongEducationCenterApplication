@@ -55,18 +55,50 @@
         android:background="@drawable/border_login"
         android:hint="글 내용"
         android:scrollbars="vertical"
+        android:autoSizeTextType="uniform"
         android:textSize="15sp" />
 
     <Button
         android:id="@+id/write_post_btn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="목록"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+
+        android:text="댓글쓰기" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:text="목록"
-        android:textColor="#ffffff"
-        android:layout_gravity="bottom"
-        />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextTextcoment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:autoSizeTextType="uniform"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <Button
+            android:id="@+id/btcommentup"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="댓글등록" />
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
