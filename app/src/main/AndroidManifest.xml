@@ -47,6 +47,7 @@
         <activity android:name=".Intro.SearchMap" />
         <activity android:name=".Community.Community_Bulletin_boardwritingActivity"/>
         <activity android:name=".Community.Community_QAmodifyAndremoveActivity"/>
+        <activity android:name=".Community.Community_DifferentMember"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

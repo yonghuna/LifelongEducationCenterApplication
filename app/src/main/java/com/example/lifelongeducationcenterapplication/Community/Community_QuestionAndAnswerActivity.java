@@ -40,6 +40,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     RemoteService rs1;//DB를 위한 인터페이스
     FloatingActionButton btWrite;
     MyAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +59,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
                     Toast.makeText(Community_QuestionAndAnswerActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(Community_QuestionAndAnswerActivity.this, Login.class);
                     startActivity(intent1);
-                }else{
+                } else {
                     Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
                     intent.putExtra("secret", "false");
                     intent.putExtra("info", "글작성");
@@ -85,7 +86,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Notice>> call, Throwable t) {
-                System.out.println("JSON 불러오기 실패 외국어 과정" + call + " " + t);
+                System.out.println("JSON 불러오기 실패" + call + " " + t);
 
             }
         });
@@ -111,14 +112,14 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            convertView = getLayoutInflater().inflate(R.layout.item_community_question_and_answerlist,null);
+            convertView = getLayoutInflater().inflate(R.layout.item_community_question_and_answerlist, null);
 
-            Notice notice =  notices.get(position);
+            Notice notice = notices.get(position);
 
-            noticeNumber = (TextView)convertView.findViewById(R.id.QandACountlecture); // 1 , 2 , 3
-            noticeDate = (TextView)convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
-            noticeWriter = (TextView)convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
-            noticeTitle = (TextView)convertView.findViewById(R.id.QandANamelecture); // 제목
+            noticeNumber = (TextView) convertView.findViewById(R.id.QandACountlecture); // 1 , 2 , 3
+            noticeDate = (TextView) convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
+            noticeWriter = (TextView) convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
+            noticeTitle = (TextView) convertView.findViewById(R.id.QandANamelecture); // 제목
 
 
             String[] day = notice.getReportingdate().split(" ");
@@ -132,16 +133,18 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             noticeTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        if(StaticId.id == null || StaticId.id ==""){
-                            // 그냥 보여주기 id 비교후 맞으면 edit 할수잇도록 아니면 못하도록
-                        }else{
-                            //
-                            Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
-                            intent.putExtra("number", notice.getNumber());
-                            intent.putExtra("secret", "false");
-                            intent.putExtra("info", "글목록");
-                            startActivity(intent);
-                        }
+
+                    System.out.println(StaticId.id + " ----" + notice.getId());
+                    if (StaticId.id == null || !StaticId.id.equals(notice.getId())) {
+                        Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
+                        intent.putExtra("number", notice.getNumber());
+                        startActivity(intent);
+                    } else {
+                        //
+                        Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
+                        intent.putExtra("number", notice.getNumber());
+                        startActivity(intent);
+                    }
 
 
                 }

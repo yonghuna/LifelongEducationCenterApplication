@@ -45,7 +45,7 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         postedNumber = (TextView) findViewById(R.id.number);
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
-        list = (Button) findViewById(R.id.modfiy);
+        list = (Button) findViewById(R.id.list);
 
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory

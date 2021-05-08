@@ -25,6 +25,7 @@ import com.example.lifelongeducationcenterapplication.Account.SignActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_FormattingRoomActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_GalleryActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_NoticeActivity;
+import com.example.lifelongeducationcenterapplication.Community.Community_NoticeContentActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemAcademicScheduleActivity;
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemActivity;
@@ -37,6 +38,7 @@ import com.example.lifelongeducationcenterapplication.Generalcurriculum.Certific
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.ForeignlanguagecourseActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.GeneralSecurityGuardCourseActivity;
+import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.LiberalArtsCourseActivity;
 import com.example.lifelongeducationcenterapplication.Intro.EducationalPurpose;
 import com.example.lifelongeducationcenterapplication.Intro.Greetings;
@@ -273,9 +275,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void logout() {
-        StaticId.id = "";
-        StaticId.course = "";
-        StaticId.name = "";
+        StaticId.id = null;
+        StaticId.course = null;
+        StaticId.name = null;
     }
 
     @Override
@@ -310,6 +312,16 @@ public class MainActivity extends AppCompatActivity {
             Notice notice = notices.get(position);
             mainNotice = (TextView) convertView.findViewById(R.id.main_noticeed);
             mainNotice.setText("・" + notice.getTitle());
+
+            mainNotice.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), Community_NoticeContentActivity.class);
+                    intent.putExtra("number", notice.getNumber());
+                    startActivity(intent);
+                }
+            });
+
             return convertView;
         }
     }
@@ -340,11 +352,21 @@ public class MainActivity extends AppCompatActivity {
             if (enrollment.getName() != null) {
                 mainLecture.setText("・" + enrollment.getName());
 
-            }
-
-            if(enrollment.getName() == null || enrollment.getName() ==""){
+            }else if(enrollment.getName() == null || enrollment.getName()==""){
                 mainLecture.setText("・ 수강 신청한 강좌가 없습니다.");
             }
+
+            mainLecture.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
+                    intent.putExtra("number", enrollment.getSubjectnumber());
+                    intent.putExtra("info", "myPage");
+                    // 해야되는 부분 수강신청을 위해 해야됨
+                    startActivity(intent);
+                }
+            });
+
             return convertView;
         }
     }
@@ -377,6 +399,17 @@ public class MainActivity extends AppCompatActivity {
             mainLectureTitle2.setText(lecture.getName());
             mainLectureDivision2.setText(lecture.getDivision());
             mainLectureDate2.setText(lecture.getStartDate() + "~" + lecture.getEndDate());
+
+            mainLectureTitle2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
+                    intent.putExtra("number", lecture.getNumber());
+                    intent.putExtra("info", "메인임");
+                    // 해야되는 부분 수강신청을 위해 해야됨
+                    startActivity(intent);
+                }
+            });
 
             return convertView;
         }

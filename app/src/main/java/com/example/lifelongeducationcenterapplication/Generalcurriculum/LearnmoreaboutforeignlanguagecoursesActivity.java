@@ -236,10 +236,8 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
     public void pushRegister(){
         btRegister.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                if(StaticId.id.equals("") || StaticId.id == null){
-                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                if(StaticId.id == null){
                     Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
-                    startActivity(intent);
 
                 }else{
                     if(info == "신청내역" || info.equals("신청내역")){
