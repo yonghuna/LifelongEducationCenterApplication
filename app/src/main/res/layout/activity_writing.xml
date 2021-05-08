@@ -24,6 +24,7 @@
         android:layout_margin="16dp"
         android:background="@drawable/border_login"
         android:hint="글 내용"
+        android:scrollbars="vertical"
         android:textSize="15sp" />
 
 
