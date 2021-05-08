@@ -57,8 +57,6 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (StaticId.id == null || StaticId.id == "") {
                     Toast.makeText(Community_QuestionAndAnswerActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(Community_QuestionAndAnswerActivity.this, Login.class);
-                    startActivity(intent1);
                 } else {
                     Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
                     intent.putExtra("secret", "false");
@@ -135,16 +133,10 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     System.out.println(StaticId.id + " ----" + notice.getId());
-                    if (StaticId.id == null || !StaticId.id.equals(notice.getId())) {
-                        Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
-                        intent.putExtra("number", notice.getNumber());
-                        startActivity(intent);
-                    } else {
-                        //
-                        Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
-                        intent.putExtra("number", notice.getNumber());
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
+                    intent.putExtra("number", notice.getNumber());
+                    intent.putExtra("id", notice.getId());
+                    startActivity(intent);
 
 
                 }

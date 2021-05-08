@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class Community_DifferentMember extends AppCompatActivity {
-    Button btList;
+    Button btList, btModify, btRemove;
     TextView num, writer, time, title, content;
     Notice notice;
     Retrofit retrofit1; //httpclient library
@@ -35,9 +36,8 @@ public class Community_DifferentMember extends AppCompatActivity {
 
     Retrofit retrofit2; //httpclient library
     RemoteService rs2; //DB를 위한 인터페이스
-    String secret;
-    String info;
     int number;
+    String id;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,15 +48,74 @@ public class Community_DifferentMember extends AppCompatActivity {
         // 어디서 왓는지 구분
         Intent intent = getIntent(); /*데이터 수신*/
         number = intent.getIntExtra("number", 1); // pk로 구분
+        id = intent.getStringExtra("id"); // pk로 구분
         findId();
         setRetrofit();
-        btList.setVisibility(View.GONE);
+
+
+        // 본인일 경우
+        btRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (StaticId.id.equals(id)) {
+                    Call<Void> call = rs2.userRemove(number, StaticId.id);//call객체
+                    call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "삭제 되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                            System.out.println("글 삭제 실패" + call + " " + t);
+                        }
+                    });
+                } else if (StaticId.id == null) {
+                    // 아닐경우
+                    Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
+                } else if (StaticId.id != id){
+                    Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        btModify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (StaticId.id.equals(id)) {
+                    Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
+                    intent.putExtra("number", number);
+                    startActivity(intent);
+                } else if (StaticId.id == null) {
+                    // 아닐경우
+                    Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
+                } else if(StaticId.id != id){
+                    Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 
     public void findId() {
         title = (TextView) findViewById(R.id.write_title_tv);
         content = (TextView) findViewById(R.id.write_content_tv);
+        btModify = (Button) findViewById(R.id.modfiy);
+        btRemove = (Button) findViewById(R.id.remove);
         btList = (Button) findViewById(R.id.list);
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);

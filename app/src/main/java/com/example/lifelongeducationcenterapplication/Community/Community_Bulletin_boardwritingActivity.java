@@ -40,7 +40,6 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     String secret;
     String info;
-    int number;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
 
         secret = intent.getExtras().getString("secret"); /*String형*/
         info = intent.getExtras().getString("info"); /*String형*/
-        number = intent.getIntExtra("number", 1); // pk로 구분
+
         setRetrofit();
         findId();
         clickBtSave();
@@ -61,7 +60,7 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
     }
 
     public void findId(){
-        title = (EditText) findViewById(R.id.write_content_tv);
+        title = (EditText) findViewById(R.id.write_title_tv);
         content = (EditText) findViewById(R.id.write_content_tv);
         btSave = (Button) findViewById(R.id.modfiy);
     }

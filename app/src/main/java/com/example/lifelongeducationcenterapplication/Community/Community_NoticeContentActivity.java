@@ -24,7 +24,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 public class Community_NoticeContentActivity extends AppCompatActivity {
     //공지사항
     TextView title, content, who, time, postedNumber;
-    Button list;
+    Button list, remove, modify;
     int number;
     Retrofit retrofit;
     RemoteService rs;
@@ -46,7 +46,11 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
         list = (Button) findViewById(R.id.list);
+        remove = (Button) findViewById(R.id.remove);
+        modify = (Button) findViewById(R.id.modfiy);
 
+        remove.setVisibility(View.GONE);
+        modify.setVisibility(View.GONE);
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
