@@ -12,7 +12,8 @@
            -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -177,7 +178,7 @@
                             android:textColor="#0B0B0B" />
 
                     </LinearLayout>
-                    <!---->
+
 
 
                 </LinearLayout>
@@ -187,7 +188,9 @@
 
         </LinearLayout>
 
+
     </ScrollView>
+
     <ListView
         android:id="@+id/Lecturelist"
         android:layout_width="match_parent"

@@ -265,7 +265,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             return convertView;
         }
         public void notifyChangeList(){
-            
+
             Call<List<Lecture>> call1 = rs.lecture("외국어과정");//call객체
             call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override
