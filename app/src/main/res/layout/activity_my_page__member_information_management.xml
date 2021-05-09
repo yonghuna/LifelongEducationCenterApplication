@@ -152,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/mypageedtSignUpPostCode"
                         android:layout_width="80sp"
                         android:layout_height="wrap_content"
