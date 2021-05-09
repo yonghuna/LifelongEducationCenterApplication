@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.MainActivity;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +37,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     ListView listView;
     List<Notice> notices;
     TextView noticeNumber, noticeDate, noticeWriter, noticeTitle;
-
+    ImageView imageView;
     Retrofit retrofit1;//httpclient library
     RemoteService rs1;//DB를 위한 인터페이스
     FloatingActionButton btWrite;
@@ -57,8 +59,6 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (StaticId.id == null || StaticId.id == "") {
                     Toast.makeText(Community_QuestionAndAnswerActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(Community_QuestionAndAnswerActivity.this, Login.class);
-                    startActivity(intent1);
                 } else {
                     Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
                     intent.putExtra("secret", "false");
@@ -120,8 +120,9 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             noticeDate = (TextView) convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
             noticeWriter = (TextView) convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
             noticeTitle = (TextView) convertView.findViewById(R.id.QandANamelecture); // 제목
+            imageView = (ImageView) convertView.findViewById(R.id.imageView); // 이미지
 
-
+            imageView.setVisibility(View.GONE);
             String[] day = notice.getReportingdate().split(" ");
 
             noticeTitle.setText(notice.getTitle());
@@ -135,16 +136,10 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     System.out.println(StaticId.id + " ----" + notice.getId());
-                    if (StaticId.id == null || !StaticId.id.equals(notice.getId())) {
-                        Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
-                        intent.putExtra("number", notice.getNumber());
-                        startActivity(intent);
-                    } else {
-                        //
-                        Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
-                        intent.putExtra("number", notice.getNumber());
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
+                    intent.putExtra("number", notice.getNumber());
+                    intent.putExtra("id", notice.getId());
+                    startActivity(intent);
 
 
                 }

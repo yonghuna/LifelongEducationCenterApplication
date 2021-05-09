@@ -36,7 +36,7 @@
             android:text="날짜" />
     </LinearLayout>
 
-    <EditText
+    <TextView
         android:id="@+id/write_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_marginLeft="16dp" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/write_content_tv"
         android:layout_width="match_parent"
         android:layout_height="305dp"
@@ -53,13 +53,52 @@
         android:background="@drawable/border_login"
         android:hint="글 내용"
         android:scrollbars="vertical"
-        android:autoSizeTextType="uniform"
         android:textSize="15sp" />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="삭제" />
+
+        <Button
+            android:id="@+id/modfiy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="수정" />
+
+        <Button
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="목록" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="20sp"
+        android:text="답글" />
 
     <ListView
         android:id="@+id/contentListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
 
 </LinearLayout>

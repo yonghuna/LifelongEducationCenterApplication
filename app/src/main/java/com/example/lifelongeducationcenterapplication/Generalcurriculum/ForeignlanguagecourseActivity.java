@@ -93,6 +93,8 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
+
+
         Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
         call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override

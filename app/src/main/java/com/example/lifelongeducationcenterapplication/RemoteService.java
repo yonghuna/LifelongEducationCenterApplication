@@ -45,8 +45,13 @@ public interface RemoteService {
     // 비밀 글이 아닐 경우
     @GET("notSecret.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<List<Notice>> notSecret();//비 로그인 일때 수강목록
+    Call<List<Notice>> notSecret();//비밀글이 아닐경우
 
+    // 비밀 글일 경우
+    @GET("secret.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> secret(
+            @Query("id") String id);//비밀 글일 경우
 
 
     // 강의 세부 내용 
@@ -76,6 +81,11 @@ public interface RemoteService {
     Call<List<LectureWeek>> lectureWeek(
             @Query("number")   int number);//수강목록 주차별 수업
 
+    // 1:1 댓글
+    @GET("comment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> comment(
+            @Query("number")   int number);//1:1 댓글
 
 
     //로그인

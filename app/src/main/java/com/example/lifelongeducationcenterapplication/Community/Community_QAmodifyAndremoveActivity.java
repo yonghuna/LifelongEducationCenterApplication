@@ -32,7 +32,7 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
     // 글 수정 삭제
     // intent 문으로 어디서 오는지 확인
     EditText title, content;
-    Button btModify, btCancel;
+    Button btModify;
     TextView num, writer, time;
     Notice notice;
     Retrofit retrofit1; //httpclient library
@@ -47,9 +47,8 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
     long mNow;
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-    String secret;
-    String info;
     int number;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,6 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         setRetrofit();
         findId();
         clickBtModify();
-        clickBtCancel();
 
 
     }
@@ -71,7 +69,6 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         title = (EditText) findViewById(R.id.write_title_tv);
         content = (EditText) findViewById(R.id.write_content_tv);
         btModify = (Button) findViewById(R.id.write_modify);
-        btCancel = (Button) findViewById(R.id.write_cancel);
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
@@ -142,30 +139,6 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
 
     }
 
-
-    public void clickBtCancel() {
-        btCancel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Call<Void> call = rs2.userRemove(number, StaticId.id);//call객체
-                call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                        if (response.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        System.out.println("글 삭제 실패" + call + " " + t);
-                    }
-                });
-            }
-
-        });
-
-    }
 
     public String getTime() {
         mNow = System.currentTimeMillis();

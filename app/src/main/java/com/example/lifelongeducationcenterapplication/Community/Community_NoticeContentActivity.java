@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import retrofit2.Call;
@@ -23,13 +24,14 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class Community_NoticeContentActivity extends AppCompatActivity {
     //공지사항
-    TextView title, content, who, time, postedNumber;
-    Button list;
+    TextView title, content, who, time, postedNumber, comment;
+    Button list, remove, modify;
     int number;
     Retrofit retrofit;
     RemoteService rs;
-    Notice notice;
 
+    Notice notice;
+    ListView listview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +47,16 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         postedNumber = (TextView) findViewById(R.id.number);
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
+        comment = (TextView) findViewById(R.id.comment);
         list = (Button) findViewById(R.id.list);
+        remove = (Button) findViewById(R.id.remove);
+        modify = (Button) findViewById(R.id.modfiy);
+        listview = (ListView) findViewById(R.id.contentListView);
 
+        listview.setVisibility(View.GONE);
+        remove.setVisibility(View.GONE);
+        modify.setVisibility(View.GONE);
+        comment.setVisibility(View.GONE);
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();

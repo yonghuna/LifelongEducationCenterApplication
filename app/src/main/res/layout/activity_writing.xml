@@ -17,6 +17,7 @@
         android:layout_marginLeft="16dp"
         />
 
+
     <EditText
         android:id="@+id/write_content_tv"
         android:layout_width="match_parent"
@@ -26,7 +27,6 @@
         android:hint="글 내용"
         android:scrollbars="vertical"
         android:textSize="15sp" />
-
 
     <Button
         android:id="@+id/modfiy"

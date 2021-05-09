@@ -34,7 +34,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
-
 public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     //학점은행제 수강신청 액티비티
 
@@ -60,7 +59,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     MyAdapter adapter;
     List<Enrollment> enrollments = new ArrayList();
     String info = "수강신청";
-
     int register = 1;
 
 
@@ -124,21 +122,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
-        Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
-        call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-            @Override
-            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                if (response.isSuccessful()) {
-                    enrollments = response.body();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                System.out.println("subjectnumber" + call + " " + t);
-
-            }
-        });
 
         notifychangelist(register);
 
@@ -147,6 +130,23 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
 
     public void notifychangelist(int register) {
         if (register == 1) {
+            Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
+            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                    if (response.isSuccessful()) {
+                        enrollments = response.body();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                    System.out.println("subjectnumber" + call + " " + t);
+
+                }
+            });
+
+
             Call<List<Lecture>> call1 = rs1.lecture("외국어로서의 한국어학");//call객체
             call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override
@@ -155,7 +155,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                         lectures = response.body();
                         listLecture.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
-
                     }
                 }
 
@@ -166,8 +165,25 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                 }
             });
         } else if (register == 2) {
-            Call<List<Lecture>> call2 = rs2.lecture("체육학");//call객체
-            call2.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+            Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
+            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                    if (response.isSuccessful()) {
+                        enrollments = response.body();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                    System.out.println("subjectnumber" + call + " " + t);
+
+                }
+            });
+
+
+            Call<List<Lecture>> call1 = rs2.lecture("체육학");//call객체
+            call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override
                 public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
                     if (response.isSuccessful()) {
@@ -186,6 +202,23 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
             });
 
         } else if (register == 3) {
+
+            Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
+            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
+                    if (response.isSuccessful()) {
+                        enrollments = response.body();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
+                    System.out.println("subjectnumber" + call + " " + t);
+
+                }
+            });
+
             Call<List<Lecture>> call3 = rs3.lecture("경영학");//call객체
             call3.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override
@@ -298,9 +331,7 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         if (StaticId.id == null) {
-                            Intent intent = new Intent(getApplicationContext(), Login.class);
                             Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
-                            startActivity(intent);
                         } else {
                             if(StaticId.course.equals("학점은행제과정")) {
                                 Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
@@ -310,7 +341,7 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                                         if (response.isSuccessful()) {
                                             RegisterResult registerResult = response.body();
                                             if (registerResult.getResult().equals("ok")) {
-                                                Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), "수강신청이 되었습니다. " +register, Toast.LENGTH_SHORT).show();
                                                 notifychangelist(register);
                                             } else {
                                                 Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
