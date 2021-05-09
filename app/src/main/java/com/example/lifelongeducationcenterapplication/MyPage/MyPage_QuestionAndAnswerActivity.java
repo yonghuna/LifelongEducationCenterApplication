@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.lifelongeducationcenterapplication.Community.Community_Bulletin_boardwritingActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_DifferentMember;
 import com.example.lifelongeducationcenterapplication.Community.Community_QAmodifyAndremoveActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_QuestionAndAnswerActivity;
@@ -38,24 +41,40 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
 
     Retrofit retrofit1;//httpclient library
     RemoteService rs1;//DB를 위한 인터페이스
-
+    FloatingActionButton btWrite;
     MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("질의응답");
+        getSupportActionBar().setTitle("비밀 질의응답");
         setContentView(R.layout.activity_my_page__question_and_answer);
 
+        btWrite = (FloatingActionButton) findViewById(R.id.btwriting);
         listView = (ListView) findViewById(R.id.questionandanswerlist);
         retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs1 = retrofit1.create(RemoteService.class);
         adapter = new MyAdapter();
+
+        btWrite.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (StaticId.id == null || StaticId.id == "") {
+                    Toast.makeText(MyPage_QuestionAndAnswerActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), Community_Bulletin_boardwritingActivity.class);
+                    intent.putExtra("secret", "true");
+                    intent.putExtra("info", "글작성");
+                    startActivity(intent);
+                }
+                // 글 작성
+            }
+
+        });
     }
 
     protected void onResume() {
-        Call<List<Notice>> call1 = rs1.notSecret();//call객체
+        Call<List<Notice>> call1 = rs1.secret(StaticId.id);//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<List<Notice>> call, Response<List<Notice>> response) {
@@ -120,8 +139,8 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
                     intent.putExtra("number", notice.getNumber());
+                    intent.putExtra("id", StaticId.id);
                     startActivity(intent);
-
 
                 }
             });

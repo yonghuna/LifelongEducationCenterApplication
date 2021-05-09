@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.MainActivity;
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;

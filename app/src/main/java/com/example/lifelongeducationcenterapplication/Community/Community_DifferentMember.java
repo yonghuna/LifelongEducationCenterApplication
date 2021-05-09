@@ -3,9 +3,13 @@ package com.example.lifelongeducationcenterapplication.Community;
 import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +22,7 @@ import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,13 +34,16 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class Community_DifferentMember extends AppCompatActivity {
     Button btList, btModify, btRemove;
-    TextView num, writer, time, title, content;
+    TextView num, writer, time, title, content, time2, comment;
     Notice notice;
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
 
+    ListView listview;
+    List<Notice> notices;
     Retrofit retrofit2; //httpclient library
     RemoteService rs2; //DB를 위한 인터페이스
+    MyAdapter adapter;
     int number;
     String id;
 
@@ -49,6 +57,8 @@ public class Community_DifferentMember extends AppCompatActivity {
         Intent intent = getIntent(); /*데이터 수신*/
         number = intent.getIntExtra("number", 1); // pk로 구분
         id = intent.getStringExtra("id"); // pk로 구분
+
+        adapter = new MyAdapter();
         findId();
         setRetrofit();
 
@@ -57,7 +67,12 @@ public class Community_DifferentMember extends AppCompatActivity {
         btRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (StaticId.id.equals(id)) {
+
+                if (StaticId.id == null) {
+                    // 아닐경우
+                    Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
+                }
+                else if (StaticId.id.equals(id)) {
                     Call<Void> call = rs2.userRemove(number, StaticId.id);//call객체
                     call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
                         @Override
@@ -74,10 +89,7 @@ public class Community_DifferentMember extends AppCompatActivity {
                             System.out.println("글 삭제 실패" + call + " " + t);
                         }
                     });
-                } else if (StaticId.id == null) {
-                    // 아닐경우
-                    Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
-                } else if (StaticId.id != id){
+                }else if (StaticId.id != id){
                     Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -87,13 +99,14 @@ public class Community_DifferentMember extends AppCompatActivity {
         btModify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (StaticId.id.equals(id)) {
+                if (StaticId.id == null) {
+                    // 아닐경우
+                    Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
+                }
+                else if (StaticId.id.equals(id)) {
                     Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
                     intent.putExtra("number", number);
                     startActivity(intent);
-                } else if (StaticId.id == null) {
-                    // 아닐경우
-                    Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
                 } else if(StaticId.id != id){
                     Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
@@ -120,6 +133,7 @@ public class Community_DifferentMember extends AppCompatActivity {
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
+        listview = (ListView) findViewById(R.id.contentListView);
     }
 
 
@@ -158,6 +172,62 @@ public class Community_DifferentMember extends AppCompatActivity {
                 System.out.println("Q N A 읽기" + call + " " + t);
             }
         });
+
+        Call<List<Notice>> call1 = rs2.comment(number);//call객체
+        call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<List<Notice>> call, Response<List<Notice>> response) {
+                if(response.isSuccessful()){
+                    notices = response.body();
+                    adapter.notifyDataSetChanged();
+                    listview.setAdapter(adapter);
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Notice>> call, Throwable t) {
+                System.out.println("comment 오류" +call +" " + t);
+
+            }
+        });
         super.onResume();
+    }
+
+    class MyAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return notices.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.item_comment,null);
+
+            Notice notice =  notices.get(position);
+
+            if(notice.getDate() == null || notice.getContents() == null){
+                    listview.setVisibility(View.GONE);
+            }
+            time2 = (TextView)convertView.findViewById(R.id.time); // 1 , 2 , 3
+            comment = (TextView)convertView.findViewById(R.id.editTextTextcoment); // 날짜
+
+
+            time2.setText(notice.getDate());
+            comment.setText(Html.fromHtml(notice.getContents()).toString());
+
+            return convertView;
+        }
     }
 }

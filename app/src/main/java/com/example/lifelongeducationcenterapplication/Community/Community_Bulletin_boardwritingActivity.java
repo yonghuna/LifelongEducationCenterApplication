@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
@@ -83,8 +84,14 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
-                                Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                                startActivity(intent);
+                                if(secret.equals("false")){
+                                    Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
+                                    startActivity(intent);
+                                }else{
+                                    Intent intent = new Intent(getApplicationContext(), MyPage_QuestionAndAnswerActivity.class);
+                                    startActivity(intent);
+                                }
+
                             }
                         }
 
