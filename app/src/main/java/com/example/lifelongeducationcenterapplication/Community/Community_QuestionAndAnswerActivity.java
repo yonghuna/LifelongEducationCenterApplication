@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     ListView listView;
     List<Notice> notices;
     TextView noticeNumber, noticeDate, noticeWriter, noticeTitle;
-
+    ImageView imageView;
     Retrofit retrofit1;//httpclient library
     RemoteService rs1;//DB를 위한 인터페이스
     FloatingActionButton btWrite;
@@ -119,8 +120,9 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             noticeDate = (TextView) convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
             noticeWriter = (TextView) convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
             noticeTitle = (TextView) convertView.findViewById(R.id.QandANamelecture); // 제목
+            imageView = (ImageView) convertView.findViewById(R.id.imageView); // 이미지
 
-
+            imageView.setVisibility(View.GONE);
             String[] day = notice.getReportingdate().split(" ");
 
             noticeTitle.setText(notice.getTitle());

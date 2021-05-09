@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,7 +37,7 @@ public class Community_NoticeActivity extends AppCompatActivity {
 
     List<Notice> notices; // 배열 객체 생성
     ListView listLecture;//리스트뷰
-
+    ImageView imageView;
     TextView noticeNumber, noticeWriter, noticeDate, noticeTitle;
     MyAdapter adapter;
 
@@ -46,7 +47,6 @@ public class Community_NoticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("공지사항");
         setContentView(R.layout.activity_community__notice);
-
 
 
         listLecture = (ListView) findViewById(R.id.noticeListview);
@@ -115,8 +115,10 @@ public class Community_NoticeActivity extends AppCompatActivity {
             noticeDate = (TextView)convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
             noticeWriter = (TextView)convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
             noticeTitle = (TextView)convertView.findViewById(R.id.QandANamelecture); // 제목
+            imageView = (ImageView)  convertView.findViewById(R.id.imageView);
 
 
+            imageView.setVisibility(View.GONE);
             String[] day = notice.getReportingdate().split(" ");
 
             noticeTitle.setText(notice.getTitle().trim());

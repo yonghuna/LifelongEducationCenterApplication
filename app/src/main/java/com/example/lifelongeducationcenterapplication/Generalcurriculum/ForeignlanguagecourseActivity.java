@@ -93,6 +93,8 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
+
+
         Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
         call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override
@@ -263,7 +265,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             return convertView;
         }
         public void notifyChangeList(){
-
+            
             Call<List<Lecture>> call1 = rs.lecture("외국어과정");//call객체
             call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override

@@ -351,8 +351,8 @@ public class MainActivity extends AppCompatActivity {
             mainLecture = (TextView) convertView.findViewById(R.id.mainLectureName);
             if (enrollment.getName() != null) {
                 mainLecture.setText("・" + enrollment.getName());
-
-            }else if(enrollment.getName() == null || enrollment.getName()==""){
+            }else{
+                // ??
                 mainLecture.setText("・ 수강 신청한 강좌가 없습니다.");
             }
 
