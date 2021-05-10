@@ -24,11 +24,32 @@ public interface RemoteService {
     Call<List<Lecture>> lecture(
             @Query("division") String division);//수강목록
 
+    // 강의 이름만 가져오기
+    @GET("lectureName.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Lecture> lectureName(
+            @Query("number") int number);//수강목록
+
+
     // 강의 세부 내용 
     @GET("lectureDetail.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<LectureDetail>> lectureDetail(
             @Query("number") int number);//수강 상세보기
+
+
+    // 마이페이지 내 정보 읽기
+    @GET("myPageInfo.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<UserInfo> myPage(
+            @Query("id") String id);//수강 상세보기
+
+    // 수강내역 읽기
+    @GET("enrollment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Enrollment>> enrollment(
+            @Query("id") String id);//  수강된 강좌면 수강내역으로
+
 
 
     // 강의 주 내용
@@ -57,6 +78,49 @@ public interface RemoteService {
             @Field("name") String name,
             @Field("birth") String birth,
             @Field("sex") String sex); //로그인
+
+    //일반 과정 회원정보 수정
+    @FormUrlEncoded
+    @POST("myPageInfoPost1.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> myPageInfoPost1(
+            @Field("id") String id,
+            @Field("pwOK") String pwOK,
+            @Field("phonenumber") String phonenumber,
+            @Field("addressnumber") String addressnumber,
+            @Field("address") String address,
+            @Field("detailedaddress") String detailedaddress,
+            @Field("password") String password); //로그인
+
+    //학습은행제 과정 회원정보 수정
+    @FormUrlEncoded
+    @POST("myPageInfoPost2.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> myPageInfoPost2(
+            @Field("id") String id,
+            @Field("pwOK") String pwOK,
+            @Field("phonenumber") String phonenumber,
+            @Field("addressnumber") String addressnumber,
+            @Field("address") String address,
+            @Field("detailedaddress") String detailedaddress,
+            @Field("password") String password,
+            @Field("education") String education,
+            @Field("school") String school,
+            @Field("major") String major,
+            @Field("admissionmajor") String admissionmajor); //로그인
+
+    //수강신청
+    @FormUrlEncoded
+    @POST("subjectRegister.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> userSubjectRegister(
+            @Field("id") String id,
+            @Field("subjectnumber") int subjectnumber,
+            @Field("subjectyear") int subjectyear,
+            @Field("subjectsemester") int subjectsemester,
+            @Field("subjectdivision") String subjectdivision
+            ); //수강신청
+
 
 
     // 회원가입

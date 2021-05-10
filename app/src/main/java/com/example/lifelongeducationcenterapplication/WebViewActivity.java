@@ -19,12 +19,11 @@ public class WebViewActivity extends AppCompatActivity {
         @SuppressWarnings("unused")
         public void processDATA(String data) {
 
-
-
             Bundle extra = new Bundle();
             Intent intent = new Intent();
             extra.putString("data", data);
             intent.putExtras(extra);
+            System.out.println("daum Map - --------- - - - -- - - - -" + data);
             setResult(RESULT_OK, intent);
             finish();
         }
@@ -43,7 +42,6 @@ public class WebViewActivity extends AppCompatActivity {
         browser.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
-
                 browser.loadUrl("javascript:sample2_execDaumPostcode();");
             }
         });
