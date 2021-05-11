@@ -2,6 +2,8 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +56,7 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("글 수정 삭제");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_modify_remove);
 
         Intent intent = getIntent(); /*데이터 수신*/
@@ -63,6 +66,21 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         clickBtModify();
 
 
+    }
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 
     public void findId() {

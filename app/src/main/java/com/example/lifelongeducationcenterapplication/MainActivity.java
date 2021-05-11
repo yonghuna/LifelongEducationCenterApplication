@@ -212,11 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+
     @Override
     protected void onResume() {
 
@@ -286,6 +282,11 @@ public class MainActivity extends AppCompatActivity {
         StaticId.name = null;
     }
 
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -571,6 +572,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void menuChange() {//메뉴이동
 

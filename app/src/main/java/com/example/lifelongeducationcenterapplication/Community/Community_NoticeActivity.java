@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -46,6 +48,7 @@ public class Community_NoticeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("공지사항");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//뒤로가기 테스트
         setContentView(R.layout.activity_community__notice);
 
 
@@ -64,6 +67,21 @@ public class Community_NoticeActivity extends AppCompatActivity {
 
     }
 
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
 
