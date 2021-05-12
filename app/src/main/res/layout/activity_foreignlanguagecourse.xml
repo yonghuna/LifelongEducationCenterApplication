@@ -35,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5sp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="수강신청"
                 android:textColor="#00838F"
                 android:textSize="24sp" />

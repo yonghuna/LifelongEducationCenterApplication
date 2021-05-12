@@ -26,6 +26,7 @@
         android:layout_margin="10dp"
         android:text="발전과정 및 연혁"
         android:textColor="#00897B"
+        android:fontFamily="@font/nanumbarunpenb"
         android:textSize="30sp" />
 
     <ScrollView
@@ -51,6 +52,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2019"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -70,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="01. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
@@ -77,6 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="제5대 김홍석 원장 취임" />
 
             </LinearLayout>
@@ -92,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="02. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
@@ -99,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="주산학평생교육원 분원 개원 및 운영(천안캠퍼스)" />
 
             </LinearLayout>
@@ -117,6 +123,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2018"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -137,12 +144,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="12. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_marginRight="10dp"
                     android:text="평생교육원과정 148 , 학점은행제 3개 전공, 아산시 분원 강좌 104과목 운영" />
 
@@ -161,6 +170,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2016"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -179,6 +189,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="03. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
@@ -186,6 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="평생교육원과정 47과목, 학점은행제 2개 전공, 아산시 분원 강좌 32과목 운영" />
 
             </LinearLayout>
@@ -203,6 +215,7 @@
                 android:layout_height="37dp"
                 android:gravity="center_vertical|center"
                 android:text="2015"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#353232"
                 android:textSize="18sp" />
 
@@ -221,6 +234,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="10. "
                     android:textStyle="bold" />
 
@@ -229,6 +243,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="탕정삼성트라팰리스 “화합의 한마당” 축제 참가, 아산시평생학습한마당 참가" />
 
             </LinearLayout>
@@ -246,6 +261,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2014"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -263,6 +279,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="04. "
                     android:textStyle="bold" />
 
@@ -271,6 +288,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="아산시 평생학습 선문대교육원 개원" />
 
             </LinearLayout>
@@ -286,12 +304,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="03. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_marginRight="10dp"
                     android:text="충청남도평생교육진흥원 충남학 교육운영 협약체결" />
 
@@ -308,6 +328,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="01. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
@@ -315,6 +336,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="주산학평생교육원으로 확대 개편" />
 
 
@@ -333,6 +355,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2013"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -352,12 +375,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="12. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="충청남도 평생학습 온통박람회 참가" />
             </LinearLayout>
 
@@ -372,11 +397,13 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="03. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="제4대 권희태 원장 취임" />
             </LinearLayout>
 
@@ -393,6 +420,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2012"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -412,12 +440,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="07. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="평생교육원으로 명칭 변경, 부설교육기관으로 직제 조정" />
             </LinearLayout>
 
@@ -434,6 +464,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2011"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -453,12 +484,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="12. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_marginLeft="10dp"
                     android:text="사회교육원 통합(천안캠퍼스 사회교육원, 아산캠퍼스로 통합이전)" />
             </LinearLayout>
@@ -476,6 +509,7 @@
                 android:layout_height="37dp"
                 android:gravity="center_vertical|center"
                 android:text="2010"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#353232"
                 android:textSize="18sp" />
 
@@ -495,6 +529,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="03. "
                     android:textStyle="bold" />
 
@@ -502,6 +537,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="학점은행제 2개 전공 운영 - 사회복지학, 외국어로서의 한국어학" />
             </LinearLayout>
 
@@ -515,6 +551,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="03. "
                     android:textStyle="bold" />
 
@@ -522,6 +559,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="제3대 김병균 원장 취임" />
             </LinearLayout>
 
@@ -538,6 +576,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2009"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -557,12 +596,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="11. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="학점은행제 교육기관 선정" />
             </LinearLayout>
 
@@ -580,6 +621,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2007"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -598,6 +640,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="09. "
                     android:textStyle="bold" />
 
@@ -605,6 +648,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="CEO 리더쉽 과정 개설" />
             </LinearLayout>
 
@@ -621,6 +665,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2002~2008"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -639,6 +684,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="12. "
                     android:textStyle="bold" />
 
@@ -646,6 +692,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="매년 12월 사회교육원 축제실시(회원 및 강사 작품전시, 시범, 바자회 외)" />
             </LinearLayout>
 
@@ -661,6 +708,7 @@
                 android:layout_height="37dp"
                 android:gravity="center_vertical|center"
                 android:text="2001"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#353232"
                 android:textSize="18sp" />
 
@@ -681,12 +729,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="03. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="노동부위탁 실직자 재취직 훈련(AUTO CAD)" />
             </LinearLayout>
 
@@ -700,6 +750,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="01. "
                     android:textStyle="bold" />
 
@@ -707,6 +758,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="특수분야 연구기관 지정-직무연수 실시" />
             </LinearLayout>
 
@@ -723,6 +775,7 @@
                 android:gravity="center_vertical|center"
                 android:text="2000"
                 android:textColor="#353232"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
             <ImageView
@@ -741,6 +794,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="09. "
                     android:textStyle="bold" />
 
@@ -748,6 +802,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="아산시 교육청위탁 컴퓨터과정 실시(리눅스)" />
             </LinearLayout>
 
@@ -762,11 +817,13 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="06. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_height="wrap_content"
                     android:text="사회교육원 문화탐방 실시(장소: 중국 및 백두산)" />
             </LinearLayout>
@@ -781,6 +838,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="03. "
                     android:textStyle="bold" />
 
@@ -788,6 +846,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="국비지원 무료과정 진행(AUTO CAD, 전자상거래)" />
             </LinearLayout>
 
@@ -801,6 +860,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="02. "
                     android:textStyle="bold" />
 
@@ -808,6 +868,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="제2대 홍연표 원장 취임" />
             </LinearLayout>
 
@@ -823,6 +884,7 @@
                 android:layout_height="37dp"
                 android:gravity="center_vertical|center"
                 android:text="1998"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#353232"
                 android:textSize="18sp" />
 
@@ -843,12 +905,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="09. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="개원식(제과제빵과정, 영어회화과정 개설)" />
             </LinearLayout>
 
@@ -862,6 +926,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="07. "
                     android:textStyle="bold" />
 
@@ -869,6 +934,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="제과 국가기능사 실기시험 본원에서 시행" />
             </LinearLayout>
 
@@ -882,6 +948,7 @@
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="05. "
                     android:textStyle="bold" />
 
@@ -889,6 +956,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="교과부 승인(사회교육원 천안캠퍼스, 아산캠퍼스)" />
             </LinearLayout>
 
@@ -903,12 +971,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
                     android:text="03. "
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:text="사회교육원 설립(서영희 초대원장 취임)" />
             </LinearLayout>
         </LinearLayout>

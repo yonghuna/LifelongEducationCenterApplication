@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="번호"
+            android:fontFamily="@font/nanumbarunpenb"
             android:textColor="@android:color/black"
             android:textSize="13dp"
             android:textStyle="bold" />
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:hint="제목"
+            android:fontFamily="@font/nanumbarunpenb"
             android:textColor="@android:color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -38,6 +40,7 @@
             android:hint="작성자"
             android:textColor="@android:color/black"
             android:textSize="13dp"
+            android:fontFamily="@font/nanumbarunpenb"
             android:textStyle="bold" />
 
         <TextView
@@ -49,6 +52,7 @@
             android:hint="작성일"
             android:textColor="@android:color/black"
             android:textSize="13dp"
+            android:fontFamily="@font/nanumbarunpenb"
             android:textStyle="bold" />
 
 

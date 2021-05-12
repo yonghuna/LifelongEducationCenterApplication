@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:padding="5sp"
         android:text="서식자료실"
+        android:fontFamily="@font/nanumbarunpenb"
         android:textColor="#00838F"
         android:textSize="24sp" />
 

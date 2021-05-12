@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="글 제목"
+        android:fontFamily="@font/nanumbarunpenb"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         />
@@ -26,6 +27,7 @@
         android:background="@drawable/border_login"
         android:hint="글 내용"
         android:scrollbars="vertical"
+        android:fontFamily="@font/nanumbarunpenb"
         android:textSize="15sp" />
 
     <Button
@@ -35,6 +37,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:text="저장"
+        android:fontFamily="@font/nanumbarunpenb"
         android:textColor="#ffffff"
         android:layout_gravity="bottom"
         />

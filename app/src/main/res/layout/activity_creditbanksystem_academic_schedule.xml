@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="학사일정"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#00ACC1"
                 android:textSize="18sp" />
 
@@ -44,6 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="일정" />
 
                     <TextView
@@ -51,6 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="내용" />
 
                     <TextView
@@ -58,6 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="비고" />
                 </TableRow>
 
@@ -68,18 +72,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="02.01.~03.01." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="1학기 수강신청" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="학점은행제 개요 및 입학안내 참고" />
                 </TableRow>
 
@@ -90,17 +97,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="02.23.~02.26." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="교강사 OT 비대면" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -111,18 +121,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="03.02." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="학습자 OT 및 개강 / 수강신청 정정" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="과목마다 상이/휴강 후 보강예정" />
                 </TableRow>
 
@@ -133,18 +146,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="03.16.~04.05." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="운영현황보고(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="국평원 보고" />
                 </TableRow>
 
@@ -155,17 +171,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="03.18.~03.31." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="전공변경/학위 연계 신청(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -177,6 +196,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="04.01~04.30." />
 
                     <TextView
@@ -184,6 +204,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="2분기 학습자 등록, 학점인정신청(기관)" />
 
                     <LinearLayout
@@ -196,12 +217,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학습자등록(수수료: 4천원)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학점인정신청(수수료: 학점 당 1천원)" />
                     </LinearLayout>
 
@@ -214,18 +237,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="04.12.~04.23." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="중간고사" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="7주차, 8주차" />
                 </TableRow>
 
@@ -236,18 +262,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="05.05" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="휴강(어린이날)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="* 정상수업 진행 " />
                 </TableRow>
 
@@ -258,18 +287,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="05.19" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="휴강(현충일)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="* 정상수업 진행 " />
                 </TableRow>
 
@@ -280,17 +312,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="06.07.~06.20." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="기말고사 및 종강 / 보강" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -301,6 +336,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="06.15.~07.15." />
 
                     <LinearLayout
@@ -313,12 +349,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="후기(8월) 교육부장관 학위 신청(기관)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="전공변경/학위 연계 신청(기관)" />
                     </LinearLayout>
 
@@ -336,6 +374,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="06.15.~07.30." />
 
                     <TextView
@@ -343,6 +382,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="3분기 학습자 등록, 학점인정신청(기관)" />
 
                     <LinearLayout
@@ -355,12 +395,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학습자등록(수수료: 4천원)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학점인정신청(수수료: 학점 당 1천원)" />
                     </LinearLayout>
 
@@ -373,6 +415,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="06.21.~06.25." />
 
                     <LinearLayout
@@ -384,17 +427,20 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="기말고사 성적 및 과제물, 출석부 제출(교강사)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="성적공고(강의평가)및 성적이의신청" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -405,17 +451,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="06.25." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="성적보고(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -426,18 +475,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="07.05.~08.31." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="2학기 수강신청" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="학점은행제 개요 및 입학안내 참고" />
                 </TableRow>
 
@@ -448,17 +500,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="08.31.~09.03." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="교강사 OT 비대면" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -469,18 +524,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="09.01." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="학습자 OT 및 개강 / 수강신청 정정" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="과목마다 상이 " />
                 </TableRow>
 
@@ -491,18 +549,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="09.06.~09.17." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="운영현황보고(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="국평원 보고" />
                 </TableRow>
 
@@ -513,17 +574,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="09.14.~09.30." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="전공변경/학위 연계 신청(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -534,18 +598,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="09.20.~09.22.	" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="휴강(추석연휴)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="* 보강일 정하여 보강수업 진행" />
                 </TableRow>
 
@@ -557,6 +624,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="10.01.~10.29." />
 
                     <TextView
@@ -564,6 +632,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="4분기 학습자 등록, 학점인정신청(기관)" />
 
                     <LinearLayout
@@ -576,12 +645,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학습자등록(수수료: 4천원)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학점인정신청(수수료: 학점 당 1천원)" />
                     </LinearLayout>
 
@@ -594,18 +665,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="10.03" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="휴강(개천절)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="* 보강일 정하여 보강수업 진행" />
                 </TableRow>
 
@@ -616,18 +690,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="10.09" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="휴강(한글날)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="* 보강일 정하여 보강수업 진행" />
                 </TableRow>
 
@@ -638,18 +715,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="10.22.~10.29." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="중간고사 성적 및 과제물 결과 제출(교강사)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"/>
                 </TableRow>
 
                 <TableRow
@@ -659,6 +739,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="12.12.~12.14." />
 
                     <LinearLayout
@@ -670,11 +751,13 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="전기(2월) 교육부장관 학위 신청(기관)" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="전공변경/학위 연계 신청(기관)" />
                     </LinearLayout>
 
@@ -682,6 +765,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="교육원에 문의" />
                 </TableRow>
 
@@ -692,17 +776,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="12.06.~12.19." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="기말고사 및 종강 / 보강" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
@@ -713,12 +800,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
                         android:text="12.15.~1.31." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="1분기 학습자 등록, 학점인정신청(기관)" />
@@ -732,12 +821,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:layout_weight="1"
                             android:text="◆ 학습자등록(수수료: 4천원)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:layout_weight="1"
                             android:text="◆ 학점인정신청(수수료: 학점 당 1천원)" />
                     </LinearLayout>
@@ -751,6 +842,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="12.20.~12.24." />
 
                     <LinearLayout
@@ -763,17 +855,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="기말고사 성적 및 과제물, 출석부 제출(교강사)" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="성적공고(강의평가) 및 성적이의신청" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
 
                 </TableRow>
@@ -785,17 +880,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="12.24." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1"
                         android:text="성적보고(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1" />
                 </TableRow>
 
