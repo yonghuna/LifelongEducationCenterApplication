@@ -69,8 +69,7 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Community_NoticeActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

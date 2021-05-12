@@ -5,6 +5,7 @@ import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.LectureDetail;
 import com.example.lifelongeducationcenterapplication.LectureWeek;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -38,7 +39,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 //교양 과정
 public class LiberalArtsCourseActivity extends AppCompatActivity {
-
+    NotificationHelper notificationHelper;
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
@@ -64,7 +65,7 @@ public class LiberalArtsCourseActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("교양과정");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_liberal_arts_course);
-
+        notificationHelper = new NotificationHelper(this);
         listLecture = (ListView) findViewById(R.id.LiberalArtsCourselistLecture);
 
 
@@ -246,7 +247,7 @@ public class LiberalArtsCourseActivity extends AppCompatActivity {
                                     if (response.isSuccessful()) {
                                         RegisterResult registerResult = response.body();
                                         if (registerResult.getResult().equals("ok")) {
-                                            Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                            notificationHelper.sendHighPriorityNotification("교양과정", "'"+name + "'가 수강신청 되었습니다.");
                                             notifyChangeList();
                                         } else {
                                             Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);

@@ -118,8 +118,7 @@ public class Community_DifferentMember extends AppCompatActivity {
         btList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                startActivity(intent);
+               finish();
 
             }
         });
@@ -179,7 +178,7 @@ public class Community_DifferentMember extends AppCompatActivity {
                     writer.setText(notice.getName());
                     time.setText(notice.getReportingdate());
                     title.setText(notice.getTitle());
-                    content.setText(notice.getContents());
+                    content.setText(Html.fromHtml(notice.getContents()).toString());
 
                 }
             }

@@ -11,12 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 public class
 
 CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
     //학점은행제 전공안내  체육학
-
+    NotificationHelper notificationHelper;
     Spinner majormenuSpinner;
     String[] majormenuTitle = {"외국어로서의 한국어학", "체육학", "경제학"};
     Intent it;
@@ -27,7 +28,7 @@ CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
         getSupportActionBar().setTitle("전공안내");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_creditbanksystem_major_information2);
-
+        notificationHelper = new NotificationHelper(this);
         //전공안내 메뉴스피너
         majormenuSpinner = (Spinner) findViewById(R.id.majorspinner);
         ArrayAdapter<String> adapter;

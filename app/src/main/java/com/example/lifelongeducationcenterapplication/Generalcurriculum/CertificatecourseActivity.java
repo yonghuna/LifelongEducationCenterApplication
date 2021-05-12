@@ -3,6 +3,7 @@ import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Enrollment;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -36,6 +37,8 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class CertificatecourseActivity extends AppCompatActivity {
     //자격증과정
+
+    NotificationHelper notificationHelper;
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
@@ -62,7 +65,7 @@ public class CertificatecourseActivity extends AppCompatActivity {
 
         listLecture = (ListView) findViewById(R.id.CertificatecourselistLecture);
 
-
+        notificationHelper = new NotificationHelper(this);
         adapter = new MyAdapter();
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
@@ -236,7 +239,7 @@ public class CertificatecourseActivity extends AppCompatActivity {
                                     if (response.isSuccessful()) {
                                         RegisterResult registerResult = response.body();
                                         if (registerResult.getResult().equals("ok")) {
-                                            Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                            notificationHelper.sendHighPriorityNotification("자격증과정", "'"+name + "'가 수강신청 되었습니다.");
                                             notifyChangeList();
                                         } else {
                                             Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
