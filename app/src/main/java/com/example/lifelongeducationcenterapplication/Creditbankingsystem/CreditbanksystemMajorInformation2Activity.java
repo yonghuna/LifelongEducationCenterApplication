@@ -4,17 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 public class
 
 CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
     //학점은행제 전공안내  체육학
-
+    NotificationHelper notificationHelper;
     Spinner majormenuSpinner;
     String[] majormenuTitle = {"외국어로서의 한국어학", "체육학", "경제학"};
     Intent it;
@@ -23,8 +26,9 @@ CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("전공안내");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_creditbanksystem_major_information2);
-
+        notificationHelper = new NotificationHelper(this);
         //전공안내 메뉴스피너
         majormenuSpinner = (Spinner) findViewById(R.id.majorspinner);
         ArrayAdapter<String> adapter;
@@ -56,6 +60,22 @@ CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
     //전공안내 한국학 스피너
     void goMajorActivity(){

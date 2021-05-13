@@ -152,11 +152,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/mypageedtSignUpPostCode"
                         android:layout_width="80sp"
                         android:layout_height="wrap_content"
-                        android:hint="우편번호" />
+                        android:hint="우편번호"
+                        android:textSize="18sp"/>
 
                     <Button
                         android:id="@+id/btnmypageSignUpAddressSearch"
@@ -165,14 +166,14 @@
                         android:layout_toRightOf="@id/mypageedtSignUpPostCode"
                         android:text="우편번호 검색" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/mypageedtSignUpAddress1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/btnmypageSignUpAddressSearch"
-                        android:autoSizeTextType="uniform"
                         android:hint="주소1"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/mypageedtSignUpAddress2"
@@ -269,8 +270,8 @@
                             android:layout_width="0sp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
-                            android:imeOptions="actionDone"
                             android:autoSizeTextType="uniform"
+                            android:imeOptions="actionDone"
                             android:inputType="text" />
 
                     </LinearLayout>

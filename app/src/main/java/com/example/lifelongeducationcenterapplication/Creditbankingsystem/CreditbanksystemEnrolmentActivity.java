@@ -6,6 +6,7 @@ import com.example.lifelongeducationcenterapplication.Generalcurriculum.Foreignl
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -16,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -36,7 +39,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     //학점은행제 수강신청 액티비티
-
+    NotificationHelper notificationHelper;
     Button btKorean, btAthletic, btOperation;
 
     Retrofit retrofit1;//httpclient library
@@ -66,8 +69,9 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("학점은행제 수강신청");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_creditbanksystem_enrolment);
-
+        notificationHelper = new NotificationHelper(this);
 
         btKorean = (Button) findViewById(R.id.bt_tab1);
         btAthletic = (Button) findViewById(R.id.bt_tab2);
@@ -118,7 +122,22 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
 
 
     }
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
 
@@ -331,7 +350,7 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         if (StaticId.id == null) {
-                            Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_SHORT).show();
                         } else {
                             if(StaticId.course.equals("학점은행제과정")) {
                                 Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
@@ -341,7 +360,7 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                                         if (response.isSuccessful()) {
                                             RegisterResult registerResult = response.body();
                                             if (registerResult.getResult().equals("ok")) {
-                                                Toast.makeText(getApplicationContext(), "수강신청이 되었습니다. " +register, Toast.LENGTH_SHORT).show();
+                                                notificationHelper.sendHighPriorityNotification("학점은행제 과정", "'"+name + "'가 수강신청 되었습니다.");
                                                 notifychangelist(register);
                                             } else {
                                                 Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);

@@ -4,6 +4,8 @@ import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -50,6 +52,7 @@ public class Community_DifferentMember extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("글 내용");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_community__bulletin_boardwriting);
 
 
@@ -115,15 +118,28 @@ public class Community_DifferentMember extends AppCompatActivity {
         btList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                startActivity(intent);
+               finish();
 
             }
         });
 
 
     }
-
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     public void findId() {
         title = (TextView) findViewById(R.id.write_title_tv);
         content = (TextView) findViewById(R.id.write_content_tv);
@@ -162,7 +178,7 @@ public class Community_DifferentMember extends AppCompatActivity {
                     writer.setText(notice.getName());
                     time.setText(notice.getReportingdate());
                     title.setText(notice.getTitle());
-                    content.setText(notice.getContents());
+                    content.setText(Html.fromHtml(notice.getContents()).toString());
 
                 }
             }

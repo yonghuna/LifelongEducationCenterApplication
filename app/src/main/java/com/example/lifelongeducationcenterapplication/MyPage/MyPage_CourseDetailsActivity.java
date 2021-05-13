@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.health.SystemHealthManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -57,12 +59,13 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     ListView listView;//리스트뷰
     MyAdapter adapter;
     TextView name, semester, certificate, payment;
-    Button btDetail, btCancel;
+    Button btDetail, btCancel, btPayment;
     RegisterResult registerResults;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("수강내역");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_my_page__course_details);
 
         listView = (ListView) findViewById(R.id.mypageCoursedetailslist);
@@ -83,7 +86,22 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
 
     }
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override   //액션바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
         Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
@@ -138,7 +156,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             btCancel = convertView.findViewById(R.id.btcoursedetail2);
             btDetail = convertView.findViewById(R.id.btcoursedetail1);
-
+            btPayment = convertView.findViewById(R.id.btpayment);
 
             if(enrollment.getName() != "" ||  enrollment.getName() != null){
                 name.setText(enrollment.getName());
@@ -168,6 +186,17 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
                     intent.putExtra("info", "myPage");
+                    // 수강 내역
+                    startActivity(intent);
+                }
+
+            });
+
+            btPayment.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    System.out.println("btPayment 클릭");
+                    Intent intent = new Intent(getApplicationContext(), MyPage_Payment.class);
+                    intent.putExtra("number", enrollment.getSubjectnumber());
                     // 수강 내역
                     startActivity(intent);
                 }

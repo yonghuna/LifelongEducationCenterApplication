@@ -2,6 +2,10 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,10 +54,10 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
     int number;
 
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("글 수정 삭제");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_modify_remove);
 
         Intent intent = getIntent(); /*데이터 수신*/
@@ -63,6 +67,23 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         clickBtModify();
 
 
+    }
+
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override   //액션 홈 버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 
     public void findId() {
@@ -101,7 +122,7 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
                     writer.setText(notice.getName());
                     time.setText(getTime());
                     title.setText(notice.getTitle());
-                    content.setText(notice.getContents());
+                    content.setText(Html.fromHtml(notice.getContents()).toString());
 
                 }
             }
@@ -118,13 +139,12 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         btModify.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Call<Void> call = rs1.userModify(number, title.getText().toString().trim(), getTime(),  content.getText().toString(), StaticId.id);//call객체
+                Call<Void> call = rs1.userModify(number, title.getText().toString().trim(), getTime(), toHtml(content.getText(), 0), StaticId.id);//call객체
                 call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                            startActivity(intent);
+                            finish();
                         }
                     }
 
@@ -137,6 +157,10 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    public String toHtml(Spanned text,  int option) {
+        return Html.toHtml(text);
     }
 
 

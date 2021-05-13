@@ -4,6 +4,10 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +50,7 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("글 작성");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_writing);
 
         Intent intent = getIntent(); /*데이터 수신*/
@@ -58,6 +63,21 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         clickBtSave();
 
 
+    }
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 
     public void findId(){
@@ -79,7 +99,7 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         }else{
             btSave.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Call<Void> call = rs1.userWriting(StaticId.id, title.getText().toString().trim(),getTime(),secret,content.getText().toString());//call객체
+                    Call<Void> call = rs1.userWriting(StaticId.id, title.getText().toString().trim(),getTime(),secret,toHtml(content.getText(), 0));//call객체
                     call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
@@ -112,5 +132,9 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         return mFormat.format(mDate);
+    }
+
+    public String toHtml(Spanned text, int option) {
+        return Html.toHtml(text);
     }
 }

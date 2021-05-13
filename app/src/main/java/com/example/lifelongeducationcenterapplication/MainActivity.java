@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("홈"); //홈
 
         listLecture = findViewById(R.id.listLecture);
 
@@ -280,6 +282,11 @@ public class MainActivity extends AppCompatActivity {
         StaticId.name = null;
     }
 
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -565,6 +572,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void menuChange() {//메뉴이동
 

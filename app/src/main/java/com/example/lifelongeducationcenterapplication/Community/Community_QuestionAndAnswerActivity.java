@@ -13,6 +13,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -47,6 +49,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("1:1질의응답");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_community__question_and_answer);
         listView = (ListView) findViewById(R.id.QandAListview);
         btWrite = (FloatingActionButton) findViewById(R.id.btwriting);
@@ -71,7 +74,21 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
         });
 
     }
-
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     protected void onResume() {
         Call<List<Notice>> call1 = rs1.notSecret();//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행

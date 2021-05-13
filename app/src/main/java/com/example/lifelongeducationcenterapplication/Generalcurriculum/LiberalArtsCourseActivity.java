@@ -5,6 +5,7 @@ import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.LectureDetail;
 import com.example.lifelongeducationcenterapplication.LectureWeek;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -36,7 +39,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 //교양 과정
 public class LiberalArtsCourseActivity extends AppCompatActivity {
-
+    NotificationHelper notificationHelper;
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
@@ -60,8 +63,9 @@ public class LiberalArtsCourseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("교양과정");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_liberal_arts_course);
-
+        notificationHelper = new NotificationHelper(this);
         listLecture = (ListView) findViewById(R.id.LiberalArtsCourselistLecture);
 
 
@@ -81,7 +85,22 @@ public class LiberalArtsCourseActivity extends AppCompatActivity {
         rs3 = retrofit3.create(RemoteService.class);
 
     }
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
 
@@ -228,7 +247,7 @@ public class LiberalArtsCourseActivity extends AppCompatActivity {
                                     if (response.isSuccessful()) {
                                         RegisterResult registerResult = response.body();
                                         if (registerResult.getResult().equals("ok")) {
-                                            Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                            notificationHelper.sendHighPriorityNotification("교양과정", "'"+name + "'가 수강신청 되었습니다.");
                                             notifyChangeList();
                                         } else {
                                             Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);

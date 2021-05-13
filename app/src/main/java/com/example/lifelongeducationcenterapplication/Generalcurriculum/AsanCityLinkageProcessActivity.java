@@ -3,6 +3,7 @@ import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.Enrollment;
 import com.example.lifelongeducationcenterapplication.Lecture;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_CourseDetailsActivity;
+import com.example.lifelongeducationcenterapplication.NotificationHelper;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
@@ -13,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -34,7 +37,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class AsanCityLinkageProcessActivity extends AppCompatActivity {
     //아산시 연계 과정
-
+    NotificationHelper notificationHelper;
     Retrofit retrofit;//httpclient library
     RemoteService rs;//DB를 위한 인터페이스
 
@@ -58,8 +61,9 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("아산시연계과정");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_asan_city_linkage_process);
-
+        notificationHelper = new NotificationHelper(this);
         listLecture = (ListView) findViewById(R.id.AsanCityLinkageProcesslistLecture);
 
 
@@ -79,6 +83,22 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
         rs3 = retrofit3.create(RemoteService.class);
     }
 
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
         Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
@@ -210,7 +230,7 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
 
                         if (StaticId.id == null) {
                             Intent intent = new Intent(getApplicationContext(), Login.class);
-                            Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         } else {
                             Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
@@ -220,7 +240,7 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
                                     if (response.isSuccessful()) {
                                         RegisterResult registerResult = response.body();
                                         if (registerResult.getResult().equals("ok")) {
-                                            Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                            notificationHelper.sendHighPriorityNotification("아산시 과정",  "'"+name + "'가 수강신청 되었습니다.");
                                             notifyChangeList();
                                         } else {
                                             Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);

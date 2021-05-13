@@ -36,7 +36,13 @@ public interface RemoteService {
     Call<Notice> qnaContent(
             @Query("number") int number);//q&a 글 선택시
 
+    // 결제
+    @GET("payment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Enrollment> payment(
+            @Query("number") int number);//q&a 글 선택시
 
+    
     // 비로그인 추천 강의
     @GET("mainLecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")

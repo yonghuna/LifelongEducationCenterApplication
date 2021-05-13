@@ -17,5 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
+        android:gravity="center"
         android:hint="교육내용"/>
 </LinearLayout>
