@@ -25,7 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="12dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="17sp"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="날짜" />
 
     </LinearLayout>
@@ -37,5 +39,6 @@
         android:textSize="17sp"
         android:layout_marginLeft="16dp"
         android:hint="댓글 내용작성"
+            android:fontFamily="@font/nanumbarunpenb"
         android:inputType="textPersonName" />
 </LinearLayout>

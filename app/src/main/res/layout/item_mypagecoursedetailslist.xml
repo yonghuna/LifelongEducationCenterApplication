@@ -25,6 +25,7 @@
             android:hint="강좌명"
             android:textColor="@android:color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/nanumbarunpenb"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -38,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="연도/학기"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="@android:color/black"
                 android:textSize="13dp"
                 android:textStyle="bold" />
@@ -50,6 +52,7 @@
                 android:hint="수료증명서"
                 android:textColor="@android:color/black"
                 android:textSize="13dp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textStyle="bold" />
 
             <TextView
@@ -58,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="결제"
-
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="@android:color/black"
                 android:textSize="13dp"
                 android:textStyle="bold" />
@@ -79,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="결제"
+                android:fontFamily="@font/nanumbarunpenb"
                 app:backgroundTint="#FF6D00" />
 
             <Button
@@ -87,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="#C82020"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="상세보기"
                 app:backgroundTint="#00ACC1" />
 
@@ -96,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="#43A047"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="수강취소" />
         </LinearLayout>
 

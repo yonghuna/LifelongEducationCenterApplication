@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_enrolment_backgroung"
         android:hint="강좌명"
+        android:fontFamily="@font/nanumbarunpenb"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -30,30 +31,35 @@
             android:id="@+id/certificatecourseLecturePeriod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumbarunpenb"
             android:hint="교육기간" />
 
         <TextView
             android:id="@+id/certificatecourseLectureProfessor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumbarunpenb"
             android:hint="교수진" />
 
         <TextView
             android:id="@+id/certificatecourseLectureTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumbarunpenb"
             android:hint="수업시간" />
 
         <TextView
             android:id="@+id/certificatecourseLectureStudyfee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumbarunpenb"
             android:hint="학습비" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <!--
                자격증 과정 수강신청 버튼, 상세보기 버튼
             -->
@@ -63,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
                 android:layout_marginLeft="200dp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="수강신청"
                 app:backgroundTint="#E53935" />
 
@@ -71,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_marginLeft="10dp"
                 android:text="상세보기"
                 app:backgroundTint="#43A047" />

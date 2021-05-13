@@ -38,6 +38,7 @@
                     android:layout_height="54dp"
                     android:layout_margin="10dp"
                     android:text="조직도"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textColor="#00897B"
                     android:textSize="30sp" />
 
@@ -59,6 +60,7 @@
                     android:layout_height="54dp"
                     android:layout_margin="10dp"
                     android:text="담당업무 및 연락처"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textColor="#00897B"
                     android:textSize="30sp" />
 
@@ -83,6 +85,7 @@
                     android:layout_margin="10dp"
                     android:text="평생교육원 주임교수"
                     android:textColor="#00897B"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textSize="30sp" />
 
                 <ImageView

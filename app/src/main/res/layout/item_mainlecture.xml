@@ -13,6 +13,7 @@
         android:layout_marginLeft="5dp"
         android:textSize="18sp"
         android:paddingLeft="5dp"
+        android:fontFamily="@font/nanumbarunpenb"
         android:hint="테스트"/>
     <!--
     <LinearLayout

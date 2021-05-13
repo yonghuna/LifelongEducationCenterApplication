@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
+        android:fontFamily="@font/nanumbarunpenb"
         android:hint="주" />
 
     <TextView
@@ -18,5 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:gravity="center"
+        android:fontFamily="@font/nanumbarunpenb"
         android:hint="교육내용"/>
 </LinearLayout>

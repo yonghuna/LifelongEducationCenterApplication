@@ -11,6 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumbarunpenb"
         android:text="수강생등록여부 확인"
         android:gravity="center"
         android:textSize="20sp"/>
@@ -23,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="등록구분"
+            android:fontFamily="@font/nanumbarunpenb"
             android:gravity="center"
             android:layout_gravity="center"/>
         <RadioGroup
@@ -34,12 +36,14 @@
                 android:id="@+id/rbGeneralCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="0sp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_weight="1"
                 android:text="일반과정"/>
             <RadioButton
                 android:id="@+id/rbCreditBank"
                 android:layout_width="wrap_content"
                 android:layout_height="0sp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_weight="1"
                 android:text="학점은행제과정"/>
         </RadioGroup>
@@ -54,11 +58,13 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="성명(실명)"
             android:gravity="center"/>
         <EditText
             android:id="@+id/edtNameCheck"
             android:layout_width="0sp"
+            android:fontFamily="@font/nanumbarunpenb"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:imeOptions="actionDone"
@@ -74,6 +80,7 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="생년월일"
             android:gravity="center"
             android:layout_gravity="center"/>
@@ -86,6 +93,7 @@
             <Spinner
                 android:id="@+id/spinBirthCheck1"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_height="0sp"
                 android:layout_weight="1"/>
 
@@ -99,11 +107,13 @@
                     android:id="@+id/spinBirthCheck2"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_weight="2"/>
                 <Spinner
                     android:id="@+id/spinBirthCheck3"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:layout_weight="2"/>
 
             </LinearLayout>
@@ -120,12 +130,14 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="성별"
             android:gravity="center"/>
         <Spinner
             android:id="@+id/spinSexCheck"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumbarunpenb"
             android:layout_weight="2"/>
     </LinearLayout>
 
@@ -133,6 +145,7 @@
         android:id="@+id/btnSignUpCheck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumbarunpenb"
         android:text="확인"/>
 
 </LinearLayout>
