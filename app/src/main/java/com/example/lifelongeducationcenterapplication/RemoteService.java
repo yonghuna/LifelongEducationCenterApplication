@@ -16,7 +16,13 @@ public interface RemoteService {
     // 공지사항
     @GET("notice.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<List<Notice>> notice();//수강목록
+    Call<List<Notice>> notice();
+
+    // 공지사항 내용
+    @GET("noticeEnter.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> noticeEnter(
+            @Query("number") int number);
 
     // 강의
     @GET("lecture.jsp")
@@ -24,11 +30,34 @@ public interface RemoteService {
     Call<List<Lecture>> lecture(
             @Query("division") String division);//수강목록
 
-    // 강의 이름만 가져오기
-    @GET("lectureName.jsp")
+    // q&a 글 선택시
+    @GET("qnaContent.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Lecture> lectureName(
-            @Query("number") int number);//수강목록
+    Call<Notice> qnaContent(
+            @Query("number") int number);//q&a 글 선택시
+
+    // 결제
+    @GET("payment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Enrollment> payment(
+            @Query("number") int number);//q&a 글 선택시
+
+    
+    // 비로그인 추천 강의
+    @GET("mainLecture.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Lecture>> mainLecture();//비 로그인 일때 수강목록
+
+    // 비밀 글이 아닐 경우
+    @GET("notSecret.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> notSecret();//비밀글이 아닐경우
+
+    // 비밀 글일 경우
+    @GET("secret.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> secret(
+            @Query("id") String id);//비밀 글일 경우
 
 
     // 강의 세부 내용 
@@ -58,6 +87,11 @@ public interface RemoteService {
     Call<List<LectureWeek>> lectureWeek(
             @Query("number")   int number);//수강목록 주차별 수업
 
+    // 1:1 댓글
+    @GET("comment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> comment(
+            @Query("number")   int number);//1:1 댓글
 
 
     //로그인
@@ -80,6 +114,9 @@ public interface RemoteService {
             @Field("sex") String sex); //로그인
 
     //일반 과정 회원정보 수정
+
+
+
     @FormUrlEncoded
     @POST("myPageInfoPost1.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -120,6 +157,49 @@ public interface RemoteService {
             @Field("subjectsemester") int subjectsemester,
             @Field("subjectdivision") String subjectdivision
             ); //수강신청
+
+    //수강 취소
+    @FormUrlEncoded
+    @POST("subjectCancel.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> userSubjectCancel(
+            @Field("id") String id,
+            @Field("subjectnumber") int subjectnumber
+    ); //수강 취소
+
+
+    //글 쓰기
+    @FormUrlEncoded
+    @POST("writing.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Void> userWriting(
+            @Field("id") String id,
+            @Field("title") String title,
+            @Field("reportingdate") String reportingdate,
+            @Field("secret") String secret,
+            @Field("contents") String contents
+    ); //글 쓰기
+
+    //글 수정
+    @FormUrlEncoded
+    @POST("modify.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Void> userModify(
+            @Field("number") int number,
+            @Field("title") String title,
+            @Field("reportingdate") String reportingdate,
+            @Field("contents") String contents,
+            @Field("id") String id
+    ); //글 수정
+
+    //글 삭제
+    @FormUrlEncoded
+    @POST("remove.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Void> userRemove(
+            @Field("number") int number,
+            @Field("id") String id
+    ); //글 삭제
 
 
 

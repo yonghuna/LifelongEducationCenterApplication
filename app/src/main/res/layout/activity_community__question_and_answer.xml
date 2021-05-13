@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Community.Community_QuestionAndAnswerActivity">
+    tools:context=".Community.Community_QuestionAndAnswerActivity"
+    android:orientation="vertical">
         <!--
-            커뮤니티 1:1질의응답
+            커뮤니티 1:1질의응답 작성버튼(btwriting) 클릭시 -> 글쓰기 이동
+            activity_community__bulletin_boardwriting.xml 글쓰기
             -->
-        <ImageView
+
+        <ListView
+            android:id="@+id/QandAListview"
             android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/communityvisual"
-            android:adjustViewBounds="true"/>
-</LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="40dp"
+            android:id="@+id/btwriting"
+            android:src="@drawable/add" />
+</RelativeLayout>

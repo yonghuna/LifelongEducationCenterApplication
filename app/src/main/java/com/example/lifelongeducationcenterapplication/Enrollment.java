@@ -25,6 +25,51 @@ public class Enrollment {
     @SerializedName("Certificaterandomname")
     String Certificaterandomname;
 
+    @SerializedName("name")
+    String name;
+
+    @SerializedName("paymentnumber")
+    String paymentnumber;
+
+    @SerializedName("subjectname")
+    String subjectname;
+
+    @SerializedName("studyfee")
+    String studyfee;
+
+
+    public String getStudyfee() {
+        return studyfee;
+    }
+
+    public void setStudyfee(String studyfee) {
+        this.studyfee = studyfee;
+    }
+
+    public String getSubjectname() {
+        return subjectname;
+    }
+
+    public void setSubjectname(String subjectname) {
+        this.subjectname = subjectname;
+    }
+
+    public String getPaymentnumber() {
+        return paymentnumber;
+    }
+
+    public void setPaymentnumber(String paymentnumber) {
+        this.paymentnumber = paymentnumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getSubjectyear() {
         return subjectyear;
     }

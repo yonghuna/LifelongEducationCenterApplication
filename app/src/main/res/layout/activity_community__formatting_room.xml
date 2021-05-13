@@ -8,12 +8,26 @@
     tools:context=".Community.Community_FormattingRoomActivity">
 
     <!--
-        커뮤니티 서식자료
+        커뮤니티 서식자료실
        -->
-
+    <!--학점은행제 자료실 아이템 사용
+    item_creditbanksystemreference_roomlist.xml-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/communityvisual"
         android:adjustViewBounds="true"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:text="서식자료실"
+        android:textColor="#00838F"
+        android:textSize="24sp" />
+
+    <ListView
+        android:id="@+id/referenceRoomListview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

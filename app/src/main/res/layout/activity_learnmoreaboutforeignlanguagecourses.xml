@@ -12,181 +12,189 @@
            -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/foreignlanguagecourseBackGroundImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/guidevisual" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
             android:orientation="vertical">
 
-            <TextView
+            <ImageView
+                android:id="@+id/foreignlanguagecourseBackGroundImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5sp"
-                android:text="수강신청"
-                android:textColor="#00838F"
-                android:textSize="24sp" />
+                android:adjustViewBounds="true"
+                android:src="@drawable/guidevisual" />
 
-            <Button
-                android:id="@+id/Courseregistrationbt1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                android:text="수강신청"
-                app:backgroundTint="#E53935" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/detailsforeignlanguagecourseName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_enrolment_backgroung"
-                    android:hint="강좌명"
-                    android:textSize="20sp" />
-
-                <LinearLayout
-                    android:id="@+id/detailsforeignlanguagecourse"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_login"
-                    android:orientation="vertical"
-                    android:padding="10sp">
-
-                    <TextView
-                        android:id="@+id/detailsforeignlanguagecoursePeriod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="교육기간" />
-
-                    <TextView
-                        android:id="@+id/detailsforeignlanguagecourseTime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="교육시간" />
-
-                    <TextView
-                        android:id="@+id/detailsforeignlanguagecourseStudyfee"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="수강료" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/Professor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="강사"
-                    android:textColor="#0B0B0B"
-                    android:textSize="20sp" />
-
-
-                <TextView
-                    android:id="@+id/Instructorintroduction1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="강사 소개"
-                    android:padding="10sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="10sp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="강의소개"
-                    android:textColor="#0B0B0B"
-                    android:textSize="20sp" />
+                    android:padding="5sp"
+                    android:text="수강신청"
+                    android:textColor="#00838F"
+                    android:textSize="24sp" />
 
-
-                <TextView
-                    android:id="@+id/LectureIntroduction1"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/Courseregistrationbt1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="강의 소개"
-                    android:padding="10sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="주차별 수업"
-                    android:textColor="#0B0B0B"
-                    android:textSize="20sp" />
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:text="수강신청"
+                    app:backgroundTint="#E53935" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="0sp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="주"
-                        android:textColor="#0B0B0B" />
+                        android:id="@+id/detailsforeignlanguagecourseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_enrolment_backgroung"
+                        android:hint="강좌명"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:id="@+id/detailsforeignlanguagecourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_login"
+                        android:orientation="vertical"
+                        android:padding="10sp">
+
+                        <TextView
+                            android:id="@+id/detailsforeignlanguagecoursePeriod"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="교육기간" />
+
+                        <TextView
+                            android:id="@+id/detailsforeignlanguagecourseTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="교육시간" />
+
+                        <TextView
+                            android:id="@+id/detailsforeignlanguagecourseStudyfee"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="수강료" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="0sp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center"
-                        android:text="교육내용"
-                        android:textColor="#0B0B0B" />
+                        android:id="@+id/Professor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="강사"
+                        android:textColor="#0B0B0B"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/Instructorintroduction1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="강사 소개"
+                        android:padding="10sp" />
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="강의소개"
+                        android:textColor="#0B0B0B"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/LectureIntroduction1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="강의 소개"
+                        android:padding="10sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="주차별 수업"
+                        android:textColor="#0B0B0B"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="주"
+                            android:textColor="#0B0B0B" />
+
+                        <TextView
+                            android:layout_width="0sp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:gravity="center"
+                            android:text="교육내용"
+                            android:textColor="#0B0B0B" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
-        </LinearLayout>
-        <ListView
-            android:id="@+id/Lecturelist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"/>
+            <ListView
+                android:id="@+id/Lecturelist"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_margin="10sp" />
 
-    </LinearLayout>
-    </ScrollView>
+        </LinearLayout>
+
+
+</ScrollView>
 </LinearLayout>
 

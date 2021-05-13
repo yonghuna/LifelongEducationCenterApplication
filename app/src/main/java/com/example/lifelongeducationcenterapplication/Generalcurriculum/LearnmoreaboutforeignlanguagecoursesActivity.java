@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -51,17 +53,22 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
 
     List<LectureDetail> lecturesDetail; // 배열 객체 생성
     List<LectureWeek> lectureWeeks;
-    List<Enrollment> enrollments = new ArrayList();
+
     ListView listLecture;//리스트뷰
-    boolean result;
+
     TextView textName, textPeriod, textProfessor, textTime, textFee, introduceProfessor, introduceLecture, textWeek1, textWeek2;
     Button btRegister;
     MyAdapter adapter;
+    // 받아온 값
     int number;
+    String info;
+    int year, subjectsemester;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("상세보기");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_learnmoreaboutforeignlanguagecourses);
         textName = (TextView) findViewById(R.id.detailsforeignlanguagecourseName);
         textPeriod = (TextView)findViewById(R.id.detailsforeignlanguagecoursePeriod);
@@ -77,6 +84,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
         // number 값을 받아서 구분 해준다
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
+        info = intent.getStringExtra("info"); // 어디서 날라왓는지 구분
 
         adapter = new MyAdapter();
 
@@ -92,19 +100,33 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 (GsonConverterFactory.create()).build();
         rs3 = retrofit3.create(RemoteService.class);
 
-        for(int i = 0; i < enrollments.size(); i++){
-            Enrollment enrollment = enrollments.get(i);
-            if(enrollment.getSubjectnumber() == number){
-                btRegister.setBackgroundColor(Color.GRAY);
-                btRegister.setText("신청내역");
-                result = true;
-            }
+        if(info.equals("신청내역")){
+            btRegister.setText("신청내역");
+            btRegister.setBackgroundColor(Color.GRAY);
+        }else if(info.equals("myPage")){
+            btRegister.setVisibility(View.GONE);
         }
 
         setListViewHeightBasedOnChildren(listLecture); ///setadapter한뒤 해당메소드를 실행해야함.(scrollview안에 listview를 넣으면 크기가 잘려지는 문제를 해결.)
         pushRegister();
     }
 
+    @Override   //뒤로가기
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
 
@@ -116,7 +138,8 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                 if(response.isSuccessful()){
                     lecturesDetail = response.body();
                     LectureDetail ld = lecturesDetail.get(0);
-
+                    year = ld.getYaer();
+                    subjectsemester = ld.getSemester();
                     if(ld.getDayOfTheWeek() == ("") || ld.getDayOfTheWeek() == null){
                         ld.setDayOfTheWeek("");
                     }
@@ -132,6 +155,7 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
                         introduceProfessor.setText(ld.getBriefhistory());
                     }
                     introduceLecture.setText(ld.getIntroduce());
+
                     if(ld.getStatus().equals("수강불가")){
                         btRegister.setBackgroundColor(Color.GRAY);
                         btRegister.setText("수강불가");
@@ -165,22 +189,6 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
             @Override
             public void onFailure(Call<List<LectureWeek>> call, Throwable t) {
                 System.out.println("Week 불러오기 실패" +call +" " + t);
-            }
-        });
-
-        Call<List<Enrollment>> call3 = rs3.enrollment(StaticId.id);//call객체
-        call3.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-            @Override
-            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                if (response.isSuccessful()) {
-                    enrollments = response.body();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                System.out.println("subjectnumber" + call + " " + t);
-
             }
         });
 
@@ -247,16 +255,42 @@ public class LearnmoreaboutforeignlanguagecoursesActivity extends AppCompatActiv
     public void pushRegister(){
         btRegister.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                if(StaticId.id.equals("") || StaticId.id == null){
-                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                if(StaticId.id == null){
                     Toast.makeText(getApplicationContext(), "로그인을 해야 수강신청이 가능합니다.", Toast.LENGTH_LONG).show();
-                    startActivity(intent);
 
+                }else{
+                    if(info == "신청내역" || info.equals("신청내역")){
+                        Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
+                        startActivity(intent1);
+                    }
+                    else{
+                        Call<RegisterResult> call = rs2.userSubjectRegister(StaticId.id, number, year, subjectsemester, course);//call객체
+                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                            @Override
+                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
+                                if (response.isSuccessful()) {
+                                    RegisterResult registerResult = response.body();
+                                    if (registerResult.getResult().equals("ok")) {
+                                        Toast.makeText(getApplicationContext(), "수강신청이 되었습니다.", Toast.LENGTH_LONG).show();
+                                        Intent intent1 = new Intent(getApplicationContext(), ForeignlanguagecourseActivity.class);
+                                        startActivity(intent1);
+                                    } else {
+                                        Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
+                                        startActivity(intent1);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                System.out.println("일반과정 수강신청 실패 " + call + " " + t);
+
+                            }
+                        });
+                    }
                 }
-                if(result){
-                    Intent intent1 = new Intent(getApplicationContext(), MyPage_CourseDetailsActivity.class);
-                    startActivity(intent1);
-                }
+
+
             }
         });
     }

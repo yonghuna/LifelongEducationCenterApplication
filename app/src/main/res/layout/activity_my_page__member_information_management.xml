@@ -156,8 +156,8 @@
                         android:id="@+id/mypageedtSignUpPostCode"
                         android:layout_width="80sp"
                         android:layout_height="wrap_content"
-                        android:enabled="false"
-                        android:hint="우편번호" />
+                        android:hint="우편번호"
+                        android:textSize="18sp"/>
 
                     <Button
                         android:id="@+id/btnmypageSignUpAddressSearch"
@@ -171,10 +171,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/btnmypageSignUpAddressSearch"
-                        android:autoSizeTextType="uniform"
-                        android:enabled="false"
                         android:hint="주소1"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/mypageedtSignUpAddress2"
@@ -247,6 +246,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:autoSizeTextType="uniform"
                             android:text="학력" />
 
                         <Spinner
@@ -270,6 +270,7 @@
                             android:layout_width="0sp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
+                            android:autoSizeTextType="uniform"
                             android:imeOptions="actionDone"
                             android:inputType="text" />
 
@@ -291,6 +292,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:imeOptions="actionDone"
+                            android:autoSizeTextType="uniform"
                             android:inputType="text" />
 
                     </LinearLayout>
