@@ -28,14 +28,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="학사일정"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:text="학사일정"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="#00ACC1"
                 android:textSize="18sp" />
 
             <TableLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp">
 
                 <TableRow
                     android:layout_width="wrap_content"
@@ -44,30 +53,31 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="일정" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="내용" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="비고" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -92,7 +102,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -110,13 +121,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -141,7 +153,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -166,7 +179,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -184,8 +198,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -195,16 +209,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="04.01~04.30." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="2분기 학습자 등록, 학점인정신청(기관)" />
 
                     <LinearLayout
@@ -325,8 +339,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -373,16 +387,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="06.15.~07.30." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="3분기 학습자 등록, 학점인정신청(기관)" />
 
                     <LinearLayout
@@ -440,8 +454,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -464,8 +478,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -513,8 +527,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -587,8 +601,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -623,16 +637,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="10.01.~10.29." />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="4분기 학습자 등록, 학점인정신청(기관)" />
 
                     <LinearLayout
@@ -729,7 +743,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"/>
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -789,8 +803,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
                 <TableRow
@@ -807,8 +821,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
                         android:text="1분기 학습자 등록, 학점인정신청(기관)" />
 
@@ -821,15 +835,15 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nanumbarunpenb"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학습자등록(수수료: 4천원)" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nanumbarunpenb"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="◆ 학점인정신청(수수료: 학점 당 1천원)" />
                     </LinearLayout>
 
@@ -868,8 +882,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
 
                 </TableRow>
 
@@ -886,15 +900,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="성적보고(기관)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb" />
                 </TableRow>
 
             </TableLayout>

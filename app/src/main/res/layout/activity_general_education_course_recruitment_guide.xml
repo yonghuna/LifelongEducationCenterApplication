@@ -350,6 +350,7 @@
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
+
             <!--
               미완성 부분 수정예정
             -->
@@ -360,64 +361,73 @@
                 >
 
                 <TableRow
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="93dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="구분" />
 
                     <TextView
-                        android:layout_width="60dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="반환사유 발생일	" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="반환금액" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="126dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="1. 제23조 제2항 제1호 및 제2호에 따른 반환 사유의 경우" />
 
                     <TextView
-                        android:layout_width="201dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="수업을 할 수 없거나, 수업 장소를 제공할 수 없게 된 날" />
 
                     <TextView
-                        android:layout_width="127dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="이미 낸 학습비를 일할 계산한 금액" />
                 </TableRow>
 
                 <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="75dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="2. 제23조 제2항 제3호의 반환사유에 따른 경우" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="61dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="가. 학습비 징수기간이 1개월 이내인 경우" />
                 </TableRow>
