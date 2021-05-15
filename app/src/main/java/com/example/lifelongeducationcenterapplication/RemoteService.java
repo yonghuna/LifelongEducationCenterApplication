@@ -116,6 +116,32 @@ public interface RemoteService {
     //일반 과정 회원정보 수정
 
 
+    /*
+    //첨부파일 보내기
+    @FormUrlEncoded
+    @POST("filePost.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<CommunicationResult> loginCheck(
+            @Field("name") String name,
+            @Field("birth") String birth,
+            @Field("sex") String sex); //로그인
+    //첨부파일 보내기
+     */
+
+     /*
+    //첨부파일 가져오기
+    @FormUrlEncoded
+    @GET("fileGet.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<CommunicationResult> loginCheck(
+            @Field("name") String name,
+            @Field("birth") String birth,
+            @Field("sex") String sex);
+    //첨부파일 가져오기
+     */
+
+
+
 
     @FormUrlEncoded
     @POST("myPageInfoPost1.jsp")
