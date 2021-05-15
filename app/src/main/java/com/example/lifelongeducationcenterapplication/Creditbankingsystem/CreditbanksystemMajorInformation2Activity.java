@@ -74,12 +74,14 @@ CreditbanksystemMajorInformation2Activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     //전공안내 한국학 스피너
     void goMajorActivity(){
         it = new Intent(this, CreditbanksystemMajorInformationActivity.class);

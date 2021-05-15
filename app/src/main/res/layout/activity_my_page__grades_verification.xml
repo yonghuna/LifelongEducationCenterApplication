@@ -25,6 +25,7 @@
         android:padding="5sp"
         android:text="성적확인"
         android:textColor="#00838F"
+        android:fontFamily="@font/nanumbarunpenb"
         android:textSize="24sp" />
 
     <LinearLayout
@@ -36,18 +37,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="연도/학기" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="강좌명" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumbarunpenb"
             android:text="결과" />
 
     </LinearLayout>

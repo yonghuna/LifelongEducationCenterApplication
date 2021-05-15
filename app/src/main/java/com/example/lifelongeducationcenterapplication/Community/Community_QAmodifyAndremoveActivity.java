@@ -80,11 +80,15 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override   //액션 홈 버튼
+    /*
+    @Override   //액셔바 홈버튼
+>>>>>>> daeeung
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
 
     public void findId() {
         title = (EditText) findViewById(R.id.write_title_tv);

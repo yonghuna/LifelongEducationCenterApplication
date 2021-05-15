@@ -96,12 +96,19 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+<<<<<<< HEAD
 
     @Override   //액션바 홈버튼
+=======
+    /*
+    @Override   //액셔바 홈버튼
+>>>>>>> daeeung
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     @Override
     protected void onResume() {
         Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체

@@ -1,22 +1,20 @@
-package com.example.lifelongeducationcenterapplication.Intro;
+package com.example.lifelongeducationcenterapplication.MyPage;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.lifelongeducationcenterapplication.R;
-
-public class Organizational extends AppCompatActivity {
-    //교육원 소개 조직도
+public class MyPagepaymentActivity extends AppCompatActivity {
+    //결제 상세 보기
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("조직구성");
+        getSupportActionBar().setTitle("결제");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.introduction_organizational);
-
-
+        setContentView(R.layout.activity_my_page_payment);
     }
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {

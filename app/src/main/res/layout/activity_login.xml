@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:text="* 비밀번호 : 생년월일(주민등록번호 앞6자리)   단, 비밀번호를 설정하신 분들은 설정한 비밀번호로   로그인해주시기 바랍니다." />
+                android:text="* 비밀번호 : 생년월일(주민등록번호 앞6자리)   단, 비밀번호를 설정하신 분들은 설정한 비밀번호로 로그인해주시기 바랍니다." />
 
         </LinearLayout>
 

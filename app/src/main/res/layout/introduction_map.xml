@@ -36,6 +36,7 @@
                     android:layout_margin="10dp"
                     android:text="찾아오시는 길"
                     android:textColor="#00897B"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textSize="30sp" />
 
                 <TextView
@@ -44,7 +45,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="아산캠퍼스"
                     android:textColor="#030404"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textStyle="bold" />
 
                 <TextView
@@ -53,7 +55,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="ADDRESS : 충점남도 아산시 탕정면 선문로 221번길 70 선문대학교 주산학평생교육원(보건의료관 513호)"
                     android:textColor="#050505"
-                    android:textSize="13sp" />
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -61,7 +64,8 @@
                     android:layout_marginLeft="10dp"
                     android:text="Fax : 041-530-2987       Tel : 041-530-8345(아산캠퍼스)"
                     android:textColor="#090909"
-                    android:textSize="12sp" />
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textSize="17sp" />
 
                 <ImageView
                     android:layout_width="match_parent"

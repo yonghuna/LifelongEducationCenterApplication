@@ -91,12 +91,14 @@ public class CertificatecourseActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     @Override
     protected void onResume() {
 

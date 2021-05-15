@@ -40,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:padding="5sp"
                     android:text="수강신청"
+                    android:fontFamily="@font/nanumbarunpenb"
                     android:textColor="#00838F"
                     android:textSize="24sp" />
 
@@ -50,6 +51,7 @@
                     android:layout_gravity="right"
                     android:layout_weight="1"
                     android:text="수강신청"
+                    android:fontFamily="@font/nanumbarunpenb"
                     app:backgroundTint="#E53935" />
 
                 <LinearLayout
@@ -64,6 +66,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_enrolment_backgroung"
                         android:hint="강좌명"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:textSize="20sp" />
 
                     <LinearLayout
@@ -78,18 +81,21 @@
                             android:id="@+id/detailsforeignlanguagecoursePeriod"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:hint="교육기간" />
 
                         <TextView
                             android:id="@+id/detailsforeignlanguagecourseTime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:hint="교육시간" />
 
                         <TextView
                             android:id="@+id/detailsforeignlanguagecourseStudyfee"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:hint="수강료" />
 
                     </LinearLayout>
@@ -105,6 +111,7 @@
                         android:id="@+id/Professor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="강사"
                         android:textColor="#0B0B0B"
                         android:textSize="20sp" />
@@ -114,6 +121,7 @@
                         android:id="@+id/Instructorintroduction1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:hint="강사 소개"
                         android:padding="10sp" />
 
@@ -128,6 +136,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="강의소개"
                         android:textColor="#0B0B0B"
                         android:textSize="20sp" />
@@ -137,6 +146,7 @@
                         android:id="@+id/LectureIntroduction1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:hint="강의 소개"
                         android:padding="10sp" />
 
@@ -152,6 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="주차별 수업"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#0B0B0B"
                         android:textSize="20sp" />
 
@@ -165,6 +176,7 @@
                             android:layout_width="0sp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:gravity="center"
                             android:text="주"
                             android:textColor="#0B0B0B" />
@@ -174,6 +186,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="5"
                             android:gravity="center"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="교육내용"
                             android:textColor="#0B0B0B" />
 

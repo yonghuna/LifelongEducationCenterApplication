@@ -33,12 +33,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="모집안내"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_margin="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1&#46; 접수안내"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
@@ -47,11 +49,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="① 인터넷접수"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="http://edu.sunmoon.ac.kr/ 회원가입 후 수강신청"
                 android:layout_marginLeft="10dp"/>
 
@@ -59,18 +63,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="② 방문접수"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="선문대학교 아산캠퍼스 보건의료관 513호 사무실 방문 접수"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nanumbarunpenb"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="2. 결제안내"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
@@ -78,60 +85,70 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="① 아산캠퍼스 일반과정(외국어, 자격증, 교양과정)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="- 카드 결제 : 사무실 방문 후 카드 결제"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="*일시불, 할부 가능(단, 체크/법인/해외발행카드 할부불가)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="- 온라인 계좌이체 : 신청자 성함으로 수강료 입금"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="*계좌번호: 국민은행 473-25-0004-511(예금주:선문대학교)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="② 천안캠퍼스 일반과정(외국어, 자격증, 교양과정)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text=" 카드 결제 : 사무실 방문 후 카드 결제"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="*일시불, 할부 가능(단, 체크/법인/해외발행카드 할부불가)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="- 온라인 계좌이체 : 신청자 성함으로 수강료 입금"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="*계좌번호: 국민은행 484637-04-004901(예금주:선문대학교)"
                 android:layout_marginLeft="10dp"/>
 
@@ -139,29 +156,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="③ 아산시연계과정"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="- 온라인 계좌이체 : 신청자 성함으로 수강료 입금"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="*계좌번호: 농협 426-01-020570 (예금주:선문대학교)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="*카드결제/현금납부 불가"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="3. 혜택 및 감면안내"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
@@ -170,12 +192,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="① 평생교육원장 명의 수료증 발급"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="② 선문대학교 도서관 및 학교시설 이용 가능"
                 android:layout_marginLeft="10dp"/>
 
@@ -194,13 +218,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="감면율" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
                         android:text="대상" />
+
                 </TableRow>
 
                 <TableRow
@@ -211,11 +238,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="10%" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="* 천안 아산 거주자 - 주민등록등본 등 관련 증빙서류 제출" />
                 </TableRow>
 
@@ -226,6 +255,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
                         android:text="20%" />
 
@@ -237,26 +267,31 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="* 4학기 이상 재등록자" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="* 경로우대 (만 65세 이상)" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="* 국가유공자, 생활보호대상자, 장애인" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="* 본 대학교 학부 및 대학원 졸업생" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="- 주민등록등본 등 관련증빙서류 제출" />
                     </LinearLayout>
                 </TableRow>
@@ -269,6 +304,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="30%" />
 
                     <LinearLayout
@@ -279,16 +315,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="* 본 대학교 학부 및 대학원 재학생" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="* 본 대학교 재직 및 퇴직 교직원(직계가족 포함)" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:fontFamily="@font/nanumbarunpenb"
                             android:text="- 학생증, 사원증, 가족관계증명서 등 관련 증빙서류 제출" />
                     </LinearLayout>
 
@@ -300,15 +339,18 @@
                 android:layout_height="wrap_content"
                 android:text="* 학점은행제, 자격증, 특별과정의 경우 감면율이 적용되지 않습니다."
                 android:textColor="#DD3131"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="4. 환불안내"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
+
             <!--
               미완성 부분 수정예정
             -->
@@ -319,57 +361,74 @@
                 >
 
                 <TableRow
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="93dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="구분" />
 
                     <TextView
-                        android:layout_width="60dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="반환사유 발생일	" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="반환금액" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="126dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="1. 제23조 제2항 제1호 및 제2호에 따른 반환 사유의 경우" />
 
                     <TextView
-                        android:layout_width="201dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="수업을 할 수 없거나, 수업 장소를 제공할 수 없게 된 날" />
 
                     <TextView
-                        android:layout_width="127dp"
-                        android:layout_height="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="이미 낸 학습비를 일할 계산한 금액" />
                 </TableRow>
 
                 <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="75dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="2. 제23조 제2항 제3호의 반환사유에 따른 경우" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="61dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
                         android:text="가. 학습비 징수기간이 1개월 이내인 경우" />
                 </TableRow>
 
@@ -381,6 +440,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="총 수업시간은 학습비 징수기간 중의 전체 수업시간을 말하며, 반환금액의 산정은 반환사유가 발생한 날까지 경과된 수업시간을 기준으로 한다."
                 android:layout_marginLeft="10dp"/>
                 // 오류 수정해서 다시 업로드 1차
@@ -389,6 +449,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="「평생교육법시행령」&lt;별표3&gt; 학습비 반환기준(제23조 제2항 관련)"
                 android:layout_marginLeft="10dp"/>
 
@@ -397,24 +458,28 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="환불 신청 시 신청자 명의 통장 사본 제출, 서식자료실에 있는 환불신청서 같이 제출"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="통장 사본이 접수되는 날짜 기준으로 환불 처리"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="통장 사본 제출: 사무실 방문, 메일(edu@sunmoon.ac.kr)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="팩스: 041-530-2987"
                 android:layout_marginLeft="10dp"/>
 
@@ -422,6 +487,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="5. 유의사항"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
@@ -429,54 +495,63 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="수강료는 한 학기 전체 비용입니다. "
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="인원미달강좌는 폐강 및 합반 될 수 있습니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="수업시간 및 강사진은 본원의 사정에 따라 변경될 수 있습니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="교재비, 재료비, 실습비는 수강료와 별도이며 본인 부담입니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="모든 강좌는 선착순 접수입니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="아산시연계과정은 아산시로 주민등록이 되어 있는 분만 신청 가능합니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="아산시연계과정은 1인 2강좌까지만 가능합니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="강좌신청 하지 않고 납부만 하신 경우 신청자로 인정되지 않습니다. 그에 따른 불이익(ex. 인원마감으로 수강불가 등)이 있을 수 있으니 꼭 신청 후 납부하시기 바랍니다."
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="6. 신규강사모집안내"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
@@ -485,18 +560,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="① 자격: 학사학위 이상, 해당 전문분야 유경험자, 자격증소지자"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="② 신청: 커뮤니티-서식자료실의 강의계획서, 이력서, 자기소개서 양식 작성 후 e-mail 전송 (edu@sunmoon.ac.kr)"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="③ 문의: 041-530-8341~4"
                 android:layout_marginLeft="10dp"/>
 

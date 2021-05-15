@@ -84,12 +84,19 @@ public class MyPage_MemberInfomation_Bank_Activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+<<<<<<< HEAD
 
     @Override   //액션바 홈버튼
+=======
+    /*
+    @Override   //액셔바 홈버튼
+>>>>>>> daeeung
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     public void dbSend() {
         //회원가입 유저 정보 디비 전송
         retrofit1 = new Retrofit.Builder()

@@ -27,6 +27,7 @@
             android:padding="5sp"
             android:text="수강신청"
             android:textColor="#00838F"
+            android:fontFamily="@font/nanumbarunpenb"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -39,14 +40,20 @@
                 android:id="@+id/bt_tab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="외국어로서의 한국학" />
 
             <Button
                 android:id="@+id/bt_tab2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="체육학" />
 
             <Button
@@ -54,6 +61,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/nanumbarunpenb"
                 android:text="경영학" />
 
         </LinearLayout>
