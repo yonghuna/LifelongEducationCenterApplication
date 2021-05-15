@@ -39,12 +39,14 @@ public class SignActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
 
     public void onFragmentChanged(int index){//프래그먼트 바꾸는 메소드
         if(index==0){//

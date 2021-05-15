@@ -86,12 +86,14 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     protected void onResume() {
         Call<List<Notice>> call1 = rs1.secret(StaticId.id);//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
