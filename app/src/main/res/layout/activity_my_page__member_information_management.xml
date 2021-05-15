@@ -181,13 +181,16 @@
 
                     <TextView
                         android:id="@+id/mypageedtSignUpAddress1"
+                        android:layout_below="@id/btnmypageSignUpAddressSearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
-                        android:layout_below="@id/btnmypageSignUpAddressSearch"
                         android:hint="주소1"
                         android:inputType="text"
-                        android:textSize="18sp" />
+                        android:autoSizeTextType="uniform"
+                        android:textSize="18sp"
+                        android:enabled="false"
+                        />
 
                     <EditText
                         android:id="@+id/mypageedtSignUpAddress2"

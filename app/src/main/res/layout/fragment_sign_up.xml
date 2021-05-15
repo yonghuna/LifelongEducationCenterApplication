@@ -172,10 +172,10 @@
                 android:fontFamily="@font/nanumbarunpenb"/>
             <TextView
                 android:id="@+id/edtSignUpAddress1"
+                android:layout_below="@id/btnSignUpAddressSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:layout_below="@id/btnSignUpAddressSearch"
                 android:hint="주소1"
                 android:inputType="text"
                 android:autoSizeTextType="uniform"
