@@ -58,5 +58,4 @@
         </activity>
         <activity android:name=".Account.Login" />
     </application>
-
 </manifest>

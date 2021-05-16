@@ -1,6 +1,7 @@
 package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -111,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("홈"); //홈
-
+        //getSupportActionBar().setTitle("홈"); //홈
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         listLecture = findViewById(R.id.listLecture);
 
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
 
 
+
         // 아랫단 textview 웹뷰 링크 걸어주기
         Pattern pattern1 = Pattern.compile("이메일무단수집금지");
         Pattern pattern2 = Pattern.compile("개인정보처리방침");
@@ -154,6 +156,8 @@ public class MainActivity extends AppCompatActivity {
                 return "";
             }
         };
+
+
 
         Linkify.addLinks(link1, pattern1, "https://lily.sunmoon.ac.kr/Page/Etc/EmailPolicy.aspx", null, transformFilter);
         Linkify.addLinks(link2, pattern2, "https://lily.sunmoon.ac.kr/Page/Etc/Private.aspx", null, transformFilter);
@@ -212,7 +216,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    @Override   //액셔바 홈버튼
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
 
@@ -291,6 +299,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     class MyAdapter extends BaseAdapter {
         @Override
