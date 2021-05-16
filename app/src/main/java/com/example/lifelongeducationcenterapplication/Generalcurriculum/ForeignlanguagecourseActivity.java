@@ -117,7 +117,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
-
+        /*
         Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
         call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
             @Override
@@ -133,6 +133,8 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
 
             }
         });
+
+         */
 
         Call<List<Lecture>> call1 = rs.lecture("외국어과정");//call객체
         call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
@@ -179,7 +181,7 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.item_foreignlanguagecourse, null);
 
             Lecture lc = lectures.get(position);
-            Enrollment enrollment;
+
 
 
             String day = lc.getDayOfTheWeek();
@@ -216,8 +218,31 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
             textFee.setText("・학습비     " + studyFee);
 
 
-            // 수강 불가시 수강신청 버튼 변경
 
+            Call<CommunicationResult> call2 = rs3.registerList(lc.getNumber(), StaticId.id);//call객체
+            call2.enqueue(new Callback<CommunicationResult>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<CommunicationResult> call, Response<CommunicationResult> response) {
+                    if (response.isSuccessful()) {
+                        CommunicationResult communicationResult = response.body();
+
+                        System.out.println(communicationResult.getResult() + " 12123123");
+                        if(communicationResult.getResult().equals("ok")){
+                            btClassRg.setBackgroundColor(Color.GRAY);
+                            btClassRg.setText("신청내역");
+                            info = "신청내역";
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<CommunicationResult> call, Throwable t) {
+                    System.out.println("subjectnumber" + call + " " + t);
+
+                }
+            });
+            // 수강 불가시 수강신청 버튼 변경
+            /*
             for (int i = 0; i < enrollments.size(); i++) {
                 enrollment = enrollments.get(i);
                 if (enrollment.getSubjectnumber() == lc.getNumber()) {
@@ -226,6 +251,9 @@ public class ForeignlanguagecourseActivity extends AppCompatActivity {
                     info = "신청내역";
                 }
             }
+
+             */
+
             // 상세보기 
             btDetail.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
