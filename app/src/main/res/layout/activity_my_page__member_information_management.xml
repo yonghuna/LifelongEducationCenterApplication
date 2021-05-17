@@ -188,7 +188,6 @@
                         android:hint="주소1"
                         android:inputType="text"
                         android:autoSizeTextType="uniform"
-                        android:textSize="18sp"
                         android:enabled="false"
                         />
 
