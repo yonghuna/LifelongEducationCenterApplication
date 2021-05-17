@@ -49,7 +49,6 @@ public class Community_DifferentMember extends AppCompatActivity {
     MyAdapter adapter;
     int number;
     String id;
-    private View rootView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
