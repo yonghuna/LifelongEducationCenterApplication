@@ -1,7 +1,6 @@
 package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -9,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,10 +63,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.google.android.gms.cloudmessaging.CloudMessagingReceiver;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.iid.FirebaseInstanceIdReceiver;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "token";
     TextView DVtxtAccount, DVtxtIntro, DVtxtBank, DVtxtEdu, DVtxtCommunity, DVtxtMypage; //메뉴목록
     TextView DVtxtAccount_1, DVtxtAccount_2;//로그인, 회원가입
     TextView DVtxtIntro_1, DVtxtIntro_2, DVtxtIntro_3, DVtxtIntro_4, DVtxtIntro_5;//인사말씀, 발전과정 및 연혁, 교육목적 및 목표, 조직구성, 찾아오시는 길
@@ -106,14 +114,14 @@ public class MainActivity extends AppCompatActivity {
     MyAdapter adapter;
     MainLectureAdapter mainLectureAdapter; //어댑터
     RecommendedLecture recommendedLecture;
-
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getSupportActionBar().setTitle("홈"); //홈
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle("홈"); //홈
+
         listLecture = findViewById(R.id.listLecture);
 
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -131,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         login = (TextView) findViewById(R.id.login);
         name = (TextView) findViewById(R.id.name);
         mainLectureText = (TextView) findViewById(R.id.mainLecture);
-
+        firebase();
         txtfindviewid();//id정의
         //listset();
         clickTitleMenu();//메뉴설정
@@ -140,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);//메뉴버튼생성
-
 
 
         // 아랫단 textview 웹뷰 링크 걸어주기
@@ -156,8 +163,6 @@ public class MainActivity extends AppCompatActivity {
                 return "";
             }
         };
-
-
 
         Linkify.addLinks(link1, pattern1, "https://lily.sunmoon.ac.kr/Page/Etc/EmailPolicy.aspx", null, transformFilter);
         Linkify.addLinks(link2, pattern2, "https://lily.sunmoon.ac.kr/Page/Etc/Private.aspx", null, transformFilter);
@@ -216,11 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+
     @Override
     protected void onResume() {
 
@@ -300,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    // 공지사항
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -337,6 +338,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 수강 강좌
     class MainLectureAdapter extends BaseAdapter {
 
         @Override
@@ -356,20 +358,30 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture, null);
+            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture2, null);
             Enrollment enrollment = enrollments.get(position);
             System.out.println("확인함 로그인" + enrollment.getName());
-            mainLecture = (TextView) convertView.findViewById(R.id.mainLectureName);
-            if (enrollment.getName() != null) {
-                mainLecture.setText("・" + enrollment.getName());
+
+            linearLayout = (LinearLayout) convertView.findViewById(R.id.main);
+            mainLectureTitle2 = (TextView) convertView.findViewById(R.id.mainLectureName);
+            mainLectureDivision2 = (TextView) convertView.findViewById(R.id.mainLectureCoursename);
+            mainLectureDate2 = (TextView) convertView.findViewById(R.id.mainLecturePeriod);
+
+
+            mainLectureTitle2.setText(enrollment.getName());
+            mainLectureDivision2.setText(enrollment.getDivision());
+            mainLectureDate2.setText(enrollment.getStartDate() + "~" + enrollment.getEndDate());
+            System.out.println(enrollment.getDivision() + " 1231232i1yug3y21hg3 hadsgfhjasdf");
+            if (enrollment.getName().isEmpty()) {
+                mainLectureTitle2.setText("・ 수강 신청한 강좌가 없습니다.");
             }else{
-                // ??
-                mainLecture.setText("・ 수강 신청한 강좌가 없습니다.");
+                mainLectureTitle2.setText("・" + enrollment.getName());
             }
 
-            mainLecture.setOnClickListener(new View.OnClickListener() {
+            linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
                     intent.putExtra("info", "myPage");
@@ -382,6 +394,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 추천강좌
     class RecommendedLecture extends BaseAdapter {
 
         @Override
@@ -403,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture2, null);
             Lecture lecture = lectures.get(position);
+            linearLayout = (LinearLayout) convertView.findViewById(R.id.main);
             mainLectureTitle2 = (TextView) convertView.findViewById(R.id.mainLectureName);
             mainLectureDivision2 = (TextView) convertView.findViewById(R.id.mainLectureCoursename);
             mainLectureDate2 = (TextView) convertView.findViewById(R.id.mainLecturePeriod);
@@ -411,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
             mainLectureDivision2.setText(lecture.getDivision());
             mainLectureDate2.setText(lecture.getStartDate() + "~" + lecture.getEndDate());
 
-            mainLectureTitle2.setOnClickListener(new View.OnClickListener() {
+            linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
@@ -426,6 +440,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void firebase(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e(TAG,"Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        String msg = getString(R.string.msg_token_fmt, token);
+                        Log.d(TAG, msg);
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
     public void txtfindviewid() {
         DVtxtAccount_1 = findViewById(R.id.DVtxtAccount_1);
@@ -757,18 +791,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.DVtxtCommunity_3:
                         //Toast.makeText(MainActivity.this,"5-3번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
+                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
                         startActivityForResult(intent, 22);
-                        //커뮤니티 서식 자료실
-                        //Community_FormattingRoomActivity.
+                        //커뮤니티 갤러리
                         break;
                     case R.id.DVtxtCommunity_4:
                         //Toast.makeText(MainActivity.this,"5-4번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
+                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
                         startActivityForResult(intent, 23);
-                        //Community_GalleryActivity.
-                        //커뮤니티 갤러리
+                        //커뮤니티 서식 자료실
                         break;
                     case R.id.DVtxtMypage_1:
                         //Toast.makeText(MainActivity.this,"6-1번",Toast.LENGTH_SHORT).show();

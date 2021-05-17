@@ -59,7 +59,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
     ListView listView;//리스트뷰
     MyAdapter adapter;
     TextView name, semester, certificate, payment;
-    Button btDetail, btCancel;
+    Button btDetail, btCancel, btPayment;
     RegisterResult registerResults;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,13 +96,13 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-
      */
     @Override
     protected void onResume() {
@@ -158,7 +158,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
             btCancel = convertView.findViewById(R.id.btcoursedetail2);
             btDetail = convertView.findViewById(R.id.btcoursedetail1);
-
+            btPayment = convertView.findViewById(R.id.btpayment);
 
             if(enrollment.getName() != "" ||  enrollment.getName() != null){
                 name.setText(enrollment.getName());
@@ -188,6 +188,17 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
                     intent.putExtra("info", "myPage");
+                    // 수강 내역
+                    startActivity(intent);
+                }
+
+            });
+
+            btPayment.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    System.out.println("btPayment 클릭");
+                    Intent intent = new Intent(getApplicationContext(), MyPage_Payment.class);
+                    intent.putExtra("number", enrollment.getSubjectnumber());
                     // 수강 내역
                     startActivity(intent);
                 }

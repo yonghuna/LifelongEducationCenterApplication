@@ -36,7 +36,13 @@ public interface RemoteService {
     Call<Notice> qnaContent(
             @Query("number") int number);//q&a 글 선택시
 
+    // 결제
+    @GET("payment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Enrollment> payment(
+            @Query("number") int number);//q&a 글 선택시
 
+    
     // 비로그인 추천 강의
     @GET("mainLecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -105,9 +111,43 @@ public interface RemoteService {
     Call<CommunicationResult> loginCheck(
             @Field("name") String name,
             @Field("birth") String birth,
-            @Field("sex") String sex); //로그인
+            @Field("sex") String sex);
 
-    //일반 과정 회원정보 수정
+
+    //로그인 체크
+    @FormUrlEncoded
+    @POST("registerList.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<CommunicationResult> registerList(
+            @Field("number") int number,
+            @Field("id") String id);
+
+
+
+    /*
+    //첨부파일 보내기
+    @FormUrlEncoded
+    @POST("filePost.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<CommunicationResult> loginCheck(
+            @Field("name") String name,
+            @Field("birth") String birth,
+            @Field("sex") String sex);
+    //첨부파일 보내기
+     */
+
+     /*
+    //첨부파일 가져오기
+    @FormUrlEncoded
+    @GET("fileGet.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<CommunicationResult> loginCheck(
+            @Field("name") String name,
+            @Field("birth") String birth,
+            @Field("sex") String sex);
+    //첨부파일 가져오기
+     */
+
 
 
 
@@ -121,7 +161,7 @@ public interface RemoteService {
             @Field("addressnumber") String addressnumber,
             @Field("address") String address,
             @Field("detailedaddress") String detailedaddress,
-            @Field("password") String password); //로그인
+            @Field("password") String password);
 
     //학습은행제 과정 회원정보 수정
     @FormUrlEncoded
@@ -138,7 +178,7 @@ public interface RemoteService {
             @Field("education") String education,
             @Field("school") String school,
             @Field("major") String major,
-            @Field("admissionmajor") String admissionmajor); //로그인
+            @Field("admissionmajor") String admissionmajor);
 
     //수강신청
     @FormUrlEncoded

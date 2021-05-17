@@ -28,6 +28,74 @@ public class Enrollment {
     @SerializedName("name")
     String name;
 
+    @SerializedName("paymentnumber")
+    String paymentnumber;
+
+    @SerializedName("subjectname")
+    String subjectname;
+
+    @SerializedName("studyfee")
+    String studyfee;
+
+    @SerializedName("division")
+    public String division;
+
+    @SerializedName("startdate")
+    public String startDate;
+
+    @SerializedName("enddate")
+    public  String endDate;
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+
+
+    public String getStudyfee() {
+        return studyfee;
+    }
+
+    public void setStudyfee(String studyfee) {
+        this.studyfee = studyfee;
+    }
+
+    public String getSubjectname() {
+        return subjectname;
+    }
+
+    public void setSubjectname(String subjectname) {
+        this.subjectname = subjectname;
+    }
+
+    public String getPaymentnumber() {
+        return paymentnumber;
+    }
+
+    public void setPaymentnumber(String paymentnumber) {
+        this.paymentnumber = paymentnumber;
+    }
+
     public String getName() {
         return name;
     }

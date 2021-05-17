@@ -4,6 +4,8 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -100,7 +102,7 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         }else{
             btSave.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Call<Void> call = rs1.userWriting(StaticId.id, title.getText().toString().trim(),getTime(),secret,content.getText().toString());//call객체
+                    Call<Void> call = rs1.userWriting(StaticId.id, title.getText().toString().trim(),getTime(),secret,toHtml(content.getText(), 0));//call객체
                     call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
@@ -133,5 +135,9 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         return mFormat.format(mDate);
+    }
+
+    public String toHtml(Spanned text, int option) {
+        return Html.toHtml(text);
     }
 }
