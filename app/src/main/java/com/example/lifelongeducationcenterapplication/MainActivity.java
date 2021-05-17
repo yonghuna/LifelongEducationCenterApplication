@@ -757,16 +757,18 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.DVtxtCommunity_3:
                         //Toast.makeText(MainActivity.this,"5-3번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
+                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
                         startActivityForResult(intent, 22);
-                        //커뮤니티 갤러리
+                        //커뮤니티 서식 자료실
+                        //Community_FormattingRoomActivity.
                         break;
                     case R.id.DVtxtCommunity_4:
                         //Toast.makeText(MainActivity.this,"5-4번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
+                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
                         startActivityForResult(intent, 23);
-                        //커뮤니티 서식 자료실
+                        //Community_GalleryActivity.
+                        //커뮤니티 갤러리
                         break;
                     case R.id.DVtxtMypage_1:
                         //Toast.makeText(MainActivity.this,"6-1번",Toast.LENGTH_SHORT).show();

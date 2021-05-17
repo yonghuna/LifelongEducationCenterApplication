@@ -2,6 +2,7 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,7 +36,7 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
     // intent 문으로 어디서 오는지 확인
     EditText title, content;
     Button btModify;
-    TextView num, writer, time;
+    TextView num, writer, time,textview;
     Notice notice;
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
@@ -64,8 +65,9 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         setRetrofit();
         findId();
         clickBtModify();
-
-
+        //스크롤
+        textview = findViewById(R.id.write_content_tv);
+        textview.setMovementMethod(new ScrollingMovementMethod());
     }
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {
