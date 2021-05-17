@@ -43,6 +43,17 @@ public class Lecture {
     @SerializedName("semester")
     public int semester;
 
+    @SerializedName("id")
+    public String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public int getYear() {
         return year;
     }
