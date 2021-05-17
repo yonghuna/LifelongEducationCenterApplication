@@ -388,7 +388,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
 
                     }
 
-
                 });
             }
             return convertView;
