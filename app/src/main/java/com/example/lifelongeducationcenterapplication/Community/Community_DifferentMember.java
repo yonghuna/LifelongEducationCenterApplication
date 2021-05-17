@@ -4,7 +4,6 @@ import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,7 +36,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class Community_DifferentMember extends AppCompatActivity {
     Button btList, btModify, btRemove;
-    TextView num, writer, time, title, content, time2, comment,textview;
+    TextView num, writer, time, title, content, time2, comment;
     Notice notice;
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
@@ -49,7 +48,6 @@ public class Community_DifferentMember extends AppCompatActivity {
     MyAdapter adapter;
     int number;
     String id;
-    private View rootView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +65,7 @@ public class Community_DifferentMember extends AppCompatActivity {
         findId();
         setRetrofit();
 
-        //스크롤
-        textview = findViewById(R.id.write_content_tv);
-        textview.setMovementMethod(new ScrollingMovementMethod());
+
         // 본인일 경우
         btRemove.setOnClickListener(new View.OnClickListener() {
             @Override
