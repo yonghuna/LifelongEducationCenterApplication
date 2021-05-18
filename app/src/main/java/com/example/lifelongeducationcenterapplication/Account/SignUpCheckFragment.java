@@ -98,7 +98,7 @@ public class SignUpCheckFragment extends Fragment {
         rgCheckCourse.setOnCheckedChangeListener(checkRaidoButton());
 
 
-        goAgreement(check);//화면이동
+        goAgreement();//화면이동
         dbSend();
         return view;
     }
@@ -178,7 +178,7 @@ public class SignUpCheckFragment extends Fragment {
     }
 
 
-    public void goAgreement(boolean check) {
+    public void goAgreement() {
         btnSignUpCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
