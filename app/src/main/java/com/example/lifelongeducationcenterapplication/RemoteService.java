@@ -258,6 +258,7 @@ public interface RemoteService {
                             @Field("detailedAddress") String detailedAddress,
                             @Field("birthday") String birthday,
                             @Field("name") String name,
-                            @Field("sex") String sex); //회원가입
+                            @Field("sex") String sex,
+                            @Field("token") String token); //회원가입
 
 }

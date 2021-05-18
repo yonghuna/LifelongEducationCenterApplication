@@ -4,8 +4,10 @@ package com.example.lifelongeducationcenterapplication.Account;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,9 @@ import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RegisterResult;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.WebViewActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +54,13 @@ public class SignUpFragment extends Fragment {
     Button btnSignUpRegister, btnSignUpRegisterCancel; //등록, 취소
 
     Retrofit retrofit;
-    String name, birthDate, course, sex, retrofitBirth;
+    String name, birthDate, course, sex, retrofitBirth, tokenResult;
     boolean pwResult, blankResult;
 
     private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
 
     String[] phone = {
-            "010","011","016","017","018","019"
+            "010", "011", "016", "017", "018", "019"
     };
 
     @Override
@@ -63,12 +68,10 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
-
+        firebase();
         setfindviewbyid(view);//id설정
         setText();//컴포넌트초기화(회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
         spinnerphone();//스피너초기화
-
-
 
 
         //주석처리한거는 DB연동이 다 안되어있으므로 제대로된 테스트를 하지 못해 일부러 처리했습니다.
@@ -87,31 +90,31 @@ public class SignUpFragment extends Fragment {
     }
 
 
-    public void spinnerphone(){//스피너 초기화
+    public void spinnerphone() {//스피너 초기화
         ArrayAdapter adapter1 = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, phone);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinSignUpPhoneNumber1.setAdapter(adapter1);
     }
 
-    public void setfindviewbyid(View view){
+    public void setfindviewbyid(View view) {
         txtSignUpDivision = view.findViewById(R.id.txtSignUpDivision);
         txtSignUpNameAndSex = view.findViewById(R.id.txtSignUpNameAndSex);
-        txtSignUpBirthDate =  view.findViewById(R.id.txtSignUpBirthDate);//등록구분, 이름(성별)
-        spinSignUpPhoneNumber1 =  view.findViewById(R.id.spinSignUpPhoneNumber1);
-        edtSignUpPhoneNumber2 =  view.findViewById(R.id.edtSignUpPhoneNumber2);
-        edtSignUpPhoneNumber3 =  view.findViewById(R.id.edtSignUpPhoneNumber3);//전화번호
-        edtSignUpPostCode =  view.findViewById(R.id.edtSignUpPostCode);//우편번호
-        btnSignUpAddressSearch =  view.findViewById(R.id.btnSignUpAddressSearch);//주소검색
-        edtSignUpAddress1 =  view.findViewById(R.id.edtSignUpAddress1);
-        edtSignUpAddress2 =  view.findViewById(R.id.edtSignUpAddress2);//주소1, 주소2
-        edtSignUpPassword =  view.findViewById(R.id.edtSignUpPassword);
-        edtSignUpPasswordCheck =  view.findViewById(R.id.edtSignUpPasswordCheck);//비밀번호입력, 비밀번호확인
-        btnSignUpRegister =  view.findViewById(R.id.btnSignUpRegister);
-        btnSignUpRegisterCancel =  view.findViewById(R.id.btnSignUpRegisterCancel);//회원등록,취소
+        txtSignUpBirthDate = view.findViewById(R.id.txtSignUpBirthDate);//등록구분, 이름(성별)
+        spinSignUpPhoneNumber1 = view.findViewById(R.id.spinSignUpPhoneNumber1);
+        edtSignUpPhoneNumber2 = view.findViewById(R.id.edtSignUpPhoneNumber2);
+        edtSignUpPhoneNumber3 = view.findViewById(R.id.edtSignUpPhoneNumber3);//전화번호
+        edtSignUpPostCode = view.findViewById(R.id.edtSignUpPostCode);//우편번호
+        btnSignUpAddressSearch = view.findViewById(R.id.btnSignUpAddressSearch);//주소검색
+        edtSignUpAddress1 = view.findViewById(R.id.edtSignUpAddress1);
+        edtSignUpAddress2 = view.findViewById(R.id.edtSignUpAddress2);//주소1, 주소2
+        edtSignUpPassword = view.findViewById(R.id.edtSignUpPassword);
+        edtSignUpPasswordCheck = view.findViewById(R.id.edtSignUpPasswordCheck);//비밀번호입력, 비밀번호확인
+        btnSignUpRegister = view.findViewById(R.id.btnSignUpRegister);
+        btnSignUpRegisterCancel = view.findViewById(R.id.btnSignUpRegisterCancel);//회원등록,취소
     }
 
 
-    public void dbSend(){
+    public void dbSend() {
         //회원가입 유저 정보 디비 전송
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -119,7 +122,7 @@ public class SignUpFragment extends Fragment {
                 .build();
     }
 
-    public void setText(){//컴포넌트 초기화 (회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
+    public void setText() {//컴포넌트 초기화 (회원가입확인프래그먼트에서 받아온 성별,생년월일,이름,교육과정을 확인후 초기화)
 
         sex = getArguments().getString("txtSignUpSex");
         name = getArguments().getString("txtSignUpName");
@@ -127,17 +130,16 @@ public class SignUpFragment extends Fragment {
         course = getArguments().getString("txtSignUpDivision");
 
         String nameGender = name + " (" + sex + ")";
-        retrofitBirth = birthDate.replace("/","");
+        retrofitBirth = birthDate.replace("/", "");
 
         txtSignUpDivision.setText(course); // 어느 과정인지
         txtSignUpNameAndSex.setText(nameGender); // 성별 이름
         txtSignUpBirthDate.setText(birthDate);// 회원 생일
 
 
-
     }
 
-    public void searchaddress(){
+    public void searchaddress() {
 
         btnSignUpAddressSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,7 +147,7 @@ public class SignUpFragment extends Fragment {
                 //1. 주소API를 이용하여 주소를 확인함.
                 //2. DaumWebViewActivity로부터 intent로 addr을 받아와서 표시해주는 부분
 
-                Intent intent = new Intent(getActivity(),WebViewActivity.class);
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
                 startActivityForResult(intent, SEARCH_ADDRESS_ACTIVITY);
 
 
@@ -154,7 +156,7 @@ public class SignUpFragment extends Fragment {
 
     }
 
-    public void registerUser(){
+    public void registerUser() {
         btnSignUpRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,7 +183,7 @@ public class SignUpFragment extends Fragment {
                 if (blankResult) {
                     if (pwResult) {
                         RemoteService rs = retrofit.create(RemoteService.class);
-                        Call<RegisterResult> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, retrofitBirth, name, sex);
+                        Call<RegisterResult> call = rs.userRegister(userPhoneNumber, userPass2, course, userAddrNumber, userAddr, userDetailedAddr, retrofitBirth, name, sex, tokenResult);
                         call.enqueue(new Callback<RegisterResult>() {
                             public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
                                 RegisterResult registerResult = response.body();
@@ -192,7 +194,7 @@ public class SignUpFragment extends Fragment {
                                     Intent intent = new Intent(getContext(), MainActivity.class);
                                     startActivity(intent);
 
-                                } else if(registerResult.getResult().equals("false")){
+                                } else if (registerResult.getResult().equals("false")) {
                                     Toast.makeText(getContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
                                     System.out.println("회원가입 실패");
                                 }
@@ -205,12 +207,12 @@ public class SignUpFragment extends Fragment {
 
                         });
 
-                    }else{
+                    } else {
                         Toast.makeText(getContext(), "패스워드를 조건에 맞게 다시 설정해주세요!!", Toast.LENGTH_SHORT).show();
                         System.out.println(edtSignUpPassword.getText().toString());
                         System.out.println(edtSignUpPasswordCheck.getText().toString());
                     }
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "빈칸을 모두 채우시오!!", Toast.LENGTH_LONG).show();
                 }
             }
@@ -219,22 +221,21 @@ public class SignUpFragment extends Fragment {
     }
 
 
-
-    public boolean pwCorrect(String pw1, String pw2){
+    public boolean pwCorrect(String pw1, String pw2) {
         boolean result = false;
         Pattern pattern1 = Pattern.compile("[ !@#$%^&*(),.?\":{}|<>]");
-        if(pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
-           && pattern1.matcher(pw1).find() && pw1.equals(pw2)) {
+        if (pw1.length() > 9 && pw1.length() < 20 && pw1.matches(".*[a-zA-Z].*") && pw1.matches(".*[0-9].*")
+                && pattern1.matcher(pw1).find() && pw1.equals(pw2)) {
             result = true;
         }
-        
+
 
         return result;
 
     }
 
     // 패스워드가 빈칸인지 확인하는 메소드
-    public boolean blankCheck(){
+    public boolean blankCheck() {
 
         boolean result = false;
         String userPhoneNumber1 = spinSignUpPhoneNumber1.getSelectedItem().toString().trim(); //전화1
@@ -246,25 +247,25 @@ public class SignUpFragment extends Fragment {
         String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
         String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
 
-        if(userPhoneNumber1.isEmpty() && userPhoneNumber2.isEmpty() && userPhoneNumber3.isEmpty()
-            && userAddr.isEmpty() && userDetailedAddr.isEmpty() && userAddrNumber.isEmpty() && userPass1.isEmpty()
-            && userPass2.isEmpty()){
+        if (userPhoneNumber1.isEmpty() && userPhoneNumber2.isEmpty() && userPhoneNumber3.isEmpty()
+                && userAddr.isEmpty() && userDetailedAddr.isEmpty() && userAddrNumber.isEmpty() && userPass1.isEmpty()
+                && userPass2.isEmpty()) {
 
-        }else{
+        } else {
             result = true;
         }
 
         return result;
     }
 
-    public void cancelregister(){//취소버튼을 눌렀을 경우 이전화면인 동의화면으로 이동함.
+    public void cancelregister() {//취소버튼을 눌렀을 경우 이전화면인 동의화면으로 이동함.
         btnSignUpRegisterCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SignActivity signActivity = (SignActivity) getActivity();
-                if(txtSignUpDivision.getText().toString().trim().equals("일반과정")){
+                if (txtSignUpDivision.getText().toString().trim().equals("일반과정")) {
                     signActivity.onFragmentChanged(1);
-                }else if(txtSignUpDivision.getText().toString().trim().equals("학점은행제과정")){
+                } else if (txtSignUpDivision.getText().toString().trim().equals("학점은행제과정")) {
                     signActivity.onFragmentChanged(2);
                 }
 
@@ -275,25 +276,45 @@ public class SignUpFragment extends Fragment {
 
     // 주소검색 메소드
 
-    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         super.onActivityResult(requestCode, resultCode, intent);
 
-        switch(requestCode){
+        switch (requestCode) {
             case SEARCH_ADDRESS_ACTIVITY:
 
-                if(resultCode == RESULT_OK){
+                if (resultCode == RESULT_OK) {
                     String data = intent.getExtras().getString("data");
                     int idx = data.indexOf(",");
                     if (data != null)
                         edtSignUpPostCode.setText(data.substring(0, idx));
-                        edtSignUpAddress1.setText(data.substring(idx+1));
+                    edtSignUpAddress1.setText(data.substring(idx + 1));
 
                 }
                 break;
 
         }
 
+    }
+
+    public void firebase() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            System.out.println("error");
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        tokenResult = getString(R.string.msg_token_fmt, token);
+
+                    }
+                });
     }
 
 }
