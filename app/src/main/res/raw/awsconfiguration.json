@@ -1,0 +1,22 @@
+{
+  "Version": "1.0",
+  "CredentialsProvider": {
+    "CognitoIdentity": {
+      "Default": {
+        "PoolId": "ap-northeast-2:87e2530d-48cc-47ed-8613-d3ca19258c36",
+        "Region": "ap-northeast-2"
+      }
+    }
+  },
+  "IdentityManager": {
+    "Default": {
+      
+    }
+  },
+  "S3TransferUtility": {
+    "Default": {
+      "Bucket": "lifelongcenterapplicationbucket",
+      "Region": "ap-northeast-2"
+    }
+  }
+}

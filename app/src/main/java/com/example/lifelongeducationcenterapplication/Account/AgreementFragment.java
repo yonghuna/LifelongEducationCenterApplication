@@ -74,7 +74,7 @@ public class AgreementFragment extends Fragment {
             public void onClick(View v) {
 
                 //동의여부확인
-                if(checkRadiogroup1 == false || !checkRadiogroup2 == false){
+                if(checkRadiogroup1 == false || checkRadiogroup2 == false){
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setTitle("동의");
                     builder.setMessage("개인정보 수집 및 이용 동의서에 동의를 하셔야만 등록을 하실 수 있습니다.");
