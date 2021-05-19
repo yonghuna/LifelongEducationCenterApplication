@@ -32,6 +32,7 @@ import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.net.URI;
 import java.util.List;
 
 import retrofit2.Call;
@@ -53,7 +54,8 @@ public class community_gallerydetails extends AppCompatActivity {
 
     Retrofit retrofit2;
     RemoteService rs2;
-
+    private DownloadManager mDownloadManager;
+    private Long mDownloadQueueId;
     Retrofit retrofit3;
     RemoteService rs3;
 
@@ -70,6 +72,8 @@ public class community_gallerydetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_gallerydetails);
+        getSupportActionBar().setTitle("갤러리");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
         setRetrofit();
@@ -125,7 +129,9 @@ public class community_gallerydetails extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
+        super.onResume();
+        IntentFilter completeFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+        registerReceiver(downloadCompleteReceiver, completeFilter);
         // 내용
         Call<Notice> call = rs1.galleryContent();//call객체
         call.enqueue(new Callback<Notice>() {//enqueue 메소드 실행
@@ -167,7 +173,7 @@ public class community_gallerydetails extends AppCompatActivity {
 
             }
         });
-        super.onResume();
+
 
         //이미지
         Call<List<Image>> call2 = rs3.imageGet(number);//call객체
@@ -189,7 +195,7 @@ public class community_gallerydetails extends AppCompatActivity {
 
             }
         });
-        super.onResume();
+
     }
 
 
@@ -258,9 +264,7 @@ public class community_gallerydetails extends AppCompatActivity {
                     // 클릭시 다운로드
                     outputFilePath = Environment.getExternalStoragePublicDirectory(
                             Environment.DIRECTORY_DOWNLOADS + pathFile) + "/" + attachment1.getRealname();
-
-                    IntentFilter completeFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
-                    registerReceiver(downloadCompleteReceiver, completeFilter);
+                    URLDownloading(Uri.parse(attachment1.getPath()));
 
                 }
             });
@@ -314,8 +318,6 @@ public class community_gallerydetails extends AppCompatActivity {
         }
     };
 
-    private DownloadManager mDownloadManager;
-    private Long mDownloadQueueId;
     private void URLDownloading(Uri url) {
         if (mDownloadManager == null) {
             mDownloadManager = (DownloadManager) community_gallerydetails.this.getSystemService(Context.DOWNLOAD_SERVICE);
