@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/click"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
     android:orientation="vertical">
     <!--커뮤니티 1:1 질의응답 리스트 아이템-->
     <LinearLayout
+        android:id="@+id/click"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
         android:orientation="vertical"
         android:paddingLeft="10dp">
 
@@ -45,7 +46,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5sp"
                 android:layout_weight="0.5"
-                android:clickable="true"
                 android:ellipsize="end"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="제목"

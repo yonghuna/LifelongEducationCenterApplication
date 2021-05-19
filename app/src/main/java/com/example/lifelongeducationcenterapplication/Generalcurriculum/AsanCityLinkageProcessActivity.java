@@ -103,39 +103,43 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
      */
     @Override
     protected void onResume() {
-        Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
-        call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-            @Override
-            public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                if (response.isSuccessful()) {
-                    enrollments = response.body();
+        if (StaticId.id == null) {
+            Call<List<Lecture>> call1 = rs.lecture("아산시연계과정");//call객체
+            call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                    if (response.isSuccessful()) {
+                        lectures = response.body();
+                        adapter.notifyDataSetChanged();
+                        listLecture.setAdapter(adapter);
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                System.out.println("subjectnumber" + call + " " + t);
+                @Override
+                public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                    System.out.println("JSON 불러오기 실패 아산시연계과정" + call + " " + t);
 
-            }
-        });
-
-        Call<List<Lecture>> call1 = rs.lecture("아산시연계과정");//call객체
-        call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
-            @Override
-            public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
-                if (response.isSuccessful()) {
-                    lectures = response.body();
-                    adapter.notifyDataSetChanged();
-                    listLecture.setAdapter(adapter);
                 }
-            }
+            });
+        } else {
+            Call<List<Lecture>> call1 = rs.registerList("아산시연계과정", StaticId.id);//call객체
+            call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                @Override
+                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                    if (response.isSuccessful()) {
+                        lectures = response.body();
+                        adapter.notifyDataSetChanged();
+                        listLecture.setAdapter(adapter);
+                    }
+                }
 
-            @Override
-            public void onFailure(Call<List<Lecture>> call, Throwable t) {
-                System.out.println("JSON 불러오기 실패 아산시연계과정" + call + " " + t);
+                @Override
+                public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                    System.out.println("JSON 불러오기 실패 아산시연계과정" + call + " " + t);
 
-            }
-        });
+                }
+            });
+        }
         super.onResume();
     }
 
@@ -200,13 +204,10 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
 
             // 수강 불가시 수강신청 버튼 변경
 
-            for(int i = 0; i < enrollments.size(); i++){
-                enrollment = enrollments.get(i);
-                if(enrollment.getSubjectnumber() == lc.getNumber()){
-                    btClassRg.setBackgroundColor(Color.GRAY);
-                    btClassRg.setText("신청내역");
-                    info = "신청내역";
-                }
+            if (lc.getId() != null) {
+                btClassRg.setBackgroundColor(Color.GRAY);
+                btClassRg.setText("신청내역");
+                info = "신청내역";
             }
             // 상세보기
             btDetail.setOnClickListener(new View.OnClickListener() {
@@ -267,9 +268,9 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
 
             return convertView;
         }
-        public void notifyChangeList(){
+        public void notifyChangeList() {
 
-            Call<List<Lecture>> call1 = rs.lecture("아산시연계과정");//call객체
+            Call<List<Lecture>> call1 = rs.registerList("아산시연계과정", StaticId.id);//call객체
             call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
                 @Override
                 public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
@@ -282,27 +283,10 @@ public class AsanCityLinkageProcessActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<Lecture>> call, Throwable t) {
-                    System.out.println("JSON 불러오기 실패 아산시연계 과정" + call + " " + t);
+                    System.out.println("JSON 불러오기 실패 아산시연계과정" + call + " " + t);
 
                 }
             });
-
-            Call<List<Enrollment>> call2 = rs3.enrollment(StaticId.id);//call객체
-            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                    if (response.isSuccessful()) {
-                        enrollments = response.body();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                    System.out.println("subjectnumber" + call + " " + t);
-
-                }
-            });
-
         }
     }
 }

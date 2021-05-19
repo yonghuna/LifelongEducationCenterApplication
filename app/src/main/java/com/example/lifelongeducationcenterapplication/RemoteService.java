@@ -28,7 +28,15 @@ public interface RemoteService {
     @GET("lecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Lecture>> lecture(
-            @Query("division") String division);//수강목록
+            @Query("division") String division);//비 로그인시 수강목록
+
+    // 강의
+    @GET("registerList.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Lecture>> registerList(
+            @Query("division") String division,
+            @Query("id") String id);// 로그인시 수강목록
+
 
     // q&a 글 선택시
     @GET("qnaContent.jsp")
@@ -250,6 +258,7 @@ public interface RemoteService {
                             @Field("detailedAddress") String detailedAddress,
                             @Field("birthday") String birthday,
                             @Field("name") String name,
-                            @Field("sex") String sex); //회원가입
+                            @Field("sex") String sex,
+                            @Field("token") String token); //회원가입
 
 }

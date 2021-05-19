@@ -1,10 +1,14 @@
 package com.example.lifelongeducationcenterapplication;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
+import android.os.PowerManager;
+import android.os.Vibrator;
+import android.view.WindowManager;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -13,9 +17,24 @@ import androidx.core.app.NotificationCompat;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
+
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+
         if (remoteMessage != null && remoteMessage.getData().size() > 0) {
+            // 화면 꺠우기
+            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            @SuppressLint("InvalidWakeLockTag") PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK
+                    | PowerManager.ACQUIRE_CAUSES_WAKEUP, "TAG");
+            wakeLock.acquire(3000);
+
+            //진동 울리기
+            long[] pattern = {0, 500, 200, 400, 100};
+            Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            // pattern 을 진동의 패턴 -1은 패턴의 반복은 한번
+            vibe.vibrate(pattern, -1);
+
             sendNotification(remoteMessage);
         }
     }
@@ -50,6 +69,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle(title);
         builder.setContentText(message);
+        builder.setPriority(Notification.PRIORITY_MAX);
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             builder.setContentTitle(title);
             builder.setVibrate(new long[]{500, 500});

@@ -60,7 +60,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
     Button btDetail, btClassRg;
     TextView textName, textPeriod, textProfessor, textTime, textFee;
     MyAdapter adapter;
-    List<Enrollment> enrollments = new ArrayList();
     String info = "수강신청";
     int register = 1;
 
@@ -142,121 +141,129 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
      */
     @Override
     protected void onResume() {
-
-
         notifychangelist(register);
-
         super.onResume();
     }
 
     public void notifychangelist(int register) {
+        //외국어로서의 한국어학
         if (register == 1) {
-            Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
-            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                    if (response.isSuccessful()) {
-                        enrollments = response.body();
+            if (StaticId.id == null) {
+                Call<List<Lecture>> call1 = rs1.lecture("외국어로서의 한국어학");//call객체
+                call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                        if (response.isSuccessful()) {
+                            lectures = response.body();
+                            adapter.notifyDataSetChanged();
+                            listLecture.setAdapter(adapter);
+                        }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                    System.out.println("subjectnumber" + call + " " + t);
+                    @Override
+                    public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패 외국어 과정" + call + " " + t);
 
-                }
-            });
-
-
-            Call<List<Lecture>> call1 = rs1.lecture("외국어로서의 한국어학");//call객체
-            call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
-                    if (response.isSuccessful()) {
-                        lectures = response.body();
-                        listLecture.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
                     }
-                }
+                });
+            } else {
+                Call<List<Lecture>> call1 = rs1.registerList("외국어로서의 한국어학", StaticId.id);//call객체
+                call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                        if (response.isSuccessful()) {
+                            lectures = response.body();
+                            adapter.notifyDataSetChanged();
+                            listLecture.setAdapter(adapter);
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패 외국어 과정" + call + " " + t);
 
-                @Override
-                public void onFailure(Call<List<Lecture>> call, Throwable t) {
-                    System.out.println("학점은행제 불러오기 실패" + call + " " + t);
-
-                }
-            });
+                    }
+                });
+            }
+            // 체육학
         } else if (register == 2) {
-            Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
-            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                    if (response.isSuccessful()) {
-                        enrollments = response.body();
+            if (StaticId.id == null) {
+                Call<List<Lecture>> call1 = rs1.lecture("체육학");//call객체
+                call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                        if (response.isSuccessful()) {
+                            lectures = response.body();
+                            adapter.notifyDataSetChanged();
+                            listLecture.setAdapter(adapter);
+                        }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                    System.out.println("subjectnumber" + call + " " + t);
-
-                }
-            });
-
-
-            Call<List<Lecture>> call1 = rs2.lecture("체육학");//call객체
-            call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
-                    if (response.isSuccessful()) {
-                        lectures = response.body();
-                        listLecture.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
+                    @Override
+                    public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패 체육학" + call + " " + t);
 
                     }
-                }
+                });
+            } else {
+                Call<List<Lecture>> call1 = rs1.registerList("체육학", StaticId.id);//call객체
+                call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                        if (response.isSuccessful()) {
+                            lectures = response.body();
+                            adapter.notifyDataSetChanged();
+                            listLecture.setAdapter(adapter);
+                        }
+                    }
 
-                @Override
-                public void onFailure(Call<List<Lecture>> call, Throwable t) {
-                    System.out.println("학점은행제 불러오기 실패" + call + " " + t);
+                    @Override
+                    public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패 체육학" + call + " " + t);
 
-                }
-            });
-
+                    }
+                });
+            }
+        //경영학
         } else if (register == 3) {
 
-            Call<List<Enrollment>> call2 = rs4.enrollment(StaticId.id);//call객체
-            call2.enqueue(new Callback<List<Enrollment>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Enrollment>> call, Response<List<Enrollment>> response) {
-                    if (response.isSuccessful()) {
-                        enrollments = response.body();
+
+            if (StaticId.id == null) {
+                Call<List<Lecture>> call1 = rs1.lecture("경영학");//call객체
+                call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                        if (response.isSuccessful()) {
+                            lectures = response.body();
+                            adapter.notifyDataSetChanged();
+                            listLecture.setAdapter(adapter);
+                        }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<List<Enrollment>> call, Throwable t) {
-                    System.out.println("subjectnumber" + call + " " + t);
-
-                }
-            });
-
-            Call<List<Lecture>> call3 = rs3.lecture("경영학");//call객체
-            call3.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
-                @Override
-                public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
-                    if (response.isSuccessful()) {
-                        lectures = response.body();
-                        listLecture.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
+                    @Override
+                    public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패 외국어 과정" + call + " " + t);
 
                     }
-                }
+                });
+            } else {
+                Call<List<Lecture>> call1 = rs1.registerList("경영학", StaticId.id);//call객체
+                call1.enqueue(new Callback<List<Lecture>>() {//enqueue 메소드 실행
+                    @Override
+                    public void onResponse(Call<List<Lecture>> call, Response<List<Lecture>> response) {
+                        if (response.isSuccessful()) {
+                            lectures = response.body();
+                            adapter.notifyDataSetChanged();
+                            listLecture.setAdapter(adapter);
+                        }
+                    }
 
-                @Override
-                public void onFailure(Call<List<Lecture>> call, Throwable t) {
-                    System.out.println("학점은행제 불러오기 실패" + call + " " + t);
-                }
-            });
+                    @Override
+                    public void onFailure(Call<List<Lecture>> call, Throwable t) {
+                        System.out.println("JSON 불러오기 실패 외국어 과정" + call + " " + t);
+
+                    }
+                });
+            }
         }
     }
 
@@ -321,13 +328,10 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
 
             // 수강 불가시 수강신청 버튼 변경
 
-            for (int i = 0; i < enrollments.size(); i++) {
-                enrollment = enrollments.get(i);
-                if (enrollment.getSubjectnumber() == lc.getNumber()) {
-                    btClassRg.setBackgroundColor(Color.GRAY);
-                    btClassRg.setText("신청내역");
-                    info = "신청내역";
-                }
+            if (lc.getId() != null) {
+                btClassRg.setBackgroundColor(Color.GRAY);
+                btClassRg.setText("신청내역");
+                info = "신청내역";
             }
             // 상세보기
             btDetail.setOnClickListener(new View.OnClickListener() {
@@ -383,7 +387,6 @@ public class CreditbanksystemEnrolmentActivity extends AppCompatActivity {
                         }
 
                     }
-
 
                 });
             }
