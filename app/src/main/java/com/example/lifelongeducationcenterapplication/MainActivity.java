@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     TextView DVtxtMypage_1, DVtxtMypage_2, DVtxtMypage_3, DVtxtMypage_4;//회원정보관리, 수강내역, 성적확인, 1:1 질문
 
     TextView link1, link2;
-
+    Button btNotice;
     TextView mainNotice, mainLecture;
     TextView mainLectureTitle2, mainLectureDivision2, mainLectureDate2, mainLectureText;
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawerLayout);
         drawerView = findViewById(R.id.drawerView);
-
+        btNotice = findViewById(R.id.notice_addbutton);
         DVtxtAccount = findViewById(R.id.DVtxtAccount);
         DVtxtIntro = findViewById(R.id.DVtxtIntro);
         DVtxtBank = findViewById(R.id.DVtxtBank);
@@ -213,6 +213,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+            }
+        });
+
+        btNotice.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Community_NoticeActivity.class);
+                startActivity(intent);
             }
         });
 

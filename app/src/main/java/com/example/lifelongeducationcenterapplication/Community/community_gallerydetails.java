@@ -41,6 +41,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.app.DownloadManager.Request.VISIBILITY_VISIBLE;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class community_gallerydetails extends AppCompatActivity {
@@ -133,7 +134,7 @@ public class community_gallerydetails extends AppCompatActivity {
         IntentFilter completeFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         registerReceiver(downloadCompleteReceiver, completeFilter);
         // 내용
-        Call<Notice> call = rs1.galleryContent();//call객체
+        Call<Notice> call = rs1.galleryContent(number);//call객체
         call.enqueue(new Callback<Notice>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<Notice> call, Response<Notice> response) {
@@ -184,7 +185,6 @@ public class community_gallerydetails extends AppCompatActivity {
                     images = response.body();
                     adapter.notifyDataSetChanged();
                     listview2.setAdapter(adapter);
-
                 }
 
             }
@@ -333,6 +333,7 @@ public class community_gallerydetails extends AppCompatActivity {
         request.setTitle("다운로드 항목");
         request.setDestinationUri(Uri.fromFile(outputFile));
         request.setAllowedOverMetered(true);
+        request.setNotificationVisibility(VISIBILITY_VISIBLE);
 
         mDownloadQueueId = mDownloadManager.enqueue(request);
     }

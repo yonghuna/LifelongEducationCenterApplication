@@ -50,7 +50,8 @@ public interface RemoteService {
     // 갤러리 내용
     @GET("galleryContent.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Notice> galleryContent();
+    Call<Notice> galleryContent(
+            @Query("number") int number);
 
 
     // 첨부파일 목록
