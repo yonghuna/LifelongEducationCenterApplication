@@ -1,4 +1,6 @@
+
 package com.example.lifelongeducationcenterapplication.Community;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +44,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
     ListView listLecture;//리스트뷰
     ImageView imageView;
     TextView noticeNumber, noticeWriter, noticeDate, noticeTitle;
-    MyAdapter adapter;
+    //MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         listLecture = (ListView) findViewById(R.id.noticeListview);
 
 
-        adapter = new MyAdapter();
+        //adapter = new MyAdapter();
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
@@ -66,6 +68,8 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         rs2 = retrofit2.create(RemoteService.class);
     }
 
+
+/*
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -101,7 +105,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         });
         super.onResume();
     }
-
+/*
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -147,13 +151,13 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         }
     }
 
-    /*
+/*
     @Override   //액셔바 홈버튼
->>>>>>> daeeung
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+*/
 
-     */
 }

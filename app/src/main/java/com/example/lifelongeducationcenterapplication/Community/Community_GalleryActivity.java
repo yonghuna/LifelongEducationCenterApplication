@@ -52,7 +52,7 @@ public class Community_GalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_community__gallery);
 
 
-        listLecture = (ListView) findViewById(R.id.noticeListview);
+        listLecture = (ListView) findViewById(R.id.gallerylist);
 
 
         adapter = new MyAdapter();

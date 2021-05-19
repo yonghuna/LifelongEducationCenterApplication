@@ -74,7 +74,7 @@ public interface RemoteService {
 
 
     //이미지 읽기
-    @FormUrlEncoded
+
     @GET("imageGet.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Image>> imageGet(
@@ -84,7 +84,7 @@ public interface RemoteService {
 
 
     //이미지 첨부파일 가져오기
-    @FormUrlEncoded
+
     @GET("gallery_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Attachment>> imageFile(
@@ -92,7 +92,7 @@ public interface RemoteService {
     //이미지 첨부파일 가져오기
 
     //공지사항 첨부파일 가져오기
-    @FormUrlEncoded
+
     @GET("notice_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Attachment>> noticeAttachment(
@@ -100,7 +100,7 @@ public interface RemoteService {
     //공지사항 첨부파일 가져오기
 
     //서식자료실 첨부파일 가져오기
-    @FormUrlEncoded
+
     @GET("format_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Attachment>> formatAttachment(

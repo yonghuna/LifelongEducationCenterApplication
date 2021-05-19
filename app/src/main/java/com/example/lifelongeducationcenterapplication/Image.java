@@ -6,6 +6,9 @@ public class Image {
     @SerializedName("number")
     private int number;
 
+    @SerializedName("realname")
+    private String realname;
+
 
     @SerializedName("randomname")
     private String randomname;
