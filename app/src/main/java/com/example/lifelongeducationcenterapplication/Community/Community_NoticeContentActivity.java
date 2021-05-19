@@ -9,6 +9,7 @@ import com.example.lifelongeducationcenterapplication.RemoteService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +27,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class Community_NoticeContentActivity extends AppCompatActivity {
     //공지사항
-    TextView title, content, who, time, postedNumber, comment;
+    TextView title, content, who, time, postedNumber, comment,textview;
     Button list, remove, modify;
     int number;
     Retrofit retrofit;
@@ -37,10 +38,13 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("공지사항");
+        getSupportActionBar().setTitle("공지사항 게시글");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_community__bulletin_boardwriting);
 
+        //스크롤
+        textview = findViewById(R.id.write_content_tv);
+        textview.setMovementMethod(new ScrollingMovementMethod());
 
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
@@ -64,6 +68,7 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs = retrofit.create(RemoteService.class);
+
 
 
         list.setOnClickListener(new View.OnClickListener() {
