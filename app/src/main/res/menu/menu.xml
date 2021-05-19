@@ -6,9 +6,8 @@
     <!--
     android:icon="@drawable/ic_actio_home"
         -->
-    <item android:id="@+id/actionbt_home"
+    <item android:id="@+id/login"
         android:title="로그인"
         app:showAsAction="always" />
-
 
 </menu>

@@ -221,11 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+
 
     @Override
     protected void onResume() {
@@ -298,13 +294,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
                 drawerLayout.openDrawer(drawerView);
                 break;
         }
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
     // 공지사항
     class MyAdapter extends BaseAdapter {
