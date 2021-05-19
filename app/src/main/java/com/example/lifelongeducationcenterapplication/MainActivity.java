@@ -222,11 +222,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override   //액셔바 로그인
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+
 
     @Override
     protected void onResume() {
 
-        Call<List<Notice>> call2 = rs2.notice();
+        Call<List<Notice>> call2 = rs2.mainNotice();
         call2.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<List<Notice>> call, Response<List<Notice>> response) {
@@ -234,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
                     notices = response.body();
                     adapter.notifyDataSetChanged();
                     listNotice.setAdapter(adapter);
+
                 }
 
             }
@@ -376,7 +384,7 @@ public class MainActivity extends AppCompatActivity {
             mainLectureTitle2.setText(enrollment.getName());
             mainLectureDivision2.setText(enrollment.getDivision());
             mainLectureDate2.setText(enrollment.getStartDate() + "~" + enrollment.getEndDate());
-            System.out.println(enrollment.getDivision() + " 1231232i1yug3y21hg3 hadsgfhjasdf");
+
             if (enrollment.getName().isEmpty()) {
                 mainLectureTitle2.setText("・ 수강 신청한 강좌가 없습니다.");
             }else{

@@ -18,6 +18,11 @@ public interface RemoteService {
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Notice>> notice();
 
+    // 메인 공지사항
+    @GET("mainNotice.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> mainNotice();
+
     // 공지사항 내용
     @GET("noticeEnter.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -30,12 +35,28 @@ public interface RemoteService {
     Call<List<Lecture>> lecture(
             @Query("division") String division);//비 로그인시 수강목록
 
-    // 강의
+    // 로그인시 수강목록
     @GET("registerList.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Lecture>> registerList(
             @Query("division") String division,
             @Query("id") String id);// 로그인시 수강목록
+
+    // 갤러리 글 목록
+    @GET("gallery.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> gallery();
+
+    // 갤러리 내용
+    @GET("galleryContent.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> galleryContent();
+
+
+    // 첨부파일 목록
+    @GET("gallery.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> format();
 
 
     // q&a 글 선택시
@@ -56,7 +77,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @GET("imageGet.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Image> imageGet(
+    Call<List<Image>> imageGet(
             @Query("number") int number);
     //이미지 읽기
 
@@ -66,7 +87,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @GET("gallery_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Attachment> imageFile(
+    Call<List<Attachment>> imageFile(
             @Query("number") int number);
     //이미지 첨부파일 가져오기
 
@@ -74,7 +95,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @GET("notice_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Attachment> noticeAttachment(
+    Call<List<Attachment>> noticeAttachment(
             @Query("number") int number);
     //공지사항 첨부파일 가져오기
 
@@ -82,7 +103,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @GET("format_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<Attachment> formatAttachment(
+    Call<List<Attachment>> formatAttachment(
             @Query("number") int number);
     //서식자료실 첨부파일 가져오기
 
