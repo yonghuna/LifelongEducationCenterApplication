@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +40,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
 
     ListView listView;
     List<Notice> notices;
-    TextView noticeNumber, noticeDate, noticeWriter, noticeTitle;
+    TextView noticeNumber, noticeDate, noticeWriter, noticeTitle,textview;
 
     Retrofit retrofit1;//httpclient library
     RemoteService rs1;//DB를 위한 인터페이스
@@ -60,6 +61,8 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
         rs1 = retrofit1.create(RemoteService.class);
         adapter = new MyAdapter();
 
+        textview = findViewById(R.id.write_content_tv);
+        textview.setMovementMethod(new ScrollingMovementMethod());
         btWrite.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (StaticId.id == null || StaticId.id == "") {

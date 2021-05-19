@@ -221,11 +221,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override   //액셔바 홈버튼
+    @Override   //액셔바 로그인
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
 
     @Override
     protected void onResume() {
@@ -238,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     notices = response.body();
                     adapter.notifyDataSetChanged();
                     listNotice.setAdapter(adapter);
+
                 }
 
             }

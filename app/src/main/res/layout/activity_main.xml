@@ -71,7 +71,7 @@
                 android:padding="5sp"
                 android:text="수강 강좌"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nanumbarunpenb" />
 
             <ListView
                 android:id="@+id/listLecture"
@@ -89,13 +89,31 @@
             android:layout_margin="10sp"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5sp"
-                android:text="공지사항"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:text="공지사항"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/nanumbarunpenb" />
+
+                <Button
+                    android:id="@+id/notice_addbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_add"
+                    android:clickable="true"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    app:backgroundTint="#636E81" />
+
+            </LinearLayout>
 
             <ListView
                 android:id="@+id/listNoticed"
