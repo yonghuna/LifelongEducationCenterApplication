@@ -16,16 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/txtgalleryname"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:hint="이미지 제목"
-            android:textSize="20dp" />
     </LinearLayout>
 
 </LinearLayout>
