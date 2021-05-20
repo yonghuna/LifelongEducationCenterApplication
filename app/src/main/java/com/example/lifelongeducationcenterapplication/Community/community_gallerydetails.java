@@ -333,7 +333,7 @@ public class community_gallerydetails extends AppCompatActivity {
         request.setTitle("다운로드 항목");
         request.setDestinationUri(Uri.fromFile(outputFile));
         request.setAllowedOverMetered(true);
-        request.setNotificationVisibility(VISIBILITY_VISIBLE);
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
         mDownloadQueueId = mDownloadManager.enqueue(request);
     }
