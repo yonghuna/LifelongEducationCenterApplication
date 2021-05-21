@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:orientation="horizontal">
@@ -54,7 +55,7 @@
     <EditText
         android:id="@+id/write_content_tv"
         android:layout_width="match_parent"
-        android:layout_height="305dp"
+        android:layout_height="400dp"
         android:layout_margin="16dp"
         android:fontFamily="@font/nanumbarunpenb"
         android:background="@drawable/border_login"
@@ -68,6 +69,7 @@
         android:layout_margin="16dp"
         android:text="수정 완료"
         android:fontFamily="@font/nanumbarunpenb"
+        android:layout_marginBottom="10dp"
         android:textColor="#ffffff" />
 
 </LinearLayout>

@@ -38,22 +38,25 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ECCF61"
+                android:background="#D1C2C2"
                 android:gravity="right"
                 android:padding="5sp"
                 android:text=""
-                android:textSize="11sp" />
+                android:textColor="#000111"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
                 android:layout_marginLeft="10sp"
-                android:background="#ECCF61"
+                android:background="@drawable/text_round"
                 android:clickable="true"
                 android:gravity="right"
-                android:padding="5sp"
-                android:textSize="11sp" />
+                android:padding="10sp"
+                android:textColor="#F6E7E7"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout

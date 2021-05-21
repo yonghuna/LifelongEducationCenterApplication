@@ -43,7 +43,10 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,14 +83,22 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="① 아산캠퍼스 일반과정(외국어, 자격증, 교양과정)"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -122,7 +133,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="② 천안캠퍼스 일반과정(외국어, 자격증, 교양과정)"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -157,7 +172,11 @@
                 android:layout_height="wrap_content"
                 android:text="③ 아산시연계과정"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -187,7 +206,11 @@
                 android:text="3. 혜택 및 감면안내"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -207,6 +230,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/border_login"
                 android:shrinkColumns="*"
                 android:stretchColumns="*">
 
@@ -349,7 +378,11 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <!--
               미완성 부분 수정예정
@@ -357,7 +390,11 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 >
 
                 <TableRow
@@ -442,7 +479,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="총 수업시간은 학습비 징수기간 중의 전체 수업시간을 말하며, 반환금액의 산정은 반환사유가 발생한 날까지 경과된 수업시간을 기준으로 한다."
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
                 // 오류 수정해서 다시 업로드 1차
 
 
@@ -460,7 +501,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="환불 신청 시 신청자 명의 통장 사본 제출, 서식자료실에 있는 환불신청서 같이 제출"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -490,7 +535,11 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -546,7 +595,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="강좌신청 하지 않고 납부만 하신 경우 신청자로 인정되지 않습니다. 그에 따른 불이익(ex. 인원마감으로 수강불가 등)이 있을 수 있으니 꼭 신청 후 납부하시기 바랍니다."
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -555,7 +608,11 @@
                 android:text="6. 신규강사모집안내"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -569,14 +626,23 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="② 신청: 커뮤니티-서식자료실의 강의계획서, 이력서, 자기소개서 양식 작성 후 e-mail 전송 (edu@sunmoon.ac.kr)"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="③ 문의: 041-530-8341~4"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"/>
 
         </LinearLayout>
     </ScrollView>
