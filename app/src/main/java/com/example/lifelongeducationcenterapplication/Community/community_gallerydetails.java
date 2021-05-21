@@ -47,7 +47,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 public class community_gallerydetails extends AppCompatActivity {
     TextView title, who, time, postedNumber,  file;
     ImageView image;
-    Button list;
+
     int number;
     Notice notice;
     Retrofit retrofit1;
@@ -82,7 +82,6 @@ public class community_gallerydetails extends AppCompatActivity {
         postedNumber = (TextView) findViewById(R.id.number);
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
-        list = (Button) findViewById(R.id.list);
         listview = (ListView) findViewById(R.id.image);
         listview2 = (ListView) findViewById(R.id.file);
 
@@ -91,13 +90,6 @@ public class community_gallerydetails extends AppCompatActivity {
 
         adapter = new MyAdapter(); // 이미지
         fileadapter = new FileAdapter(); // 파일
-        list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
     }
 
     public void setRetrofit() {
