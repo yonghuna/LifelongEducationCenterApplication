@@ -6,15 +6,16 @@
     android:id="@+id/abc">
 
     <TextView
-        android:id="@+id/mainLectureName"
+        android:id="@+id/file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginLeft="5dp"
-        android:textSize="18sp"
-        android:paddingLeft="5dp"
+        android:layout_weight="1"
+        android:clickable="true"
         android:fontFamily="@font/nanumbarunpenb"
-        android:hint="테스트"/>
+        android:hint="테스트"
+        android:paddingLeft="5dp"
+        android:textSize="18sp" />
     <!--
     <LinearLayout
         android:id="@+id/listMainLecture"

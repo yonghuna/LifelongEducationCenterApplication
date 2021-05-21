@@ -51,8 +51,21 @@
 
 
     <ListView
+        android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="68dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp">
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/file"
+        android:layout_width="match_parent"
+        android:layout_height="403dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -63,22 +76,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/remove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="삭제" />
-
-        <Button
-            android:id="@+id/modfiy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="수정" />
 
         <Button
             android:id="@+id/list"

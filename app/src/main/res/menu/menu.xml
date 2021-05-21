@@ -7,15 +7,10 @@
     android:icon="@drawable/ic_actio_home"
         -->
 
-    <item android:id="@+id/menu_loginid"
-        android:title=""
+    <!--
+    <item android:id="@+id/loginid"
+        android:title="ddd"
         app:showAsAction="always"/>
-
-
-    <item android:id="@+id/menu_actionbt_home"
-        android:title="로그인"
-        app:showAsAction="always" />
-
-
+    -->
 
 </menu>
