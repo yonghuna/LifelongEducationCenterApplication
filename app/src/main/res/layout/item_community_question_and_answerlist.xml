@@ -36,7 +36,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="10"
                 android:textColor="@android:color/black"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
 
@@ -70,7 +70,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="작성자"
                 android:textColor="@android:color/black"
-                android:textSize="13dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="작성일"
                 android:textColor="@android:color/black"
-                android:textSize="13dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
