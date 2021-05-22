@@ -79,6 +79,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:background="@drawable/border_login"
                 android:shrinkColumns="*"
                 android:stretchColumns="*">
 
@@ -208,7 +209,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="35dp"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="거부에 따른 불이익" />
 
@@ -216,6 +217,7 @@
                         android:layout_width="290dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:paddingLeft="5dp"
                         android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
                 </TableRow>
 
@@ -266,164 +268,139 @@
                 android:text="개인정보의 목적외 이용 및 제3자 제공 동의[필수]"
                 android:textSize="20sp" />
 
-            <TableLayout
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/border_login"
+            android:orientation="horizontal">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:shrinkColumns="*"
-                android:stretchColumns="*">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <TableRow
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-                        android:text="개인정보를 제공받는자"
-                        android:textColor="#170E0E" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-                        android:text="제공자 연락처"
-                        android:textColor="#170E0E" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-
-                        android:text="제공하는 개인정보의 항목"
-                        android:textColor="#170E0E" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-
-                        android:text="개인정보를 제공받는 자의 개인정보 이용목적"
-                        android:textColor="#170E0E" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-
-                        android:text="개인정보를 제공받는 자의 개인정보 이용기간 및 보유기간"
-                        android:textColor="#170E0E" />
-
-                </TableRow>
-
-                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="개인정보를 제공받는자" />
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-                        android:text="아산시평생학습관"
-                        android:textColor="#170E0E" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-                        android:text="041-537-3907"
-                        android:textColor="#170E0E" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-
-                        android:text="성명, 연락처, 주소, 생년월일"
-                        android:textColor="#170E0E" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-
-                        android:text="평생교육과정 이수 업무"
-                        android:textColor="#170E0E" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:gravity="center_horizontal"
-
-                        android:text="평생교육과정 이수 및 자격발급시까지 활용, 5년보관"
-                        android:textColor="#170E0E" />
-
-                </TableRow>
-            </TableLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:text="* 귀하께서는 개인정보 제공 및 활용에 거부할 권리가 있습니다." />
-
-            <TableLayout
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="아산시평생학습관" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <TableRow
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="제공자 연락처" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="041-537-3907" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:text="거부에 따른 불이익" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="제공하는 개인정보의 항목" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="성명, 연락처, 주소, 생년월일" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="290dp"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nanumbarunpenb"
-                        android:text="위 제공사항은 평생교육과정이수 등 학사관리에 반드시 필요한 사항으로 거부하실 경우 수강등록 및 이수과정에 일부 서비스 제공이 제한 될수 있습니다." />
-                </TableRow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="개인정보를 제공받는 자의 개인정보 이용목적" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="평생교육과정 이수 업무" />
+            </LinearLayout>
 
-            </TableLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="개인정보를 제공받는 자의 개인정보 이용기간 및 보유기간" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#170E0E"
+                    android:text="평생교육과정 이수 및 자격발급시까지 활용, 5년보관" />
+            </LinearLayout>
+        </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -476,10 +453,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
+            android:background="@drawable/tx_round"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:text="취소" />
 
@@ -491,9 +470,11 @@
             android:text="동의"
             android:fontFamily="@font/nanumbarunpenb"
             android:textColor="#EBF8F1"
+            android:background="@drawable/tx_round"
             android:textColorLink="#B2FF59"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"

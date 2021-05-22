@@ -42,11 +42,12 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/border_login"
+                android:background="@drawable/tx_round"
                 android:ems="10"
-                android:hint="아이디(성명)"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:inputType="textPersonName" />
+                android:hint="아이디(성명)"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName3"
@@ -54,9 +55,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/border_login"
+                android:background="@drawable/tx_round"
                 android:ems="10"
                 android:hint="핸드폰번호(-없이숫자만)"
+                android:paddingLeft="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:inputType="textPersonName" />
 
@@ -66,10 +68,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/border_login"
+                android:background="@drawable/tx_round"
                 android:ems="10"
                 android:hint="비밀번호"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:paddingLeft="10dp"
                 android:inputType="textPassword" />
 
             <TextView
@@ -77,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:layout_margin="10dp"
+
                 android:text="* 평생교육원 수업을 수강하신 경우는 회원등록이   되어 있습니다.   등록 절차 없이 로그인 하시면 됩니다." />
 
 

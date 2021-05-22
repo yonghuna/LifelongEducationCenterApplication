@@ -44,7 +44,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
     ListView listLecture;//리스트뷰
     ImageView imageView;
     TextView noticeNumber, noticeWriter, noticeDate, noticeTitle;
-    //MyAdapter adapter;
+    MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +54,10 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_community__formatting_room);
 
 
-        listLecture = (ListView) findViewById(R.id.noticeListview);
+        listLecture = (ListView) findViewById(R.id.referenceRoomListview);
 
 
-        //adapter = new MyAdapter();
+        adapter = new MyAdapter();
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
@@ -69,11 +69,11 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
     }
 
 
-/*
+
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;
             }
@@ -81,6 +81,12 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override   //액션바 홈버튼
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
     @Override
     protected void onResume() {
 
@@ -94,9 +100,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
                     listLecture.setAdapter(adapter);
 
                 }
-
             }
-
             @Override
             public void onFailure(Call<List<Notice>> call, Throwable t) {
                 System.out.println("JSON 불러오기 실패" +call +" " + t);
@@ -105,7 +109,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         });
         super.onResume();
     }
-/*
+
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -127,6 +131,12 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.item_community_question_and_answerlist,null);
 
             Notice notice =  notices.get(position);
+            click = (LinearLayout) convertView.findViewById(R.id.click);
+            noticeNumber = (TextView)convertView.findViewById(R.id.QandACountlecture); // 1 , 2 , 3
+            noticeDate = (TextView)convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
+            noticeWriter = (TextView)convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
+            noticeTitle = (TextView)convertView.findViewById(R.id.QandANamelecture); // 제목
+            imageView = (ImageView)  convertView.findViewById(R.id.imageView);
 
 
             imageView.setVisibility(View.GONE);
@@ -141,7 +151,7 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
             click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), .class);
+                    Intent intent = new Intent(getApplicationContext(), Community_FormattingRoomContentActivity.class);
                     intent.putExtra("number", notice.getNumber());
                     startActivity(intent);
                 }
@@ -151,13 +161,8 @@ public class Community_FormattingRoomActivity extends AppCompatActivity {
         }
     }
 
-/*
-    @Override   //액셔바 홈버튼
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-*/
+
+
 
 }

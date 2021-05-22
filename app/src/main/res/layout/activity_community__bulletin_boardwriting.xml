@@ -7,113 +7,130 @@
     tools:context=".Community.Community_NoticeContentActivity">
     <!--게시글 작성-->
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="번호" />
-
-        <TextView
-            android:id="@+id/who"
-            android:layout_width="4dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="작성자" />
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="날짜" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/write_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="글 제목"
-        android:fontFamily="@font/nanumbarunpenb"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp" />
-
-
-    <TextView
-        android:id="@+id/write_content_tv"
-        android:layout_width="match_parent"
-        android:layout_height="305dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/border_login"
-        android:hint="글 내용"
-        android:fontFamily="@font/nanumbarunpenb"
-        android:scrollbars="vertical"
-        android:textSize="15sp" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/remove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="삭제" />
-
-        <Button
-            android:id="@+id/modfiy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="수정" />
-
-        <Button
-            android:id="@+id/list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="목록" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/comment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:textSize="20sp"
-        android:fontFamily="@font/nanumbarunpenb"
-        android:text="답글" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ListView
-            android:id="@+id/contentListView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
-    </LinearLayout>
+            android:orientation="vertical" >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="번호" />
+
+                <TextView
+                    android:id="@+id/who"
+                    android:layout_width="4dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="작성자" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="날짜" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/write_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:textSize="15sp"
+                android:hint="글 제목" />
+
+            <ListView
+                android:id="@+id/notice_file"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp">
+
+            </ListView>
+
+            <TextView
+                android:id="@+id/write_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/border_login"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:hint="글 내용"
+                android:scrollbars="vertical"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/remove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="삭제" />
+
+                <Button
+                    android:id="@+id/modfiy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:text="수정" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="답글"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/contentListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="16dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

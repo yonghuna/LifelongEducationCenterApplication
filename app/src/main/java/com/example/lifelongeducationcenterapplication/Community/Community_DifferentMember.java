@@ -118,13 +118,7 @@ public class Community_DifferentMember extends AppCompatActivity {
                 }
             }
         });
-        btList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               finish();
 
-            }
-        });
 
 
     }
@@ -151,7 +145,7 @@ public class Community_DifferentMember extends AppCompatActivity {
         content = (TextView) findViewById(R.id.write_content_tv);
         btModify = (Button) findViewById(R.id.modfiy);
         btRemove = (Button) findViewById(R.id.remove);
-        btList = (Button) findViewById(R.id.list);
+
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);

@@ -2,11 +2,6 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lifelongeducationcenterapplication.Attachment;
-import com.example.lifelongeducationcenterapplication.Notice;
-import com.example.lifelongeducationcenterapplication.R;
-import com.example.lifelongeducationcenterapplication.RemoteService;
-
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,17 +11,22 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.lifelongeducationcenterapplication.Attachment;
+import com.example.lifelongeducationcenterapplication.Image;
+import com.example.lifelongeducationcenterapplication.Notice;
+import com.example.lifelongeducationcenterapplication.R;
+import com.example.lifelongeducationcenterapplication.RemoteService;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;
@@ -39,94 +39,91 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
-public class Community_NoticeContentActivity extends AppCompatActivity {
-    //공지사항
-    TextView title, content, who, time, postedNumber, comment, textview, file;
-    Button remove, modify;
+public class Community_GalleryDetails extends AppCompatActivity {
+    TextView title, who, time, postedNumber,  file;
+    ImageView image;
+
     int number;
-    Retrofit retrofit;
-    RemoteService rs;
-
-
-    //파일
     Notice notice;
-    ListView listview;
-    List<Attachment> attachment;
-    FileAdapter fileadapter;
-    ListView fileList;
+    Retrofit retrofit1;
+    RemoteService rs1;
+
     Retrofit retrofit2;
     RemoteService rs2;
     private DownloadManager mDownloadManager;
     private Long mDownloadQueueId;
+    Retrofit retrofit3;
+    RemoteService rs3;
+
+    ListView listview; // 이미지
+    ListView listview2; // 첨부파일
+    MyAdapter adapter;
+    FileAdapter fileadapter;
+    List<Attachment> attachment;
+    List<Image> images;
     String pathFile;
     String outputFilePath;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("공지사항 게시글");
+        setContentView(R.layout.activity_community_gallerydetails);
+        getSupportActionBar().setTitle("갤러리");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.activity_community__bulletin_boardwriting);
-
-        //스크롤
-        textview = findViewById(R.id.write_content_tv);
-        textview.setMovementMethod(new ScrollingMovementMethod());
-
         Intent intent = getIntent();
         number = intent.getIntExtra("number", 1); // pk로 구분
+        setRetrofit();
+
 
         title = (TextView) findViewById(R.id.write_title_tv);
-        content = (TextView) findViewById(R.id.write_content_tv);
-
-        pathFile = (this.getFilesDir()).toString();
         postedNumber = (TextView) findViewById(R.id.number);
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
-        comment = (TextView) findViewById(R.id.comment);
+        listview = (ListView) findViewById(R.id.file);
+        listview2 = (ListView) findViewById(R.id.image);
 
-        remove = (Button) findViewById(R.id.remove);
-        modify = (Button) findViewById(R.id.modfiy);
-        listview = (ListView) findViewById(R.id.contentListView);
+        pathFile = (this.getFilesDir()).toString();
 
-        fileList = (ListView) findViewById(R.id.notice_file); // 파일
-        listview.setVisibility(View.GONE);
-        remove.setVisibility(View.GONE);
-        modify.setVisibility(View.GONE);
-        comment.setVisibility(View.GONE);
 
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+        adapter = new MyAdapter(); // 이미지
+        fileadapter = new FileAdapter(); // 파일
+    }
+
+    public void setRetrofit() {
+        retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
-        rs = retrofit.create(RemoteService.class);
+        rs1 = retrofit1.create(RemoteService.class);
+
         retrofit2 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
                 (GsonConverterFactory.create()).build();
         rs2 = retrofit2.create(RemoteService.class);
 
+        retrofit3 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory
+                (GsonConverterFactory.create()).build();
+        rs3 = retrofit3.create(RemoteService.class);
 
-        fileadapter = new FileAdapter(); // 파일
+
     }
+
+
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;
             }
         }
         return super.onOptionsItemSelected(item);
     }
-    /*
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
-     */
     @Override
     protected void onResume() {
         super.onResume();
         IntentFilter completeFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         registerReceiver(downloadCompleteReceiver, completeFilter);
-        Call<Notice> call = rs.noticeEnter(number);//call객체
+        // 내용
+        Call<Notice> call = rs1.galleryContent(number);//call객체
         call.enqueue(new Callback<Notice>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<Notice> call, Response<Notice> response) {
@@ -134,7 +131,6 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
                     notice = response.body();
                     postedNumber.setText(Integer.toString(notice.getNumber()));
                     time.setText(notice.getReportingdate());
-                    content.setText(Html.fromHtml(notice.getContents()).toString());
                     who.setText("관리자");
                     title.setText(notice.getTitle());
                 }
@@ -142,20 +138,20 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Notice> call, Throwable t) {
-                System.out.println("공지사항 글 들어갈떄 " + call + " " + t);
+                System.out.println("갤러리 글 들어갈떄 " + call + " " + t);
 
             }
         });
 
-        // 공지사항 첨부파일
-        Call<List<Attachment>> call1 = rs2.noticeAttachment(number);//call객체
+        // 이미지 첨부파일
+        Call<List<Attachment>> call1 = rs2.imageFile(number);//call객체
         call1.enqueue(new Callback<List<Attachment>>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<List<Attachment>> call, Response<List<Attachment>> response) {
                 if (response.isSuccessful()) {
                     attachment = response.body();
                     fileadapter.notifyDataSetChanged();
-                    fileList.setAdapter(fileadapter);
+                    listview.setAdapter(fileadapter);
 
                 }
 
@@ -169,9 +165,64 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         });
 
 
+        //이미지
+        Call<List<Image>> call2 = rs3.imageGet(number);//call객체
+        call2.enqueue(new Callback<List<Image>>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<List<Image>> call, Response<List<Image>> response) {
+                if (response.isSuccessful()) {
+                    images = response.body();
+                    adapter.notifyDataSetChanged();
+                    listview2.setAdapter(adapter);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Image>> call, Throwable t) {
+                System.out.println("이미지 불러오기 실패" + call + " " + t);
+
+            }
+        });
 
     }
 
+
+    //이미지
+    class MyAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return images.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = getLayoutInflater().inflate(R.layout.item_community_gallerylist1, null);
+
+            Image image1 = images.get(position);
+            image = (ImageView) convertView.findViewById(R.id.galleryimg);
+            // 이미지 세팅
+
+            Picasso.get()
+                    .load(image1.getPath())
+                    .error(R.drawable.error)
+                    .into(image);
+
+            return convertView;
+        }
+    }
+
+    //파일
     class FileAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -241,15 +292,15 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
 
                 switch (status) {
                     case DownloadManager.STATUS_SUCCESSFUL :
-                        Toast.makeText(getApplicationContext(), "다운로드를 완료하였습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Community_GalleryDetails.this, "다운로드를 완료하였습니다.", Toast.LENGTH_SHORT).show();
                         break;
 
                     case DownloadManager.STATUS_PAUSED :
-                        Toast.makeText(getApplicationContext(), "다운로드가 중단되었습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Community_GalleryDetails.this, "다운로드가 중단되었습니다.", Toast.LENGTH_SHORT).show();
                         break;
 
                     case DownloadManager.STATUS_FAILED :
-                        Toast.makeText(getApplicationContext(), "다운로드가 취소되었습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Community_GalleryDetails.this, "다운로드가 취소되었습니다.", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -258,7 +309,7 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
 
     private void URLDownloading(Uri url) {
         if (mDownloadManager == null) {
-            mDownloadManager = (DownloadManager) getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+            mDownloadManager = (DownloadManager) Community_GalleryDetails.this.getSystemService(Context.DOWNLOAD_SERVICE);
         }
         File outputFile = new File(outputFilePath);
         if (!outputFile.getParentFile().exists()) {
@@ -275,6 +326,4 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
 
         mDownloadQueueId = mDownloadManager.enqueue(request);
     }
-
-
 }

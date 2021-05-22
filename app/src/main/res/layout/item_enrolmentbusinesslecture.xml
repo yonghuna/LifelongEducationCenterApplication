@@ -76,8 +76,8 @@
                 android:id="@+id/EnrolmentBusinessEnrolment2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginLeft="10sp"
                 android:text="상세보기"
                 android:fontFamily="@font/nanumbarunpenb"
                 app:backgroundTint="#43A047" />

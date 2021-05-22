@@ -210,6 +210,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:background="@drawable/border_login"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -222,12 +223,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="구분" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="교육훈련기간 단체접수" />
                 </LinearLayout>
 
@@ -241,12 +244,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="1/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="12.15 ~ 1.15" />
                 </LinearLayout>
 
@@ -260,12 +265,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="2/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="4.1 ~ 4.20	" />
                 </LinearLayout>
 
@@ -279,12 +286,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="3/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="6.15 ~ 7.15	" />
                 </LinearLayout>
 
@@ -298,12 +307,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="4/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="10.1 ~ 10.20" />
                 </LinearLayout>
             </LinearLayout>
@@ -433,6 +444,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:background="@drawable/border_login"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -445,12 +457,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="구분" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="교육훈련기간 단체접수" />
                 </LinearLayout>
 
@@ -464,12 +478,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="1/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="12.15 ~ 1.15" />
                 </LinearLayout>
 
@@ -483,12 +499,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="2/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="4.1 ~ 4.20	" />
                 </LinearLayout>
 
@@ -502,12 +520,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="3/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="6.15 ~ 7.15	" />
                 </LinearLayout>
 
@@ -521,12 +541,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="4/4분기" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="10.1 ~ 10.20" />
                 </LinearLayout>
             </LinearLayout>
@@ -708,6 +730,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:background="@drawable/border_login"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -720,18 +743,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="구분" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="학사" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="타전공" />
                 </LinearLayout>
 
@@ -745,18 +771,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="교양" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="30학점 이상" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="-" />
                 </LinearLayout>
 
@@ -770,17 +799,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="전공" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="60학점 이상" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="48학점 이상 (전공필수 포함)" />
                 </LinearLayout>
@@ -795,12 +827,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="총이수학점" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
                         android:text="140학점 이상" />
                 </LinearLayout>
             </LinearLayout>
@@ -810,6 +844,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp">
 
@@ -910,7 +945,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
 
@@ -931,7 +966,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
-                        android:text="*학사학위(타전공 제외)" />
+                        android:layout_weight="1"
+                        android:text="*학사학위(타전공제외)" />
                 </TableRow>
             </TableLayout>
 

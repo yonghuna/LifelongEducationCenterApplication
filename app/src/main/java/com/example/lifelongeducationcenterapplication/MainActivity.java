@@ -1,20 +1,15 @@
 package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +54,6 @@ import com.example.lifelongeducationcenterapplication.MyPage.MyPage_MemberInform
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 
 import java.util.List;
-import java.util.logging.Handler;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -195,10 +189,6 @@ public class MainActivity extends AppCompatActivity {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
-
-
-
-
            // recommendedLecture = new RecommendedLecture();
 
         } else {
@@ -240,39 +230,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
->>>>>>> daeeung
+
     @Override   //액셔바 로그인
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-
-
-        if (StaticId.id == "" || StaticId.id == null) {
-            //login.setText("로그인");
-            DVtxtAccount_1.setText("로그인");
-            mainLectureText.setText("추천강좌");
-
-            menu.getItem(R.id.menu_actionbt_home).setTitle("로그인");
-            menu.getItem(R.id.menu_loginid).setTitle("");
-
-
-            // recommendedLecture = new RecommendedLecture();
-        } else {
-            //name.setText(StaticId.name);
-            //login.setText("로그아웃");
-            DVtxtAccount_1.setText("로그아웃");
-
-            menu.getItem(R.id.menu_actionbt_home).setTitle("로그아웃");
-            menu.getItem(R.id.menu_loginid).setTitle(StaticId.name);
-            // mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
-
-        }
-
-
-
         return true;
     }
-    */
 
 
 
@@ -353,11 +316,6 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
                 drawerLayout.openDrawer(drawerView);
                 break;
-                /*
-            case R.id.menu_actionbt_home:
-                clickLogin();
-                break;
-                 */
         }
 
         return super.onOptionsItemSelected(item);
@@ -502,20 +460,6 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
-
-    //상단바 클릭시 로그인
-    public void clickLogin(){
-        if (StaticId.id == "" || StaticId.id == null) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-        } else {
-            logout();
-            Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }
-    }
-
 
     public void firebase(){
         FirebaseMessaging.getInstance().getToken()

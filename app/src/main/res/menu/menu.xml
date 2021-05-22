@@ -8,21 +8,10 @@
         -->
 
 
-    <!--
-    <item android:id="@+id/loginid"
-        android:title="ddd"
-=======
-    <item android:id="@+id/menu_loginid"
-        android:title=""
->>>>>>> daeeung
-        app:showAsAction="always"/>
-
-<<<<<<< HEAD
-=======
 
     <item android:id="@+id/menu_actionbt_home"
         android:title="로그인"
         app:showAsAction="always" />
 
-    !-->
 </menu>
+
