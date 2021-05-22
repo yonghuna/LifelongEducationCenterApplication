@@ -23,16 +23,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="첨부" />
-    </LinearLayout>
+        android:orientation="horizontal"/>
 
     <EditText
         android:id="@+id/write_content_tv"

@@ -8,12 +8,10 @@ import com.example.lifelongeducationcenterapplication.RemoteService;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -152,7 +150,7 @@ public class Community_GalleryActivity extends AppCompatActivity {
             click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), community_gallerydetails.class);
+                    Intent intent = new Intent(getApplicationContext(), Community_GalleryDetails.class);
                     intent.putExtra("number", notice.getNumber());
                     startActivity(intent);
                 }

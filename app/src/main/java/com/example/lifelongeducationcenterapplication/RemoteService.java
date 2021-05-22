@@ -54,8 +54,8 @@ public interface RemoteService {
             @Query("number") int number);
 
 
-    // 첨부파일 목록
-    @GET("gallery.jsp")
+    // 갤러리 리스트
+    @GET("format.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Notice>> format();
 
@@ -75,7 +75,6 @@ public interface RemoteService {
 
 
     //이미지 읽기
-
     @GET("imageGet.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Image>> imageGet(
@@ -83,30 +82,37 @@ public interface RemoteService {
     //이미지 읽기
 
 
-
     //이미지 첨부파일 가져오기
-
     @GET("gallery_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Attachment>> imageFile(
             @Query("number") int number);
     //이미지 첨부파일 가져오기
 
-    //공지사항 첨부파일 가져오기
 
+
+    //공지사항 첨부파일 가져오기
     @GET("notice_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Attachment>> noticeAttachment(
             @Query("number") int number);
     //공지사항 첨부파일 가져오기
 
-    //서식자료실 첨부파일 가져오기
 
+
+    //서식자료실 첨부파일 가져오기
     @GET("format_attachment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Attachment>> formatAttachment(
             @Query("number") int number);
     //서식자료실 첨부파일 가져오기
+
+    // 서식자료실 내용
+    @GET("format_content.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> format_attachment(
+            @Query("number") int number);
+
 
 
 
