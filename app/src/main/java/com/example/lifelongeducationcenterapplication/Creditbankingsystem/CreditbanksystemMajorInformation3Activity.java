@@ -12,11 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.lifelongeducationcenterapplication.R;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+
 public class CreditbanksystemMajorInformation3Activity extends AppCompatActivity {
     //학점은행제 전공안내  경제학
 
     Spinner majormenuSpinner;
-    String[] majormenuTitle = {"외국어로서의 한국어학", "체육학", "경제학"};
+    String[] majormenuTitle =  {"외국어로서의 한국어학", "체육학",  "경제학"};
     Intent it;
     boolean firstCall = true;
 
@@ -33,7 +36,7 @@ public class CreditbanksystemMajorInformation3Activity extends AppCompatActivity
         adapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_dropdown_item_1line, majormenuTitle);
         majormenuSpinner.setAdapter(adapter);
-        majormenuSpinner.setSelection(0);
+        majormenuSpinner.setSelection(2);
         majormenuSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -69,26 +72,34 @@ public class CreditbanksystemMajorInformation3Activity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     //전공안내 한국학 스피너
     void goMajorActivity(){
         it = new Intent(this, CreditbanksystemMajorInformationActivity.class);
+        it.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(it);
+
     }
 
     //전공안내 체육학 스피너
     void goMajorActivity2(){
         it = new Intent(this, CreditbanksystemMajorInformation2Activity.class);
+        it.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(it);
+
     }
     //전공안내 경제학 스피너
     void goMajorActivity3(){
         it = new Intent(this, CreditbanksystemMajorInformation3Activity.class);
+        it.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(it);
+
     }
 }

@@ -153,6 +153,7 @@ public class SignUpCheckFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(checkedId == R.id.rbGeneralCourse){
+
                     check = true;
                     System.out.println("체크확인:"+check);
                 }else if(checkedId == R.id.rbCreditBank){
@@ -195,8 +196,6 @@ public class SignUpCheckFragment extends Fragment {
 
                  */
                 SignActivity signActivity = (SignActivity) getActivity();//부모엑티비티를 가져옴.
-
-
                 setsignupfragmentconponent(signActivity, check); //회원가입화면에 입력초기화
                 if (blankCheck()) {
                     RemoteService rs = retrofit.create(RemoteService.class);

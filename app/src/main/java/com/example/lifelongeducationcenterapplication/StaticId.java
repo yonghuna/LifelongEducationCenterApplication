@@ -13,4 +13,7 @@ public class StaticId {
 
     @SerializedName("name")
     public static String name;
+
+    @SerializedName("token")
+    public static String token;
 }

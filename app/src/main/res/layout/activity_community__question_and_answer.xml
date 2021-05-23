@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Community.Community_QuestionAndAnswerActivity"
+    android:background="#FFFFFF"
     android:orientation="vertical">
         <!--
             커뮤니티 1:1질의응답 작성버튼(btwriting) 클릭시 -> 글쓰기 이동

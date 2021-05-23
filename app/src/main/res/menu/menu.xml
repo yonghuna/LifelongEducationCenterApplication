@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <item android:id="@+id/actionbt_home"
-        android:title="문의하기"
-        android:icon="@drawable/ic_actio_home"
-        app:showAsAction="always" />
+    <!--
+    android:icon="@drawable/ic_actio_home"
+        -->
+    <!--
+<item android:id="@+id/menu_login"
+    android:title="로그인"
+    app:showAsAction="always" />
+    -->
+
 </menu>
+

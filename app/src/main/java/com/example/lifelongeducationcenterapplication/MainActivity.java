@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.util.Linkify;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,10 +64,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.google.android.gms.cloudmessaging.CloudMessagingReceiver;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.iid.FirebaseInstanceIdReceiver;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "token";
     TextView DVtxtAccount, DVtxtIntro, DVtxtBank, DVtxtEdu, DVtxtCommunity, DVtxtMypage; //메뉴목록
     TextView DVtxtAccount_1, DVtxtAccount_2;//로그인, 회원가입
     TextView DVtxtIntro_1, DVtxtIntro_2, DVtxtIntro_3, DVtxtIntro_4, DVtxtIntro_5;//인사말씀, 발전과정 및 연혁, 교육목적 및 목표, 조직구성, 찾아오시는 길
@@ -75,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     TextView DVtxtMypage_1, DVtxtMypage_2, DVtxtMypage_3, DVtxtMypage_4;//회원정보관리, 수강내역, 성적확인, 1:1 질문
 
     TextView link1, link2;
-
+    Button btNotice;
     TextView mainNotice, mainLecture;
     TextView mainLectureTitle2, mainLectureDivision2, mainLectureDate2, mainLectureText;
 
@@ -105,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     MyAdapter adapter;
     MainLectureAdapter mainLectureAdapter; //어댑터
     RecommendedLecture recommendedLecture;
-
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawerLayout);
         drawerView = findViewById(R.id.drawerView);
-
+        btNotice = findViewById(R.id.notice_addbutton);
         DVtxtAccount = findViewById(R.id.DVtxtAccount);
         DVtxtIntro = findViewById(R.id.DVtxtIntro);
         DVtxtBank = findViewById(R.id.DVtxtBank);
@@ -130,9 +140,8 @@ public class MainActivity extends AppCompatActivity {
         login = (TextView) findViewById(R.id.login);
         name = (TextView) findViewById(R.id.name);
         mainLectureText = (TextView) findViewById(R.id.mainLecture);
-
+        //firebase();  파이어베이스
         txtfindviewid();//id정의
-        //listset();
         clickTitleMenu();//메뉴설정
         menuChange();//메뉴이동
 
@@ -180,13 +189,11 @@ public class MainActivity extends AppCompatActivity {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
-           // recommendedLecture = new RecommendedLecture();
-
         } else {
             name.setText(StaticId.name);
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
-           // mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
+
 
         }
 
@@ -207,6 +214,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btNotice.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Community_NoticeActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 
@@ -216,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
-        Call<List<Notice>> call2 = rs2.notice();
+        Call<List<Notice>> call2 = rs2.mainNotice();
         call2.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<List<Notice>> call, Response<List<Notice>> response) {
@@ -224,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                     notices = response.body();
                     adapter.notifyDataSetChanged();
                     listNotice.setAdapter(adapter);
+
                 }
 
             }
@@ -282,21 +298,20 @@ public class MainActivity extends AppCompatActivity {
         StaticId.name = null;
     }
 
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
                 drawerLayout.openDrawer(drawerView);
                 break;
+
         }
+
         return super.onOptionsItemSelected(item);
     }
 
+
+    // 공지사항
     class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -333,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 수강 강좌
     class MainLectureAdapter extends BaseAdapter {
 
         @Override
@@ -352,20 +368,30 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture, null);
+            convertView = getLayoutInflater().inflate(R.layout.item_mainlecture2, null);
             Enrollment enrollment = enrollments.get(position);
             System.out.println("확인함 로그인" + enrollment.getName());
-            mainLecture = (TextView) convertView.findViewById(R.id.mainLectureName);
-            if (enrollment.getName() != null) {
-                mainLecture.setText("・" + enrollment.getName());
+
+            linearLayout = (LinearLayout) convertView.findViewById(R.id.main);
+            mainLectureTitle2 = (TextView) convertView.findViewById(R.id.mainLectureName);
+            mainLectureDivision2 = (TextView) convertView.findViewById(R.id.mainLectureCoursename);
+            mainLectureDate2 = (TextView) convertView.findViewById(R.id.mainLecturePeriod);
+
+
+            mainLectureTitle2.setText(enrollment.getName());
+            mainLectureDivision2.setText(enrollment.getDivision());
+            mainLectureDate2.setText(enrollment.getStartDate() + "~" + enrollment.getEndDate());
+
+            if (enrollment.getName().isEmpty()) {
+                mainLectureTitle2.setText("・ 수강 신청한 강좌가 없습니다.");
             }else{
-                // ??
-                mainLecture.setText("・ 수강 신청한 강좌가 없습니다.");
+                mainLectureTitle2.setText("・" + enrollment.getName());
             }
 
-            mainLecture.setOnClickListener(new View.OnClickListener() {
+            linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
                     intent.putExtra("number", enrollment.getSubjectnumber());
                     intent.putExtra("info", "myPage");
@@ -378,6 +404,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 추천강좌
     class RecommendedLecture extends BaseAdapter {
 
         @Override
@@ -399,6 +426,7 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.item_mainlecture2, null);
             Lecture lecture = lectures.get(position);
+            linearLayout = (LinearLayout) convertView.findViewById(R.id.main);
             mainLectureTitle2 = (TextView) convertView.findViewById(R.id.mainLectureName);
             mainLectureDivision2 = (TextView) convertView.findViewById(R.id.mainLectureCoursename);
             mainLectureDate2 = (TextView) convertView.findViewById(R.id.mainLecturePeriod);
@@ -407,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
             mainLectureDivision2.setText(lecture.getDivision());
             mainLectureDate2.setText(lecture.getStartDate() + "~" + lecture.getEndDate());
 
-            mainLectureTitle2.setOnClickListener(new View.OnClickListener() {
+            linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), LearnmoreaboutforeignlanguagecoursesActivity.class);
@@ -421,7 +449,29 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
+    /* 파이어베이스 토큰
+    public void firebase(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e(TAG,"Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
 
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        String msg = getString(R.string.msg_token_fmt, token);
+                        Log.d(TAG, msg);
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+     */
 
     public void txtfindviewid() {
         DVtxtAccount_1 = findViewById(R.id.DVtxtAccount_1);
@@ -575,8 +625,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void menuChange() {//메뉴이동
-
-
         Button.OnClickListener mClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -752,16 +800,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.DVtxtCommunity_3:
                         //Toast.makeText(MainActivity.this,"5-3번",Toast.LENGTH_SHORT).show();
+
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
-                        startActivityForResult(intent, 22);
+                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
+                        startActivityForResult(intent, 23);
+                        drawerLayout.closeDrawer(drawerView);
                         //커뮤니티 갤러리
                         break;
                     case R.id.DVtxtCommunity_4:
                         //Toast.makeText(MainActivity.this,"5-4번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, Community_FormattingRoomActivity.class);
-                        startActivityForResult(intent, 23);
+                        intent = new Intent(MainActivity.this, Community_GalleryActivity.class);
+                        startActivityForResult(intent, 22);
                         //커뮤니티 서식 자료실
                         break;
                     case R.id.DVtxtMypage_1:

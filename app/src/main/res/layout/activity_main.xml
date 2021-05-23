@@ -18,34 +18,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="343dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5sp"
-                android:background="#D1C2C2"
-                android:gravity="right"
-                android:padding="5sp"
-                android:text=""
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5sp"
-                android:background="#D1C2C2"
-                android:clickable="true"
-                android:gravity="right"
-                android:padding="5sp"
-                android:textSize="11sp" />
-        </LinearLayout>
-
         <ImageView
             android:id="@+id/mainBackGroundImage"
             android:layout_width="match_parent"
@@ -57,7 +29,39 @@
         -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150sp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#D1C2C2"
+                android:gravity="right"
+                android:padding="5sp"
+                android:text=""
+                android:textColor="#000111"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:layout_marginLeft="10sp"
+                android:background="@drawable/text_round"
+                android:clickable="true"
+                android:gravity="right"
+                android:padding="10sp"
+                android:textColor="#F6E7E7"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170sp"
             android:layout_margin="10sp"
             android:orientation="vertical">
 
@@ -68,7 +72,8 @@
                 android:padding="5sp"
                 android:text="수강 강좌"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textColor="#0B0B0B"
+                android:fontFamily="@font/nanumbarunpenb" />
 
             <ListView
                 android:id="@+id/listLecture"
@@ -86,13 +91,33 @@
             android:layout_margin="10sp"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5sp"
-                android:text="공지사항"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:text="공지사항"
+                    android:textSize="17sp"
+                    android:textColor="#0B0B0B"
+                    android:fontFamily="@font/nanumbarunpenb" />
+
+                <Button
+                    android:id="@+id/notice_addbutton"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_add"
+                    android:clickable="true"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    app:backgroundTint="#636E81" />
+
+            </LinearLayout>
 
             <ListView
                 android:id="@+id/listNoticed"

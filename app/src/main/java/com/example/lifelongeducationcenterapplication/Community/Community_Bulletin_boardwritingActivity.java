@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +36,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
     // 글 쓰기
     // intent 문으로 어디서 오는지 확인
+    TextView textview;
     EditText title, content;
     Button btSave;
 
@@ -58,6 +61,10 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         secret = intent.getExtras().getString("secret"); /*String형*/
         info = intent.getExtras().getString("info"); /*String형*/
 
+        //스크롤
+        textview = findViewById(R.id.write_content_tv);
+        textview.setMovementMethod(new ScrollingMovementMethod());
+
         setRetrofit();
         findId();
         clickBtSave();
@@ -74,11 +81,14 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
 
     public void findId(){
         title = (EditText) findViewById(R.id.write_title_tv);

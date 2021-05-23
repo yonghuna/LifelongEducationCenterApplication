@@ -3,12 +3,15 @@
     package="com.example.lifelongeducationcenterapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.android.vending.BILLING" />
+
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
 
     <application
         android:allowBackup="true"
@@ -19,11 +22,14 @@
         android:theme="@style/Theme.LifelongEducationCenterApplication"
         android:usesCleartextTraffic="true">
 
-        <service
-            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
-            android:enabled="true" />
 
-        <activity android:name=".Community.Community_NoticeContentActivity"></activity>
+
+        <activity android:name=".Community.Community_GalleryDetails"></activity>
+        <activity android:name=".Community.Community_NoticeContentActivity" />
+        <activity android:name=".Community.Community_FormattingRoomActivity" />
+        <activity android:name=".Community.Community_FormattingRoomContentActivity" />
+
+
         <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation3Activity" />
         <activity android:name=".Creditbankingsystem.CreditbanksystemMajorInformation2Activity" />
         <activity android:name=".Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity" />
@@ -45,7 +51,7 @@
         <activity android:name=".Intro.Organizational" />
         <activity android:name=".Intro.EducationalPurpose" />
         <activity android:name=".Community.Community_NoticeActivity" />
-        <activity android:name=".Community.Community_FormattingRoomActivity" />
+
         <activity android:name=".Community.Community_GalleryActivity" />
         <activity android:name=".Community.Community_QuestionAndAnswerActivity" />
         <activity android:name=".WebViewActivity" />
@@ -54,13 +60,11 @@
         <activity android:name=".MyPage.MyPage_MemberInformationManagementActivity" />
         <activity android:name=".MyPage.MyPage_QuestionAndAnswerActivity" />
         <activity android:name=".MyPage.MyPage_MemberInfomation_Bank_Activity" />
-        <activity android:name=".MyPage.MyPage_Payment"/>
+        <activity android:name=".MyPage.MyPage_Payment" />
         <activity android:name=".Intro.SearchMap" />
-        <activity android:name=".Community.Community_Bulletin_boardwritingActivity"/>
-        <activity android:name=".Community.Community_QAmodifyAndremoveActivity"/>
-        <activity android:name=".Community.Community_DifferentMember"/>
-
-
+        <activity android:name=".Community.Community_Bulletin_boardwritingActivity" />
+        <activity android:name=".Community.Community_QAmodifyAndremoveActivity" />
+        <activity android:name=".Community.Community_DifferentMember" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,6 +73,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".Account.Login" />
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
     </application>
 
 </manifest>

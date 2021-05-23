@@ -4,6 +4,7 @@ import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,7 +37,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class Community_DifferentMember extends AppCompatActivity {
     Button btList, btModify, btRemove;
-    TextView num, writer, time, title, content, time2, comment;
+    TextView num, writer, time, title, content, time2, comment,textview;
     Notice notice;
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
@@ -65,7 +66,9 @@ public class Community_DifferentMember extends AppCompatActivity {
         findId();
         setRetrofit();
 
-
+        //스크롤
+        textview = findViewById(R.id.write_content_tv);
+        textview.setMovementMethod(new ScrollingMovementMethod());
         // 본인일 경우
         btRemove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,13 +118,7 @@ public class Community_DifferentMember extends AppCompatActivity {
                 }
             }
         });
-        btList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               finish();
 
-            }
-        });
 
 
     }
@@ -135,17 +132,20 @@ public class Community_DifferentMember extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     public void findId() {
         title = (TextView) findViewById(R.id.write_title_tv);
         content = (TextView) findViewById(R.id.write_content_tv);
         btModify = (Button) findViewById(R.id.modfiy);
         btRemove = (Button) findViewById(R.id.remove);
-        btList = (Button) findViewById(R.id.list);
+
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);

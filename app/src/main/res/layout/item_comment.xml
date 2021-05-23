@@ -27,18 +27,22 @@
             android:layout_weight="1"
             android:layout_marginLeft="16dp"
             android:textSize="17sp"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="날짜" />
 
     </LinearLayout>
         <TextView
-        android:id="@+id/editTextTextcoment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoSizeTextType="uniform"
-        android:textSize="17sp"
-        android:layout_marginLeft="16dp"
-        android:hint="댓글 내용작성"
+            android:id="@+id/editTextTextcoment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:textSize="17sp"
+            android:layout_marginLeft="16dp"
+            android:hint="댓글 내용작성"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
-        android:inputType="textPersonName" />
+            android:inputType="textPersonName" />
 </LinearLayout>

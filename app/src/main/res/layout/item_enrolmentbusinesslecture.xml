@@ -17,6 +17,8 @@
         android:background="@drawable/ic_enrolment_backgroung"
         android:hint="강좌명"
         android:fontFamily="@font/nanumbarunpenb"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -32,6 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="교육기간" />
 
         <TextView
@@ -39,12 +43,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="교수진" />
 
         <TextView
             android:id="@+id/EnrolmentBusinessLectureTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
             android:hint="수업시간" />
 
@@ -52,6 +60,8 @@
             android:id="@+id/EnrolmentBusinessLectureStudyfee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
             android:hint="학습비" />
 
@@ -76,8 +86,8 @@
                 android:id="@+id/EnrolmentBusinessEnrolment2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginLeft="10sp"
                 android:text="상세보기"
                 android:fontFamily="@font/nanumbarunpenb"
                 app:backgroundTint="#43A047" />

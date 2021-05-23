@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:ignore="ExtraText"><![CDATA[
     tools:context=".Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity">
 
@@ -60,6 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="⦁ 대학을 통해 지역사회와 국가, 세계 인류에 기여 하고자 함 " />
                 </LinearLayout>
@@ -90,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="⦁ 국제화·개방화 시대에 따라 날로 변화되어 가고 있는 사회에      능동적으로 대처하고, 지역사회 주민들에게 평생교육 기회를 제공함으로써 삶의 질을 향상시킴 " />
 
                     <TextView
@@ -97,6 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="⦁ 지역사회 봉사를 통한 지역사회와의 유대강화 및 대학 본래 목적 중 하나인 사회봉사에 충실" />
                 </LinearLayout>
@@ -125,6 +129,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="⦁ 건학 이념을 바탕으로 국가와 사회를 위해 봉사할 수 있는 인성교육" />
 
@@ -134,6 +139,7 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="⦁ 사회에서 필요로 하는 실용적인 교육 뿐만 아니라 자기개발의 노력과 윤택한 사회생활을 도모하며 건강한 신체와 건전한 정신을 가질 수 있는 국민교육" />
                 </LinearLayout>
             </LinearLayout>

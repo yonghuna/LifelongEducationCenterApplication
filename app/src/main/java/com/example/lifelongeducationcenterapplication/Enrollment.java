@@ -37,6 +37,40 @@ public class Enrollment {
     @SerializedName("studyfee")
     String studyfee;
 
+    @SerializedName("division")
+    public String division;
+
+    @SerializedName("startdate")
+    public String startDate;
+
+    @SerializedName("enddate")
+    public  String endDate;
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+
 
     public String getStudyfee() {
         return studyfee;

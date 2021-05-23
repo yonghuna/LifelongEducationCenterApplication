@@ -16,6 +16,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_enrolment_backgroung"
         android:hint="강좌명"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:fontFamily="@font/nanumbarunpenb"
         android:textSize="20sp" />
 
@@ -24,6 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_login"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:orientation="vertical"
         android:padding="10sp">
 
@@ -32,12 +36,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="교육기간" />
 
         <TextView
             android:id="@+id/AsanCityLinkageProcessLectureProfessor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
             android:hint="교수진" />
 
@@ -46,12 +54,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="수업시간" />
 
         <TextView
             android:id="@+id/AsanCityLinkageProcessLectureStudyfee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
             android:hint="학습비" />
 

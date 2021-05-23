@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:ignore="ExtraText"><![CDATA[
     tools:context=".Generalcurriculum.GeneralEducationCourseRecruitmentGuideActivity">
 
@@ -32,6 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="일반경비원 신임교육"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="#00897B"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="22sp" />
@@ -40,6 +46,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="180dp"
                 android:layout_height="82dp"
+                android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/guardguidevisual" />
 
             <TextView
@@ -47,6 +54,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="일반경비원 신임교육이란?"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="#0B0B0B"
                 android:textSize="18sp" />
 
@@ -54,6 +66,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#737272"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:text="경찰청고시 제2020-6호, 경비업법 제13조제1항, 동법 제27조제2항에 의거 실시되는 일반경비원 신임교육은 경비원의 자질 향상과 민간경비업의 건전한 육성을 위해 지정된 교육과정을 경비업무 종사자는 필수로 이수하여야 합니다." />
 
             <TextView
@@ -62,11 +80,22 @@
                 android:text="교육대상"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#737272"
+                android:layout_marginRight="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="1. 경비원 경력이 없는 자로서 일반경비원으로 채용된 사람" />
 
@@ -74,12 +103,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#737272"
+                android:layout_marginRight="10dp"
                 android:text="2. 과거 일반경비원 신임교육을 받은 후 3년 이상의 기간 동안 경비업무에 종사하지 아니하다가 일반경비원으로 채용된 사람" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="3. 일반경비원 채용 전 신임교육을 받고 싶은 사람" />
 
             <TextView
@@ -88,30 +129,59 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="교육 면제자"
                 android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="1. 「경찰공무원법」에 따른 경찰공무원으로 근무한 경력이 있는 사람" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:textColor="#737272"
                 android:text="2. 「대통령 등의 경호에 관한 법률」에 따른 경호공무원 또는 별정직공무원으로 근무한 경력이 있는 사람" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="3. 「군인사법」에 따른 부사관 이상으로 근무한 경력이 있는 사람" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="4. 경비지도사 자격이 있는 사람" />
 
             <TextView
@@ -119,6 +189,11 @@
                 android:layout_height="wrap_content"
                 android:text="교육비"
                 android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp" />
 
@@ -126,18 +201,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="12만원[교재비, 식비 미포함]" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="입금계좌 [국민은행] 484637-04-004901 예금주: 선문대학교" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="★신청자 이름으로 입금★" />
 
             <TextView
@@ -146,12 +239,23 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="교육신청"
                 android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="홈페이지 공지사항 또는 커뮤니티- 서식자료실 「일반경비원 신임교육 입교신청서」 와 개인정보동의서 작성 후 이메일(edu@sunmoon.ac.kr), 팩스(041-530-2987) 또는 방문, 전화 접수를 통해 신청" />
 
             <TextView
@@ -160,6 +264,11 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="교육일정"
                 android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:textSize="18sp" />
 
             <TableLayout
@@ -182,6 +291,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="교육차수"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"/>
                 </TableRow>
 
@@ -193,12 +304,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="02.16~02.18(화~목)" />
                 </TableRow>
 
@@ -210,12 +325,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="2" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="02.26~02.28(금~일)" />
                 </TableRow>
 
@@ -227,12 +346,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="3" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="03.11~03.12(목~토)" />
                 </TableRow>
 
@@ -244,12 +367,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="03.18~03.20(목~토)" />
                 </TableRow>
 
@@ -261,11 +388,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="5" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="03.26~03.28(금~일)" />
                 </TableRow>
@@ -277,6 +408,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="6" />
 
@@ -284,6 +417,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4월 8일~10일(목~토)" />
                 </TableRow>
 
@@ -295,12 +430,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="7" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4월 22일~24일(목~토)" />
                 </TableRow>
 
@@ -312,12 +451,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="8" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="5월 13일~15일(목~토)" />
                 </TableRow>
 
@@ -328,6 +471,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:text="9" />
 
@@ -335,6 +480,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#737272"
                         android:text="5월 27일~29일(목~토)" />
                 </TableRow>
             </TableLayout>
@@ -342,6 +489,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="위 교육일정은 내부사정 및 강사일정으로 변경될 수 있음" />
 
@@ -349,12 +502,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="이후 일정은 추후 안내 예정" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="민간경비업체의 요청이 있을 경우 추가 개설 가능함" />
 
 

@@ -89,12 +89,14 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     public void dbSend() {
         //회원가입 유저 정보 디비 전송
         retrofit1 = new Retrofit.Builder()

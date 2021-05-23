@@ -18,6 +18,11 @@ public interface RemoteService {
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Notice>> notice();
 
+    // 메인 공지사항
+    @GET("mainNotice.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> mainNotice();
+
     // 공지사항 내용
     @GET("noticeEnter.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -28,7 +33,32 @@ public interface RemoteService {
     @GET("lecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<List<Lecture>> lecture(
-            @Query("division") String division);//수강목록
+            @Query("division") String division);//비 로그인시 수강목록
+
+    // 로그인시 수강목록
+    @GET("registerList.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Lecture>> registerList(
+            @Query("division") String division,
+            @Query("id") String id);// 로그인시 수강목록
+
+    // 갤러리 글 목록
+    @GET("gallery.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> gallery();
+
+    // 갤러리 내용
+    @GET("galleryContent.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> galleryContent(
+            @Query("number") int number);
+
+
+    // 갤러리 리스트
+    @GET("format.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Notice>> format();
+
 
     // q&a 글 선택시
     @GET("qnaContent.jsp")
@@ -42,7 +72,50 @@ public interface RemoteService {
     Call<Enrollment> payment(
             @Query("number") int number);//q&a 글 선택시
 
-    
+
+
+    //이미지 읽기
+    @GET("imageGet.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Image>> imageGet(
+            @Query("number") int number);
+    //이미지 읽기
+
+
+    //이미지 첨부파일 가져오기
+    @GET("gallery_attachment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Attachment>> imageFile(
+            @Query("number") int number);
+    //이미지 첨부파일 가져오기
+
+
+
+    //공지사항 첨부파일 가져오기
+    @GET("notice_attachment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Attachment>> noticeAttachment(
+            @Query("number") int number);
+    //공지사항 첨부파일 가져오기
+
+
+
+    //서식자료실 첨부파일 가져오기
+    @GET("format_attachment.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<List<Attachment>> formatAttachment(
+            @Query("number") int number);
+    //서식자료실 첨부파일 가져오기
+
+    // 서식자료실 내용
+    @GET("format_content.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<Notice> format_attachment(
+            @Query("number") int number);
+
+
+
+
     // 비로그인 추천 강의
     @GET("mainLecture.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -111,9 +184,17 @@ public interface RemoteService {
     Call<CommunicationResult> loginCheck(
             @Field("name") String name,
             @Field("birth") String birth,
-            @Field("sex") String sex); //로그인
+            @Field("sex") String sex);
 
-    //일반 과정 회원정보 수정
+
+    //로그인 체크
+    @FormUrlEncoded
+    @POST("registerList.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<CommunicationResult> registerList(
+            @Field("number") int number,
+            @Field("id") String id);
+
 
 
 
@@ -127,7 +208,7 @@ public interface RemoteService {
             @Field("addressnumber") String addressnumber,
             @Field("address") String address,
             @Field("detailedaddress") String detailedaddress,
-            @Field("password") String password); //로그인
+            @Field("password") String password);
 
     //학습은행제 과정 회원정보 수정
     @FormUrlEncoded
@@ -144,7 +225,7 @@ public interface RemoteService {
             @Field("education") String education,
             @Field("school") String school,
             @Field("major") String major,
-            @Field("admissionmajor") String admissionmajor); //로그인
+            @Field("admissionmajor") String admissionmajor);
 
     //수강신청
     @FormUrlEncoded
@@ -216,6 +297,7 @@ public interface RemoteService {
                             @Field("detailedAddress") String detailedAddress,
                             @Field("birthday") String birthday,
                             @Field("name") String name,
-                            @Field("sex") String sex); //회원가입
+                            @Field("sex") String sex,
+                            @Field("token") String token); //회원가입
 
 }

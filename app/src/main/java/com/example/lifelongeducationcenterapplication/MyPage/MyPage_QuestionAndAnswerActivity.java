@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,6 +61,8 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
         rs1 = retrofit1.create(RemoteService.class);
         adapter = new MyAdapter();
 
+
+
         btWrite.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (StaticId.id == null || StaticId.id == "") {
@@ -86,12 +89,14 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     protected void onResume() {
         Call<List<Notice>> call1 = rs1.secret(StaticId.id);//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행

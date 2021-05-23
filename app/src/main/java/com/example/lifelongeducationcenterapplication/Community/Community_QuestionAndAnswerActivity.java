@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +45,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     RemoteService rs1;//DB를 위한 인터페이스
     FloatingActionButton btWrite;
     MyAdapter adapter;
-
+    LinearLayout click;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,11 +85,14 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override   //액셔바 홈버튼
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+     */
     protected void onResume() {
         Call<List<Notice>> call1 = rs1.notSecret();//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
@@ -132,7 +136,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.item_community_question_and_answerlist, null);
 
             Notice notice = notices.get(position);
-
+            click = (LinearLayout) convertView.findViewById(R.id.click);
             noticeNumber = (TextView) convertView.findViewById(R.id.QandACountlecture); // 1 , 2 , 3
             noticeDate = (TextView) convertView.findViewById(R.id.QandADateCreatedlecture); // 날짜
             noticeWriter = (TextView) convertView.findViewById(R.id.QandAWriterlecture); // 글쓴이
@@ -148,7 +152,9 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             noticeNumber.setText(Integer.toString(notice.getNumber()));
 
 
-            noticeTitle.setOnClickListener(new View.OnClickListener() {
+
+
+            click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

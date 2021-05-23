@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:background="#FFFFFF"
     android:orientation="vertical">
     <!--결제 상세보기 액티비티-->
 
@@ -27,6 +28,8 @@
             android:layout_weight="2"
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18dp"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="수강자이름" />
 
     </LinearLayout>
@@ -52,6 +55,8 @@
             android:layout_weight="2"
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18dp"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="강좌명" />
     </LinearLayout>
 
@@ -76,6 +81,8 @@
             android:layout_weight="2"
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18dp"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="결제금액" />
     </LinearLayout>
 
@@ -100,6 +107,8 @@
             android:layout_weight="2"
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18dp"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:hint="결제번호" />
     </LinearLayout>
 
