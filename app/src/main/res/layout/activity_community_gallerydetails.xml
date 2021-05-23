@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Community.Community_GalleryDetails">
 
     <LinearLayout
@@ -23,6 +24,8 @@
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18sp"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:text="번호" />
 
         <TextView
@@ -31,6 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:textSize="18sp"
             android:text="작성자" />
 
@@ -42,6 +47,8 @@
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18sp"
             android:gravity="right"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:text="날짜" />
     </LinearLayout>
 
@@ -55,6 +62,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/border_text"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:layout_marginTop="10dp" />
 
     <LinearLayout
@@ -71,6 +80,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumbarunpenb"
             android:hint="첨부파일"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:textSize="17sp" />
     </LinearLayout>
 

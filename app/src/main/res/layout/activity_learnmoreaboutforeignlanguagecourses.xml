@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Generalcurriculum.LearnmoreaboutforeignlanguagecoursesActivity">
 
     <!--
@@ -66,6 +67,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_enrolment_backgroung"
                         android:hint="강좌명"
+                        android:textColor="#0B0B0B"
+                        android:textColorHint="#B6B3B3"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textSize="20sp" />
 
@@ -82,12 +85,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/nanumbarunpenb"
+                            android:textColor="#0B0B0B"
+                            android:textColorHint="#B6B3B3"
                             android:hint="교육기간" />
 
                         <TextView
                             android:id="@+id/detailsforeignlanguagecourseTime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="#0B0B0B"
+                            android:textColorHint="#B6B3B3"
                             android:fontFamily="@font/nanumbarunpenb"
                             android:hint="교육시간" />
 
@@ -95,6 +102,8 @@
                             android:id="@+id/detailsforeignlanguagecourseStudyfee"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="#0B0B0B"
+                            android:textColorHint="#B6B3B3"
                             android:fontFamily="@font/nanumbarunpenb"
                             android:hint="수강료" />
 
@@ -123,6 +132,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:hint="강사 소개"
+                        android:textColor="#0B0B0B"
+                        android:textColorHint="#B6B3B3"
                         android:padding="10sp" />
 
                 </LinearLayout>
@@ -148,6 +159,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:hint="강의 소개"
+                        android:textColor="#0B0B0B"
+                        android:textColorHint="#B6B3B3"
                         android:padding="10sp" />
 
                 </LinearLayout>

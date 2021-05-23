@@ -72,6 +72,7 @@
                 android:padding="5sp"
                 android:text="수강 강좌"
                 android:textSize="17sp"
+                android:textColor="#0B0B0B"
                 android:fontFamily="@font/nanumbarunpenb" />
 
             <ListView
@@ -102,6 +103,7 @@
                     android:padding="5sp"
                     android:text="공지사항"
                     android:textSize="17sp"
+                    android:textColor="#0B0B0B"
                     android:fontFamily="@font/nanumbarunpenb" />
 
                 <Button

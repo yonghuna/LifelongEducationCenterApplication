@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="강좌명"
+        android:textColor="#7E6C6C"
         android:fontFamily="@font/nanumbarunpenb"
         android:textSize="20sp"/>
 
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#7E6C6C"
             android:hint="과정이름" />
 
         <TextView
@@ -31,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:textColor="#7E6C6C"
             android:fontFamily="@font/nanumbarunpenb"
             android:hint="교육기간" />
 

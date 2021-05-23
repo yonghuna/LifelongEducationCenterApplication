@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Creditbankingsystem.CreditbanksystemActivity">
 
     <!--
@@ -50,6 +51,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="'학점은행제'는 학교에서뿐 아니라 학교 밖에서 이루어지는 다양한 형태의 학습 및 자격을 학점으로 인정받을 수 있도록 하고, 학점이 누적되어 일정 기준을 충족하면 학위 취득을 가능하게 함으로써 궁극적으로 열린 교육사회, 평생학습사회를 구현하기 위한 제도이다." />
 
                 <TextView
@@ -74,6 +76,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="1. 학점은행제 학습자로 등록 학점을 인정 관리하기 위하여 신청" />
 
                 <TextView
@@ -84,6 +87,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="(학점인정신청과 동시에 하거나 혹은 신청 이전에 처음 한번만 등록)" />
 
                 <TextView
@@ -95,6 +99,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="2. 구비서류 : 최종학력증명서 및 기타 제출서류" />
 
                 <TextView
@@ -106,6 +111,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="3. 학력증명서 :" />
 
                 <TextView
@@ -116,6 +122,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 고등학교졸업자 : 고등학교 졸업증명서 2부" />
 
                 <TextView
@@ -126,6 +133,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 검정고시출신자 : 검정고시 합격증 2부" />
 
                 <TextView
@@ -136,6 +144,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 대학졸업자 : 졸업증명서 2부" />
 
                 <TextView
@@ -146,6 +155,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 대학중퇴자 : 제적증명서 2부" />
 
                 <TextView
@@ -156,6 +166,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 외국인 : 고등학교 이상 공증된 학력증명서와 번역본 각 1부." />
 
                 <TextView
@@ -167,6 +178,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="4. 기타제출서류" />
 
                 <TextView
@@ -178,6 +190,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 주민등록등본(초본) 2부" />
 
                 <TextView
@@ -188,6 +201,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="- 사진(반명함판) 2부" />
 
                 <TextView
@@ -199,6 +213,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
+                    android:textColor="#737272"
                     android:text="5. 신청기간" />
             </LinearLayout>
 
@@ -224,6 +239,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="구분" />
 
                     <TextView
@@ -231,6 +247,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="교육훈련기간 단체접수" />
                 </LinearLayout>
 
@@ -245,6 +262,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="1/4분기" />
 
                     <TextView
@@ -252,6 +270,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="12.15 ~ 1.15" />
                 </LinearLayout>
 
@@ -266,6 +285,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="2/4분기" />
 
                     <TextView
@@ -273,6 +293,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4.1 ~ 4.20	" />
                 </LinearLayout>
 
@@ -287,6 +308,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="3/4분기" />
 
                     <TextView
@@ -294,6 +316,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="6.15 ~ 7.15	" />
                 </LinearLayout>
 
@@ -308,6 +331,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4/4분기" />
 
                     <TextView
@@ -315,6 +339,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="10.1 ~ 10.20" />
                 </LinearLayout>
             </LinearLayout>
@@ -328,6 +353,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="6. 수수료 : 4,000원" />
 
             <TextView
@@ -352,6 +378,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="1. 이수학점을 학점은행제 과정으로 등록하여 인정받기 위하여 신청" />
 
             <TextView
@@ -363,6 +390,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="2. 취득학점별 증빙서류 :" />
 
             <TextView
@@ -372,6 +400,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="- 학점인정신청서 1부" />
 
@@ -379,6 +408,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:textColor="#737272"
                 android:text="- 성적증명서 및 졸업(제적)증명서 각 1부 " />
 
             <TextView
@@ -390,6 +420,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="3. 대상 :" />
 
             <TextView
@@ -401,6 +432,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="전문대학 졸업자, 대학중퇴자, 학점은행제과목 이수자, 시간제 이수자등" />
 
             <TextView
@@ -412,6 +444,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="4. 방법 :" />
 
             <TextView
@@ -423,6 +456,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="평생교육진흥원 학점은행 홈페이지 (http://www.cb.or.kr) 에 접속하여 과목명, 성적, 학점등을 입력하여야 함" />
 
             <TextView
@@ -434,6 +468,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="5. 신청기간" />
 
             <LinearLayout
@@ -444,6 +479,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:background="@drawable/border_login"
                 android:orientation="horizontal">
 
@@ -458,6 +494,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="구분" />
 
                     <TextView
@@ -465,6 +502,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="교육훈련기간 단체접수" />
                 </LinearLayout>
 
@@ -479,6 +517,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="1/4분기" />
 
                     <TextView
@@ -486,6 +525,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="12.15 ~ 1.15" />
                 </LinearLayout>
 
@@ -500,6 +540,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="2/4분기" />
 
                     <TextView
@@ -507,6 +548,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4.1 ~ 4.20	" />
                 </LinearLayout>
 
@@ -521,6 +563,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="3/4분기" />
 
                     <TextView
@@ -528,6 +571,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="6.15 ~ 7.15	" />
                 </LinearLayout>
 
@@ -542,6 +586,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="4/4분기" />
 
                     <TextView
@@ -549,6 +594,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="10.1 ~ 10.20" />
                 </LinearLayout>
             </LinearLayout>
@@ -562,6 +608,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:textColor="#737272"
                 android:text="6. 수수료 : 1학점당 1,000원" />
 
             <TextView
@@ -586,6 +633,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="1. 평가인정 학습과목 이수" />
 
             <TextView
@@ -596,6 +644,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
+                android:textColor="#737272"
                 android:layout_marginRight="10dp"
                 android:text="교육과학기술부 장관으로 부터 평가인정 받은 학습과목을 이수하는 것으로서 대학(교) 부설평생(사회)교육원, 직업훈련기관, 전문대학 전공심화과정 및 특별과정, 학원, 평생교육시설, 무형문화재 전수시설, 원격시설등에서 교육을 받을 수 있음." />
 
@@ -608,6 +657,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="2. 자격취득" />
 
             <TextView
@@ -619,6 +669,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="평생교육원장이 학점인정이 가능하다고 고시한 자격을 취득하였을 경우 해당하는 학점을 인정 받을 수 있으며, 국가자격과 국가공인 민간자격에 한정하고 있음." />
 
             <TextView
@@ -630,6 +681,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="3. 독학학위제 과정" />
 
             <TextView
@@ -641,6 +693,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="독학학위제를 통해서 시험을 합격하거나 시험면제교육과정을 이수하였을 경우 기준에 따라 학점인정을 받을 수 있음." />
 
             <TextView
@@ -652,6 +705,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="4. 학점인정 대상학교" />
 
             <TextView
@@ -663,6 +717,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="전문대학 중퇴 및 졸업, 4년제 대학교 중퇴, 학력인정 각종 학교 졸업 및 중퇴하기 이전에 해당 기관에서 이수한 학점을 인정 받을 수 있음." />
 
             <TextView
@@ -674,6 +729,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="5. 시간제 등록" />
 
             <TextView
@@ -685,6 +741,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="고등교육법에 의거하여 각 대학(교)에서 자율적으로 시행하고 있는 시간제 등록 제도를 통해 학습과목을 이수하였을 경우 학점인정을 받을수 있음." />
 
             <TextView
@@ -696,6 +753,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="6. 중요무형문화재" />
 
             <TextView
@@ -707,6 +765,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#737272"
                 android:text="문화재보호법에 의거한 중요무형문화재 보유자와 그 전수자의 전수교육 경험을 학점으로 인정 받을 수 있음." />
 
             <TextView
@@ -744,6 +803,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="구분" />
 
                     <TextView
@@ -751,6 +811,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="학사" />
 
                     <TextView
@@ -758,6 +819,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="타전공" />
                 </LinearLayout>
 
@@ -772,6 +834,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="교양" />
 
                     <TextView
@@ -779,6 +842,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="30학점 이상" />
 
                     <TextView
@@ -786,6 +850,7 @@
                         android:layout_height="match_parent"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="-" />
                 </LinearLayout>
 
@@ -800,6 +865,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="전공" />
 
                     <TextView
@@ -807,6 +873,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="60학점 이상" />
 
                     <TextView
@@ -814,6 +881,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="48학점 이상 (전공필수 포함)" />
                 </LinearLayout>
 
@@ -828,6 +896,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="총이수학점" />
 
                     <TextView
@@ -835,6 +904,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:gravity="center"
+                        android:textColor="#737272"
                         android:text="140학점 이상" />
                 </LinearLayout>
             </LinearLayout>
@@ -858,6 +928,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="7"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="구분" />
 
                     <TextView
@@ -865,6 +936,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="참고" />
                 </TableRow>
 
@@ -876,24 +948,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="1년 이수가능 최대학점" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="학기당 (24학점" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="1년 (42학점)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="*평가인정학습과목 (학점은행제과목), 시간제등록, 독학사 시험면제교육과정, 중퇴한 전적대학 포함" />
                 </TableRow>
 
@@ -905,24 +981,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="학점인정을 위한 필수기준" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="성적 (60점 이상)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="출석 (80% 이상)" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="*근거 : 학점인정 등에 관한 법률 시행규칙 제 5조 1 항" />
                 </TableRow>
 
@@ -934,12 +1014,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="1개 교육기관에서 이수 가능 학점" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="최대 105학점 (초과불가)" />
                 </TableRow>
 
@@ -952,6 +1034,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="대학총장명의 학위수여방법" />
 
                     <TextView
@@ -959,6 +1042,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#737272"
                         android:text="84학점(이상)" />
 
                     <TextView
@@ -967,6 +1051,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:layout_weight="1"
+                        android:textColor="#737272"
                         android:text="*학사학위(타전공제외)" />
                 </TableRow>
             </TableLayout>
