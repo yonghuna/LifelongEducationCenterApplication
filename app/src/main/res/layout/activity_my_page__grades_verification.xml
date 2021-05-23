@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".MyPage.MyPage_GradesVerificationActivity">
 
     <!--   마이페이지 성적확인
@@ -41,11 +42,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:text="연도/학기" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="강좌명" />
@@ -55,6 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:text="결과" />
 
     </LinearLayout>

@@ -14,6 +14,7 @@
         android:clickable="true"
         android:fontFamily="@font/nanumbarunpenb"
         android:hint="테스트"
+        android:textColor="#0B0B0B"
         android:paddingLeft="5dp"
         android:textSize="18sp" />
     <!--

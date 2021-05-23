@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
-            android:textSize="14sp"
+            android:textSize="20sp"
+            android:textColor="#7E6C6C"
             android:paddingLeft="5dp"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="TextView" />

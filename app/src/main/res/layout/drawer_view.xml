@@ -22,6 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="계정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="25sp" />
 
@@ -31,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="mClick"
                 android:text="로그인"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -41,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="mClick"
                 android:text="회원가입"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -49,6 +52,7 @@
                 android:id="@+id/DVtxtIntro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#716763"
                 android:text="교육원소개"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="25sp" />
@@ -60,6 +64,7 @@
                 android:text="인사말씀"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
+                android:textColor="#716763"
                 android:visibility="gone" />
 
             <TextView
@@ -69,6 +74,7 @@
                 android:text="발전과정 및 연혁"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
+                android:textColor="#716763"
                 android:visibility="gone" />
 
             <TextView
@@ -76,6 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="교육목적 및 목표"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -85,6 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="조직구성"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -94,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="찾아오시는 길"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -103,6 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="학점은행제"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="25sp" />
 
@@ -113,6 +123,7 @@
                 android:text="학점은행제란"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
+                android:textColor="#716763"
                 android:visibility="gone" />
 
             <TextView
@@ -120,6 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="입학안내"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -129,6 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="전공안내"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -138,6 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="수강신청"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -147,6 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="학사일정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -156,6 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="자료실"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -165,6 +181,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="일반교육과정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="25sp" />
 
@@ -173,6 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="모집안내"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -182,6 +200,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="외국어과정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -191,6 +210,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="자격증과정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -200,6 +220,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="교양과정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -209,6 +230,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="아산시연계과정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -218,6 +240,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="일반경비원과정"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -227,6 +250,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="커뮤니티"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="25sp" />
 
@@ -235,6 +259,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="공지사항"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -244,6 +269,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1:1 질의응답"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -253,6 +279,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="서식자료실"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -262,6 +289,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="갤러리"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -271,6 +299,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="마이페이지"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="25sp" />
 
@@ -279,6 +308,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="회원정보관리"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -288,6 +318,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="수강내역"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -297,6 +328,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="성적확인"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />
@@ -306,6 +338,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1:1 질문"
+                android:textColor="#716763"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="20sp"
                 android:visibility="gone" />

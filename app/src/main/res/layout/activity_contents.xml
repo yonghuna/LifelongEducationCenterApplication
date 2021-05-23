@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Community.Community_NoticeContentActivity">
     <!--게시글 작성-->
 
@@ -21,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="번호" />
 
@@ -29,6 +31,7 @@
             android:layout_width="4dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="작성자" />
 
@@ -37,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="18sp"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="시간" />
     </LinearLayout>
@@ -48,7 +52,8 @@
         android:hint="글 제목"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
         android:fontFamily="@font/nanumbarunpenb"
         />
 
@@ -62,7 +67,7 @@
         android:background="@drawable/border_login"
         android:hint="글 내용"
         android:fontFamily="@font/nanumbarunpenb"
-        android:textSize="15sp" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/modfiy"

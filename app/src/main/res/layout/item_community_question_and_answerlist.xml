@@ -35,8 +35,9 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="10"
+                android:textColorHint="#B6B3B3"
                 android:textColor="@android:color/black"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
 
@@ -51,6 +52,7 @@
                 android:hint="제목"
                 android:singleLine="true"
                 android:textColor="@android:color/black"
+                android:textColorHint="#B6B3B3"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -70,7 +72,8 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="작성자"
                 android:textColor="@android:color/black"
-                android:textSize="13dp"
+                android:textSize="18dp"
+                android:textColorHint="#B6B3B3"
                 android:textStyle="bold" />
 
             <TextView
@@ -82,7 +85,8 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="작성일"
                 android:textColor="@android:color/black"
-                android:textSize="13dp"
+                android:textColorHint="#B6B3B3"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

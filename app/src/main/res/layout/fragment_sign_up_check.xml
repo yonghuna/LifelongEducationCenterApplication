@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Account.SignActivity"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
 
@@ -14,6 +15,8 @@
         android:fontFamily="@font/nanumbarunpenb"
         android:text="수강생등록여부 확인"
         android:gravity="center"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:textSize="20sp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +29,8 @@
             android:text="등록구분"
             android:fontFamily="@font/nanumbarunpenb"
             android:gravity="center"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:layout_gravity="center"/>
         <RadioGroup
             android:layout_width="0sp"
@@ -37,6 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0sp"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:textColor="#0B0B0B"
+                android:textColorHint="#B6B3B3"
                 android:layout_weight="1"
                 android:text="일반과정"/>
             <RadioButton
@@ -45,6 +52,8 @@
                 android:layout_height="0sp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:layout_weight="1"
+                android:textColor="#0B0B0B"
+                android:textColorHint="#B6B3B3"
                 android:text="학점은행제과정"/>
         </RadioGroup>
 
@@ -60,6 +69,8 @@
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="성명(실명)"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:gravity="center"/>
         <EditText
             android:id="@+id/edtNameCheck"
@@ -67,6 +78,8 @@
             android:fontFamily="@font/nanumbarunpenb"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:imeOptions="actionDone"
             android:inputType="text"/>
     </LinearLayout>
@@ -83,6 +96,8 @@
             android:fontFamily="@font/nanumbarunpenb"
             android:text="생년월일"
             android:gravity="center"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:layout_gravity="center"/>
         <LinearLayout
             android:layout_width="0sp"
@@ -95,6 +110,8 @@
                 android:layout_width="match_parent"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:layout_height="0sp"
+                android:textColor="#0B0B0B"
+                android:textColorHint="#B6B3B3"
                 android:layout_weight="1"/>
 
             <LinearLayout
@@ -108,11 +125,15 @@
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#0B0B0B"
+                    android:textColorHint="#B6B3B3"
                     android:layout_weight="2"/>
                 <Spinner
                     android:id="@+id/spinBirthCheck3"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
+                    android:textColor="#0B0B0B"
+                    android:textColorHint="#B6B3B3"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:layout_weight="2"/>
 
@@ -132,12 +153,16 @@
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="성별"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:gravity="center"/>
         <Spinner
             android:id="@+id/spinSexCheck"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
             android:layout_weight="2"/>
     </LinearLayout>
 
@@ -145,12 +170,13 @@
         android:id="@+id/btnSignUpCheck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nanumbarunpenb"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:text="확인"/>
+        android:fontFamily="@font/nanumbarunpenb"
+        android:text="확인"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

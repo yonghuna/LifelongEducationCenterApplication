@@ -36,7 +36,8 @@
                 android:hint="1"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="@android:color/black"
-                android:textSize="15dp"
+                android:textColorHint="#B6B3B3"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -49,6 +50,7 @@
                 android:textColor="@android:color/black"
                 android:singleLine="true"
                 android:ellipsize="end"
+                android:textColorHint="#B6B3B3"
                 android:textSize="18dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textStyle="bold" />
@@ -68,8 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="작성자"
+                android:textColorHint="#B6B3B3"
                 android:textColor="@android:color/black"
-                android:textSize="13dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -80,8 +83,9 @@
                 android:drawableLeft="@drawable/ic_baseline_access_time_24"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="작성일"
+                android:textColorHint="#B6B3B3"
                 android:textColor="@android:color/black"
-                android:textSize="13dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
 

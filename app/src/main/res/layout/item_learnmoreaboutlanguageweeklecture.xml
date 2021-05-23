@@ -11,6 +11,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:fontFamily="@font/nanumbarunpenb"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:hint="주" />
 
     <TextView
@@ -19,6 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:gravity="center"
+        android:textColor="#0B0B0B"
+        android:textColorHint="#B6B3B3"
         android:fontFamily="@font/nanumbarunpenb"
         android:hint="교육내용"/>
 </LinearLayout>

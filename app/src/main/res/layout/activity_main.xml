@@ -72,6 +72,7 @@
                 android:padding="5sp"
                 android:text="수강 강좌"
                 android:textSize="17sp"
+                android:textColor="#0B0B0B"
                 android:fontFamily="@font/nanumbarunpenb" />
 
             <ListView
@@ -102,12 +103,14 @@
                     android:padding="5sp"
                     android:text="공지사항"
                     android:textSize="17sp"
+                    android:textColor="#0B0B0B"
                     android:fontFamily="@font/nanumbarunpenb" />
 
                 <Button
                     android:id="@+id/notice_addbutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
                     android:layout_weight="1"
                     android:background="@drawable/ic_add"
                     android:clickable="true"
