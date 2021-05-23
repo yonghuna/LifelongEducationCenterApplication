@@ -22,6 +22,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:background="@drawable/border_text"
                 android:orientation="horizontal">
 
                 <TextView
@@ -30,6 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/nanumbarunpenb"
+                    android:textSize="18sp"
                     android:text="번호" />
 
                 <TextView
@@ -38,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/nanumbarunpenb"
+                    android:textSize="18sp"
                     android:text="작성자" />
 
                 <TextView
@@ -45,6 +48,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:gravity="right"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:text="날짜" />
             </LinearLayout>
@@ -55,9 +60,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_text"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="글 제목"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +79,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumbarunpenb"
-                    android:hint="첨부파일" />
+                    android:hint="첨부파일"
+                    android:textSize="17sp" />
             </LinearLayout>
 
             <ListView
@@ -95,8 +103,10 @@
                 android:background="@drawable/border_login"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="글 내용"
+                android:padding="10sp"
+                android:textSize="18sp"
                 android:scrollbars="vertical"
-                android:textSize="15sp" />
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
