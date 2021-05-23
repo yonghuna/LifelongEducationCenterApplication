@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,9 +140,8 @@ public class MainActivity extends AppCompatActivity {
         login = (TextView) findViewById(R.id.login);
         name = (TextView) findViewById(R.id.name);
         mainLectureText = (TextView) findViewById(R.id.mainLecture);
-        firebase();
+        //firebase();  파이어베이스
         txtfindviewid();//id정의
-        //listset();
         clickTitleMenu();//메뉴설정
         menuChange();//메뉴이동
 
@@ -189,13 +189,11 @@ public class MainActivity extends AppCompatActivity {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
-           // recommendedLecture = new RecommendedLecture();
-
         } else {
             name.setText(StaticId.name);
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
-           // mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
+
 
         }
 
@@ -231,11 +229,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @Override   //액셔바 로그인
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
 
 
@@ -311,11 +304,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
                 drawerLayout.openDrawer(drawerView);
                 break;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -460,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
-
+    /* 파이어베이스 토큰
     public void firebase(){
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -481,6 +474,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+     */
 
     public void txtfindviewid() {
         DVtxtAccount_1 = findViewById(R.id.DVtxtAccount_1);
@@ -634,8 +629,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void menuChange() {//메뉴이동
-
-
         Button.OnClickListener mClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
