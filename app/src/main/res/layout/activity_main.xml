@@ -135,53 +135,75 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="#817676"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
 
                 <TextView
-                    android:id="@+id/email"
-                    android:layout_width="130dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:padding="6dp"
-                    android:textColor="#EFE5E5"
-                    android:textColorLink="#EFE5E5"
-                    android:textSize="10sp" />
-
+                    android:layout_weight="1"
+                    android:background="#EDE6E6" />
                 <TextView
-                    android:id="@+id/private1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:padding="6dp"
-                    android:textColor="#EFE5E5"
-                    android:textColorLink="#EFE5E5"
-                    android:textSize="10sp" />
+                    android:layout_weight="1"
+                    android:background="#EDE6E6" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="#817676"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:padding="6dp"
+                        android:textColor="#EFE5E5"
+                        android:textColorLink="#EFE5E5"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/private1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:padding="6dp"
+                        android:textColor="#EFE5E5"
+                        android:textColorLink="#EFE5E5"
+                        android:textSize="10sp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#5C4E4E"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView10"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:padding="6dp"
-                android:text="충남 아산시 탕정면 선문로221번길 70 선문대학교 주산학평생교육원 보건의료관 513호 TEL: 041-530-8345
-Copyrightⓒ2021 SUNMOON University., All rights reserved."
-                android:textSize="12sp" />
+                android:background="#5C4E4E"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:padding="6dp"
+                    android:text="충남 아산시 탕정면 선문로221번길 70 선문대학교 주산학평생교육원 보건의료관 513호 TEL: 041-530-8345
+    Copyrightⓒ2021 SUNMOON University., All rights reserved."
+                    android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
