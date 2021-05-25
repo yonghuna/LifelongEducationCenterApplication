@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.lifelongeducationcenterapplication"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -45,6 +45,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 
     testImplementation 'junit:junit:4.13.2'
 

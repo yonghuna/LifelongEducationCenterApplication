@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
         } else {
-            name.setText(StaticId.name);
+            name.setText(StaticId.name + "님");
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
 
