@@ -41,6 +41,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -68,6 +69,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -95,6 +97,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -167,6 +170,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -238,7 +242,7 @@
                 android:id="@+id/myPageBank1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="학점은행제 입력사항"
                 android:textColor="#0B0B0B"
@@ -248,6 +252,7 @@
                 android:id="@+id/myPageBank2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -275,6 +280,7 @@
                 android:id="@+id/myPageBank3"
                 android:layout_width="match_parent"
                 android:layout_height="100sp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -379,6 +385,7 @@
                 android:id="@+id/myPageBank4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -461,6 +468,10 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#0B0B0B"
                 android:textColorHint="#B6B3B3"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
                 android:text="※ 비밀번호 작성규칙\n① 작성방법 : 숫자와 영문자, 특수문자 등을 혼합하여 9자리 이상\n② 변경주기 : 최소 분기 1회 이상\n③ 기타 : 추측하기 쉬운문자, 단어 제한(일련번호, 전화번호, 잘 알려진단어 등), 동일한 비밀번호 재사용 제한 등\n※필수입력사항 : 휴대폰번호, 우편물수령지, 비밀번호 입력, 비밀번호 확인은 필수 입력항목입니다.\n회원등록 후 수강이력이 없을시(최대6개월) 자동 탈퇴됩니다." />
 
             <Button
