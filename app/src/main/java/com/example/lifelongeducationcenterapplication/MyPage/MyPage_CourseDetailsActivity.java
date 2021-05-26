@@ -177,7 +177,10 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 certificate.setText(enrollment.getCertificaterandomname());
             }
 
-            if (enrollment.getPayment() != "" || enrollment.getPayment() != null) {
+
+            if (enrollment.getPayment().equals("결제완료")) {
+                payment.setVisibility(View.GONE);
+            }else if(enrollment.getPayment() != "" || enrollment.getPayment() != null){
                 payment.setText(enrollment.getPayment());
             }
 

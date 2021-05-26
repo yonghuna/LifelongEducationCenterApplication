@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     TextView DVtxtAccount, DVtxtIntro, DVtxtBank, DVtxtEdu, DVtxtCommunity, DVtxtMypage; //메뉴목록
     TextView DVtxtAccount_1, DVtxtAccount_2;//로그인, 회원가입
     TextView DVtxtIntro_1, DVtxtIntro_2, DVtxtIntro_3, DVtxtIntro_4, DVtxtIntro_5;//인사말씀, 발전과정 및 연혁, 교육목적 및 목표, 조직구성, 찾아오시는 길
-    TextView DVtxtBank_1, DVtxtBank_2, DVtxtBank_3, DVtxtBank_4, DVtxtBank_5, DVtxtBank_6;//학점은행제란, 입학안내, 전공안내, 수강신청, 학사일정, 자료실
+    TextView DVtxtBank_1, DVtxtBank_2, DVtxtBank_3, DVtxtBank_4, DVtxtBank_5; //학점은행제란, 입학안내, 전공안내, 수강신청, 학사일정
     TextView DVtxtEdu_1, DVtxtEdu_2, DVtxtEdu_3, DVtxtEdu_4, DVtxtEdu_5, DVtxtEdu_6;//모집안내, 외국어과정, 자격증과정, 교양과정, 아산시연계과정, 일반경비원과정
     TextView DVtxtCommunity_1, DVtxtCommunity_2, DVtxtCommunity_3, DVtxtCommunity_4;//공지사항, 1:1 질의응답, 서식자료실, 갤러리
     TextView DVtxtMypage_1, DVtxtMypage_2, DVtxtMypage_3, DVtxtMypage_4;//회원정보관리, 수강내역, 성적확인, 1:1 질문
@@ -139,9 +140,8 @@ public class MainActivity extends AppCompatActivity {
         login = (TextView) findViewById(R.id.login);
         name = (TextView) findViewById(R.id.name);
         mainLectureText = (TextView) findViewById(R.id.mainLecture);
-        firebase();
+        //firebase();  파이어베이스
         txtfindviewid();//id정의
-        //listset();
         clickTitleMenu();//메뉴설정
         menuChange();//메뉴이동
 
@@ -189,13 +189,11 @@ public class MainActivity extends AppCompatActivity {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
-           // recommendedLecture = new RecommendedLecture();
-
         } else {
-            name.setText(StaticId.name);
+            name.setText(StaticId.name + "님");
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
-           // mainLectureAdapter = new MainLectureAdapter(); // lecture 올리기
+
 
         }
 
@@ -228,15 +226,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-    /*
-    @Override   //액셔바 로그인
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-    */
 
 
     @Override
@@ -311,11 +300,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home://메뉴를 클릭했을때 메뉴화면이 슬라이드 형식으로 나옴.
                 drawerLayout.openDrawer(drawerView);
                 break;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -460,7 +449,7 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
-
+    /* 파이어베이스 토큰
     public void firebase(){
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -482,6 +471,8 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+     */
+
     public void txtfindviewid() {
         DVtxtAccount_1 = findViewById(R.id.DVtxtAccount_1);
         DVtxtAccount_2 = findViewById(R.id.DVtxtAccount_2);
@@ -497,7 +488,6 @@ public class MainActivity extends AppCompatActivity {
         DVtxtBank_3 = findViewById(R.id.DVtxtBank_3);
         DVtxtBank_4 = findViewById(R.id.DVtxtBank_4);
         DVtxtBank_5 = findViewById(R.id.DVtxtBank_5);
-        DVtxtBank_6 = findViewById(R.id.DVtxtBank_6);
 
         DVtxtEdu_1 = findViewById(R.id.DVtxtEdu_1);
         DVtxtEdu_2 = findViewById(R.id.DVtxtEdu_2);
@@ -526,7 +516,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (DVtxtAccount_1.getVisibility() == View.GONE) {
                     DVtxtAccount_1.setVisibility(View.VISIBLE);
-                    DVtxtAccount_2.setVisibility(View.VISIBLE);
+
+                    if (StaticId.id == "" || StaticId.id == null) {
+                        DVtxtAccount_2.setVisibility(View.VISIBLE);
+                    }else{
+                        DVtxtAccount_2.setVisibility(View.GONE);
+                    }
+
                 } else if (DVtxtAccount_1.getVisibility() == View.VISIBLE) {
                     DVtxtAccount_1.setVisibility(View.GONE);
                     DVtxtAccount_2.setVisibility(View.GONE);
@@ -562,14 +558,14 @@ public class MainActivity extends AppCompatActivity {
                     DVtxtBank_3.setVisibility(View.VISIBLE);
                     DVtxtBank_4.setVisibility(View.VISIBLE);
                     DVtxtBank_5.setVisibility(View.VISIBLE);
-                    DVtxtBank_6.setVisibility(View.VISIBLE);
+
                 } else if (DVtxtBank_1.getVisibility() == View.VISIBLE) {
                     DVtxtBank_1.setVisibility(View.GONE);
                     DVtxtBank_2.setVisibility(View.GONE);
                     DVtxtBank_3.setVisibility(View.GONE);
                     DVtxtBank_4.setVisibility(View.GONE);
                     DVtxtBank_5.setVisibility(View.GONE);
-                    DVtxtBank_6.setVisibility(View.GONE);
+
 
                 }
             }
@@ -634,8 +630,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void menuChange() {//메뉴이동
-
-
         Button.OnClickListener mClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -745,13 +739,6 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, CreditbanksystemAcademicScheduleActivity.class);
                         startActivityForResult(intent, 12);
                         //학점은행제 스케줄
-                        break;
-                    case R.id.DVtxtBank_6:
-                        //Toast.makeText(MainActivity.this,"3-6번",Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawer(drawerView);
-                        intent = new Intent(MainActivity.this, CreditbanksystemreferenceRoomActivity.class);
-                        startActivityForResult(intent, 13);
-                        //학점은행제 자료실
                         break;
                     case R.id.DVtxtEdu_1:  //일반교육과정
                         //Toast.makeText(MainActivity.this,"4-1번",Toast.LENGTH_SHORT).show();
@@ -903,7 +890,6 @@ public class MainActivity extends AppCompatActivity {
         DVtxtBank_3.setOnClickListener(mClick);
         DVtxtBank_4.setOnClickListener(mClick);
         DVtxtBank_5.setOnClickListener(mClick);
-        DVtxtBank_6.setOnClickListener(mClick);
 
         DVtxtEdu_1.setOnClickListener(mClick);
         DVtxtEdu_2.setOnClickListener(mClick);

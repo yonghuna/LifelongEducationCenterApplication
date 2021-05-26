@@ -70,7 +70,16 @@ public interface RemoteService {
     @GET("payment.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<Enrollment> payment(
-            @Query("number") int number);//q&a 글 선택시
+            @Query("number") int number,
+            @Query("id") String id);//결제
+
+    // 답글 몇개인지
+    @GET("postNumber.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<PostNumber> postNumber(
+            @Query("number") int number);//답글 몇개인지
+
+
 
 
 
@@ -210,6 +219,10 @@ public interface RemoteService {
             @Field("detailedaddress") String detailedaddress,
             @Field("password") String password);
 
+
+
+
+
     //학습은행제 과정 회원정보 수정
     @FormUrlEncoded
     @POST("myPageInfoPost2.jsp")
@@ -238,6 +251,14 @@ public interface RemoteService {
             @Field("subjectsemester") int subjectsemester,
             @Field("subjectdivision") String subjectdivision
             ); //수강신청
+
+    //결제되면 결제완료로
+    @FormUrlEncoded
+    @POST("paymentSuccess.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<RegisterResult> paymentSuccess(
+            @Field("payment") String payment,
+            @Field("id") String id);// 결제되면 결제완료로
 
     //수강 취소
     @FormUrlEncoded

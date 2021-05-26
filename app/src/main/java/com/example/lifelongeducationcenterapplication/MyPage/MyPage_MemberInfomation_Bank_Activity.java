@@ -191,7 +191,6 @@ public class MyPage_MemberInfomation_Bank_Activity extends AppCompatActivity {
                     System.out.println("ad " + data);
                     int idx = data.indexOf(",");
                     if (data != null) {
-                        System.out.println("SDSDSDSDSDSD 세팅 세팅 123");
                         memberPostcode.setText(data.substring(0, idx));
                         memberAdr1.setText(data.substring(idx + 1));
                     }

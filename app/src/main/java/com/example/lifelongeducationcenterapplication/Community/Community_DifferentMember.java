@@ -37,12 +37,13 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 
 public class Community_DifferentMember extends AppCompatActivity {
     Button btList, btModify, btRemove;
-    TextView num, writer, time, title, content, time2, comment,textview;
+    TextView num, writer, time, title, content, time2, comment,textview, textFile;
     Notice notice;
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
 
     ListView listview;
+    ListView fileView;
     List<Notice> notices;
     Retrofit retrofit2; //httpclient library
     RemoteService rs2; //DB를 위한 인터페이스
@@ -64,6 +65,8 @@ public class Community_DifferentMember extends AppCompatActivity {
 
         adapter = new MyAdapter();
         findId();
+        textFile.setVisibility(View.GONE);
+        fileView.setVisibility(View.GONE);
         setRetrofit();
 
         //스크롤
@@ -150,6 +153,9 @@ public class Community_DifferentMember extends AppCompatActivity {
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
         listview = (ListView) findViewById(R.id.contentListView);
+        textFile = (TextView) findViewById(R.id.tx_notice_file);
+        fileView = (ListView) findViewById(R.id.notice_file);
+
     }
 
 
@@ -173,7 +179,6 @@ public class Community_DifferentMember extends AppCompatActivity {
             public void onResponse(Call<Notice> call, Response<Notice> response) {
                 if (response.isSuccessful()) {
                     notice = response.body();
-
                     num.setText(Integer.toString(number));
                     writer.setText(notice.getName());
                     time.setText(notice.getReportingdate());

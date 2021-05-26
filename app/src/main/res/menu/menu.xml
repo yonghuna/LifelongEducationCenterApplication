@@ -6,12 +6,11 @@
     <!--
     android:icon="@drawable/ic_actio_home"
         -->
-
-
-
-    <item android:id="@+id/menu_actionbt_home"
-        android:title="로그인"
-        app:showAsAction="always" />
+    <!--
+<item android:id="@+id/menu_login"
+    android:title="로그인"
+    app:showAsAction="always" />
+    -->
 
 </menu>
 

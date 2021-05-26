@@ -79,14 +79,6 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    /*
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-     */
 
     public void findId() {
         title = (EditText) findViewById(R.id.write_title_tv);
