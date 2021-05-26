@@ -73,6 +73,14 @@ public interface RemoteService {
             @Query("number") int number,
             @Query("id") String id);//결제
 
+    // 답글 몇개인지
+    @GET("postNumber.jsp")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<PostNumber> postNumber(
+            @Query("number") int number);//답글 몇개인지
+
+
+
 
 
     //이미지 읽기

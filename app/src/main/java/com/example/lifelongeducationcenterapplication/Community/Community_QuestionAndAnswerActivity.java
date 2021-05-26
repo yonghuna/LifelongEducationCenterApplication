@@ -6,6 +6,7 @@ import com.example.lifelongeducationcenterapplication.Account.Login;
 import com.example.lifelongeducationcenterapplication.MainActivity;
 import com.example.lifelongeducationcenterapplication.MyPage.MyPage_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
+import com.example.lifelongeducationcenterapplication.PostNumber;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
@@ -46,6 +47,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     FloatingActionButton btWrite;
     MyAdapter adapter;
     LinearLayout click;
+    int getNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,14 +87,8 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    /*
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
-     */
+
     protected void onResume() {
         Call<List<Notice>> call1 = rs1.notSecret();//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
@@ -145,8 +141,9 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
 
             imageView.setVisibility(View.GONE);
             String[] day = notice.getReportingdate().split(" ");
-
-            noticeTitle.setText(notice.getTitle());
+            int a = postNumber(notice.getNumber());
+            noticeTitle.setText(notice.getTitle() + " [" + a +"]");
+            System.out.println("get number - " + getNumber);
             noticeDate.setText(day[0]);
             noticeWriter.setText(notice.getName());
             noticeNumber.setText(Integer.toString(notice.getNumber()));
@@ -169,5 +166,27 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             });
             return convertView;
         }
+    }
+
+    public int postNumber(int number){
+
+        Call<PostNumber> call1 = rs1.postNumber(number);//call객체
+        call1.enqueue(new Callback<PostNumber>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<PostNumber> call, Response<PostNumber> response) {
+                if (response.isSuccessful()) {
+                    PostNumber postNumber = response.body();
+                    getNumber = postNumber.getCount();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostNumber> call, Throwable t) {
+                System.out.println("JSON 불러오기 실패" + call + " " + t);
+
+            }
+        });
+        return getNumber;
     }
 }

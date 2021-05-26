@@ -19,6 +19,7 @@ import com.example.lifelongeducationcenterapplication.StaticId;
 
 import java.util.List;
 
+import kr.co.bootpay.listener.ErrorListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -86,7 +87,7 @@ public class MyPage_Payment extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                BootUser bootUser = new BootUser().setPhone("010-3887-9849"); // !! 자신의 핸드폰 번호로 바꾸기
+                BootUser bootUser = new BootUser().setPhone("010-3887-9849"); // 자신의 핸드폰 번호로 바꾸기
                 BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0, 2, 3});
 
                 Bootpay.init(getFragmentManager())
@@ -130,7 +131,7 @@ public class MyPage_Payment extends AppCompatActivity {
                                     }
                                     @Override
                                     public void onFailure(Call<RegisterResult> call, Throwable t) {
-                                        System.out.println("일반과정 수강신청 실패 " + call + " " + t);
+                                        System.out.println("결제 실패 " + call + " " + t);
 
                                     }
                                 });
@@ -148,6 +149,12 @@ public class MyPage_Payment extends AppCompatActivity {
                             public void onCancel(@Nullable String message) {
 
                                 Log.d("cancel", message);
+                            }
+                        })
+                        .onError(new ErrorListener() {
+                            @Override
+                            public void onError(String message) {
+                                Log.d("error", message);
                             }
                         })
                         .onClose(
