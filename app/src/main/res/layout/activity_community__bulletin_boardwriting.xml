@@ -115,6 +115,7 @@
                 android:hint="글 내용"
                 android:padding="10sp"
                 android:textColor="#0B0B0B"
+                android:minHeight="350sp"
                 android:textColorHint="#B6B3B3"
                 android:textSize="18sp" />
 
