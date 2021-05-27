@@ -87,7 +87,7 @@ public class MyPage_Payment extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                BootUser bootUser = new BootUser().setPhone("010-3887-9849"); // 자신의 핸드폰 번호로 바꾸기
+                BootUser bootUser = new BootUser().setPhone(phone); // 자신의 핸드폰 번호로 바꾸기
                 BootExtra bootExtra = new BootExtra().setQuotas(new int[] {0, 2, 3});
 
                 Bootpay.init(getFragmentManager())

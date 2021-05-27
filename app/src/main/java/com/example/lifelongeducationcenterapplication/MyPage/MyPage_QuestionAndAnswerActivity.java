@@ -20,6 +20,7 @@ import com.example.lifelongeducationcenterapplication.Community.Community_Differ
 import com.example.lifelongeducationcenterapplication.Community.Community_QAmodifyAndremoveActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
+import com.example.lifelongeducationcenterapplication.PostNumber;
 import com.example.lifelongeducationcenterapplication.R;
 import com.example.lifelongeducationcenterapplication.RemoteService;
 import com.example.lifelongeducationcenterapplication.StaticId;
@@ -46,6 +47,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
     RemoteService rs1;//DB를 위한 인터페이스
     FloatingActionButton btWrite;
     MyAdapter adapter;
+    PostNumber postNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +151,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
 
             String[] day = notice.getReportingdate().split(" ");
 
-            noticeTitle.setText(notice.getTitle());
+            postNumber(notice.getTitle(),notice.getNumber());
             noticeDate.setText(day[0]);
             noticeWriter.setText(notice.getName());
             noticeNumber.setText(Integer.toString(notice.getNumber()));
@@ -170,5 +172,26 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
             });
             return convertView;
         }
+    }
+
+    public void postNumber(String title, int number){
+
+        Call<PostNumber> call1 = rs1.postNumber(number);//call객체
+        call1.enqueue(new Callback<PostNumber>() {//enqueue 메소드 실행
+            @Override
+            public void onResponse(Call<PostNumber> call, Response<PostNumber> response) {
+                if (response.isSuccessful()) {
+                    postNumber = response.body();
+                    noticeTitle.setText(title + " [" + postNumber.getCount() +"]");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostNumber> call, Throwable t) {
+                System.out.println("JSON 불러오기 실패" + call + " " + t);
+
+            }
+        });
+
     }
 }
