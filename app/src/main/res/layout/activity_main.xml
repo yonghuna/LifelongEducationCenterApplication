@@ -13,191 +13,208 @@
         그림
     -->
 
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/mainBackGroundImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/mainvisual" />
-        <!--
-            강좌정보(RecyclerView로 대체할 수 있음.)
-        -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="0sp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#D1C2C2"
-                android:gravity="right"
-                android:padding="5sp"
-                android:text=""
-                android:textColor="#000111"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="2sp"
-                android:background="@drawable/text_round"
-                android:clickable="true"
-                android:gravity="right"
-                android:padding="10sp"
-                android:textColor="#F6E7E7"
-                android:textSize="12sp" />
-        </LinearLayout>
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170sp"
-            android:layout_margin="10sp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/mainLecture"
+            <ImageView
+                android:id="@+id/mainBackGroundImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:padding="5sp"
-                android:text="수강 강좌"
-                android:textColor="#0B0B0B"
-                android:textSize="17sp" />
-
-            <ListView
-                android:id="@+id/listLecture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!--
-            공지사항(RecyclerView로 대체할 수 있음.)
-        -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150sp"
-            android:layout_margin="10sp"
-            android:orientation="vertical">
-
+                android:adjustViewBounds="true"
+                android:src="@drawable/mainvisual" />
+            <!--
+                강좌정보(RecyclerView로 대체할 수 있음.)
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/name"
+                    android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/nanumbarunpenb"
+                    android:background="#D1C2C2"
+                    android:gravity="right"
                     android:padding="5sp"
-                    android:text="공지사항"
-                    android:textColor="#0B0B0B"
-                    android:textSize="17sp" />
+                    android:text=""
+                    android:textColor="#000111"
+                    android:textSize="13sp" />
 
-                <Button
-                    android:id="@+id/notice_addbutton"
-                    android:layout_width="50dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_add"
+                <TextView
+                    android:id="@+id/login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="2sp"
+                    android:background="@drawable/text_round"
                     android:clickable="true"
-                    android:fontFamily="@font/nanumbarunpenb"
-                    app:backgroundTint="#636E81" />
-
+                    android:gravity="right"
+                    android:padding="10sp"
+                    android:textColor="#F6E7E7"
+                    android:textSize="12sp" />
             </LinearLayout>
-
-            <ListView
-                android:id="@+id/listNoticed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!--
-            기타정보(RecyclerView로 대체할 수 있음.)
-        -->
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:orientation="vertical"
+                android:minHeight="170sp"
+                >
+
+                <TextView
+                    android:id="@+id/mainLecture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:padding="5sp"
+                    android:text="수강 강좌"
+                    android:textColor="#0B0B0B"
+                    android:textSize="17sp" />
+
+                <ListView
+                    android:id="@+id/listLecture"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="1"
+                    android:nestedScrollingEnabled="true"
+                    />
+            </LinearLayout>
+
+
+            <!--
+                공지사항(RecyclerView로 대체할 수 있음.)
+            -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:orientation="vertical"
+                android:minHeight="150sp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:padding="5sp"
+                        android:text="공지사항"
+                        android:textColor="#0B0B0B"
+                        android:textSize="17sp" />
+
+                    <Button
+                        android:id="@+id/notice_addbutton"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_add"
+                        android:clickable="true"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        app:backgroundTint="#636E81" />
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/listNoticed"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="1"
+                    android:nestedScrollingEnabled="true"
+                    />
+            </LinearLayout>
+
+
+
+            <!--
+                기타정보(RecyclerView로 대체할 수 있음.)
+            -->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_weight="1"
-                    android:background="#817676"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="6dp"
-                        android:padding="6dp"
-                        android:textColor="#EFE5E5"
-                        android:textColorLink="#EFE5E5"
-                        android:textSize="10sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_weight="1"
+                        android:background="#817676"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/private1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="6dp"
-                        android:padding="6dp"
-                        android:textColor="#EFE5E5"
-                        android:textColorLink="#EFE5E5"
-                        android:textSize="10sp" />
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:padding="6dp"
+                            android:textColor="#EFE5E5"
+                            android:textColorLink="#EFE5E5"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/private1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:padding="6dp"
+                            android:textColor="#EFE5E5"
+                            android:textColorLink="#EFE5E5"
+                            android:textSize="10sp" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#5C4E4E"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView10"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:padding="6dp"
-                    android:text="충남 아산시 탕정면 선문로221번길 70 선문대학교 주산학평생교육원 보건의료관 513호 TEL: 041-530-8345
-        Copyrightⓒ2021 SUNMOON University., All rights reserved."
-                    android:textSize="12sp" />
-            </LinearLayout>
+                    android:background="#5C4E4E"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:padding="6dp"
+                        android:text="충남 아산시 탕정면 선문로221번길 70 선문대학교 주산학평생교육원 보건의료관 513호 TEL: 041-530-8345
+        Copyrightⓒ2021 SUNMOON University., All rights reserved."
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
     <include layout="@layout/drawer_view" />
 
