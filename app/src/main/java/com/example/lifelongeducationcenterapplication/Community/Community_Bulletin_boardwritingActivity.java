@@ -115,11 +115,9 @@ public class Community_Bulletin_boardwritingActivity extends AppCompatActivity {
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
                                 if(secret.equals("false")){
-                                    Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                                    startActivity(intent);
+                                    finish();
                                 }else{
-                                    Intent intent = new Intent(getApplicationContext(), MyPage_QuestionAndAnswerActivity.class);
-                                    startActivity(intent);
+                                    finish();
                                 }
 
                             }

@@ -142,7 +142,8 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
 
             imageView.setVisibility(View.GONE);
             String[] day = notice.getReportingdate().split(" ");
-            postNumber(notice.getTitle(),notice.getNumber());
+
+            noticeTitle.setText(notice.getTitle());
             System.out.println("get number - " + getNumber);
             noticeDate.setText(day[0]);
             noticeWriter.setText(notice.getName());
@@ -167,7 +168,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
             return convertView;
         }
     }
-
+    /*
     public void postNumber(String title, int number){
 
         Call<PostNumber> call1 = rs1.postNumber(number);//call객체
@@ -188,4 +189,6 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
         });
 
     }
+
+     */
 }
