@@ -48,6 +48,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
     MyAdapter adapter;
     LinearLayout click;
     int getNumber;
+    PostNumber postNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,8 +142,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
 
             imageView.setVisibility(View.GONE);
             String[] day = notice.getReportingdate().split(" ");
-            int a = postNumber(notice.getNumber());
-            noticeTitle.setText(notice.getTitle() + " [" + a +"]");
+            postNumber(notice.getTitle(),notice.getNumber());
             System.out.println("get number - " + getNumber);
             noticeDate.setText(day[0]);
             noticeWriter.setText(notice.getName());
@@ -168,16 +168,15 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
         }
     }
 
-    public int postNumber(int number){
+    public void postNumber(String title, int number){
 
         Call<PostNumber> call1 = rs1.postNumber(number);//call객체
         call1.enqueue(new Callback<PostNumber>() {//enqueue 메소드 실행
             @Override
             public void onResponse(Call<PostNumber> call, Response<PostNumber> response) {
                 if (response.isSuccessful()) {
-                    PostNumber postNumber = response.body();
-                    getNumber = postNumber.getCount();
-
+                    postNumber = response.body();
+                    noticeTitle.setText(title + " [" + postNumber.getCount() +"]");
                 }
             }
 
@@ -187,6 +186,6 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
 
             }
         });
-        return getNumber;
+
     }
 }

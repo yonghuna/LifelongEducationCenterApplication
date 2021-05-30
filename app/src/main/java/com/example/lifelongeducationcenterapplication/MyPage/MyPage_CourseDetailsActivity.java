@@ -83,8 +83,6 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
                 (GsonConverterFactory.create()).build();
         rs1 = retrofit1.create(RemoteService.class);
 
-
-
     }
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -97,13 +95,7 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-     */
+
     @Override
     protected void onResume() {
         Call<List<Enrollment>> call = rs.enrollment(StaticId.id);//call객체
@@ -170,17 +162,20 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
 
 
             if (enrollment.getSubjectsemester() != 0) {
-                semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester());
+                semester.setText(enrollment.getSubjectyear() + " / " + enrollment.getSubjectsemester() + "학기");
             }
 
-            if (enrollment.getCertificaterandomname() != "" || enrollment.getCertificaterandomname() != null) {
+            if (enrollment.getCertificaterandomname() != null) {
                 certificate.setText(enrollment.getCertificaterandomname());
+            }else{
+                certificate.setText("미 수료");
             }
 
 
             if (enrollment.getPayment().equals("결제완료")) {
-                payment.setVisibility(View.GONE);
-            }else if(enrollment.getPayment() != "" || enrollment.getPayment() != null){
+                btPayment.setVisibility(View.GONE);
+                payment.setText(enrollment.getPayment());
+            }else{
                 payment.setText(enrollment.getPayment());
             }
 
@@ -211,32 +206,35 @@ public class MyPage_CourseDetailsActivity extends AppCompatActivity {
             // 취소 시
             btCancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    if (enrollment.getPayment().equals("결제완료")) {
+                        Toast.makeText(getApplicationContext(), "결제완료를 하시면 환불을 위해 관리자와 문의해야 합니다. 041-530-8345", Toast.LENGTH_SHORT).show();
+                    } else {
 
-
-                    Call<RegisterResult> call = rs.userSubjectCancel(StaticId.id, enrollment.getSubjectnumber());//call객체
-                    call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
-                        @Override
-                        public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
-                            if (response.isSuccessful()) {
-                                registerResults = response.body();
+                        Call<RegisterResult> call = rs.userSubjectCancel(StaticId.id, enrollment.getSubjectnumber());//call객체
+                        call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                            @Override
+                            public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
                                 if (response.isSuccessful()) {
-                                    if (registerResults.getResult().equals("ok")) {
-                                        Toast.makeText(getApplicationContext(), "수강취소 되었습니다", Toast.LENGTH_SHORT).show();
-                                        change();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "오류 입니다", Toast.LENGTH_SHORT).show();
+                                    registerResults = response.body();
+                                    if (response.isSuccessful()) {
+                                        if (registerResults.getResult().equals("ok")) {
+                                            Toast.makeText(getApplicationContext(), "수강취소 되었습니다", Toast.LENGTH_SHORT).show();
+                                            change();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "오류 입니다", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
+
                                 }
+                            }
+
+                            @Override
+                            public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                System.out.println("수강 취소 실패" + call + " " + t);
 
                             }
-                        }
-
-                        @Override
-                        public void onFailure(Call<RegisterResult> call, Throwable t) {
-                            System.out.println("수강 취소 실패" + call + " " + t);
-
-                        }
-                    });
+                        });
+                    }
                 }
             });
 
