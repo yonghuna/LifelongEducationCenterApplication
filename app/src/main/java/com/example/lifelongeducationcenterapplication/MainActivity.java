@@ -1,6 +1,7 @@
 package com.example.lifelongeducationcenterapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -189,11 +190,12 @@ public class MainActivity extends AppCompatActivity {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
+            DVtxtAccount_2.setVisibility(View.VISIBLE);
         } else {
             name.setText(StaticId.name + "님");
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
-
+            DVtxtAccount_2.setVisibility(View.GONE);
 
         }
 
@@ -202,13 +204,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (StaticId.id == "" || StaticId.id == null) {
+                    /*
                     Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
+
+                     */
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                    startActivityForResult(intent,1);
                 } else {
                     logout();
+
+                    login.setText("로그인");
+                    name.setText("");
+                    DVtxtAccount_1.setText("로그인");
+                    mainLectureText.setText("추천강좌");
+                    DVtxtAccount_2.setVisibility(View.VISIBLE);
+
                     Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+
+                    onResume();
+                    /*
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
+
+                     */
                 }
 
             }
@@ -222,10 +241,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {//로그인/로그아웃 성공 이후 이벤트
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1 && resultCode==RESULT_OK){
+
+            if (StaticId.id == "" || StaticId.id == null) {
+                login.setText("로그인");
+                DVtxtAccount_1.setText("로그인");
+                mainLectureText.setText("추천강좌");
+                DVtxtAccount_2.setVisibility(View.VISIBLE);
+            } else {
+                name.setText(StaticId.name + "님");
+                login.setText("로그아웃");
+                mainLectureText.setText("수강강좌");
+                DVtxtAccount_1.setText("로그아웃");
+                DVtxtAccount_2.setVisibility(View.GONE);
+            }
+
+        }
+    }
+
 
 
     @Override
@@ -646,9 +685,21 @@ public class MainActivity extends AppCompatActivity {
                             startActivityForResult(intent, 1);
                         } else {
                             logout();
+
+                            login.setText("로그인");
+                            name.setText("");
+                            DVtxtAccount_1.setText("로그인");
+                            DVtxtAccount_2.setVisibility(View.VISIBLE);
+                            mainLectureText.setText("추천강좌");
+
                             Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+
+                            onResume();
+                            /*
                             Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent1);
+
+                             */
                         }
 
                         //화면이동(intent)
@@ -818,8 +869,15 @@ public class MainActivity extends AppCompatActivity {
 
                         if (StaticId.id == null || StaticId.id == "") {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
+                            /*
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+
+                             */
+
+                            Intent intent1 = new Intent(MainActivity.this, Login.class);
+                            startActivityForResult(intent1, 1);
+
                         } else if (StaticId.course.equals("일반과정")) {
                             Intent intent1 = new Intent(MainActivity.this, MyPage_MemberInformationManagementActivity.class);
                             startActivity(intent1);
@@ -836,8 +894,12 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(drawerView);
                         if (StaticId.id == null || StaticId.id == "") {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
+                                                        /*
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+                             */
+                            Intent intent1 = new Intent(MainActivity.this, Login.class);
+                            startActivityForResult(intent1, 1);
                         } else {
                             intent = new Intent(MainActivity.this, MyPage_CourseDetailsActivity.class);
                             startActivityForResult(intent, 25);
@@ -850,8 +912,13 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(drawerView);
                         if (StaticId.id == null || StaticId.id == "") {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
+                            /*
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+
+                             */
+                            Intent intent1 = new Intent(MainActivity.this, Login.class);
+                            startActivityForResult(intent1, 1);
                         } else {
                             intent = new Intent(MainActivity.this, MyPage_GradesVerificationActivity.class);
                             startActivityForResult(intent, 26);
@@ -863,8 +930,14 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(drawerView);
                         if (StaticId.id == null || StaticId.id == "") {
                             Toast.makeText(MainActivity.this, "로그인을 하세요", Toast.LENGTH_SHORT).show();
+
+                            /*
                             Intent intent1 = new Intent(MainActivity.this, Login.class);
                             startActivity(intent1);
+
+                             */
+                            Intent intent1 = new Intent(MainActivity.this, Login.class);
+                            startActivityForResult(intent1, 1);
                         } else {
                             intent = new Intent(MainActivity.this, MyPage_QuestionAndAnswerActivity.class);
                             startActivityForResult(intent, 27);
