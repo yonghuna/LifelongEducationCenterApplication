@@ -404,6 +404,7 @@
                 android:text="* 학점은행제, 자격증, 특별과정의 경우 감면율이 적용되지 않습니다."
                 android:textColor="#DD3131"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
