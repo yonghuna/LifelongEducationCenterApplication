@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#EDE6E6"
     tools:context=".Community.Community_NoticeContentActivity">
     <!--게시글 작성-->
 
@@ -97,7 +97,7 @@
             <ListView
                 android:id="@+id/notice_file"
                 android:layout_width="match_parent"
-                android:background="@drawable/border_login"
+                android:background="@drawable/figma_rectangle"
                 android:layout_height="68dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:background="@drawable/border_login"
+                android:background="@drawable/figma_rectangle"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="글 내용"
                 android:padding="10sp"

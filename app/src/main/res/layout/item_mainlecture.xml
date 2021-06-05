@@ -9,7 +9,7 @@
         android:id="@+id/file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_margin="16dp"
         android:layout_weight="1"
         android:clickable="true"
         android:fontFamily="@font/nanumbarunpenb"
