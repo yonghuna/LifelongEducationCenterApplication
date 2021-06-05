@@ -10,4 +10,16 @@
         <item name="colorPrimaryDark">#FFF</item>
     </style>
 
+    <style name="blush">
+
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #F5A56C
+        </item>
+
+    </style>
+
 </resources>

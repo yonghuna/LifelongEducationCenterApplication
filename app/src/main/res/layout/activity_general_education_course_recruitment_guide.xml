@@ -68,6 +68,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
                 android:text="② 방문접수"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
@@ -112,6 +113,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="- 카드 결제 : 사무실 방문 후 카드 결제"
+                android:layout_marginTop="10sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -120,6 +122,7 @@
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="*일시불, 할부 가능(단, 체크/법인/해외발행카드 할부불가)"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -128,6 +131,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="- 온라인 계좌이체 : 신청자 성함으로 수강료 입금"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -136,6 +140,7 @@
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="*계좌번호: 국민은행 473-25-0004-511(예금주:선문대학교)"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -156,6 +161,7 @@
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text=" 카드 결제 : 사무실 방문 후 카드 결제"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -164,6 +170,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="*일시불, 할부 가능(단, 체크/법인/해외발행카드 할부불가)"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -172,6 +179,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="- 온라인 계좌이체 : 신청자 성함으로 수강료 입금"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -180,6 +188,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="*계좌번호: 국민은행 484637-04-004901(예금주:선문대학교)"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -200,6 +209,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="- 온라인 계좌이체 : 신청자 성함으로 수강료 입금"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -208,6 +218,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="*계좌번호: 농협 426-01-020570 (예금주:선문대학교)"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -237,6 +248,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="① 평생교육원장 명의 수료증 발급"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -245,6 +257,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="② 선문대학교 도서관 및 학교시설 이용 가능"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TableLayout
@@ -284,7 +297,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10sp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -304,7 +318,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="134dp">
+                    android:layout_height="134dp"
+                    android:layout_marginTop="10sp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -358,7 +373,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10sp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -537,6 +553,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
+                android:layout_marginTop="5sp"
                 android:text="「평생교육법시행령」&lt;별표3&gt; 학습비 반환기준(제23조 제2항 관련)"
                 android:layout_marginLeft="10dp"/>
 
@@ -560,6 +577,7 @@
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="통장 사본이 접수되는 날짜 기준으로 환불 처리"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -567,6 +585,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="5sp"
                 android:text="통장 사본 제출: 사무실 방문, 메일(edu@sunmoon.ac.kr)"
                 android:layout_marginLeft="10dp"/>
 
@@ -576,6 +595,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="팩스: 041-530-2987"
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -595,6 +615,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="10sp"
                 android:text="수강료는 한 학기 전체 비용입니다. "
                 android:textColor="#737272"
                 android:layout_marginLeft="10dp"/>
@@ -604,6 +625,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
+                android:layout_marginTop="10sp"
                 android:text="인원미달강좌는 폐강 및 합반 될 수 있습니다."
                 android:layout_marginLeft="10dp"/>
 
@@ -612,6 +634,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="5sp"
                 android:text="수업시간 및 강사진은 본원의 사정에 따라 변경될 수 있습니다."
                 android:layout_marginLeft="10dp"/>
 
@@ -620,6 +643,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="5sp"
                 android:text="교재비, 재료비, 실습비는 수강료와 별도이며 본인 부담입니다."
                 android:layout_marginLeft="10dp"/>
 
@@ -629,6 +653,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="모든 강좌는 선착순 접수입니다."
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -636,6 +661,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="5sp"
                 android:text="아산시연계과정은 아산시로 주민등록이 되어 있는 분만 신청 가능합니다."
                 android:layout_marginLeft="10dp"/>
 
@@ -645,6 +671,7 @@
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
                 android:text="아산시연계과정은 1인 2강좌까지만 가능합니다."
+                android:layout_marginTop="5sp"
                 android:layout_marginLeft="10dp"/>
 
             <TextView
@@ -677,6 +704,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginTop="10sp"
                 android:text="① 자격: 학사학위 이상, 해당 전문분야 유경험자, 자격증소지자"
                 android:layout_marginLeft="10dp"/>
 

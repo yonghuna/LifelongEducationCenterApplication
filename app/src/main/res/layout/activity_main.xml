@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDE6E6"
+    android:background="#F0F0F0"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/mainvisual" />
+            android:src="@drawable/sunmoon" />
         <!--
             강좌정보(RecyclerView로 대체할 수 있음.)
         -->
@@ -51,33 +51,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
                 android:layout_marginTop="2sp"
-                android:background="@drawable/text_round"
                 android:clickable="true"
-                android:gravity="right"
+                android:gravity="center"
                 android:padding="10sp"
-                android:textColor="#F6E7E7"
-                android:textSize="12sp" />
+                android:textColor="#FFFFFF"
+                android:background="@drawable/figma_button"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="170sp"
             android:layout_margin="10sp"
+            android:background="@drawable/figma_rectangle"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/mainLecture"
                 android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10sp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:padding="5sp"
+                android:paddingLeft="25sp"
                 android:text="수강 강좌"
-                android:textColor="#0B0B0B"
-                android:textSize="17sp" />
+                android:textColor="#F5A56C"
+                android:textSize="17sp"/>
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1sp"
+                android:layout_gravity="center"
+                android:background="@drawable/figma_line"/>
 
             <ListView
                 android:id="@+id/listLecture"
+                android:layout_margin="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -90,11 +101,14 @@
             android:layout_width="match_parent"
             android:layout_height="150sp"
             android:layout_margin="10sp"
+            android:background="@drawable/figma_rectangle"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -102,9 +116,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/nanumbarunpenb"
-                    android:padding="5sp"
                     android:text="공지사항"
-                    android:textColor="#0B0B0B"
+                    android:paddingLeft="25sp"
+                    android:textColor="#F5A56C"
                     android:textSize="17sp" />
 
                 <Button
@@ -113,17 +127,24 @@
                     android:layout_height="25dp"
                     android:layout_gravity="right"
                     android:layout_weight="1"
+                    android:layout_marginBottom="10sp"
                     android:background="@drawable/ic_add"
                     android:clickable="true"
                     android:fontFamily="@font/nanumbarunpenb"
                     app:backgroundTint="#636E81" />
 
             </LinearLayout>
+            <View
+                android:layout_width="350dp"
+                android:layout_height="1sp"
+                android:layout_gravity="center"
+                android:background="@drawable/figma_line"/>
 
             <ListView
                 android:id="@+id/listNoticed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
         </LinearLayout>
 
         <!--
@@ -152,7 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight="1"
-                    android:background="#817676"
+                    android:background="#B5B5B5"
                     android:orientation="horizontal">
 
                     <TextView
@@ -180,7 +201,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#5C4E4E"
+                android:background="#B5B5B5"
                 android:orientation="vertical">
 
                 <TextView

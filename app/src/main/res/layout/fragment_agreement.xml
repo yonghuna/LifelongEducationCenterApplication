@@ -477,14 +477,14 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
-            android:text="취소" />
+            android:text="취 소" />
 
         <Button
             android:id="@+id/agree_button1"
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="동의"
+            android:text="동 의"
             android:fontFamily="@font/nanumbarunpenb"
             android:textColor="#EBF8F1"
             android:background="@drawable/tx_round"
@@ -495,7 +495,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            app:backgroundTint="#2F8C5F" />
+            app:backgroundTint="#00C2B5" />
 
 
     </LinearLayout>
