@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Creditbankingsystem.CreditbanksystemMajorInfo3Fragment">
+
+    <!--학점은행제 전공안내 경제학 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/creditbankssystemvisual" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:text="전공안내"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#00838F"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:textSize="24sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. 경영학"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#737272"
+                android:layout_marginRight="10dp"
+                android:text="경영학과 교육과정은 “최신이론 및 실무지식의 체계화” 측면에서 학년별 교과과정을 체계화함으로써 경영관련 이론과 현장실무지식을 함양하여 총체적인 역량을 향상할 수 있도록 한다. 또한 경영분야에 대한 전공세분화를 통하여 학생이 관심 있는 경영관련 분야에 대한 전문지식을 보다 효율적으로 획득할 수 있도록 교과과정을 편성한다." />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="2. 교육목표"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#0B0B0B"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
+                android:text="경영학 이론과 현장실무역량을 겸비한 21세기형 경영인을 육성하는 것을 목표로 합니다." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#737272"
+                android:text="또한 창의적인 사고의 함양과 체계적인 창업교육을 토대로 새로운 분야에서 창업할 수 있는 예비 기업가를 양성합니다." />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="3. 졸업 후 진로"
+                android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="#737272"
+                android:layout_marginRight="10dp"
+                android:text="기업체 주요직무의 관리자(인사, 재무, 회계, 경영정보, 생산, 마케팅, 해외영업 부문 관리자 등), 공무원, 정부기관 및 지방자치단체의 공직자, 세무 공무원, 금융기관, 사회조사기관, 광고기획사, 서비스업체, 레저/스포츠업체, 문화콘텐츠업체, 경영자문회사의 경영컨설턴트, 공인회계사 및 세무사, 영리 및 비영리기관의 회계 및 재무담당 전문직 등" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumbarunpenb"
+                android:text="4. 개설과목"
+                android:textColor="#0B0B0B"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/border_login"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:text="과목" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="e-비즈니스개론" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="경영관리론" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:text="경영전략론" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:text="경영정보시스템"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:text="경영학개론"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:text="경영혁신"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="경제학개론" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="리더십" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="무역학개론" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="생산관리" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="인적자원관리" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="인터넷마케팅" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="회계원리" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="기업과사회문화" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:text="학점" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0B0B0B"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="3"
+                        android:fontFamily="@font/nanumbarunpenb"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0B0B0B"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0B0B0B"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#0B0B0B"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:textColor="#0B0B0B"
+                        android:gravity="center"
+                        android:text="강의3시간" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        android:gravity="center"
+                        android:textColor="#0B0B0B"
+                        android:text="강의3시간" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
