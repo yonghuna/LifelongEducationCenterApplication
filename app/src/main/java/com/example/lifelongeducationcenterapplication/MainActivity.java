@@ -35,6 +35,7 @@ import com.example.lifelongeducationcenterapplication.Creditbankingsystem.Credit
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemActivity;
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemAdmissionGuideActivity;
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemEnrolmentActivity;
+import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemMajorInfoActivity;
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemMajorInformationActivity;
 import com.example.lifelongeducationcenterapplication.Creditbankingsystem.CreditbanksystemreferenceRoomActivity;
 import com.example.lifelongeducationcenterapplication.Generalcurriculum.AsanCityLinkageProcessActivity;
@@ -190,12 +191,12 @@ public class MainActivity extends AppCompatActivity {
             login.setText("로그인");
             DVtxtAccount_1.setText("로그인");
             mainLectureText.setText("추천강좌");
-            DVtxtAccount_2.setVisibility(View.VISIBLE);
+            //DVtxtAccount_2.setVisibility(View.VISIBLE);
         } else {
             name.setText(StaticId.name + "님");
             login.setText("로그아웃");
             DVtxtAccount_1.setText("로그아웃");
-            DVtxtAccount_2.setVisibility(View.GONE);
+            //DVtxtAccount_2.setVisibility(View.GONE);
 
         }
 
@@ -773,7 +774,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.DVtxtBank_3:
                         //Toast.makeText(MainActivity.this,"3-3번",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(drawerView);
+                        /*
                         intent = new Intent(MainActivity.this, CreditbanksystemMajorInformationActivity.class);
+                        startActivityForResult(intent, 10);
+
+                         */
+                        intent = new Intent(MainActivity.this, CreditbanksystemMajorInfoActivity.class);
                         startActivityForResult(intent, 10);
                         //학점은행제 전공안내
                         break;
