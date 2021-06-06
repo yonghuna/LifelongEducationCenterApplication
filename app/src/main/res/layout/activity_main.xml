@@ -68,10 +68,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170sp"
+            android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:background="@drawable/figma_rectangle"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:minHeight="170sp">
 
             <TextView
                 android:id="@+id/mainLecture"
@@ -95,7 +96,9 @@
                 android:id="@+id/listLecture"
                 android:layout_margin="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="0sp"
+                android:layout_weight="1"
+                android:nestedScrollingEnabled="true"/>
         </LinearLayout>
 
 
@@ -105,10 +108,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150sp"
+            android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:background="@drawable/figma_rectangle"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:minHeight="150sp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -149,8 +153,10 @@
             <ListView
                 android:id="@+id/listNoticed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"/>
+                android:layout_height="0sp"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:nestedScrollingEnabled="true"/>
         </LinearLayout>
 
         <!--
