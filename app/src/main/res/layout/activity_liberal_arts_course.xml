@@ -47,7 +47,9 @@
                 <ListView
                     android:id="@+id/LiberalArtsCourselistLecture"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:dividerHeight="15dp"
+                    android:divider="#ffffff"/>
             </LinearLayout>
 
             <ImageView

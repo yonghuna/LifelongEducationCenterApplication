@@ -46,6 +46,8 @@
             <ListView
                 android:id="@+id/foreignlanguagecourselistLecture"
                 android:layout_width="match_parent"
+                android:dividerHeight="15dp"
+                android:divider="#ffffff"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 

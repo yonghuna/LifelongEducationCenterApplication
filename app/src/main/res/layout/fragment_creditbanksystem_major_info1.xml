@@ -56,6 +56,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="본 전공은 국내에 거주하고 있는 국제결혼 이민자, 외국인 근로자, 한국 유학생, 외국인 바이어들뿐만 아니라 국제무대에서도 한국어와 한국 문화를 교육할 수 있는 한국어 전문 교사 양성 과정입니다." />
 
             <TextView
@@ -68,6 +69,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="한국어와 한국 문화를 쉽고 재미있게 가르칠 수 있는 교수 법과 전문성을 습득·개발하고, 국제화 시대를 선도하는 한국 문화 전문가로서 다양한 ‘한류 콘텐츠’ 개발 능력도 기르게 됩니다." />
 
             <TextView
@@ -105,6 +107,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 국제결혼이민자 150만 명, 이주노동자 증가" />
 
                     <TextView
@@ -112,6 +116,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 한류열풍 세계적 확산 - 한국 유학 희망자 증가" />
 
                     <TextView
@@ -120,6 +126,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 국내 국외 TOPIK 응시자 및 한국 수업 관심 증가" />
 
                     <TextView
@@ -128,6 +136,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 정부의 적극적인 한국어 세계화 정책 (세종학당 개설, KOICA 파견 등)" />
                 </LinearLayout>
 
@@ -161,6 +171,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 한국어 교육전문가들로 구성되어 있는 20년 전통의 한국어 교육원" />
 
                     <TextView
@@ -168,6 +180,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 외국어로서의 한국어 교육전공 교육대학원 석사과정" />
 
                     <TextView
@@ -176,6 +190,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="· 외국인 유학생 비율 전국 3위 - 세계 60여 개국 유학생" />
 
                 </LinearLayout>
@@ -224,6 +240,8 @@
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="② 외국인근로자 지원센터, 다문화 가족지원센터 등 사회통합 프로그램 운영기관 한국어교사" />
 
             <TextView
@@ -235,6 +253,8 @@
                 android:layout_marginEnd="10dp"
                 android:textColor="#737272"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="③ 국외 한국문화원·한글학교 한국어교사" />
 
             <TextView
@@ -246,6 +266,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="④ 국내·해외 일반 사설학원 한국어교사" />
 
             <TextView
@@ -257,6 +279,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="⑤ 관련 대학원 진학" />
 
             <TextView
@@ -341,6 +365,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="- 참관 및 실습 : 3학점, 5시간, 50만원 (참관비 포함)" />
 
             <TextView
@@ -353,6 +379,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="4. 문의전화 : 선문대학교 주산학평생교육원 041-530-8345" />
 
             <TextView
@@ -391,6 +418,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="2. 국립국어원 한국어교원 사이트 (http://kteacher.korean.go.kr/) 심사 공고 확인" />
 
             <TextView

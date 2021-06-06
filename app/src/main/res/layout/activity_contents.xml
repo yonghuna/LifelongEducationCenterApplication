@@ -67,6 +67,7 @@
         android:layout_margin="16dp"
         android:background="@drawable/a_rectangle"
         android:hint="글 내용"
+        android:lineSpacingExtra="5dp"
         android:fontFamily="@font/nanumbarunpenb"
         android:textSize="18sp" />
 

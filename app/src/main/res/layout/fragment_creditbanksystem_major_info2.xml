@@ -54,11 +54,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="신체활동의 목적과 내용 및 방법 등에 대한 기능,태도,지식의 이해와 실천지도 능력의 함양을 통해 체육학에 관한 전문적인 자질을 갖춘 유능한 지도자를 양성하는데 교육목표가 있다." />
 
             <TextView
@@ -71,6 +72,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="현대사회가 요구하는 시대적 요구에 부응하기 위해 스포츠, 여가활동, 레크레이션 등에 대한 체계적이고 과학적인 지식과 함께 전인적 인격함양과 전문지도자로서의 자질을 향상시킬 수 있도록 체육이론의 전반적 영역(사회체육개론, 체육사, 스포츠사회학 등)과 과학적 사고와 적용을 위한 영역으로 스포츠심리학, 트레이닝방법론, 스포츠영양학 등이 있어 지도자뿐만 아니라 세계화, 정보화 추세에 따라 국민 복지증진에 관한 운동처방과 레져사업, 스포츠마케팅 등 다양한 선진 교육프로그램들을 구성하여 각자의 선택에 의해 현장지도자부터 기획, 관리, 경영등 행정지도자로서의 진로설정이 가능하다." />
 
             <TextView
@@ -135,6 +137,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="비만과 각종 성인병이 난무하는 현대 사회를 살아가는 우리에게 최고의 가치로 부각되고 있는 것 중의 하나가 건강한 삶을 영위하는 것이며 그에 따라 체육의 중요성이 점차 커지고 있다. 따라서 실생활에서 운동을 필요로 하는 인구도 점차 증가될 것으로 기대되며 체육을 전공한 졸업생들의 취업전망을 밝게 하고 있다." />
 
             <TextView
@@ -147,6 +150,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="현재 체육학 전공자는 졸업 후 주로 체육교수·교사, 대한체육회 및 산하기관 행정담당자, 체력관리사 및 트레이너, 체육 경영인, 대학원 진학, 스포츠서비스업 및 이벤트 산업, 스포츠 지도자, 운동처방사로 진출하고 있다." />
 
             <TextView
