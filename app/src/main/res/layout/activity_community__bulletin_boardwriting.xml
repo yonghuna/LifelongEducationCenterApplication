@@ -23,7 +23,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/border_text"
+                android:background="#EDE6E6"
                 android:orientation="horizontal">
 
                 <TextView
@@ -68,7 +68,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/border_text"
+                android:background="#EDE6E6"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="글 제목"
                 android:textColor="#0B0B0B"
@@ -90,14 +90,14 @@
                     android:fontFamily="@font/nanumbarunpenb"
                     android:hint="첨부파일"
                     android:textColor="#0B0B0B"
-                    android:textColorHint="#B6B3B3"
+                    android:textColorHint="#0B0B0B"
                     android:textSize="17sp" />
             </LinearLayout>
 
             <ListView
                 android:id="@+id/notice_file"
                 android:layout_width="match_parent"
-                android:background="@drawable/figma_rectangle"
+                android:background="@drawable/figma_text1"
                 android:layout_height="68dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:background="@drawable/figma_rectangle"
+                android:background="@drawable/a_rectangle"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:hint="글 내용"
                 android:padding="10sp"
@@ -161,6 +161,7 @@
                     android:id="@+id/contentListView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginRight="16dp" />

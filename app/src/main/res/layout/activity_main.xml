@@ -72,7 +72,7 @@
             android:layout_margin="10sp"
             android:background="@drawable/figma_rectangle"
             android:orientation="vertical"
-            android:minHeight="170sp">
+            android:minHeight="10sp">
 
             <TextView
                 android:id="@+id/mainLecture"
