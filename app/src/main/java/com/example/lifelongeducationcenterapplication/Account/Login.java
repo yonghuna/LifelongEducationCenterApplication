@@ -96,8 +96,14 @@ public class Login extends AppCompatActivity {
                                     StaticId.name = communicationResult.getName();
                                     System.out.println("과정 :  " +  StaticId.course );
                                     Toast.makeText(getApplicationContext(), userName + "님 로그인 되었습니다.", Toast.LENGTH_LONG).show();
+
+                                    setResult(RESULT_OK);
+
+                                    finish();
+                                    /*
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
+                                    */
                                 }
 
                         }

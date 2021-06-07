@@ -86,6 +86,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_marginTop="10dp"
                         android:textColor="#737272"
                         android:text="- 접수일자 : 매년 2회, 2월(3월개강), 8월(9월개강)" />
 
@@ -95,6 +96,8 @@
                         android:layout_weight="1"
                         android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 접수방법 : 전화접수 상담/ 온라인 신청 후 증빙서류를 이메일 송부 or 우편발송" />
 
                     <TextView
@@ -102,6 +105,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="이메일 edu@sunmoon.ac.kr" />
 
                     <TextView
@@ -109,6 +114,8 @@
                         android:layout_height="wrap_content"
                         android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="5dp"
                         android:text="우편발송 충남 아산시 탕정면 선문로 221번길 70 선문대학교 보건의료관 513호 주산학평생교육원(우31460)" />
                 </LinearLayout>
             </LinearLayout>
@@ -153,6 +160,8 @@
                         android:layout_height="wrap_content"
                         android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 고등학교 이상의 학력 소지자 (외국인 포함)" />
 
                 </LinearLayout>
@@ -199,6 +208,8 @@
                         android:layout_height="wrap_content"
                         android:text="4년제 대학 학사과정"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/nanumbarunpenb"/>
 
                     <TextView
@@ -207,6 +218,8 @@
                         android:layout_weight="1"
                         android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 전공 : 외국어로서의 한국어학, 체육학, 경영학" />
 
                     <TextView
@@ -214,6 +227,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 정원 : 과목별 40명(실습 30명)" />
 
                 </LinearLayout>
@@ -258,6 +273,8 @@
                         android:layout_height="wrap_content"
                         android:text="- 입학원서 1부"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/nanumbarunpenb"/>
 
                     <TextView
@@ -266,6 +283,8 @@
                         android:layout_weight="1"
                         android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 주민등록등본 1부" />
 
                     <TextView
@@ -273,6 +292,8 @@
                         android:layout_height="wrap_content"
                         android:text="- 최종졸업증명서 1부"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/nanumbarunpenb"/>
 
                 </LinearLayout>
@@ -317,6 +338,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 수업료 : 1학점당 75,000원(1과목에 3학점, 3시간), 실습과목(5시간, 50만원)" />
 
                     <TextView
@@ -325,6 +348,8 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 국민은행 484637-04-003032(예금주: 선문대학교)" />
 
                     <TextView
@@ -332,6 +357,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="무통장 입금시 본인이름으로 입금 요함. 본인 이름으로 입금하지 않았을 경우 필히 확인전화 요망" />
 
                     <TextView
@@ -340,6 +367,8 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="- 등록문의 : 주산학평생교육원 041-530-8345" />
                 </LinearLayout>
             </LinearLayout>
@@ -384,6 +413,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="[학습비 반환 기준] [평가인정 학습과정 운영에 관한 규정 제4조 제2항 관련]" />
 
                 </LinearLayout>

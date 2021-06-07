@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
-            android:textColor="#0B0B0B"
+            android:textColor="#F5A56C"
             android:textSize="15sp"
             android:textColorHint="#B6B3B3"
             android:text="번호" />

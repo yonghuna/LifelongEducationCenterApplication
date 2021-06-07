@@ -37,6 +37,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -63,6 +64,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -89,6 +91,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -115,6 +118,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -144,6 +148,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/nanumbarunpenb"
         android:gravity="center"
+        android:lineSpacingExtra="10dp"
         android:text="[결제금액에 관한 감면혜택 적용은 관리자에게 문의하십시오. 041-530-8345]"
         android:textColor="#070707"
         android:textSize="16dp" />
@@ -154,6 +159,7 @@
         android:fontFamily="@font/nanumbarunpenb"
         android:layout_marginTop="10dp"
         android:gravity="center"
+        android:lineSpacingExtra="10dp"
         android:text="일반과정 오프라인카드결제시 사무실 방문 부탁드립니다.\n(보건의료관 513호)\n 계좌이체 국민은행 473-25-0004-511 예금주:선문대학교"
         android:textSize="16dp"
         android:textColor="#070707" />
@@ -162,5 +168,7 @@
         android:id="@+id/pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="결제" />
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:text="결 제" />
 </LinearLayout>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#FFFFFF"
-
-    tools:context=".Creditbankingsystem.CreditbanksystemMajorInformation3Activity">
+    tools:context=".Creditbankingsystem.CreditbanksystemMajorInfo3Fragment">
 
     <!--학점은행제 전공안내 경제학 -->
     <ScrollView
@@ -19,12 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/majorspinner"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,6 +49,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
                 android:textSize="15sp" />
 
             <TextView
@@ -69,7 +62,6 @@
                 android:layout_marginEnd="10dp"
                 android:textColor="#737272"
                 android:layout_marginRight="10dp"
-                android:lineSpacingExtra="5dp"
                 android:text="경영학과 교육과정은 “최신이론 및 실무지식의 체계화” 측면에서 학년별 교과과정을 체계화함으로써 경영관련 이론과 현장실무지식을 함양하여 총체적인 역량을 향상할 수 있도록 한다. 또한 경영분야에 대한 전공세분화를 통하여 학생이 관심 있는 경영관련 분야에 대한 전문지식을 보다 효율적으로 획득할 수 있도록 교과과정을 편성한다." />
 
             <TextView

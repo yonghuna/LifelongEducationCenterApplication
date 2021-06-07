@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#FFFFFF"
-    tools:context=".Creditbankingsystem.CreditbanksystemMajorInformationActivity">
-    <!--학점은행제 전공안내 외국어로서의 한국어학 -->
+    tools:context=".Creditbankingsystem.CreditbanksystemMajorInfo1Fragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,12 +16,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <Spinner
-                android:id="@+id/majorspinner"
-                android:fontFamily="@font/nanumbarunpenb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -237,7 +229,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
-                android:lineSpacingExtra="5dp"
                 android:text="① 국내 · 해외 대학 및 부설 한국어 교육기관 한국어교사" />
 
             <TextView
@@ -247,9 +238,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textColor="#737272"
+                android:layout_marginTop="10dp"
                 android:lineSpacingExtra="5dp"
                 android:text="② 외국인근로자 지원센터, 다문화 가족지원센터 등 사회통합 프로그램 운영기관 한국어교사" />
 
@@ -263,6 +254,7 @@
                 android:textColor="#737272"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="③ 국외 한국문화원·한글학교 한국어교사" />
 
             <TextView
@@ -275,6 +267,7 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
                 android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="④ 국내·해외 일반 사설학원 한국어교사" />
 
             <TextView
@@ -287,6 +280,7 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
                 android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="⑤ 관련 대학원 진학" />
 
             <TextView
@@ -360,7 +354,6 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:layout_marginTop="10dp"
                 android:text="- 1학점당 75,000원(1과목에 3학점, 3시간)" />
 
             <TextView
@@ -373,6 +366,7 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
                 android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="- 참관 및 실습 : 3학점, 5시간, 50만원 (참관비 포함)" />
 
             <TextView
@@ -385,6 +379,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="4. 문의전화 : 선문대학교 주산학평생교육원 041-530-8345" />
 
             <TextView
@@ -423,6 +418,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="2. 국립국어원 한국어교원 사이트 (http://kteacher.korean.go.kr/) 심사 공고 확인" />
 
             <TextView
@@ -484,10 +480,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"
                 app:srcCompat="@drawable/img_credit3" />
         </LinearLayout>
     </ScrollView>
-
 
 </LinearLayout>

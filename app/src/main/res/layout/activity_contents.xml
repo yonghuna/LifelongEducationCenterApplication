@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#EDE6E6"
     tools:context=".Community.Community_NoticeContentActivity">
     <!--게시글 작성-->
 
@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:textColor="#F5A56C"
             android:fontFamily="@font/nanumbarunpenb"
             android:text="번호" />
 
@@ -53,7 +54,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:fontFamily="@font/nanumbarunpenb"
         />
 
@@ -64,8 +65,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="16dp"
-        android:background="@drawable/border_login"
+        android:background="@drawable/a_rectangle"
         android:hint="글 내용"
+        android:lineSpacingExtra="5dp"
         android:fontFamily="@font/nanumbarunpenb"
         android:textSize="18sp" />
 

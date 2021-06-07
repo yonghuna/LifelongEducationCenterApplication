@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_token_fmt">%s</string>
+    <string name="blush">\u00EC\u00B6\u0094\u00EC\u00B2\u009C\u00EA\u00B0\u0095\u00EC\u00A2\u008C
+</string>
+
 </resources>

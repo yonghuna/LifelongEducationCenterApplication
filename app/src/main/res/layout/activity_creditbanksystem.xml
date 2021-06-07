@@ -52,6 +52,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="#737272"
+                    android:lineSpacingExtra="5dp"
                     android:text="'학점은행제'는 학교에서뿐 아니라 학교 밖에서 이루어지는 다양한 형태의 학습 및 자격을 학점으로 인정받을 수 있도록 하고, 학점이 누적되어 일정 기준을 충족하면 학위 취득을 가능하게 함으로써 궁극적으로 열린 교육사회, 평생학습사회를 구현하기 위한 제도이다." />
 
                 <TextView
@@ -646,6 +647,7 @@
                 android:layout_marginEnd="10dp"
                 android:textColor="#737272"
                 android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="교육과학기술부 장관으로 부터 평가인정 받은 학습과목을 이수하는 것으로서 대학(교) 부설평생(사회)교육원, 직업훈련기관, 전문대학 전공심화과정 및 특별과정, 학원, 평생교육시설, 무형문화재 전수시설, 원격시설등에서 교육을 받을 수 있음." />
 
             <TextView
@@ -670,6 +672,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="평생교육원장이 학점인정이 가능하다고 고시한 자격을 취득하였을 경우 해당하는 학점을 인정 받을 수 있으며, 국가자격과 국가공인 민간자격에 한정하고 있음." />
 
             <TextView
@@ -694,6 +697,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="독학학위제를 통해서 시험을 합격하거나 시험면제교육과정을 이수하였을 경우 기준에 따라 학점인정을 받을 수 있음." />
 
             <TextView
@@ -718,6 +722,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="전문대학 중퇴 및 졸업, 4년제 대학교 중퇴, 학력인정 각종 학교 졸업 및 중퇴하기 이전에 해당 기관에서 이수한 학점을 인정 받을 수 있음." />
 
             <TextView
@@ -742,6 +747,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="고등교육법에 의거하여 각 대학(교)에서 자율적으로 시행하고 있는 시간제 등록 제도를 통해 학습과목을 이수하였을 경우 학점인정을 받을수 있음." />
 
             <TextView
@@ -766,6 +772,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="문화재보호법에 의거한 중요무형문화재 보유자와 그 전수자의 전수교육 경험을 학점으로 인정 받을 수 있음." />
 
             <TextView

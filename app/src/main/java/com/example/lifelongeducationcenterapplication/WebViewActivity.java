@@ -33,6 +33,7 @@ public class WebViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("도로명 주소 찾기");
         setContentView(R.layout.activity_web_view);
 
         browser = (WebView) findViewById(R.id.webView);

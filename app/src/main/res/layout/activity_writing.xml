@@ -17,7 +17,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/border_text"
-        android:fontFamily="@font/nanumbarunpenb"
+        android:fontFamily="@font/nanumsquareb"
         android:hint="글 제목"
         android:textColor="#0B0B0B"
         android:textColorHint="#B6B3B3"
@@ -41,6 +41,7 @@
         android:textColorHint="#B6B3B3"
         android:scrollbars="vertical"
         android:fontFamily="@font/nanumbarunpenb"
+        android:lineSpacingExtra="5dp"
         android:textSize="18sp" />
 
     <Button
@@ -50,7 +51,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="16dp"
-        android:text="저장"
+        android:text="저 장"
+        android:textSize="20sp"
         android:fontFamily="@font/nanumbarunpenb"
         android:textColor="#FFFFFF"
         android:layout_gravity="bottom"
