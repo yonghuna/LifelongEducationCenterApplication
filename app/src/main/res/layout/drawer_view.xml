@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="계정"
                 android:textColor="#716763"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:fontFamily="@font/nanumsquareb"
                 android:textSize="25sp" />
 
             <TextView
@@ -54,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="#716763"
                 android:text="교육원소개"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:fontFamily="@font/nanumsquareb"
+                android:layout_marginTop="5dp"
                 android:textSize="25sp" />
 
             <TextView
@@ -113,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:text="학점은행제"
                 android:textColor="#716763"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:fontFamily="@font/nanumsquareb"
+                android:layout_marginTop="5dp"
                 android:textSize="25sp" />
 
             <TextView
@@ -173,7 +175,8 @@
                 android:layout_height="wrap_content"
                 android:text="일반교육과정"
                 android:textColor="#716763"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:fontFamily="@font/nanumsquareb"
+                android:layout_marginTop="5dp"
                 android:textSize="25sp" />
 
             <TextView
@@ -242,7 +245,8 @@
                 android:layout_height="wrap_content"
                 android:text="커뮤니티"
                 android:textColor="#716763"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:fontFamily="@font/nanumsquareb"
+                android:layout_marginTop="5dp"
                 android:textSize="25sp" />
 
             <TextView
@@ -291,7 +295,8 @@
                 android:layout_height="wrap_content"
                 android:text="마이페이지"
                 android:textColor="#716763"
-                android:fontFamily="@font/nanumbarunpenb"
+                android:fontFamily="@font/nanumsquareb"
+                android:layout_marginTop="5dp"
                 android:textSize="25sp" />
 
             <TextView

@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/sunmoon" />
+            android:src="@drawable/ss" />
         <!--
             강좌정보(RecyclerView로 대체할 수 있음.)
         -->
@@ -153,6 +153,8 @@
             <ListView
                 android:id="@+id/listNoticed"
                 android:layout_width="match_parent"
+                android:dividerHeight="15dp"
+                android:divider="#ffffff"
                 android:layout_height="0sp"
                 android:layout_margin="16dp"
                 android:layout_weight="1"
@@ -183,7 +185,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="#B5B5B5"
                     android:orientation="horizontal">

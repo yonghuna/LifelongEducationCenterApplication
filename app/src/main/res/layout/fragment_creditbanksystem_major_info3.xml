@@ -49,6 +49,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
                 android:textSize="15sp" />
 
             <TextView
@@ -87,6 +88,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="경영학 이론과 현장실무역량을 겸비한 21세기형 경영인을 육성하는 것을 목표로 합니다." />
 
             <TextView
@@ -99,6 +101,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="또한 창의적인 사고의 함양과 체계적인 창업교육을 토대로 새로운 분야에서 창업할 수 있는 예비 기업가를 양성합니다." />
 
             <TextView
@@ -125,6 +128,7 @@
                 android:layout_marginEnd="10dp"
                 android:textColor="#737272"
                 android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="기업체 주요직무의 관리자(인사, 재무, 회계, 경영정보, 생산, 마케팅, 해외영업 부문 관리자 등), 공무원, 정부기관 및 지방자치단체의 공직자, 세무 공무원, 금융기관, 사회조사기관, 광고기획사, 서비스업체, 레저/스포츠업체, 문화콘텐츠업체, 경영자문회사의 경영컨설턴트, 공인회계사 및 세무사, 영리 및 비영리기관의 회계 및 재무담당 전문직 등" />
 
             <TextView

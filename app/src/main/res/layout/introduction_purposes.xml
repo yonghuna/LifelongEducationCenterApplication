@@ -93,6 +93,7 @@
                         android:padding="10dp"
                         android:fontFamily="@font/nanumbarunpenb"
                         android:textColor="#737272"
+                        android:lineSpacingExtra="5dp"
                         android:text="⦁ 국제화·개방화 시대에 따라 날로 변화되어 가고 있는 사회에      능동적으로 대처하고, 지역사회 주민들에게 평생교육 기회를 제공함으로써 삶의 질을 향상시킴 " />
 
                     <TextView
@@ -102,6 +103,7 @@
                         android:padding="10dp"
                         android:textColor="#737272"
                         android:fontFamily="@font/nanumbarunpenb"
+                        android:lineSpacingExtra="5dp"
                         android:text="⦁ 지역사회 봉사를 통한 지역사회와의 유대강화 및 대학 본래 목적 중 하나인 사회봉사에 충실" />
                 </LinearLayout>
             </LinearLayout>

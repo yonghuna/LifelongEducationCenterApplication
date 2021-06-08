@@ -23,5 +23,6 @@
         android:textColor="#0B0B0B"
         android:textColorHint="#B6B3B3"
         android:fontFamily="@font/nanumbarunpenb"
+        android:lineSpacingExtra="5dp"
         android:hint="교육내용"/>
 </LinearLayout>

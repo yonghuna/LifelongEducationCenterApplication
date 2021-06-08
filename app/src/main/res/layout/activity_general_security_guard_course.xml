@@ -72,6 +72,7 @@
                 android:textColor="#737272"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
+                android:lineSpacingExtra="5dp"
                 android:text="경찰청고시 제2020-6호, 경비업법 제13조제1항, 동법 제27조제2항에 의거 실시되는 일반경비원 신임교육은 경비원의 자질 향상과 민간경비업의 건전한 육성을 위해 지정된 교육과정을 경비업무 종사자는 필수로 이수하여야 합니다." />
 
             <TextView
@@ -256,6 +257,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#737272"
+                android:lineSpacingExtra="5dp"
                 android:text="홈페이지 공지사항 또는 커뮤니티- 서식자료실 「일반경비원 신임교육 입교신청서」 와 개인정보동의서 작성 후 이메일(edu@sunmoon.ac.kr), 팩스(041-530-2987) 또는 방문, 전화 접수를 통해 신청" />
 
             <TextView
