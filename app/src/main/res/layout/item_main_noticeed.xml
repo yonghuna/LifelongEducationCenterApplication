@@ -18,7 +18,6 @@
             android:layout_weight="1"
             android:textSize="17sp"
             android:textColor="#7E6C6C"
-            android:paddingLeft="5dp"
             android:fontFamily="@font/nanumsquareb"
             android:text="TextView" />
     </LinearLayout>
