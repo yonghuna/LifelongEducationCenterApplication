@@ -258,7 +258,8 @@ public interface RemoteService {
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<RegisterResult> paymentSuccess(
             @Field("payment") String payment,
-            @Field("id") String id);// 결제되면 결제완료로
+            @Field("id") String id,
+            @Field("number") int number);// 결제되면 결제완료로
 
     //수강 취소
     @FormUrlEncoded

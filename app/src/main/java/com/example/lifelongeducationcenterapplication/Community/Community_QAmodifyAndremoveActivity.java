@@ -138,8 +138,7 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                            startActivity(intent);
+                            finish();
                         }
                     }
 

@@ -91,14 +91,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    /*
-    @Override   //액셔바 홈버튼
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
-     */
     protected void onResume() {
         Call<List<Notice>> call1 = rs1.secret(StaticId.id);//call객체
         call1.enqueue(new Callback<List<Notice>>() {//enqueue 메소드 실행
@@ -151,7 +144,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
 
             String[] day = notice.getReportingdate().split(" ");
 
-            postNumber(notice.getTitle(),notice.getNumber());
+            noticeTitle.setText(notice.getTitle());
             noticeDate.setText(day[0]);
             noticeWriter.setText(notice.getName());
             noticeNumber.setText(Integer.toString(notice.getNumber()));
@@ -173,7 +166,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
             return convertView;
         }
     }
-
+    /*
     public void postNumber(String title, int number){
 
         Call<PostNumber> call1 = rs1.postNumber(number);//call객체
@@ -194,4 +187,6 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
         });
 
     }
+
+     */
 }

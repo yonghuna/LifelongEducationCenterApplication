@@ -116,7 +116,7 @@ public class MyPage_Payment extends AppCompatActivity {
                             @Override
                             public void onDone(@Nullable String message) {
 
-                                Call<RegisterResult> call = rs2.paymentSuccess("결제완료", StaticId.id);//call객체
+                                Call<RegisterResult> call = rs2.paymentSuccess("결제완료", StaticId.id, number1);//call객체
                                 call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
                                     @Override
                                     public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
