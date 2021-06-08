@@ -186,18 +186,16 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="0sp"
+                            android:layout_width="40sp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:fontFamily="@font/nanumbarunpenb"
                             android:gravity="center"
                             android:text="주"
                             android:textColor="#0B0B0B" />
 
                         <TextView
-                            android:layout_width="0sp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="5"
                             android:gravity="center"
                             android:fontFamily="@font/nanumbarunpenb"
                             android:text="교육내용"
