@@ -373,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
             convertView = getLayoutInflater().inflate(R.layout.item_main_noticeed, null);
             Notice notice = notices.get(position);
             mainNotice = (TextView) convertView.findViewById(R.id.main_noticeed);
-            mainNotice.setText("・" + notice.getTitle());
+            mainNotice.setText(notice.getTitle());
 
             mainNotice.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -423,9 +423,9 @@ public class MainActivity extends AppCompatActivity {
             mainLectureDate2.setText(enrollment.getStartDate() + "~" + enrollment.getEndDate());
 
             if (enrollment.getName().isEmpty()) {
-                mainLectureTitle2.setText("・ 수강 신청한 강좌가 없습니다.");
+                mainLectureTitle2.setText("수강 신청한 강좌가 없습니다.");
             }else{
-                mainLectureTitle2.setText("・" + enrollment.getName());
+                mainLectureTitle2.setText(enrollment.getName());
             }
 
             linearLayout.setOnClickListener(new View.OnClickListener() {
