@@ -96,6 +96,8 @@
                 android:id="@+id/listLecture"
                 android:layout_margin="16dp"
                 android:layout_width="match_parent"
+                android:dividerHeight="2dp"
+                android:divider="#ffffff"
                 android:layout_height="0sp"
                 android:layout_weight="1"
                 android:nestedScrollingEnabled="true"/>

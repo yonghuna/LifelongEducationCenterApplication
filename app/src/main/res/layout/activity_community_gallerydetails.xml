@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#EDE6E6"
     tools:context=".Community.Community_GalleryDetails">
 
     <LinearLayout
@@ -14,7 +14,6 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
-        android:background="@drawable/border_text"
         android:orientation="horizontal">
 
         <TextView
@@ -24,7 +23,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
             android:textSize="18sp"
-            android:textColor="#0B0B0B"
+            android:textColor="#F5A56C"
             android:textColorHint="#B6B3B3"
             android:text="번호" />
 
@@ -58,10 +57,9 @@
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:hint="글 제목"
-        android:fontFamily="@font/nanumbarunpenb"
+        android:fontFamily="@font/nanumsquareb"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_text"
         android:textColor="#0B0B0B"
         android:textColorHint="#B6B3B3"
         android:layout_marginTop="10dp" />
@@ -89,7 +87,8 @@
     <ListView
         android:id="@+id/file"
         android:layout_width="match_parent"
-        android:background="@drawable/border_login"
+        android:background="@drawable/a_rectangle"
+        android:divider="#ffffff"
         android:layout_height="68dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
@@ -101,6 +100,7 @@
 
     <ListView
         android:id="@+id/image"
+        android:background="@drawable/a_rectangle"
         android:layout_width="match_parent"
         android:layout_height="519dp"
         android:layout_marginStart="10dp"
