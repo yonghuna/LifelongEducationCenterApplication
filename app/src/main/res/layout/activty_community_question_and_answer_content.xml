@@ -75,39 +75,6 @@
                 android:textColorHint="#B6B3B3"
                 android:textSize="22sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical"
-                android:minHeight="100dp">
-
-                <TextView
-                    android:id="@+id/tx_notice_file"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanumbarunpenb"
-                    android:hint="첨부파일"
-                    android:textColor="#0B0B0B"
-                    android:textColorHint="#0B0B0B"
-                    android:divider="#ffffff"
-                    android:textSize="17sp" />
-                <ListView
-                    android:id="@+id/notice_file"
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="1"
-                    android:divider="#ffffff"
-                    android:background="@drawable/a_rectangle"
-                    android:nestedScrollingEnabled="true">
-                </ListView>
-            </LinearLayout>
-
-
-
-
 
             <TextView
                 android:id="@+id/write_content_tv"
@@ -121,7 +88,6 @@
                 android:textColor="#0B0B0B"
                 android:minHeight="350sp"
                 android:textColorHint="#B6B3B3"
-                android:lineSpacingExtra="5dp"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -172,6 +138,9 @@
                     android:layout_marginRight="16dp"
                     android:nestedScrollingEnabled="true"/>
             </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+
 </LinearLayout>
