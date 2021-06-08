@@ -2,6 +2,7 @@ package com.example.lifelongeducationcenterapplication.Community;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -116,7 +117,7 @@ public class Community_QAmodifyAndremoveActivity extends AppCompatActivity {
                     writer.setText(notice.getName());
                     time.setText(getTime());
                     title.setText(notice.getTitle());
-                    content.setText(notice.getContents());
+                    content.setText(Html.fromHtml(notice.getContents()).toString());
 
                 }
             }

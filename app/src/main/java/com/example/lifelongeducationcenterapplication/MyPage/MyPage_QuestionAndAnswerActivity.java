@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.lifelongeducationcenterapplication.Community.Community_Bulletin_boardwritingActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_DifferentMember;
+import com.example.lifelongeducationcenterapplication.Community.Community_QAContent;
 import com.example.lifelongeducationcenterapplication.Community.Community_QAmodifyAndremoveActivity;
 import com.example.lifelongeducationcenterapplication.Community.Community_QuestionAndAnswerActivity;
 import com.example.lifelongeducationcenterapplication.Notice;
@@ -156,7 +157,7 @@ public class MyPage_QuestionAndAnswerActivity extends AppCompatActivity {
 
                     System.out.println(StaticId.id + " ----" + notice.getId());
 
-                    Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
+                    Intent intent = new Intent(getApplicationContext(), Community_QAContent.class);
                     intent.putExtra("number", notice.getNumber());
                     intent.putExtra("id", StaticId.id);
                     startActivity(intent);

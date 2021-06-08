@@ -36,17 +36,16 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
-
-public class Community_DifferentMember extends AppCompatActivity {
-    Button btList, btModify, btRemove;
-    TextView num, writer, time, title, content, time2, comment,textview, textFile;
+// QNA 안 내용물
+public class Community_QAContent extends AppCompatActivity {
+    Button btModify, btRemove;
+    TextView num, writer, time, title, content, time2, comment,textview;
     LinearLayout file;
     Notice notice;
     Retrofit retrofit1; //httpclient library
     RemoteService rs1; //DB를 위한 인터페이스
 
     ListView listview;
-    ListView fileView;
     List<Notice> notices;
     Retrofit retrofit2; //httpclient library
     RemoteService rs2; //DB를 위한 인터페이스
@@ -58,7 +57,7 @@ public class Community_DifferentMember extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("글 내용");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.activity_community__bulletin_boardwriting);
+        setContentView(R.layout.activty_community_question_and_answer_content);
 
 
         // 어디서 왓는지 구분
@@ -124,9 +123,6 @@ public class Community_DifferentMember extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
     @Override   //뒤로가기
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -144,12 +140,13 @@ public class Community_DifferentMember extends AppCompatActivity {
         content = (TextView) findViewById(R.id.write_content_tv);
         btModify = (Button) findViewById(R.id.modfiy);
         btRemove = (Button) findViewById(R.id.remove);
+        file = (LinearLayout) findViewById(R.id.file);
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
         listview = (ListView) findViewById(R.id.contentListView);
-        textFile = (TextView) findViewById(R.id.tx_notice_file);
-        fileView = (ListView) findViewById(R.id.notice_file);
+
+
 
     }
 
@@ -234,7 +231,7 @@ public class Community_DifferentMember extends AppCompatActivity {
             Notice notice =  notices.get(position);
 
             if(notice.getDate() == null || notice.getContents() == null){
-                    listview.setVisibility(View.GONE);
+                listview.setVisibility(View.GONE);
             }
             time2 = (TextView)convertView.findViewById(R.id.time); // 1 , 2 , 3
             comment = (TextView)convertView.findViewById(R.id.editTextTextcoment); // 날짜

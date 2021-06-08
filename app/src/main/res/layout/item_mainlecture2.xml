@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="16dp"
     android:id="@+id/main">
 
     <TextView
@@ -12,7 +11,7 @@
         android:layout_height="wrap_content"
         android:hint="강좌명"
         android:textColor="#7E6C6C"
-        android:fontFamily="@font/nanumbarunpenb"
+        android:fontFamily="@font/nanumsquareb"
         android:textSize="18sp"/>
 
     <LinearLayout
@@ -26,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
+            android:fontFamily="@font/nanumsquareb"
             android:textColor="#7E6C6C"
             android:hint="과정이름" />
 
@@ -37,7 +36,7 @@
             android:layout_weight="0.5"
             android:gravity="right"
             android:textColor="#7E6C6C"
-            android:fontFamily="@font/nanumbarunpenb"
+            android:fontFamily="@font/nanumsquareb"
             android:hint="교육기간" />
 
 

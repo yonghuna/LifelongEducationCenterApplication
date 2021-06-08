@@ -157,7 +157,7 @@ public class Community_QuestionAndAnswerActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     System.out.println(StaticId.id + " ----" + notice.getId());
-                    Intent intent = new Intent(getApplicationContext(), Community_DifferentMember.class);
+                    Intent intent = new Intent(getApplicationContext(), Community_QAContent.class);
                     intent.putExtra("number", notice.getNumber());
                     intent.putExtra("id", notice.getId());
                     startActivity(intent);

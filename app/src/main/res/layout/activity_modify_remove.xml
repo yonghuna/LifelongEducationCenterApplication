@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#EDE6E6"
     tools:context=".Community.Community_NoticeContentActivity">
     <!--게시글 작성-->
 
@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textSize="18sp"
             android:textColor="#F5A56C"
-            android:textSize="15sp"
             android:textColorHint="#B6B3B3"
             android:text="번호" />
 
@@ -33,10 +33,10 @@
             android:layout_width="4dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#0B0B0B"
-            android:textSize="15sp"
-            android:textColorHint="#B6B3B3"
             android:fontFamily="@font/nanumbarunpenb"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#B6B3B3"
+            android:textSize="18sp"
             android:text="작성자" />
 
         <TextView
@@ -44,24 +44,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="15sp"
+            android:fontFamily="@font/nanumbarunpenb"
+            android:textSize="18sp"
+            android:gravity="right"
             android:textColor="#0B0B0B"
             android:textColorHint="#B6B3B3"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:text="시간" />
+            android:text="날짜" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/write_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:background="#EDE6E6"
+        android:fontFamily="@font/nanumsquareb"
         android:hint="글 제목"
         android:textColor="#0B0B0B"
         android:textColorHint="#B6B3B3"
-        android:fontFamily="@font/nanumbarunpenb"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
+        android:textSize="22sp"
         />
 
 
@@ -73,9 +76,10 @@
         android:textColor="#0B0B0B"
         android:textColorHint="#B6B3B3"
         android:fontFamily="@font/nanumbarunpenb"
-        android:background="@drawable/border_login"
+        android:background="@drawable/a_rectangle"
         android:hint="글 내용"
-        android:textSize="15sp" />
+        android:lineSpacingExtra="5dp"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/write_modify"
