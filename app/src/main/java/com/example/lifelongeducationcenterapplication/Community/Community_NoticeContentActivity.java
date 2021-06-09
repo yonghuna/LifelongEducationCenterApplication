@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
     //공지사항
     TextView title, content, who, time, postedNumber, comment, textview, file;
     Button remove, modify;
+    LinearLayout button, commentLayout;
     int number;
     Retrofit retrofit;
     RemoteService rs;
@@ -82,15 +84,15 @@ public class Community_NoticeContentActivity extends AppCompatActivity {
         who = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);
         comment = (TextView) findViewById(R.id.comment);
-
+        button = (LinearLayout) findViewById(R.id.button);
+        commentLayout = (LinearLayout)findViewById(R.id.commentLayout);
         remove = (Button) findViewById(R.id.remove);
         modify = (Button) findViewById(R.id.modfiy);
         listview = (ListView) findViewById(R.id.contentListView);
 
         fileList = (ListView) findViewById(R.id.notice_file); // 파일
-        listview.setVisibility(View.GONE);
-        remove.setVisibility(View.GONE);
-        modify.setVisibility(View.GONE);
+        commentLayout.setVisibility(View.GONE);
+        button.setVisibility(View.GONE);
         comment.setVisibility(View.GONE);
 
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory

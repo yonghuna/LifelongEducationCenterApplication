@@ -47,9 +47,9 @@
                     android:background="@drawable/figma_text1"
                     android:gravity="right"
                     android:padding="5sp"
-                    android:text=""
+                    android:fontFamily="@font/nanumsquareb"
                     android:textColor="#000111"
-                    android:textSize="13sp" />
+                    android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/login"
@@ -108,60 +108,61 @@
                 공지사항(RecyclerView로 대체할 수 있음.)
             -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
-            android:background="@drawable/figma_rectangle"
-            android:orientation="vertical"
-            android:minHeight="150sp">
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_marginRight="16dp"
-                android:orientation="horizontal">
+                android:layout_height="181dp"
+                android:layout_margin="10sp"
+                android:background="@drawable/figma_rectangle"
+                android:minHeight="150sp"
+                android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/nanumsquareb"
-                    android:text="공지사항"
-                    android:paddingLeft="25sp"
-                    android:textColor="#F5A56C"
-                    android:textSize="20sp" />
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/notice_addbutton"
-                    android:layout_width="50dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:layout_marginBottom="10sp"
-                    android:background="@drawable/ic_add"
-                    android:clickable="true"
-                    android:fontFamily="@font/nanumbarunpenb"
-                    app:backgroundTint="#636E81" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nanumsquareb"
+                        android:paddingLeft="25sp"
+                        android:text="공지사항"
+                        android:textColor="#F5A56C"
+                        android:textSize="20sp" />
 
+                    <Button
+                        android:id="@+id/notice_addbutton"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right"
+                        android:layout_marginBottom="10sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_add"
+                        android:clickable="true"
+                        android:fontFamily="@font/nanumbarunpenb"
+                        app:backgroundTint="#636E81" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="350dp"
+                    android:layout_height="1sp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/figma_line" />
+
+                <ListView
+                    android:id="@+id/listNoticed"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:divider="#ffffff"
+                    android:dividerHeight="15dp"
+                    android:nestedScrollingEnabled="true" />
             </LinearLayout>
-            <View
-                android:layout_width="350dp"
-                android:layout_height="1sp"
-                android:layout_gravity="center"
-                android:background="@drawable/figma_line"/>
-
-            <ListView
-                android:id="@+id/listNoticed"
-                android:layout_width="match_parent"
-                android:dividerHeight="15dp"
-                android:divider="#ffffff"
-                android:layout_height="0sp"
-                android:layout_margin="16dp"
-                android:layout_weight="1"
-                android:nestedScrollingEnabled="true"/>
-        </LinearLayout>
 
         <!--
             기타정보(RecyclerView로 대체할 수 있음.)
@@ -194,6 +195,8 @@
 
                     <TextView
                         android:id="@+id/email"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="6dp"
@@ -204,6 +207,8 @@
 
                     <TextView
                         android:id="@+id/private1"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="6dp"
@@ -229,6 +234,7 @@
                         android:text="충남 아산시 탕정면 선문로221번길 70 선문대학교 주산학평생교육원 보건의료관 513호 TEL: 041-530-8345
         Copyrightⓒ2021 SUNMOON University., All rights reserved."
                     android:textSize="12sp" />
+
             </LinearLayout>
 
 

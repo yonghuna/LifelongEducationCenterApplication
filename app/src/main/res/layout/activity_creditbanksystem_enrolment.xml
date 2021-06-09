@@ -28,7 +28,7 @@
             android:fontFamily="@font/nanumbarunpenb"
             android:padding="5sp"
             android:text="수강신청"
-            android:textColor="#00838F"
+            android:textColor="@color/black"
             android:textSize="24sp" />
 
         <LinearLayout

@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView link1, link2;
     Button btNotice;
-    TextView mainNotice, mainLecture;
+    TextView mainNotice;
     TextView mainLectureTitle2, mainLectureDivision2, mainLectureDate2, mainLectureText;
 
     TextView login, name;
@@ -158,7 +159,8 @@ public class MainActivity extends AppCompatActivity {
 
         link1.setText("이메일무단수집금지           |");
         link2.setText("개인정보처리방침");
-
+        link1.setGravity(Gravity.CENTER);
+        link2.setGravity(Gravity.CENTER);
         Linkify.TransformFilter transformFilter = new Linkify.TransformFilter() {
             @Override
             public String transformUrl(Matcher matcher, String s) {
@@ -265,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 
 
 

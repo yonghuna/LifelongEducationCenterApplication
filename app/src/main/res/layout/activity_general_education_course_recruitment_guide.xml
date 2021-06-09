@@ -27,14 +27,17 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 app:srcCompat="@drawable/guidevisual" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="모집안내"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanumbarunpenb"
+                android:textSize="24sp"
                 android:layout_margin="10dp"/>
 
             <TextView

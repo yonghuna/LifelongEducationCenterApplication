@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +47,7 @@ public class Community_FormattingRoomContentActivity  extends AppCompatActivity 
     int number;
     Retrofit retrofit;
     RemoteService rs;
-
+    LinearLayout button, commentLayout;
     Notice notice;
     ListView listview;
     List<Attachment> attachment;
@@ -90,9 +91,10 @@ public class Community_FormattingRoomContentActivity  extends AppCompatActivity 
 
 
         fileList = (ListView) findViewById(R.id.notice_file); // 파일
-        listview.setVisibility(View.GONE);
-        remove.setVisibility(View.GONE);
-        modify.setVisibility(View.GONE);
+        button = (LinearLayout) findViewById(R.id.button);
+        commentLayout = (LinearLayout)findViewById(R.id.commentLayout);
+        commentLayout.setVisibility(View.GONE);
+        button.setVisibility(View.GONE);
         comment.setVisibility(View.GONE);
 
         fileadapter = new FileAdapter(); // 파일

@@ -38,7 +38,7 @@
                 android:padding="5sp"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:text="수강신청"
-                android:textColor="#00838F"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
             <!--
               외국어 과정 수강신청 리스트

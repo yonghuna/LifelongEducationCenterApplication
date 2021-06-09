@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_
 public class Community_GalleryDetails extends AppCompatActivity {
     TextView title, who, time, postedNumber,  file;
     ImageView image;
-
+    LinearLayout button, commentLayout;
     int number;
     Notice notice;
     Retrofit retrofit1;
@@ -81,6 +82,8 @@ public class Community_GalleryDetails extends AppCompatActivity {
         time = (TextView) findViewById(R.id.time);
         listview = (ListView) findViewById(R.id.file);
         listview2 = (ListView) findViewById(R.id.image);
+
+
 
         pathFile = (this.getFilesDir()).toString();
 

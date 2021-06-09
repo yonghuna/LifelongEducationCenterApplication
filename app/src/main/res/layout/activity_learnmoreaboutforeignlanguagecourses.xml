@@ -42,7 +42,7 @@
                     android:padding="5sp"
                     android:text="수강신청"
                     android:fontFamily="@font/nanumbarunpenb"
-                    android:textColor="#00838F"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
 
                 <Button

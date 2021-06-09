@@ -28,7 +28,7 @@
                 android:padding="5sp"
                 android:text="전공안내"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:textColor="#00838F"
+                android:textColor="#030404"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"

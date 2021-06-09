@@ -23,7 +23,7 @@
         android:padding="5sp"
         android:text="수강내역"
         android:fontFamily="@font/nanumbarunpenb"
-        android:textColor="#00838F"
+        android:textColor="@color/black"
         android:textSize="24sp" />
 
     <ListView

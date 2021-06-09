@@ -17,6 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="17sp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:textColor="#7E6C6C"
             android:fontFamily="@font/nanumsquareb"
             android:text="TextView" />

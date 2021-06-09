@@ -23,7 +23,8 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 app:srcCompat="@drawable/intro" />
 
             <LinearLayout
@@ -36,7 +37,7 @@
                     android:layout_height="54dp"
                     android:layout_margin="10dp"
                     android:text="찾아오시는 길"
-                    android:textColor="#00897B"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:textSize="30sp" />
 

@@ -33,7 +33,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:textColor="#00838F"
+                android:textColor="#030404"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="24sp" />
 

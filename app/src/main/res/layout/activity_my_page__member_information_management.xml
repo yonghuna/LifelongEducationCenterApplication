@@ -35,7 +35,7 @@
                 android:padding="5sp"
                 android:text="회원정보 관리"
                 android:fontFamily="@font/nanumbarunpenb"
-                android:textColor="#00838F"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <LinearLayout
