@@ -24,13 +24,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="#EDE6E6"
-                android:orientation="horizontal">
+                android:background="#EDE6E6">
 
                 <TextView
                     android:id="@+id/number"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:textSize="18sp"
                     android:textColor="#F5A56C"
@@ -41,7 +40,7 @@
                 <TextView
                     android:id="@+id/who"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:textSize="18sp"
                     android:textColor="#0B0B0B"
@@ -52,7 +51,7 @@
                 <TextView
                     android:id="@+id/time"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:fontFamily="@font/nanumbarunpenb"
                     android:textColor="#0B0B0B"

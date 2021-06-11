@@ -8,111 +8,142 @@
     android:background="#EDE6E6"
     tools:context=".Community.Community_GalleryDetails">
 
-    <LinearLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:textSize="18sp"
-            android:textColor="#F5A56C"
-            android:textColorHint="#B6B3B3"
-            android:text="번호" />
-
-        <TextView
-            android:id="@+id/who"
-            android:layout_width="4dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:textColor="#0B0B0B"
-            android:textColorHint="#B6B3B3"
-            android:textSize="18sp"
-            android:text="작성자" />
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:textSize="18sp"
-            android:gravity="right"
-            android:textColor="#0B0B0B"
-            android:textColorHint="#B6B3B3"
-            android:text="날짜" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/write_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:hint="글 제목"
-        android:fontFamily="@font/nanumsquareb"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:textColor="#0B0B0B"
-        android:textColorHint="#B6B3B3"
-        android:layout_marginTop="10dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tx_notice_file"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumbarunpenb"
-            android:hint="첨부파일"
-            android:textColor="#0B0B0B"
-            android:textColorHint="#B6B3B3"
-            android:textSize="17sp" />
-    </LinearLayout>
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp">
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textSize="18sp"
+                    android:textColor="#F5A56C"
+                    android:textColorHint="#B6B3B3"
+                    android:layout_marginRight="10sp"
+                    android:text="번호" />
+
+                <TextView
+                    android:id="@+id/who"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textColor="#0B0B0B"
+                    android:textColorHint="#B6B3B3"
+                    android:textSize="18sp"
+                    android:text="작성자"
+                    android:layout_toRightOf="@id/number"/>
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:textSize="18sp"
+                    android:gravity="right"
+                    android:textColor="#0B0B0B"
+                    android:textColorHint="#B6B3B3"
+                    android:text="날짜"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/write_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:hint="글 제목"
+                android:fontFamily="@font/nanumsquareb"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textColor="#0B0B0B"
+                android:textColorHint="#B6B3B3"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tx_notice_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumbarunpenb"
+                    android:hint="첨부파일"
+                    android:textColor="#0B0B0B"
+                    android:textColorHint="#B6B3B3"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:minHeight="100sp">
+                <ListView
+                    android:id="@+id/file"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/a_rectangle"
+                    android:divider="#ffffff"
+                    android:layout_height="0sp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:nestedScrollingEnabled="true">
+
+                </ListView>
 
 
-    <ListView
-        android:id="@+id/file"
-        android:layout_width="match_parent"
-        android:background="@drawable/a_rectangle"
-        android:divider="#ffffff"
-        android:layout_height="68dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp">
+            </LinearLayout>
 
-    </ListView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:minHeight="600dp">
 
-    <ListView
-        android:id="@+id/image"
-        android:background="@drawable/a_rectangle"
-        android:layout_width="match_parent"
-        android:layout_height="519dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp" />
+                <ListView
+                    android:id="@+id/image"
+                    android:background="@drawable/a_rectangle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:nestedScrollingEnabled="true"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            </LinearLayout>
 
-        android:orientation="horizontal"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
 
 </LinearLayout>
