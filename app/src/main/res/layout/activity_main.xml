@@ -112,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/figma_rectangle"
-                android:minHeight="150sp"
+                android:background="@drawable/figma_rectangle2"
+                android:minHeight="120sp"
                 android:orientation="vertical">
 
                 <LinearLayout
