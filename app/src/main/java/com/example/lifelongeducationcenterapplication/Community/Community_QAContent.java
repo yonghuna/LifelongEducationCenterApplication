@@ -60,21 +60,19 @@ public class Community_QAContent extends AppCompatActivity {
         setContentView(R.layout.activty_community_question_and_answer_content);
 
 
-        // 어디서 왓는지 구분
+        //
         Intent intent = getIntent(); /*데이터 수신*/
         number = intent.getIntExtra("number", 1); // pk로 구분
         id = intent.getStringExtra("id"); // pk로 구분
 
         adapter = new MyAdapter();
         findId();
-
-
         setRetrofit();
 
         //스크롤
         textview = findViewById(R.id.write_content_tv);
         textview.setMovementMethod(new ScrollingMovementMethod());
-        // 본인일 경우
+
         btRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +80,8 @@ public class Community_QAContent extends AppCompatActivity {
                 if (StaticId.id == null) {
                     // 아닐경우
                     Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
+                }else if(!StaticId.id.equals(id)){
+                    Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
                 else if (StaticId.id.equals(id)) {
                     Call<Void> call = rs2.userRemove(number, StaticId.id);//call객체
@@ -90,18 +90,14 @@ public class Community_QAContent extends AppCompatActivity {
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "삭제 되었습니다.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), Community_QuestionAndAnswerActivity.class);
-                                startActivity(intent);
+                                finish();
                             }
                         }
-
                         @Override
                         public void onFailure(Call<Void> call, Throwable t) {
                             System.out.println("글 삭제 실패" + call + " " + t);
                         }
                     });
-                }else if (StaticId.id != id){
-                    Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -114,12 +110,13 @@ public class Community_QAContent extends AppCompatActivity {
                     // 아닐경우
                     Toast.makeText(getApplicationContext(), "로그인 하시오.", Toast.LENGTH_SHORT).show();
                 }
+                else if(!StaticId.id.equals(id)){
+                    Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
+                }
                 else if (StaticId.id.equals(id)) {
                     Intent intent = new Intent(getApplicationContext(), Community_QAmodifyAndremoveActivity.class);
                     intent.putExtra("number", number);
                     startActivity(intent);
-                } else if(StaticId.id != id){
-                    Toast.makeText(getApplicationContext(), "본인이 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -140,7 +137,7 @@ public class Community_QAContent extends AppCompatActivity {
         content = (TextView) findViewById(R.id.write_content_tv);
         btModify = (Button) findViewById(R.id.modfiy);
         btRemove = (Button) findViewById(R.id.remove);
-        file = (LinearLayout) findViewById(R.id.file);
+
         num = (TextView) findViewById(R.id.number);
         writer = (TextView) findViewById(R.id.who);
         time = (TextView) findViewById(R.id.time);

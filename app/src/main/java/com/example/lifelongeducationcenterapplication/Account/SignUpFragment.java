@@ -74,8 +74,7 @@ public class SignUpFragment extends Fragment {
         spinnerphone();//스피너초기화
 
 
-        //주석처리한거는 DB연동이 다 안되어있으므로 제대로된 테스트를 하지 못해 일부러 처리했습니다.
-        ////////////////////////
+
 
         dbSend();//회원가입 유저 정보 디비 전송
         searchaddress();
@@ -229,7 +228,6 @@ public class SignUpFragment extends Fragment {
             result = true;
         }
 
-
         return result;
 
     }
@@ -247,9 +245,9 @@ public class SignUpFragment extends Fragment {
         String userPass1 = edtSignUpPassword.getText().toString().trim(); //회원 비밀번호
         String userPass2 = edtSignUpPasswordCheck.getText().toString().trim(); //회원 비밀번호
 
-        if (userPhoneNumber1.isEmpty() && userPhoneNumber2.isEmpty() && userPhoneNumber3.isEmpty()
-                && userAddr.isEmpty() && userDetailedAddr.isEmpty() && userAddrNumber.isEmpty() && userPass1.isEmpty()
-                && userPass2.isEmpty()) {
+        if (userPhoneNumber1.isEmpty() || userPhoneNumber2.isEmpty() || userPhoneNumber3.isEmpty()
+                || userAddr.isEmpty() || userDetailedAddr.isEmpty() || userAddrNumber.isEmpty() || userPass1.isEmpty()
+                || userPass2.isEmpty()) {
 
         } else {
             result = true;

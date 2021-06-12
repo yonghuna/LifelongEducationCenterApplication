@@ -194,6 +194,7 @@
                 android:hint="우편번호"
                 android:fontFamily="@font/nanumbarunpenb"
                 android:textSize="18sp"
+                android:paddingTop="15dp"
                 android:enabled="false"/>
             <Button
                 android:id="@+id/btnSignUpAddressSearch"

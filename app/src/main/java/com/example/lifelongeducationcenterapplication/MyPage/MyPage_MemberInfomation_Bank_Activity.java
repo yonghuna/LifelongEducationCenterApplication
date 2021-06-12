@@ -85,15 +85,7 @@ public class MyPage_MemberInfomation_Bank_Activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    @Override   //액셔바 홈버튼
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-     */
     public void dbSend() {
         //회원가입 유저 정보 디비 전송
         retrofit1 = new Retrofit.Builder()
@@ -223,6 +215,12 @@ public class MyPage_MemberInfomation_Bank_Activity extends AppCompatActivity {
                     memberAdr1.setText(userInfo.getAddress());
                     memberAdr2.setText(userInfo.getDetailedaddress());
 
+                    String[] phoneNum = {
+                            userInfo.getPhoneNumber().substring(0, 3), "010", "011", "016", "017", "018", "019",
+                    };
+                    ArrayAdapter adapter3 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, phoneNum);
+                    adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    memberPhone1.setAdapter(adapter3);
                     //학점은행제
                     if(userInfo.getAdmissionmajor() == "" || userInfo.getAdmissionmajor() == null){
 
@@ -297,20 +295,20 @@ public class MyPage_MemberInfomation_Bank_Activity extends AppCompatActivity {
                             RegisterResult registerResult = response.body();
                             System.out.println("result------------ " + registerResult.getResult());
                             if (registerResult.getResult().equals("ok")) {
-                                Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_SHORT).show();
                                 System.out.println("수정 성공");
                                 memberPw1.setText("");
                                 memberPw2.setText("");
 
                             } else if (registerResult.equals("false")) {
-                                Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_SHORT).show();
                                 System.out.println("일반 수정 실패");
                             }
                         }
 
                         @Override
                         public void onFailure(Call<RegisterResult> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "수정이 실패하였습니다!", Toast.LENGTH_SHORT).show();
                         }
 
                     });

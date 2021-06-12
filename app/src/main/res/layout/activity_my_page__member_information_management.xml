@@ -193,6 +193,7 @@
                         android:layout_width="80sp"
                         android:layout_height="wrap_content"
                         android:hint="우편번호"
+                        android:paddingTop="18dp"
                         android:textColor="#0B0B0B"
                         android:textColorHint="#B6B3B3"
                         android:fontFamily="@font/nanumbarunpenb"
@@ -279,7 +280,7 @@
             <LinearLayout
                 android:id="@+id/myPageBank3"
                 android:layout_width="match_parent"
-                android:layout_height="100sp"
+                android:layout_height="110sp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
@@ -311,6 +312,7 @@
                             android:fontFamily="@font/nanumbarunpenb"
                             android:textColor="#0B0B0B"
                             android:textColorHint="#B6B3B3"
+                            android:paddingTop="9dp"
                             android:autoSizeTextType="uniform"
                             android:text="학력" />
 
@@ -331,6 +333,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:paddingTop="15dp"
                             android:textColor="#0B0B0B"
                             android:textColorHint="#B6B3B3"
                             android:fontFamily="@font/nanumbarunpenb"
@@ -356,11 +359,13 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:paddingTop="13dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/nanumbarunpenb"
                             android:textColor="#0B0B0B"
                             android:textColorHint="#B6B3B3"
+                            android:layout_marginTop="3dp"
                             android:text="전공" />
 
                         <EditText
@@ -373,6 +378,7 @@
                             android:textColorHint="#B6B3B3"
                             android:imeOptions="actionDone"
                             android:autoSizeTextType="uniform"
+
                             android:inputType="text" />
 
                     </LinearLayout>

@@ -33,7 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.lifelongeducationcenterapplication.RemoteService.BASE_URL;
 
 public class MyPage_MemberInformationManagementActivity extends AppCompatActivity {
-    //마이페이지 회원정보관리
+    //마이페이지 회원정보관리, 일반 은행제
     TextView memberName, memberBirth, memberIdNumber, myPageBankText, memberPostcode, memberAdr1; // 이름 생년 주민번호, 학습은행제
     Spinner memberPhone1, memberEducation; // 휴대폰, 학력
     EditText memberPhone2, memberPhone3, memberAdr2, memberSchool  // 휴대폰, 주소, 전공 , 입학전공 , 패스워드
@@ -125,6 +125,12 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
                     memberPostcode.setText(userInfo.getAddressnumber());
                     memberAdr1.setText(userInfo.getAddress());
                     memberAdr2.setText(userInfo.getDetailedaddress());
+                    String[] phoneNum = {
+                            userInfo.getPhoneNumber().substring(0, 3), "010", "011", "016", "017", "018", "019",
+                    };
+                    ArrayAdapter adapter3 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, phoneNum);
+                    adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    memberPhone1.setAdapter(adapter3);
 
                 }
             }
@@ -232,6 +238,8 @@ public class MyPage_MemberInformationManagementActivity extends AppCompatActivit
 
                 String pw1 = memberPw1.getText().toString().trim();
                 String pw2 = memberPw2.getText().toString().trim();
+
+
 
                 String result = pwCorrect(pw1, pw2);
                 RemoteService rs2 = retrofit2.create(RemoteService.class);
