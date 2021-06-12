@@ -22,12 +22,12 @@
 
         <TextView
             android:id="@+id/mainLectureCoursename"
-            android:layout_width="match_parent"
+            android:layout_width="490dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/nanumsquareb"
-            android:textColor="#7E6C6C"
-            android:hint="과정이름" />
+            android:hint="과정이름"
+            android:textColor="#7E6C6C" />
 
         <TextView
             android:id="@+id/mainLecturePeriod"
