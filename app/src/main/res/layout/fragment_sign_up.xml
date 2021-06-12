@@ -204,6 +204,7 @@
                 android:text="우편번호 검색"
                 android:textColor="#EBF8F1"
                 android:fontFamily="@font/nanumbarunpenb"/>
+
             <TextView
                 android:id="@+id/edtSignUpAddress1"
                 android:layout_below="@id/btnSignUpAddressSearch"
@@ -215,7 +216,7 @@
                 android:autoSizeTextType="uniform"
                 android:textColor="#0B0B0B"
                 android:textColorHint="#B6B3B3"
-                android:textSize="18sp"
+
                 android:enabled="false"/>
             <EditText
                 android:id="@+id/edtSignUpAddress2"
