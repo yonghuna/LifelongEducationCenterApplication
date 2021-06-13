@@ -256,7 +256,7 @@ public interface RemoteService {
     @FormUrlEncoded
     @POST("paymentSuccess.jsp")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-    Call<RegisterResult> paymentSuccess(
+    Call<Void> paymentSuccess(
             @Field("payment") String payment,
             @Field("id") String id,
             @Field("number") int number);// 결제되면 결제완료로

@@ -106,7 +106,6 @@ public class MyPage_Payment extends AppCompatActivity {
                         .onConfirm(new ConfirmListener() { // 결제가 진행되기 바로 직전 호출되는 함수로, 주로 재고처리 등의 로직이 수행
                             @Override
                             public void onConfirm(@Nullable String message) {
-
                                 if (0 < stuck) Bootpay.confirm(message); // 재고가 있을 경우.
                                 else Bootpay.removePaymentWindow(); // 재고가 없어 중간에 결제창을 닫고 싶을 경우
                                 Log.d("confirm", message);
@@ -116,23 +115,16 @@ public class MyPage_Payment extends AppCompatActivity {
                             @Override
                             public void onDone(@Nullable String message) {
 
-                                Call<RegisterResult> call = rs2.paymentSuccess("결제완료", StaticId.id, number1);//call객체
-                                call.enqueue(new Callback<RegisterResult>() {//enqueue 메소드 실행
+                                Call<Void> call = rs2.paymentSuccess("결제완료", StaticId.id, number1);//call객체
+                                call.enqueue(new Callback<Void>() {//enqueue 메소드 실행
                                     @Override
-                                    public void onResponse(Call<RegisterResult> call, Response<RegisterResult> response) {
-                                        if (response.isSuccessful()) {
-                                            RegisterResult registerResult = response.body();
-                                            if (registerResult.getResult().equals("ok")) {
+                                    public void onResponse(Call<Void> call, Response<Void> response) {
                                                 Toast.makeText(getApplicationContext(), "결제 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                                            } else {
-                                                Toast.makeText(getApplicationContext(), "결제 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
+                                                finish();
                                     }
                                     @Override
-                                    public void onFailure(Call<RegisterResult> call, Throwable t) {
+                                    public void onFailure(Call<Void> call, Throwable t) {
                                         System.out.println("결제 실패 " + call + " " + t);
-
                                     }
                                 });
                                 Log.d("done", message);
@@ -147,7 +139,8 @@ public class MyPage_Payment extends AppCompatActivity {
                         .onCancel(new CancelListener() { // 결제 취소시 호출
                             @Override
                             public void onCancel(@Nullable String message) {
-
+                                Toast.makeText(getApplicationContext(), "결제 취소", Toast.LENGTH_SHORT).show();
+                                finish();
                                 Log.d("cancel", message);
                             }
                         })
