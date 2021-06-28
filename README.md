@@ -4,7 +4,8 @@
 ** Final Project **
 
 Topic    : Sunmoon University Lifelong Education Center App 
-Member   : Kim
+
+Member   : LeeYonghun, KimJiheon, Kimdaeeung, LeeHyunYong
 Function : Login/Membership, User identification through login, User registration through membership, Bulletin Board
            Implementation of bulletin boards that allow administrators and users to communicate;
            Course Management
