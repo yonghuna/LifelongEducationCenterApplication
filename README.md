@@ -6,8 +6,14 @@
 Topic    : Sunmoon University Lifelong Education Center App 
 
 Member   : LeeYonghun, KimJiheon, Kimdaeeung, LeeHyunYong
-Function : Login/Membership, User identification through login, User registration through membership, Bulletin Board
-           Implementation of bulletin boards that allow administrators and users to communicate;
+
+
+
+Function : 
+
+
+           Login/Membership, User identification through login, User registration through membership, Bulletin Board
+           Implementation of bulletin boards that allow administrators and users to communicate
            Course Management
            Implementing a system in which administrators manage courses
            Implementation of a user's course registration
@@ -24,6 +30,8 @@ Function : Login/Membership, User identification through login, User registratio
            Payment
            Support for users to pay for courses they have registered for;
            
-DB           
+DB     :   Mysql 
+
+Sever  :   EC2 
 
 Front End Part
