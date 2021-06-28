@@ -32,6 +32,6 @@ Function :
            
 DB     :   Mysql 
 
-Sever  :   EC2 
+Sever  :   Amzon EC2  
 
 Front End Part
