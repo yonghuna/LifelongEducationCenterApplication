@@ -1,4 +1,6 @@
 # LifelongEducationCenterApplication
-Start
 
-Sunmoon University Lifelong Education Center App
+
+Final Project
+
+Sunmoon University Lifelong Education Center App 
